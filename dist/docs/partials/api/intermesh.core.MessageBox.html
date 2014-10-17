@@ -1,0 +1,70 @@
+<h1><code ng:non-bindable="">MessageBox</code>
+<div><span class="hint">service in module <code ng:non-bindable="">intermesh.core</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="intermesh-core-messagebox-page"><p>Use bootstrap to show alert, prompt and confirm modals</p>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_alert">alert(text, title, glyphicon)</h3>
+<div class="alert"><div class="intermesh-core-messagebox-alert-page"><p>Show an alert using a bootstrap modal.</p>
+</div><h5 id="methods_alert_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>text</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="intermesh-core-messagebox-alert-page"><p>The text to display</p>
+</div></td></tr><tr><td>title</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="intermesh-core-messagebox-alert-page"><p>The modal title</p>
+</div></td></tr><tr><td>glyphicon</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="intermesh-core-messagebox-alert-page"><p>the css class without &quot;glyphicon-&quot; of the glyphicon to use.</p>
+</div></td></tr></tbody></table><h5 id="methods_alert_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="intermesh-core-messagebox-alert-page"><p>Returns a modal instance. See: <a href="http://angular-ui.github.io/bootstrap/#/modal"><a href="http://angular-ui.github.io/bootstrap/#/modal">http://angular-ui.github.io/bootstrap/#/modal</a></a></p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_confirm">confirm(text, title)</h3>
+<div class="confirm"><div class="intermesh-core-messagebox-confirm-page"><p>Show a confirm dialog using a bootstrap modal.</p>
+</div><h5 id="methods_confirm_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>text</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="intermesh-core-messagebox-confirm-page"><p>The text to display</p>
+</div></td></tr><tr><td>title</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="intermesh-core-messagebox-confirm-page"><p>The modal title</p>
+</div></td></tr></tbody></table><h5 id="methods_confirm_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="intermesh-core-messagebox-confirm-page"><p>Returns a modal instance. See: <a href="http://angular-ui.github.io/bootstrap/#/modal"><a href="http://angular-ui.github.io/bootstrap/#/modal">http://angular-ui.github.io/bootstrap/#/modal</a></a></p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_prompt">prompt(text, title, inputType)</h3>
+<div class="prompt"><div class="intermesh-core-messagebox-prompt-page"><p>Show a prompt dialog using a bootstrap modal.</p>
+</div><h5 id="methods_prompt_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>text</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="intermesh-core-messagebox-prompt-page"><p>The text to display</p>
+</div></td></tr><tr><td>title</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="intermesh-core-messagebox-prompt-page"><p>The modal title</p>
+</div></td></tr><tr><td>inputType</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="intermesh-core-messagebox-prompt-page"><p>text or password</p>
+</div></td></tr></tbody></table><h5 id="methods_prompt_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="intermesh-core-messagebox-prompt-page"><p>Returns a modal instance. See: <a href="http://angular-ui.github.io/bootstrap/#/modal"><a href="http://angular-ui.github.io/bootstrap/#/modal">http://angular-ui.github.io/bootstrap/#/modal</a></a></p>
+</div></td></tr></table></div>
+</li>
+</ul>
+</div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="intermesh-core-messagebox-page"><h4 id="example_source">Source</h4>
+<div source-edit="MessageBoxModule" source-edit-deps="angular.js script.js" source-edit-html="index.html-6" source-edit-css="" source-edit-js="script.js-7" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div class="tabbable"><div class="tab-pane" title="index.html">
+<pre class="prettyprint linenums" ng-set-text="index.html-6" ng-html-wrap-loaded="MessageBoxModule angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-6">
+	<div ng-controller="MessageBoxController">
+		<button ng-click="MessageBox.alert('Something has happened!','My Alert');">Show alert</button>
+		<button ng-click="prompt();">Show prompt</button>
+		<button ng-click="MessageBox.confirm('Are you sure?','Please confirm');">Show confirm</button>
+	</div>
+</script>
+</div>
+<div class="tab-pane" title="script.js">
+<pre class="prettyprint linenums" ng-set-text="script.js-7"></pre>
+<script type="text/ng-template" id="script.js-7">
+	angular.module('MessageBoxModule', ["intermesh.MessageBox"])
+	 .controller('MessageBoxController', ['$scope', '$log', 'MessageBox', function($scope, $log, MessageBox) {
+		$scope.MessageBox = MessageBox;
+
+		$scope.prompt = function(){
+			var prompt = MessageBox.prompt("What's your name?", "Please enter");
+
+			prompt.result.then(function (input) {
+					MessageBox.alert("Your name is "+input,"Your name");
+			}, function () {
+					$log.info('Modal dismissed at: ' + new Date());
+			});
+		 }
+	}]);
+</script>
+</div>
+</div><h4 id="example_demo">Demo</h4>
+<div class="well doc-example-live animate-container" ng-embed-app="MessageBoxModule" ng-set-html="index.html-6" ng-eval-javascript="script.js-7"></div>
+</div></div>
+</div>

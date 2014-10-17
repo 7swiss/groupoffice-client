@@ -1,0 +1,55 @@
+
+<div class="modal-header">
+	<a ng-click="cancel();"><i class="fa fa-chevron-left"></i>
+	{{message.attributes.subject}}</a>
+</div>
+
+<div class="modal-body">
+
+	<div class="row">
+		<div class="col-lg-4">
+
+			<div class="list-group">
+				
+				<a ng-repeat="reference in message.attributes.references" class="list-group-item" ui-sref-active="active" ui-sref="contacts.contact.timeline.message({messageId: reference.attributes.id})">
+					
+					<b>{{reference.attributes.from.display}}</b><br />
+					<small>{{reference.attributes.date| date : 'fullDate'}} {{reference.attributes.date| date : 'shortTime'}}</small>
+										
+				</a>
+				
+			</div>
+
+		</div>
+
+		<div class="col-lg-8">
+
+			<div class="em-headers">
+<!--				<dl class="em-header">
+					<dt>
+					{{"Date"| t}}
+					</dt>
+					<dd>{{message.attributes.date| date : 'fullDate'}} {{message.attributes.date| date : 'shortTime'}}</dd>
+				</dl>-->
+
+				
+				<dl class="em-header">
+					<dt>
+					{{"To"| t}}
+					</dt>
+					<dd><a ng-repeat="a in message.attributes.to" href="mailto:{{a.address}}">{{a.display}}</a></dd>
+				</dl>
+
+				<!--		<h1 class="em-header"></h1>-->
+			</div>
+			<div ng-if="message.attributes.attachments.length" class="em-attachments">
+				<a ng-if="!attachment.attributes.inline" ng-repeat="attachment in message.attributes.attachments" href="{{attachment.attributes.url}}" target="_blank">
+					{{attachment.attributes.filename}} ({{attachment.attributes.size| bytes}})
+				</a>	
+				<div style="clear:both"></div>
+			</div>
+			<div ng-bind-html='message.attributes.html'></div>	
+		</div>
+	</div>
+</div>
+

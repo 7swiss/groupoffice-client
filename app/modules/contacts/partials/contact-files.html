@@ -1,0 +1,73 @@
+<div data-flow-init="flowInit"
+	 data-flow-files-submitted="$flow.upload()"
+	 data-flow-file-success="uploadSuccess($file, $message);"
+	 data-flow-complete="filesStore.reload()"
+	 >
+
+
+
+	<div class="go-toolbar">	
+		<a class="visible-xs" ui-sref="contacts">
+			<i class="fa fa-chevron-left"></i>
+		</a>
+
+		<span class="btn btn-default" data-flow-btn ng-disabled="!contact.permissions.uploadAccess">
+			<i class="fa fa-cloud-upload"></i> {{"Add files"| t}}
+		</span>
+	</div>
+
+	<div class="go-scrollable-panel" data-flow-drop>
+
+		<div class="list-group">
+
+
+			<div ng-repeat="file in $flow.files" class="list-group-item" ng-if="!file.isComplete()">				
+				<i class="fa fa-file-o"></i> {{file.name}} <br />
+
+				<div class="progress-bar-container">
+					<div class="progress progress-striped" ng-class="{active: file.isUploading()}">
+						<div class="progress-bar" role="progressbar"
+							 aria-valuenow="{{file.progress() * 100}}"
+							 aria-valuemin="0"
+							 aria-valuemax="100"
+							 ng-style="{width: (file.progress() * 100) + '%'}">
+							<span class="sr-only">{{file.progress()}}% Complete</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<a ng-class="{'deleted-visible': file.attributes.deleted}" ng-repeat="file in filesStore.items" class="list-group-item" target="_blank" href="{{'intermesh/contacts/files/download'| apiRoute:{id: file.attributes.id} }}">
+				<i class="fa fa-file-o"></i>
+
+				<span ng-if="!file.rename">							
+					{{file.attributes.name}}
+				</span>					
+
+				<input ng-if="file.rename" type="text" ng-model="file.attributes.name" ng-blur="saveFile($event, file)" ng-click="$event.stopPropagation();
+								$event.preventDefault();" autoselect required im-keypress="{13 : '$event.preventDefault();saveFile($event, file);'}" />
+
+				<span style="float:right">
+					<span class="btn btn-xs btn-default" ng-click="renameFile($event, file);">
+						<i class="fa fa-edit" tooltip="{{'Rename'| t}}" tooltip-placement="left"></i>
+					</span>
+					<im-soft-delete-button im-model="file" im-size="xs"></im-soft-delete-button>
+				</span>
+			</a>
+			
+			<div ng-if="!filesStore.busy" class="im-show-if-only-child">
+				{{'No items found'| t}}
+			</div>
+
+			<div ng-if="filesStore.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| t}}</div>
+
+
+
+
+
+
+
+		</div>
+
+	</div>

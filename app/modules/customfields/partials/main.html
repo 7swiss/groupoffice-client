@@ -1,0 +1,24 @@
+
+<div ng-include="'partials/header.html'"></div>
+
+<div class="go-body">
+<div class="go-scrollable-panel">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">{{"Model"| t}}</div>
+
+				<div class="list-group">
+
+					<a ng-repeat="model in models" ng-class="{active: $state.includes('customfields.model', {modelName: model.customFieldsModelName})}" class="list-group-item" ui-sref="customfields.model({modelName: model.customFieldsModelName})">
+						<i class="fa fa-cube"></i> {{model.modelName}}
+					</a>
+				</div>
+
+			</div>
+		</div>
+
+		<div ui-view></div>
+	</div>
+</div>
+</div>

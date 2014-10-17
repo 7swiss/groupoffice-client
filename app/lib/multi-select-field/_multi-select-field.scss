@@ -1,0 +1,46 @@
+.im-multiselect-field{
+	
+	min-height: 34px;
+	height:auto;
+	
+	line-height: 1.8;
+	padding:0px;
+	padding-left:12px;
+	padding-right:6px;
+	padding-bottom:0px;
+	
+
+	ul.im-multiselect-list{	
+		display: inline;
+		margin: 0;
+		padding: 0;
+	
+	
+		li{
+			list-style: none;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			color: #555;
+			padding: 1px 4px;
+			display:inline-block;	
+			margin-right:6px;
+			margin-top:6px;
+			margin-bottom:6px;
+			/*white-space: nowrap;*/
+		}
+	}
+	input.im-multiselect-input{
+		border:0 !important;
+		display:inline !important;
+		box-shadow:none !important;
+		width:auto !important;
+		min-width:20px !important;
+		height: 34px !important;
+		padding:0 !important;
+		
+		&.ng-dirty {
+			border-color: none !important;
+			box-shadow: none !important;
+		}
+	}
+}

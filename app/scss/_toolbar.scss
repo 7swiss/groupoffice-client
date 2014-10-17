@@ -1,0 +1,136 @@
+.go-toolbar{
+	position: relative;	
+	height: $toolbar-height;
+	padding:8px 12px;
+
+	background-color: $medium-bg;
+	border-bottom: 1px solid $border-color;
+	border-right: 1px solid $border-color;
+	
+	
+	line-height:$toolbar-height;
+	padding:0 10px;
+	/*font-size: 1.2em;*/
+	
+	a {
+		@extend .btn;
+		@extend .btn-default;
+		
+		background-color: #eceff1;
+		
+		float:left;
+		display:block;
+		
+		margin-top: 8px;
+
+		margin-right:10px;
+	}
+
+
+	a:last-child{
+		margin-right:0px;
+	}
+
+
+	.go-toolbar-title{
+		font-size: 1.4em;
+		margin-top: 2px;
+	}
+	
+	.go-toolbar-right{
+		float:right;
+	}
+	
+	&.go-toolbar-xs{
+		a{
+			@extend .btn-xs;
+			
+			margin-top: 0px;
+		}
+	}
+	
+	.input-group{
+		input{
+			margin-top: 8px;
+		}
+	}
+	
+	
+}
+
+.go-tab-view{
+	.go-toolbar{
+		background-color: $light-bg;
+		a{
+			background-color: white;
+		}
+	}
+}
+
+.go-toolbar + .go-body{
+	top: $header-height + $toolbar-height;
+}
+
+.go-toolbar + .go-scrollable-panel{
+	top: $toolbar-height !important;
+}
+
+
+/*.go-content-panel, .go-full-panel, .go-left-panel {
+	.go-toolbar{
+		top:0px;
+		left:0px;
+		right:0px;
+		position:absolute;
+	}
+}
+
+
+.go-content-panel{
+	.go-toolbar{
+		top:$header-height;
+	}
+}*/
+
+.panel-heading{
+	.go-toolbar{
+		height:auto;
+		position:static;
+		float:right;
+		background:none;
+		border:0px;
+		padding:0px;
+		margin:0px;	
+	}
+}
+
+.go-store-search{
+	width:200px;
+	float:left;
+	margin-right: 10px;
+}
+
+
+
+
+/*
+ * -- TABLET (AND UP) MEDIA QUERIES --
+ * On tablets and other medium-sized devices, we want to customize some
+ * of the mobile styles.
+ */
+@media (min-width: 40em) {
+
+	/*	.go-content-panel{		
+			.go-toolbar	{
+				left:$list-panel-width;
+			}
+		}*/
+
+	/*	.go-content-panel.go-fullscreen{		
+	
+			.go-toolbar div.go-toolbar-container	{
+				left:0;
+			}
+		}*/
+
+}

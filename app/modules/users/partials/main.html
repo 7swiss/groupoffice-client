@@ -1,0 +1,41 @@
+<div ng-include="'partials/header.html'"></div>
+
+
+<div class="go-body">
+
+	<!-- Start of list panel with toolbar -->
+	<div ng-class="{active: !contentActive()}" class="go-col list">
+
+		<div class="go-toolbar">
+			<go-store-search store="store"></go-store-search>				
+
+			<div class="go-toolbar-right">
+
+				<a ui-sref="users.edit({userId: 0})">
+					<span class="fa fa-plus"></span>
+				</a>
+
+			</div>
+		</div>
+
+		<div class="go-scrollable-panel">
+			<div class="go-list list-group" im-infinite-scroll="store.nextPage()" im-infinite-scroll-disabled="!store.shouldLoad()">
+				<div class="deletable" ng-class="{'deleted-invisible': user.attributes.deleted}" ng-repeat="user in store.items">
+					<a ui-sref-active="active" ui-sref="users.detail({userId: user.attributes.id})" class="list-group-item">				
+						{{user.attributes.username}}
+						<span class="go-list-date">{{user.attributes.createdAt| date:'short'}}</span>
+					</a>
+				</div>
+
+				<div ng-if="store.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| t}}</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- The detail and edit pane is loaded in this view -->
+	<div class="go-col fill" ng-class="{active: contentActive()}">
+		<div ui-view></div>
+	</div>
+
+</div>

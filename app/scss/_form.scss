@@ -1,0 +1,103 @@
+
+input.ng-invalid.ng-dirty, form.submitted input.ng-invalid {
+		border-color: #A94442;
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+
+input.ng-valid.ng-dirty, form.submitted input.ng-valid {
+	border-color: #3C763D;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+
+
+textarea { 
+	resize: none; 
+}
+
+
+$go-form-label-width: 200px;
+
+form.form-horizontal {
+
+	&.go-labels, &.go-labels-100, &.go-labels-300{
+		.form-group {
+			width: 100%;
+
+			margin-left:0px;
+			margin-right:0px;
+
+			@media screen and (min-width: $screen-sm-min) {
+				padding-left: $go-form-label-width + 15px;			
+			}
+
+			&.no-label{
+				@media screen and (min-width: $screen-sm-min) {
+					padding-left: 0;			
+				}
+			}
+
+			position:relative;
+
+			>label{
+				@extend .control-label;
+
+
+				@media screen and (min-width: $screen-sm-min) {			
+					/*display: table-cell;*/
+					width: $go-form-label-width;
+
+					position:absolute;
+					top:0px;
+					left:0px;
+
+					padding-right:15px;				
+					text-align:right;
+					float:left;
+				}
+			}		
+
+
+			input[type="text"], input[type="email"], input[type="password"], textarea{
+				@extend .form-control;	
+			}
+
+		}
+	}
+	
+	&.go-labels-100{
+		
+		
+		.form-group {
+			@media screen and (min-width: $screen-sm-min) {
+				padding-left: 100px + 15px;			
+			}
+			>label{		
+
+				@media screen and (min-width: $screen-sm-min) {		
+					width: 100px;
+				}
+			}
+		}
+			
+	}
+	
+	&.go-labels-300{
+		
+		
+		.form-group {
+			@media screen and (min-width: $screen-sm-min) {
+				padding-left: 300px + 15px;			
+			}
+			>label{		
+
+				@media screen and (min-width: $screen-sm-min) {		
+					width: 300px;
+				}
+			}
+		}
+			
+	}
+
+}
+
+

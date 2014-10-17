@@ -1,0 +1,73 @@
+
+<div class="go-toolbar">
+	<a ng-disabled="!contact.permissions.editAccess" ui-sref="contacts.contact.timeline.edit({timelineItemId:0})">
+		<i class="fa fa-plus"></i>
+	</a>	
+</div>
+
+<div class="go-scrollable-panel" im-infinite-scroll="timelineStore.nextPage()" im-infinite-scroll-disabled="!timelineStore.shouldLoad()">
+
+	<div ng-repeat="timelineItem in timelineStore.items" class="timeline-item">
+
+		<div ng-if="timelineItem.attributes.imapMessageId">
+			<img class="thumbnail" ng-src="{{'intermesh/contacts/contact/thumb'| apiRoute: {w: 45, h: 60, zoomCrop: 1, email: timelineItem.attributes.imapMessage.attributes.from.address} }}">
+
+			<div  class="timeline-panel-container">
+				<div class="panel panel-default timeline-panel">
+					<div class="panel-heading">
+						<i class="fa fa-envelope-o"></i> {{"by" | t}} {{timelineItem.attributes.imapMessage.attributes.from.display}} {{'at' | t}} {{timelineItem.attributes.imapMessage.attributes.date | date}} {{timelineItem.attributes.imapMessage.attributes.date | date : 'shortTime'}} 
+					</div>
+					<div class="panel-body" ng-class="{'deleted-visible': timelineItem.attributes.deleted}">
+						<h4>{{timelineItem.attributes.imapMessage.attributes.subject}}</h4> 
+
+						<p ng-bind-html="timelineItem.attributes.imapMessage.attributes.excerpt"></p>
+					</div>
+
+
+					<div style="text-align:right;padding:0px 20px 20px 0px">						
+						<a class="btn btn-xs btn-primary" ui-sref="contacts.contact.timeline.message({messageId: timelineItem.attributes.imapMessage.attributes.id})">{{"Open"| t}}</a>
+						
+						<im-soft-delete-button im-model="timelineItem"></im-soft-delete-button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div ng-if="!timelineItem.attributes.imapMessageId">
+			<img class="thumbnail" ng-src="{{'intermesh/contacts/contact/thumb'| apiRoute: {w: 45, h: 50, zoomCrop: 1, userId: timelineItem.attributes.ownerUserId} }}">
+
+
+			<div  class="timeline-panel-container">
+				<div class="panel panel-default timeline-panel">
+					<div class="panel-heading">
+						<i class="fa fa-comment-o"></i> {{"by" | t }} {{timelineItem.attributes.owner.attributes.username}} at {{timelineItem.attributes.createdAt | date}}
+					</div>
+					<div class="panel-body" ng-class="{'deleted-visible': timelineItem.attributes.deleted}">
+						<p ng-bind-html="timelineItem.attributes.text | nl2br"></p>
+					</div>
+
+
+					<div style="text-align:right;padding:0px 20px 20px 0px">						
+						<a ui-sref="contacts.contact.timeline.edit({timelineItemId: timelineItem.attributes.id})" class="btn btn-xs btn-default">
+							<i class="fa fa-edit"></i>
+						</a>
+						<im-soft-delete-button im-model="timelineItem"></im-soft-delete-button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+	</div>
+	
+	<div ng-if="!timelineStore.busy" class="im-show-if-only-child">
+		{{'No items found'| t}}
+	</div>
+	
+	<div ng-if="timelineStore.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| t}}</div>
+</div>
+
+
+
+<div ui-view></div>

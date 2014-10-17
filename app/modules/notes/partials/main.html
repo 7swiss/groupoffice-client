@@ -1,0 +1,80 @@
+<div ng-include="'partials/header.html'"></div>
+
+<!-- The detail and edit pane is loaded in this view -->
+<div class="go-full-panel">
+
+	<div class="go-toolbar">
+	
+		<a ui-sref="notes.edit({noteId: 0})">
+			<span class="fa fa-plus"></span>
+		</a>
+	
+	</div>
+	
+	<div class="note-page row" data-im-infinite-scroll="store.nextPage()" data-im-infinite-scroll-disabled="!store.shouldLoad()">
+		<div data-sortable="dragControlListeners" data-ng-model="store.items">
+			
+			<div data-sortable-item class="postit-outer col-xs-12 col-sm-4 col-md-3"  ng-repeat="note in store.items" ng-init="attachImages(note)">
+				<div data-sortable-item-handle class="postit {{note.attributes.color}}" ng-class="{lighten:note.attributes.markDeleted}">
+					<div data-no-drag ng-if="note.attributes.markDeleted" class="delete-mask">
+						<span class="center"><a ng-click="restore(note)"><i class="fa fa-undo"></i> {{"Restore"| t}}</a></span>
+					</div>
+					<div ng-class="{deleted:note.attributes.markDeleted}" >
+						<div data-no-drag class="menu">
+							<i class="fa fa-trash-o" ng-click="delete(note)" ng-class="{'disabled':!note.permissions.deleteAccess}"></i>
+							<i class="fa fa-tint" ng-class="{'disabled':!note.permissions.editAccess}">
+								<span class="colorpicker">
+									<a class="color yellow" ng-click="setColor(note,'yellow',true)"></a>
+									<a class="color pink" ng-click="setColor(note,'pink',true)"></a>
+									<a class="color blue" ng-click="setColor(note,'blue',true)"></a>
+									<a class="color red" ng-click="setColor(note,'red',true)"></a>
+									<a class="color orange" ng-click="setColor(note,'orange',true)"></a>
+									<a class="color green" ng-click="setColor(note,'green',true)"></a>
+								</span>
+							</i>
+							<i class="fa fa-share-alt" ng-click="openPermissionsDialog(note)" ng-class="{'disabled':!note.currentUserCanManagePermissions}"></i>
+
+							<!--<i class="fa fa-check-square-o" ng-click="addListItem(note.id)"></i>-->
+						</div>
+						<div class="images row">
+								<im-image-upload-placeholder class="image-placeholder" ng-class="{'col-md-6':note.attributes.images.length>1,'col-md-12':note.attributes.images.length==1}" ng-repeat="image in note.attributes.images"
+									im-image-attribute="image.attributes.path"
+									im-image-temp-attribute="image.attributes.imageTempPath"
+									im-delete-permission="note.permissions.editAccess" 
+									im-thumb-route="Intermesh/notes/note/thumb"
+									im-original-route="Intermesh/notes/note/original"
+									im-on-change="saveCallback(note, file)"
+									im-read-only="true"
+									ng-click="editNote(note)"
+									>									
+								</im-image-upload-placeholder>
+						</div>
+						
+						<div style="clear:both;"></div>
+
+						<div no-drag class="title" ng-click="editNote(note)" ng-bind-html="note.attributes.title">{{note.attributes.title}}</div>
+						<div no-drag class="content" ng-click="editNote(note)" ng-bind-html="note.attributes.content" ng-class="{notelarge:note.attributes.content.length < 50, notemedium:(note.attributes.content.length < 150 && note.attributes.content.length > 50), notesmall:note.attributes.content.length > 250}">{{note.attributes.content}}</div>
+
+						<ul data-no-drag class="listitems">
+							<li class="listitem" ng-repeat="listItem in note.attributes.listItems" ng-class="{'checked':listItem.attributes.checked}">
+								<i ng-click="listItemClick(listItem, note, true)" class="fa" ng-class="{'fa-check-square-o':listItem.attributes.checked,'fa-square-o':!listItem.attributes.checked}"></i>
+								<span ng-model="listItem.attributes.text" placeholder="Todo" class="notemedium" ng-click="editNote(note)">{{listItem.attributes.text}}</span>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+
+				<div ng-if="store.busy" class="go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| t}}</div>
+
+				<div style="clear:both;"></div>
+			</div>
+
+
+		</div>
+	</div>
+
+</div>
+
+<div data-ui-view></div>
+

@@ -1,0 +1,21 @@
+<div class="go-mask" ng-class="{deleted: role.attributes.deleted}"></div> <form name="roleForm" im-submit="save()" novalidate> <div class="iae-toolbar"> <ul class="iae-toolbar-left"> <li class="visible-xs"> <a class="btn btn-default" ui-sref="roles"> <span class="fa fa-chevron-left"></span> {{'Back'| t}} </a> </li> <li> <button type="submit" class="btn btn-primary"> <i class="fa fa-floppy-o"></i> {{'Save'| t}} </button> </li> </ul> <ul class="iae-toolbar-right"> <li> <im-soft-delete-button im-on-delete="syncWithStore();" im-on-un-delete="syncWithStore();" im-model="role" im-size="sm"> </im-soft-delete-button> </li> </ul> </div> <div class="iae-scrollable-panel"> <fieldset> <div class="form-group"> <label for="name">{{"Role name"| t}}</label> <input type="text" name="name" id="name" class="form-control" ng-model="role.attributes.name" required autofocus> <im-show-error for="name" im-model="role"></im-show-error> </div> <div class="checkbox"> <label> <input type="checkbox" ng-model="role.attributes.autoAdd"> {{"Grant permission to new items automatically"| t}} </label> </div> </fieldset> <div class="panel panel-default"> <!-- Default panel contents --> <div class="panel-heading">{{"Users in role"| t}} <div class="iae-toolbar"> <ul class="iae-right-toolbar"> <li> <a class="btn btn-xs btn-default" ng-click="multiSelectList.selectRecords()"> <i class="fa fa-plus"></i> </a> </li> </ul> </div> </div> <ul class="list-group" im-infinite-scroll-use-document-body="true" im-infinite-scroll="multiSelectList.selectedStore.nextPage()" im-infinite-scroll-disabled="!multiSelectList.selectedStore.shouldLoad()"> <li ng-if="!user.attributes.markDeleted" class="list-group-item" ng-repeat="user in multiSelectList.selectedStore.items" im-infinite-use-window="true"> {{user.attributes.username}} <span style="float:right"> <a class="btn btn-danger btn-xs" ng-click="user.attributes.markDeleted = true"><i class="fa fa-trash-o"></i></a> </span> </li> <li class="list-group-item" ng-if="multiSelectList.selectedStore.findIndexesByAttribute('markDeleted', null).length === 0"> {{'No users selected' | t}} </li> </ul> </div> </div> </form> <script type="text/ng-template" id="multiSelectUsers.html"><div class="modal-content">
+	<div class="modal-header">
+			<h3 class="modal-title">Select users</h3>
+	</div>
+	<div class="modal-body">			
+
+		<div style="height:300px;overflow:auto" class="list-group" im-infinite-scroll="multiSelectList.availableStore.nextPage()" im-infinite-scroll-disabled="!multiSelectList.availableStore.shouldLoad()">
+
+			<ul class="list-group">
+				<label class="list-group-item" ng-class="{selected: user.attributes.checked}" ng-repeat="user in multiSelectList.availableStore.items" im-infinite-use-window="true">
+					<input type="checkbox" ng-model="user.attributes.checked"> {{user.attributes.username}}
+				</label>  
+			</ul>
+		</div>				
+
+	</div>
+	<div class="modal-footer">
+			<button class="btn btn-primary" ng-click="ok()">OK</button>
+			<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+	</div>
+</div></script>

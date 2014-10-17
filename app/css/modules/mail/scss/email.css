@@ -1,0 +1,29 @@
+/* line 1, ../../../../../.tmp/scss/modules/mail/scss/email.scss */
+.em-headers .em-header {
+  border-bottom: 1px solid #E7E7E7;
+  padding: 8px 0;
+}
+
+/* line 5, ../../../../../.tmp/scss/modules/mail/scss/email.scss */
+.em-headers h1 {
+  color: black;
+  font-size: 1.5em;
+}
+
+/* line 9, ../../../../../.tmp/scss/modules/mail/scss/email.scss */
+.em-attachments {
+  padding-bottom: 8px;
+  border-bottom: 1px solid #E7E7E7;
+  margin-bottom: 10px;
+}
+
+/* line 14, ../../../../../.tmp/scss/modules/mail/scss/email.scss */
+.em-attachments a {
+  display: block;
+  float: left;
+  border: 1px solid #E7E7E7;
+  background-color: #f1f1f1;
+  padding: 8px;
+  border-radius: 4px;
+  margin-right: 8px;
+}

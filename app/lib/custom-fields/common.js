@@ -1,0 +1,1 @@
+angular.module('GO.customFields', ['GO.data']);

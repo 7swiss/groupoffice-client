@@ -1,0 +1,95 @@
+<div ng-include="'partials/header.html'"></div>
+
+
+
+
+<div class="go-body">
+	<go-collapsible-panel collapse-from="lg" is-active="asideActive" on-close="closeAside()">
+
+		<div class="go-toolbar">{{'Filters'| t}}
+
+			<div class="go-toolbar-right">
+				<a ng-click="resetFilters()" tooltip="{{'Reset'| t}}" tooltip-placement='bottom'><i class="fa fa-undo"></i></a>
+				<a ng-click="asideActive = false" tooltip="{{'Close'| t}}" tooltip-placement='bottom'><i class="fa fa-times"></i></a>
+			</div>
+		</div>
+
+		<div class="go-scrollable-panel">
+
+			<div class="form-group">
+				<label class="control-label">{{'Gender'| t}}</label>
+
+				<ui-select ng-model="filters.gender">
+					<ui-select-match class="ab-multi-input-select">{{$select.selected.label}}</ui-select-match>
+					<ui-select-choices repeat="item.value as item in genderFilterOptions | filter: $select.search">
+						<div ng-bind-html="item.label | highlight: $select.search"></div>
+					</ui-select-choices>
+				</ui-select>			
+			</div>
+			<div class="form-group">
+				<label class="control-label">{{"Tags"| t}}</label>	
+
+				<im-multi-select-field 
+					auto-create="false"
+					store-route="Intermesh/tags/tag/store" 
+					model-attribute="filters.tags" 
+					model-attribute-display-name="name" 
+					input-placeholder="{{'Enter tags...'| t}}">				
+				</im-multi-select-field>
+			</div>
+
+			<im-custom-fields-filter im-server-model="Intermesh\Modules\Contacts\Model\ContactCustomFields" im-model="customFilters"></im-custom-fields-filter>
+		</div>
+
+
+	</go-collapsible-panel>
+
+	<div class="go-col sm list" ng-class="{'active': showList()}">
+
+		<div class="go-toolbar">
+
+			<a ng-click="asideActive = !asideActive" class="-hidden-lg">
+				<span class="fa fa-filter"></span>
+			</a>
+
+
+			<!--<go-store-search store="store"></go-store-search>-->
+
+
+			<a class="btn-primary" ui-sref="contacts.edit({contactId: 0})">
+				<span class="fa fa-plus"></span>
+			</a>
+
+			<a class="btn-primary" ui-sref="contacts.createCompany">
+				<span class="fa fa-building"></span>
+			</a>
+
+		</div>
+
+		<div class="go-scrollable-panel">
+
+			<div class="go-list list-group" im-infinite-scroll="store.nextPage()" im-infinite-scroll-disabled="!store.shouldLoad()">
+				<div class="deletable" ng-class="{'deleted-invisible': contact.attributes.deleted}" ng-repeat="contact in store.items track by contact.attributes.id">
+					<a ui-sref-active="active" ui-sref="contacts.contact({contactId: contact.attributes.id})" class="list-group-item">
+						<img class="thumbnail" ng-src="{{::'intermesh/contacts/contact/thumb'| apiRoute: {w: 45, h: 60, zoomCrop: 1, contactId: contact.attributes.id} }}" />
+						{{contact.attributes.name}}
+
+						<small style="float:right" ng-if="contact.attributes.company"><i class="fa fa-building"></i> {{contact.attributes.company.attributes.name}}</small>
+
+					</a>
+				</div>
+
+				<div ng-if="store.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| t}}</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="go-col fill"  ng-class="{'active': !showList()}">
+		<!-- The detail and edit pane is loaded in this view -->
+		<div ui-view></div>
+	</div>
+
+</div>

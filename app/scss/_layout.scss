@@ -1,0 +1,85 @@
+
+.go-body{
+	position:absolute;
+	top: $header-height;
+	bottom:0px;
+	left: 0px;
+	right: 0px;
+
+	.go-col{
+		position: relative;
+		float:left;
+		height: 100%;	
+		display: block;
+
+		&.active{
+			display: block !important;
+		}
+		
+		&.hidden{
+			display:none !important;
+		}
+
+		&.list{
+			
+			width: 100%;
+			
+			@media(min-width: $screen-sm-min){
+				width: 300px;	
+			}
+		}
+		&.grid{
+			width: 100%;
+			@media(min-width: $screen-sm-min){
+				width: 600px;
+			}
+		}
+
+
+		/* Show on desktop only */
+		&.lg{
+			/* Full width when tablet or smaller */
+			@media(max-width: $screen-sm-max){
+				display:none;
+			}
+		}
+
+		/* Show on tabler or larger */
+		&.sm{	
+			/* tablet */
+			@media(max-width: $screen-xs-max){		
+				display:none;	
+			}
+		}
+
+		
+
+		&.fill {
+			overflow: hidden;
+			display: block;
+			float:none;
+			
+			/* tablet */
+			@media(max-width: $screen-sm-max){		
+				display:none;	
+			}
+		}
+	}
+}
+
+
+
+@media (min-width: 1200px) {
+	.go-lg-col-2 {
+		-webkit-column-count: 2; /* Chrome, Safari, Opera */
+		-moz-column-count: 2; /* Firefox */
+		column-count: 2;
+
+		.panel{
+			/* break-inside */
+			break-inside: avoid;
+			-webkit-column-break-inside: avoid;
+			page-break-inside:avoid;
+		}
+	} 
+}

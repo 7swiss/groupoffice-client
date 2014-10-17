@@ -1,0 +1,19 @@
+
+
+<form name="timelineItemForm" class="form-horizontal" im-submit="save()" novalidate>
+
+
+	<div class="modal-header">{{"New Comment"| t}}</div>
+
+	<div class="modal-body">
+		<textarea msd-elastic="\n" name="text" ng-model="timelineItem.attributes.text" class="form-control" style="height:60px" autofocus required></textarea>
+		<im-show-error for="text" im-model="timelineItem"></im-show-error>
+	</div>
+
+	<div class="modal-footer">				
+		<button type="submit" class="btn btn-primary">{{"OK"| t}}</button>
+		<button class="btn btn-default" ng-click="cancel();" type="button">{{"Cancel"| t}}</button>	
+	</div>			
+
+
+</form> 

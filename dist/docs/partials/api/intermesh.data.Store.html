@@ -1,0 +1,96 @@
+<h1><code ng:non-bindable="">Store</code>
+<div><span class="hint">service in module <code ng:non-bindable="">intermesh.data</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="intermesh-data-store-page"><p>A store holds multiple records for display in an ng-repeat item for example</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">Store(storeRoute, The[, loadParams]);</pre>
+<h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>storeRoute</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="intermesh-data-store-page"><p>The route to the controller. eg. &quot;intermesh/auth/user/store&quot;</p>
+</div></td></tr><tr><td>The</td><td><a href="" class="label type-hint type-hint-model">Model</a></td><td><div class="intermesh-data-store-page"><p>models this store is for.</p>
+</div></td></tr><tr><td>loadParams <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="intermesh-data-store-page"><p>Extra GET parameters for the store action</p>
+</div></td></tr></tbody></table></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_findindexbyattribute">findIndexByAttribute(attributeName, value)</h3>
+<div class="findindexbyattribute"><div class="intermesh-data-store-findindexbyattribute-page"><p>Finds a record index by attribute name</p>
+</div><h5 id="methods_findindexbyattribute_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>attributeName</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="intermesh-data-store-findindexbyattribute-page"><p>Name of the attribute</p>
+</div></td></tr><tr><td>value</td><td><a href="" class="label type-hint type-hint-mixed">mixed</a></td><td><div class="intermesh-data-store-findindexbyattribute-page"><p>Value of the attribute</p>
+</div></td></tr></tbody></table><h5 id="methods_findindexbyattribute_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-int">int</a></td><td><div class="intermesh-data-store-findindexbyattribute-page"><p>Index of record</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_findsinglebyattribute">findSingleByAttribute(attributeName, value)</h3>
+<div class="findsinglebyattribute"><div class="intermesh-data-store-findsinglebyattribute-page"><p>Finds a record  by attribute name</p>
+</div><h5 id="methods_findsinglebyattribute_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>attributeName</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="intermesh-data-store-findsinglebyattribute-page"><p>Name of the attribute</p>
+</div></td></tr><tr><td>value</td><td><a href="" class="label type-hint type-hint-mixed">mixed</a></td><td><div class="intermesh-data-store-findsinglebyattribute-page"><p>Value of the attribute</p>
+</div></td></tr></tbody></table><h5 id="methods_findsinglebyattribute_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-model">Model</a></td><td><div class="intermesh-data-store-findsinglebyattribute-page"><p>The model found or false on failure</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_load">load(params)</h3>
+<div class="load"><div class="intermesh-data-store-load-page"><p>Loads new items for the store.</p>
+</div><h5 id="methods_load_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>params</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="intermesh-data-store-load-page"><p>Key value pair of GET params for the request</p>
+</div></td></tr></tbody></table><h5 id="methods_load_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-httppromise">HttpPromise</a></td><td><div class="intermesh-data-store-load-page"><p>Returns a HttpPromise. See: <a href="https://docs.angularjs.org/api/ng/service/$http#get"><a href="https://docs.angularjs.org/api/ng/service/$http#get">https://docs.angularjs.org/api/ng/service/$http#get</a></a></p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_loaddata">loadData()</h3>
+<div class="loaddata"><div class="intermesh-data-store-loaddata-page"><p>Manually add an array of data to the store.</p>
+<p>Example data:</p>
+<pre class="prettyprint linenums">
+[{attributeName: value}, {attributeName: value}]
+</pre>
+</div></div>
+</li>
+<li><h3 id="methods_nextpage">nextPage()</h3>
+<div class="nextpage"><div class="intermesh-data-store-nextpage-page"><p>Loads the next page for the store</p>
+</div><h5 id="methods_nextpage_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-httppromise">HttpPromise</a></td><td><div class="intermesh-data-store-nextpage-page"><p>Returns a HttpPromise. See: <a href="https://docs.angularjs.org/api/ng/service/$http#get"><a href="https://docs.angularjs.org/api/ng/service/$http#get">https://docs.angularjs.org/api/ng/service/$http#get</a></a></p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_reload">reload()</h3>
+<div class="reload"><div class="intermesh-data-store-reload-page"><p>Reload the entire store</p>
+</div><h5 id="methods_reload_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-httppromise">HttpPromise</a></td><td><div class="intermesh-data-store-reload-page"><p>Returns a HttpPromise. See: <a href="https://docs.angularjs.org/api/ng/service/$http#get"><a href="https://docs.angularjs.org/api/ng/service/$http#get">https://docs.angularjs.org/api/ng/service/$http#get</a></a></p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_remove">remove(index)</h3>
+<div class="remove"><div class="intermesh-data-store-remove-page"><p>Removes a record</p>
+</div><h5 id="methods_remove_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>index</td><td><a href="" class="label type-hint type-hint-int">int</a></td><td><div class="intermesh-data-store-remove-page"><p>Index of record to remove</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_reset">reset()</h3>
+<div class="reset"><div class="intermesh-data-store-reset-page"><p>Reset the store to an empty state</p>
+</div></div>
+</li>
+<li><h3 id="methods_savesortorder">saveSortOrder(route)</h3>
+<div class="savesortorder"><div class="intermesh-data-store-savesortorder-page"><p>Save the sortOrder of these store items</p>
+<pre class="prettyprint linenums">
+$scope.dragControlListeners =  {
+	accept: function (sourceItemHandleScope, destSortableScope) {
+		//override to determine drag is allowed or not. default is true.
+		return true;
+	},
+	itemMoved: function (event) {
+		console.log(event);
+	},
+	orderChanged: function(event) {
+		$scope.store.saveSortOrder('IPE/KeepNotes/Note/saveSort');
+	}
+	//containment: '#board'//optional param.
+};
+</pre>
+</div><h5 id="methods_savesortorder_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>route</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="intermesh-data-store-savesortorder-page"><p>The route to the php controller action</p>
+</div></td></tr></tbody></table><h5 id="methods_savesortorder_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-httppromise">HttpPromise</a></td><td><div class="intermesh-data-store-savesortorder-page"><p>Returns a HttpPromise. See: <a href="https://docs.angularjs.org/api/ng/service/$http#post"><a href="https://docs.angularjs.org/api/ng/service/$http#post">https://docs.angularjs.org/api/ng/service/$http#post</a></a></p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_search">search()</h3>
+<div class="search"><div class="intermesh-data-store-search-page"><p>Loads the store but passes this.searchQuery</p>
+</div><h5 id="methods_search_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-httppromise">HttpPromise</a></td><td><div class="intermesh-data-store-search-page"><p>Returns a HttpPromise. See: <a href="https://docs.angularjs.org/api/ng/service/$http#get"><a href="https://docs.angularjs.org/api/ng/service/$http#get">https://docs.angularjs.org/api/ng/service/$http#get</a></a></p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_shouldload">shouldLoad()</h3>
+<div class="shouldload"><div class="intermesh-data-store-shouldload-page"><p>Reset the store to an empty state</p>
+</div><h5 id="methods_shouldload_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="intermesh-data-store-shouldload-page"><p>Returns false if the store should not be loaded. eg. when it&#39;s busy or loaded completely.</p>
+</div></td></tr></table></div>
+</li>
+</ul>
+</div>
+</div>

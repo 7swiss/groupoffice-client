@@ -1,0 +1,44 @@
+.timeline-item{
+	padding-left: 60px;
+	position: relative;
+	
+	.thumbnail {
+		position:absolute;
+		top: 0px;
+		left:0px;
+	}
+
+	.timeline-panel-container{
+		position:relative;		
+	}
+
+	.timeline-panel:before, .timeline-panel:after {
+		content: " ";
+		display: table;
+	}
+
+	.timeline-panel:before {
+		position: absolute;
+		top: 10px;
+		left: -10px;
+		display: inline-block;
+		border-top: 11px solid transparent;
+		border-left: 0px solid #ddd;
+		border-right: 11px solid #ddd;
+		border-bottom: 11px solid transparent;
+		content: " ";
+	}
+
+	.timeline-panel:after {
+		position: absolute;
+		top: 11px;
+		left: -9px;
+		display: inline-block;
+		border-top: 10px solid transparent;
+		border-left: 0px solid whitesmoke;
+		border-right: 10px solid whitesmoke;
+		border-bottom: 10px solid transparent;
+		content: " ";
+	}
+
+}

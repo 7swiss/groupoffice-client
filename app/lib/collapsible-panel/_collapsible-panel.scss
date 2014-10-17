@@ -1,0 +1,157 @@
+/*$side-nav-panel-width: 380px;
+
+.go-side-panel{
+
+	position:absolute;
+
+	top:0;
+	bottom:0px;
+	left:-$side-nav-panel-width;
+	width:$side-nav-panel-width;
+
+	background-color: #F8F8F8;
+	border-right: 1px solid #E7E7E7;
+
+	z-index: $zindex-menu;	
+	box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.15);
+
+	@include transition(all 0.3s ease-out);
+
+	padding-top:50px;
+
+	&.active{
+		left:0px;
+	}
+
+	.im-side-nav-title{
+		position:absolute;
+		top:0px;
+		right:0px;
+		left:0px;
+		height: $header-height;
+		line-height:$header-height;
+		padding:0 10px;
+		color: white;
+		font-size: 1.2em;
+		background-color: $cyan;
+		box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.15);
+		
+		.im-side-nav-buttons{
+			float:right;
+			a {
+				margin-left: 10px;
+				color:white;
+			}
+		}
+	}
+
+	.go-scrollable-panel{
+		top: $toolbar-height;
+	}
+}
+
+.im-side-nav-mask{
+	@extend %mask;
+	
+	z-index: $zindex-mask-complete;
+
+	top:0px;
+	&.active{
+		
+		opacity: 0.5;
+		visibility: visible;
+	}
+}
+
+ end side nav */
+
+
+
+.go-body{
+
+	.go-col{
+
+		/* make aside on tablet or smaller */
+		&.collapse-xs, &.collapse-sm, &.collapse-lg{
+
+			width: 380px;
+
+			@include transition(all 0.3s ease-out);
+			z-index: $zindex-menu;
+			float:none;
+			position:absolute;		
+			left: -600px;
+			background-color: $light-bg;
+			border-right: 1px solid $border-color;
+
+			&.active{
+				left:0px;
+			}
+
+
+		}
+
+		&.collapse-xs{
+			@media(min-width: $screen-xs-min){
+				background: none;
+				border-right: 0px;
+				left:0px;
+				float:left;
+				position: relative;
+			}
+		}
+
+		&.collapse-sm{
+			@media(min-width: $screen-lg-min){
+				background: none;
+				border-right: 0px;
+				left:0px;
+				float:left;
+				position: relative;
+			}
+		}
+
+		&.collapse-lg{
+
+		}
+
+
+	}
+
+
+
+}
+
+/*.go-collapsible-panel-handle{
+	display:table-cell;
+
+	
+	float:left;
+	position: relative;
+	
+	height:100%;
+	width: 20px;
+
+	background-color: #F8F8F8;
+	border-right: 1px solid #E7E7E7;
+
+	color: $cyan;
+
+	
+	vertical-align: middle;
+
+	i{
+		font-size:14px;
+		display:inline-block;
+		position:absolute;
+		top: 50%;
+		margin-left:5px;
+		margin-top: -7px;
+
+	}
+	
+
+	&.active{
+		display:table-cell;
+	}
+}*/

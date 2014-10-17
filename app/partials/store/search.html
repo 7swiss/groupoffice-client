@@ -1,0 +1,12 @@
+<div class="go-store-search">
+	<div class="input-group" style="float:right">
+		<input type="text" class="form-control" im-keypress="{13: 'store.search()'}" ng-model="store.searchQuery" placeholder="{{'Search'| t}}..." />
+
+		<div class="input-group-btn">
+
+			<button class="btn btn-default" ng-click="store.reset();"><i class="fa fa-times"></i></button>
+			<button class="btn btn-default" ng-click="store.search();"><i class="fa fa-search"></i></button>
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,51 @@
+
+
+<im-tabs>
+	<div class="go-tab-bar">
+
+
+		<a ui-sref="contacts.contact.detail({contactId: contact.attributes.id})" im-tab-switch  ui-sref-active="active" tooltip="{{'Properties'| t}}" tooltip-placement="bottom">
+
+			<i class="fa fa-list-alt"></i> <span class="hidden-xs">Properties</span>
+
+		</a>
+
+		<a ui-sref="contacts.contact.files({contactId: contact.attributes.id})" im-tab-switch ui-sref-active="active"  tooltip="{{'Files'| t}}" tooltip-placement="bottom">
+
+			<i class="fa fa-folder-o"></i> <span class="hidden-xs">Files</span>
+
+		</a>	
+
+		<a ui-sref="contacts.contact.timeline({contactId: contact.attributes.id})" im-tab-switch ui-sref-active="active"  tooltip="{{'Comments'| t}}" tooltip-placement="bottom">
+
+			<i class="fa fa-clock-o"></i> <span class="hidden-xs">Timeline</span>
+
+		</a>	
+
+		<a ng-if="hasProjects" ui-sref="contacts.projects({contactId: contact.attributes.id})" ui-sref-active="active" tooltip="{{'Projects'| t}}" tooltip-placement="bottom">
+
+			<i class="fa fa-cogs"></i>
+
+		</a>
+
+		<a ng-if="hasProjects" ui-sref="contacts.contracts({contactId: contact.attributes.id})" ui-sref-active="active" tooltip="{{'Contracts'| t}}" tooltip-placement="bottom">
+
+			<i class="fa fa-retweet"></i>
+
+		</a>
+
+		<a ng-if="hasProjects" ui-sref="contacts.invoices({contactId: contact.attributes.id})" ui-sref-active="active" tooltip="{{'Invoices'| t}}" tooltip-placement="bottom">
+
+			<i class="fa  fa-money"></i>
+
+		</a>
+
+		<a ng-if="hasProjects" ui-sref="contacts.quotes({contactId: contact.attributes.id})" ui-sref-active="active" tooltip="{{'Quotes'| t}}" tooltip-placement="bottom">
+			<i class="fa  fa-quote-right"></i>
+		</a>
+	</div>
+
+
+	<div ui-view im-tab-view></div>
+
+</im-tabs>

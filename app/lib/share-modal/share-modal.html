@@ -1,0 +1,51 @@
+<div class="modal-content">
+	<div class="modal-header">
+		<h3 class="modal-title"><span class="fa fa-share-alt"></span> {{"Share"| t}}</h3>
+	</div>
+	<div class="modal-body">	
+
+		<div class="input-group">
+			<input type="text" class="form-control" im-keypress="{13: 'shareModal.store.search()'}" ng-model="shareModal.store.searchQuery" placeholder="{{'Search'| t}}..." />
+
+			<div class="input-group-btn">
+
+				<button class="btn btn-default" ng-click="shareModal.store.reset();"><i class="fa fa-times"></i></button>
+				<button class="btn btn-default" ng-click="shareModal.store.search();"><i class="fa fa-search"></i></button>
+			</div>
+		</div>
+
+		<div style="height:300px;overflow:auto" im-infinite-scroll="shareModal.store.nextPage()" im-infinite-scroll-disabled="!shareModal.store.shouldLoad()">
+
+			<table class="table">
+				<tr>
+					<th></th>
+					<th>
+						{{"Role"| t}}
+					</th>
+					<th style="text-align:center" ng-repeat="permissionAttribute in shareModal.permissionAttributes">
+						{{permissionAttribute.label| t}}
+					</th>					
+				</tr>
+				<tr ng-repeat="model in shareModal.store.items">
+					<td>
+						<i class="fa" ng-class='{"fa-user": model.attributes.userId, "fa-group": !model.attributes.userId}'></i>
+					</td>
+					<td>						
+						{{model.attributes.name}}
+					</td>
+					<td style="text-align:center" ng-repeat="permissionAttribute in shareModal.permissionAttributes">
+						<input type="checkbox" ng-model="model.attributes.permissions.attributes[permissionAttribute.name]" ng-change="checkDependencies(model)" ng-init="checkDependencies(model)" ng-disabled="permissionDisabled(model, permissionAttribute.name)">
+					</td>
+				</tr>
+
+			</table>
+
+		</div>				
+
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" ng-click="ok()">{{"OK"| t}}</button>
+		<button class="btn btn-default" ng-click="cancel()">{{"Cancel"| t}}</button>
+
+	</div>
+</div>

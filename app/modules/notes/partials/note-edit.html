@@ -1,0 +1,58 @@
+<div class="note-edit-dialog">
+	<div class="modal-content {{note.attributes.color}}">
+
+		<div class="modal-header"></div>
+
+		<div class="modal-body">
+
+			<div class="images row">
+
+				<im-image-upload-placeholder class="image-placeholder" ng-class="{'col-md-4':note.attributes.images.length>2,'col-md-6':note.attributes.images.length>1 && note.attributes.images.length<1,'col-md-12':note.attributes.images.length==1}" ng-repeat="image in note.attributes.images"
+					im-image-attribute="image.attributes.path"
+					im-image-temp-attribute="image.attributes.imageTempPath"
+					im-delete-permission="note.permissions.editAccess" 
+					im-thumb-route="Intermesh/notes/note/thumb"
+					im-original-route="Intermesh/notes/note/original"
+					im-thumb-width="100"
+					im-thumb-height="100"
+				></im-image-upload-placeholder>
+
+			</div>
+			<div style="clear:both;"></div>
+
+
+			<div class="modal-title title" contenteditable="true" ng-model="note.attributes.title" placeholder="{{'Title'| t}}"></div>
+			<div class="content" contenteditable="true" autofocus ng-model="note.attributes.content" placeholder="{{'Content'| t}}"></div>
+			<div class="checklist">
+				<ul class="listitems">
+					<li class="listitem" ng-repeat="listItem in note.attributes.listItems" ng-class="{'checked':listItem.attributes.checked}">
+						<i class="fa" ng-class="{'fa-check-square-o':listItem.attributes.checked,'fa-square-o':!listItem.attributes.checked}" ng-click="listItemClick(listItem,note)"></i>
+						<span contenteditable="true" ng-model="listItem.attributes.text" placeholder="Todo"></span>
+					</li>
+				</ul>
+				<i class="fa fa-plus" ng-click="newListItem(note)"><span>{{"Add todo item"| t}}</span></i>
+			</div>
+		</div>
+
+		<div class="modal-footer">
+
+			<i class="btn btn-default fa fa-tint">
+				<span class="colorpicker">
+					<a class="color yellow" ng-click="setColor(note,'yellow')"></a>
+					<a class="color pink" ng-click="setColor(note,'pink')"></a>
+					<a class="color blue" ng-click="setColor(note,'blue')"></a>
+					<a class="color red" ng-click="setColor(note,'red')"></a>
+					<a class="color orange" ng-click="setColor(note,'orange')"></a>
+					<a class="color green" ng-click="setColor(note,'green')"></a>
+				</span>
+			</i>
+
+			<i class="btn btn-default fa fa-image" ng-click="newImage(note)"></i>
+
+			<button class="btn btn-primary" ng-click="save();" type="button">{{"Done"| t}}</button>	
+			<button class="btn btn-warning" ng-click="cancel();" type="button">{{"Close"| t}}</button>
+
+		</div>
+
+	</div>
+</div>

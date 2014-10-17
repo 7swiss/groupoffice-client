@@ -1,0 +1,33 @@
+.go-list{	
+	border:0px;
+	overflow:auto;	
+	position:absolute;
+	top:0px;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	margin-bottom:0px;
+	
+	.thumbnail{
+		vertical-align:middle;
+		display:inline-block;
+		margin-bottom:0px;
+		margin-right:10px;
+	}
+}	
+
+.go-list-date{
+	float:right;
+	color:#777777;
+	font-style:italic;
+}
+
+.active{
+	.go-list-date{
+		color:white;
+	}	
+}
+
+.go-list-item-loading{
+	border:0px;
+}

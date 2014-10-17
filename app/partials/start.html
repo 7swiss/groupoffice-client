@@ -1,0 +1,29 @@
+
+<div class="go-header">	
+	<div class="go-header-left">
+		<h1>{{title}}</h1>
+	</div>	
+	<div class="go-header-right">
+		<ul>		
+			<li>
+				<a href="#" ng-click="logout()"><i class="fa fa-times"></i></a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="go-start-screen">
+
+<div class="row">
+
+	<div class="go-start-icon-col col-sm-2 col-xs-6" ng-repeat="module in ::modules">
+		<a class="go-start-icon {{::module.attributes.type}}" ui-sref="{{module.attributes.name}}">
+		<span><i class="fa {{::module.clientAttributes.iconCls}}"></i></span> 
+		{{::module.clientAttributes.title | t}}</a>
+		
+	</div>
+</div>
+	
+<div ng-if="modulesService.store.busy;"><i class="fa fa-spinner go-rotate"></i> {{"Loading..."| t}}</div>
+
+</div>

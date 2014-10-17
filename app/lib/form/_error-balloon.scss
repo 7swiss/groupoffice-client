@@ -1,0 +1,102 @@
+.error-balloon {
+	position: absolute;
+	z-index: 1070;
+	display: block;
+	font-size: 12px;
+	line-height: 1.4;
+	visibility: visible;
+	opacity:0;
+
+	@include transition(all 0.2s ease-in-out);
+
+	&.active{
+		opacity: .9;
+	}
+}
+
+
+
+.error-balloon.top {
+	padding: 5px 0;
+	margin-top: -3px;
+}
+.error-balloon.right {
+	padding: 0 5px;
+	margin-left: 3px;
+}
+.error-balloon.bottom {
+	padding: 5px 0;
+	margin-top: 0px;
+	margin-left:10px;
+}
+.error-balloon.left {
+	padding: 0 5px;
+	margin-left: -3px;
+}
+.error-balloon-inner {
+	max-width: 300px;
+	padding: 3px 8px;
+	color: $black;
+	text-decoration: none;
+	background-color: $red-bg;
+	border-radius: 4px;
+}
+.error-balloon-arrow {
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-color: transparent;
+	border-style: solid;
+}
+.error-balloon.top .error-balloon-arrow {
+	bottom: 0;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px 5px 0;
+	border-top-color: $red-bg;
+}
+.error-balloon.top-left .error-balloon-arrow {
+	bottom: 0;
+	left: 5px;
+	border-width: 5px 5px 0;
+	border-top-color: $red-bg;
+}
+.error-balloon.top-right .error-balloon-arrow {
+	right: 5px;
+	bottom: 0;
+	border-width: 5px 5px 0;
+	border-top-color: $red-bg;
+}
+.error-balloon.right .error-balloon-arrow {
+	top: 50%;
+	left: 0;
+	margin-top: -5px;
+	border-width: 5px 5px 5px 0;
+	border-right-color: $red-bg;
+}
+.error-balloon.left .error-balloon-arrow {
+	top: 50%;
+	right: 0;
+	margin-top: -5px;
+	border-width: 5px 0 5px 5px;
+	border-left-color: $red-bg;
+}
+.error-balloon.bottom .error-balloon-arrow {
+	top: 0;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 0 5px 5px;
+	border-bottom-color: $red-bg;
+}
+.error-balloon.bottom-left .error-balloon-arrow {
+	top: 0;
+	left: 5px;
+	border-width: 0 5px 5px;
+	border-bottom-color: $red-bg;
+}
+.error-balloon.bottom-right .error-balloon-arrow {
+	top: 0;
+	right: 5px;
+	border-width: 0 5px 5px;
+	border-bottom-color: $red-bg;
+}

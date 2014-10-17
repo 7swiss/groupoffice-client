@@ -1,0 +1,48 @@
+.ab-name-group{
+	padding-right:65px;
+	position:relative;
+}
+
+.ab-contact-photo{
+	
+	.im-image-upload-placeholder-container{
+		margin:0;
+		position:absolute;
+		top:0;
+		right:10px;
+		cursor: pointer;
+		.thumbnail{
+			width:45px;
+			height:60px;
+			margin-bottom:2px;
+			i{
+				color:#ddd;
+				/*font-size:45px;*/
+				/*text-align: center;*/
+				/*padding: 6px 4px;*/
+			}
+		}
+	}
+	
+}
+
+.ab-contact-name-detail{
+
+	.thumbnail{
+		width:75px;
+		height:100px;
+		img{
+			vertical-align:middle;
+			display:inline;
+		}
+		
+		margin-right:10px;
+		margin-bottom:0px;
+	}
+	
+	h1{
+		display:inline;
+	}
+}
+
+

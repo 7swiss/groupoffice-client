@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en" ng-app="GO">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+  <meta charset="utf-8">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-touch-fullscreen" content="yes">
+
+  <title>{{::title}}</title>
+
+	<link rel="shortcut icon" type="image/x-icon" href="../app/img/favicon.ico">
+	
+
+	<!-- build:css css/app.min.css -->
+	<link href="../bower_components/components-font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+	<link href="../bower_components/angular-ui-select/dist/select.css" rel="stylesheet" type="text/css"/>
+	
+	<!-- fileblock:css styles -->
+	<link href="../app/css/scss/app.css" rel="stylesheet" />
+	<!-- endfileblock -->
+
+
+
+	<!-- endbuild -->
+
+</head>
+<body>
+
+<!--	<div class="go-loadmask" ng-show="hasPendingRequests()">
+		<div class="go-loadmask-screen"></div>
+		<div class="go-loadmask-msg"><i class="fa fa-spinner go-rotate"></i> Loading...</div>
+	</div>-->
+
+	<div ui-view></div>
+
+	<!-- build:js js/app.min.js -->
+	<script src="../bower_components/fastclick/lib/fastclick.js" type="text/javascript"></script>
+	<script src="../bower_components/angular/angular.js"></script>
+	<script src="../bower_components/angular-i18n/angular-locale_nl-nl.js"></script>
+	<script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="../bower_components/angular-touch/angular-touch.min.js"></script>
+	<script src="../bower_components/angular-animate/angular-animate.js" type="text/javascript"></script>
+	<script src="../bower_components/angular-toggle-switch/angular-toggle-switch.min.js" type="text/javascript"></script>
+	<script src="../bower_components/ng-flow/dist/ng-flow-standalone.js" type="text/javascript"></script>
+	<script src="../bower_components/ng-sortable/dist/ng-sortable.js" type="text/javascript"></script>
+	<script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+	<script src="../bower_components/angular-elastic/elastic.js" type="text/javascript"></script>
+	<script src="../bower_components/angular-ui-select/dist/select.js" type="text/javascript"></script>
+	
+	<!--- Bootstrap UI modules -->
+	<script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js" type="text/javascript"></script>
+	
+	<!--<script src="../bower_components/angular-strap/src/helpers/parse-options.js" type="text/javascript"></script>-->
+	<!--<script src="../bower_components/angular-strap/src/tooltip/tooltip.js" type="text/javascript"></script>-->
+	<!--<script src="../bower_components/angular-strap/src/select/select.js" type="text/javascript"></script>-->
+	<!--<script src="../bower_components/angular-strap/src/helpers/dimensions.js" type="text/javascript"></script>-->
+	<!--<script src="../bower_components/angular-strap/dist/modules/select.tpl.js" type="text/javascript"></script>-->
+	<!--- End Bootstrap UI modules -->
+	
+
+	<!-- fileblock:js core -->
+	<script src="../app/lib/app.js"></script>
+	<script src="../app/lib/language/nl.js"></script>
+	<script src="../app/lib/services/http-request-tracker.js"></script>
+	<script src="../app/lib/core/common.js"></script>
+	<script src="../app/lib/core/age-filter.js"></script>
+	<script src="../app/lib/core/api-route-filter.js"></script>
+	<script src="../app/lib/core/autofocus-directive.js"></script>
+	<script src="../app/lib/core/autoselect-directive.js"></script>
+	<script src="../app/lib/core/boolean-filter.js"></script>
+	<script src="../app/lib/core/bytes-filter.js"></script>
+	<script src="../app/lib/core/contenteditable-directive.js"></script>
+	<script src="../app/lib/core/date.js"></script>
+	<script src="../app/lib/core/encode-uri-component-filter.js"></script>
+	<script src="../app/lib/core/global-functions.js"></script>
+	<script src="../app/lib/core/keypress-directive.js"></script>
+	<script src="../app/lib/core/nl2br-filter.js"></script>
+	<script src="../app/lib/core/translate-filter.js"></script>
+	<script src="../app/lib/core/translate-provider.js"></script>
+	<script src="../app/lib/core/utils-service.js"></script>
+	<script src="../app/lib/custom-fields/common.js"></script>
+	<script src="../app/lib/custom-fields/custom-fields-detail-directive.js"></script>
+	<script src="../app/lib/custom-fields/custom-fields-edit-directive.js"></script>
+	<script src="../app/lib/custom-fields/custom-fields-filter-directive.js"></script>
+	<script src="../app/lib/custom-fields/custom-fields-service.js"></script>
+	<script src="../app/lib/data/common.js"></script>
+	<script src="../app/lib/data/model-factory.js"></script>
+	<script src="../app/lib/data/store-factory.js"></script>
+	<script src="../app/lib/infinite-scroll/infinite-scroll-directive.js"></script>
+	<script src="../app/lib/message-box/message-box-service.js"></script>
+	<script src="../app/lib/modules/modules-common.js"></script>
+	<script src="../app/lib/modules/modules-service.js"></script>
+	<script src="../app/lib/store-select-modal-factory.js"></script>
+	<script src="../app/lib/tags/tags-service.js"></script>
+	<script src="../app/lib/form/common.js"></script>
+	<script src="../app/lib/form/match-directive.js"></script>
+	<script src="../app/lib/form/show-error-directive.js"></script>
+	<script src="../app/lib/form/submit-directive.js"></script>
+	<script src="../app/lib/image-upload-placeholder/image-upload-placeholder-directive.js"></script>
+	<script src="../app/lib/multi-select-field/multi-select-field-directive.js"></script>
+	<script src="../app/lib/share-modal/share-modal-service.js"></script>
+	<script src="../app/lib/soft-delete-button/soft-delete-button-directive.js"></script>
+	<script src="../app/lib/tabs/common.js"></script>
+	<script src="../app/lib/tabs/im-tab-switch-directive.js"></script>
+	<script src="../app/lib/tabs/im-tab-view-directive.js"></script>
+	<script src="../app/lib/tabs/im-tabs-directive.js"></script>
+	<script src="../app/lib/store-search-directive.js"></script>
+	<script src="../app/lib/core/numeric/numeric-directive.js"></script>
+	<script src="../app/lib/collapsible-panel/collapsible-panel.js"></script>
+	<!-- endfileblock -->
+
+
+	<!-- fileblock:js modules -->
+	<script src="../app/modules/users/js/controllers/user-detail-controller.js"></script>
+	<script src="../app/modules/users/js/controllers/user-edit-controller.js"></script>
+	<script src="../app/modules/users/js/controllers/users-controller.js"></script>
+	<script src="../app/modules/roles/js/controllers/role-edit-controller.js"></script>
+	<script src="../app/modules/roles/js/controllers/roles-controller.js"></script>
+	<script src="../app/modules/api-browser/js/controllers/api-browse-controller.js"></script>
+	<script src="../app/modules/contacts/js/controllers/contact-detail-controller.js"></script>
+	<script src="../app/modules/contacts/js/controllers/contact-edit-controller.js"></script>
+	<script src="../app/modules/contacts/js/filters/contact-photo-filter.js"></script>
+	<script src="../app/modules/contacts/js/controllers/contact-controller.js"></script>
+	<script src="../app/modules/api-browser/js/module.js"></script>
+	<script src="../app/modules/contacts/js/module.js"></script>
+	<script src="../app/modules/roles/js/module.js"></script>
+	<script src="../app/modules/users/js/module.js"></script>
+	<script src="../app/modules/customfields/js/module.js"></script>
+	<script src="../app/modules/helloworld/js/module.js"></script>
+	<script src="../app/modules/customfields/js/controller/custom-fields-controller.js"></script>
+	<script src="../app/modules/customfields/js/controller/model-controller.js"></script>
+	<script src="../app/modules/customfields/js/controller/fields-controller.js"></script>
+	<script src="../app/modules/customfields/js/controller/field-controller.js"></script>
+	<script src="../app/modules/notes/js/controllers/note-controller.js"></script>
+	<script src="../app/modules/notes/js/controllers/note-edit-controller.js"></script>
+	<script src="../app/modules/notes/js/module.js"></script>
+	<script src="../app/modules/customfields/js/controller/field-set-controller.js"></script>
+	<script src="../app/modules/contacts/js/controllers/contact-files-controller.js"></script>
+	<script src="../app/modules/contacts/js/controllers/contact-timeline-controller.js"></script>
+	<script src="../app/modules/contacts/js/controllers/contact-timeline-item-controller.js"></script>
+	<script src="../app/modules/timeline/js/module.js"></script>
+	<script src="../app/modules/timeline/js/controller/message-controller.js"></script>
+	<script src="../app/modules/core/controllers/login-controller.js"></script>
+	<script src="../app/modules/core/controllers/start-controller.js"></script>
+	<script src="../app/modules/helloworld/js/hello-world-controller.js"></script>
+	<!-- endfileblock -->
+
+	<!-- endbuild -->
+</body>
+</html>

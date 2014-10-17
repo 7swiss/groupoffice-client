@@ -1,0 +1,26 @@
+<form name="fieldSetForm" im-submit="save()" class="form-horizontal go-labels" novalidate>
+
+	<div class="modal-header">{{"Field set"| t}}</div>
+
+	<div class="modal-body">
+
+
+		<div class="form-group">
+			<label class="col-sm-2 control-label" for="name">{{"Name"| t}}</label>
+			<div class="col-sm-10">
+				<input type="text" id="name" name="name" class="form-control" ng-model="fieldset.attributes.name" required />
+				<im-show-error for="name" im-model="fieldset"></im-show-error>
+			</div>
+		</div>
+		
+		
+
+
+	</div>
+
+	<div class="modal-footer">				
+		<button type="submit" class="btn btn-primary">{{"OK"| t}}</button>
+		<button class="btn btn-default" ng-click="cancel();" type="button">{{"Cancel"| t}}</button>	
+	</div>			
+
+</form>

@@ -1,0 +1,69 @@
+<div class="go-mask" ng-class="{deleted: user.attributes.deleted}"></div>
+
+<div class="go-toolbar">
+
+	<a class=""visible-xs" ui-sref="users">				
+	   <span class="fa fa-chevron-left"></span>
+	</a>
+
+	<a ui-sref="users.edit({userId: user.attributes.id})">
+		<span class="fa fa-edit"></span> {{'Edit'| t}}
+	</a>
+
+	<a ui-sref="contacts.contact({contactId: user.attributes.contact.attributes.id})">
+		<span class="fa fa-user"></span> {{'View profile'| t}}
+	</a>
+
+	<div class="go-toolbar-right">
+
+		<im-soft-delete-button 
+			im-on-delete="syncWithStore();" 
+			im-on-un-delete="syncWithStore();" 
+			im-model="user" 
+			im-size="sm">
+		</im-soft-delete-button>
+
+	</div>
+	
+</div>
+
+
+<div class="go-scrollable-panel">
+
+	<div class="panel panel-default">
+		<div class="panel-heading">{{user.attributes.username}}</div>
+
+
+		<div class="panel-body">
+
+			<dl>
+				<dt>{{"Enabled"| t}}</dt>
+				<dd>{{user.attributes.enabled| boolean}}</dd>
+			</dl>
+
+			<dl>						
+				<dt>{{"Roles"| t}}</dt>
+				<dd>
+					<ul class="comma-list">
+						<li ng-repeat="role in user.attributes.roles">
+							<a ui-sref="roles.edit({roleId: role.attributes.id})">{{role.attributes.name}}</a>
+						</li>
+					</ul>
+				</dd>
+			</dl>
+
+
+			<dl>
+				<dt>{{"Created at"| t}}</dt>
+				<dd>{{user.attributes.createdAt|date:"medium"}}</dd>
+			</dl>
+
+			<dl>
+				<dt>{{"Modified at"| t}}</dt>
+				<dd>{{user.attributes.modifiedAt|date:"medium"}}</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+
+

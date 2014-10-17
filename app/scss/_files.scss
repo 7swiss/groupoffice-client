@@ -1,0 +1,20 @@
+a.im-file{
+	width:125px;
+	float:left;
+	min-height:125px;
+	overflow: visible;
+	text-align:center;
+	color: $primary-color;
+	margin:20px;
+	
+	&:hover{
+		text-decoration: none;
+		color: $dark-bg;
+	}
+		
+	i{
+		display:block;
+		font-size: 50px;
+		margin:6px;
+	}
+}

@@ -1,0 +1,77 @@
+/* Original Bootstrap's CSS depends on empty href attributes to style cursors
+for several components (pagination, tabs etc.). But in AngularJS adding empty 
+href attributes to link tags will cause unwanted route changes. This is why we 
+need to remove empty href attributes from directive templates and as a result 
+styling is not applied correctly. The remedy is simple, just add the following 
+styling to your application:
+*/
+
+.go-toolbar a, .go-list-toolbar a, .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+
+/* list group */
+a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.active:focus {
+	background-color: $dark-bg;
+	border-color: $dark-bg;
+}
+
+
+.list-group-item.selected{
+	background-color: $dark-bg;
+	border-color: white;
+	color:white;
+}
+
+.list-group-item:first-child {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+}
+
+.list-group-item:last-child {
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+/* end list group */
+
+
+textarea.form-control{
+	height:200px;
+}
+
+
+.thumbnail {
+	padding:0;
+}
+
+/* angular-strap bs-select compontent */
+.btn-bs-select{
+	width:100%;
+	text-align:left;
+}
+
+
+
+/* For ng-flow it was necessary to have a non anchor tag in the dropdown */
+.dropdown-menu > li > .im-dropdown-option {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.42857143;
+  color: #333;
+  white-space: nowrap;
+}
+.dropdown-menu > li > .im-dropdown-option:hover,
+.dropdown-menu > li > .im-dropdown-option:focus {
+  color: #262626;
+  text-decoration: none;
+  background-color: #f5f5f5;
+}
+.dropdown-menu > .active > .im-dropdown-option,
+.dropdown-menu > .active > .im-dropdown-option:hover,
+.dropdown-menu > .active > .im-dropdown-option:focus {
+  color: #fff;
+  text-decoration: none;
+  background-color: #428bca;
+  outline: 0;
+}

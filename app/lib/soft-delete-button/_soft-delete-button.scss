@@ -1,0 +1,26 @@
+.im-soft-delete-btn{
+	z-index: $zindex-delete-button; //higher than masks
+	position:relative;
+}
+
+
+.deletable{
+	max-height: 300px;
+	@include transition-property(max-height,padding,opacity);
+	@include transition-duration(1s);
+	
+	overflow: hidden;
+	&.deleted-invisible{
+		@include transition-property(max-height,padding,opacity);
+		@include transition-duration(1s);
+		
+		opacity: 0;
+		line-height: 0px;
+		max-height: 0px;
+	}
+}
+
+	
+.deleted-visible{
+	text-decoration: line-through !important;
+}

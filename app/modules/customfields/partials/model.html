@@ -1,0 +1,43 @@
+
+<div class="col-md-4">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			{{"Field sets"| t}}
+
+			<div class="go-toolbar go-toolbar-xs">
+				<div class="go-right-toolbar">
+				
+					<a ui-sref="customfields.model.fieldset({fieldSetId:0})">
+						<i class="fa fa-plus"></i>
+					</a>
+				</div>
+			</div>	
+		</div>
+
+		<div class="list-group" sortable="dragControlListeners" ng-model="fieldSetStore.items">
+
+				<a draggable="false" sortable-item  ng-repeat="fieldSet in fieldSetStore.items"  class="list-group-item" ui-sref-active="active" ng-class="{'deleted-visible': fieldSet.attributes.deleted}" ui-sref="customfields.model.fields({fieldSetId: fieldSet.attributes.id})">
+					<span sortable-item-handle></span>&nbsp;
+
+					{{fieldSet.attributes.name}}
+
+					<span style="float:right">
+
+						<span tooltip="{{'Edit' | t}}" class="btn btn-xs btn-default" style="margin-right:10px;" ng-click="$state.go('customfields.model.fieldset', {fieldSetId: fieldSet.attributes.id}); $event.stopPropagation(); $event.preventDefault();">
+							<i class="fa fa-edit"></i>
+						</span>
+
+						<im-soft-delete-button  im-on-delete="onDelete(result)" im-model="fieldSet" im-size="xs"></im-soft-delete-button>
+
+
+					</span>
+
+				</a>
+
+		</div>
+
+		
+	</div>
+</div>
+
+<div ui-view></div>

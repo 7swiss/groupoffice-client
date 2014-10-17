@@ -1,0 +1,30 @@
+
+.go-scrollable-panel{
+	overflow-x:hidden;
+	overflow-y:auto;
+
+	position:absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+
+	padding: 10px;
+
+	-webkit-overflow-scrolling: touch;
+}
+
+
+.go-detail-panel{
+	@extend .panel;
+	@extend .panel-default;
+	
+	border-color: $border-color;
+	
+	background-color: #f9f9f9;
+	
+	.panel-heading {
+		background-color: $light-bg;
+		border-color: $border-color;
+	}
+}

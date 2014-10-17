@@ -1,0 +1,127 @@
+<div class="go-mask" ng-class="{deleted: role.attributes.deleted}"></div>
+
+
+<form name="roleForm" im-submit="save()" class="form-horizontal go-labels" novalidate>
+	
+	<div class="go-toolbar">
+
+		<a class="visible-xs" ui-sref="roles">				
+			<span class="fa fa-chevron-left"></span> {{'Back'| t}}
+		</a>
+
+		<button type="submit" class="btn-primary">
+			<i class="fa fa-floppy-o"></i> {{'Save'| t}}
+		</button>
+
+
+		<div class="go-toolbar-right">
+
+			<im-soft-delete-button 
+				im-on-delete="syncWithStore();" 
+				im-on-un-delete="syncWithStore();" 
+				im-model="role" 
+				im-size="sm">
+			</im-soft-delete-button>
+
+		</div>
+	</div>	
+
+	<div class="go-scrollable-panel">
+
+		<div class="panel panel-default">
+			<div class="panel-heading">{{"Properties"| t}}</div>
+			<div class="panel-body">
+				<div class="form-group">
+					<label for="name">{{"Role name"| t}}</label>
+					<input type="text" name="name" id="name" ng-model="role.attributes.name" required autofocus />
+					<im-show-error for="name" im-model="role"></im-show-error>
+				</div>
+
+				<div class="form-group">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" ng-model="role.attributes.autoAdd" /> {{"Grant permission to new items automatically"| t}}
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<!-- Default panel contents -->
+			<div class="panel-heading">{{"Enabled modules"| t}}</div>
+			<div class="panel-body">
+				<table class="table">
+					<tr>
+						<th>{{"Name"| t }}</th>
+						<th>{{"Use access"| t }}</th>
+						<th>{{"Create access"| t }}</th>
+					</tr>
+					<tr ng-repeat="module in role.attributes.modulesWithPermissions">
+
+						<td>{{module.attributes.name}}</td>
+						<td><input type="checkbox" ng-model="module.attributes.useAccess"></td>
+						<td><input type="checkbox" ng-model="module.attributes.createAccess"></td>					
+					</tr>
+				</table>
+			</div>
+		</div>
+
+
+		<div class="panel panel-default">
+			<!-- Default panel contents -->
+			<div class="panel-heading">{{"Users in role"| t}}
+
+				<div class="go-toolbar go-toolbar-xs">
+					<div class="go-right-toolbar">					
+						<a ng-click="storeSelectModal.openModal()">
+							<i class="fa fa-plus"></i>					
+						</a>
+					</div>
+				</div>
+
+			</div>
+
+			<ul class="list-group">
+
+				<li ng-if="!user.attributes.markDeleted" class="list-group-item" ng-repeat="user in role.attributes.users">
+
+					{{user.attributes.username}}
+
+					<span style="float:right">
+						<a class="btn btn-danger btn-xs" ng-click="user.attributes.markDeleted = true"><i class="fa fa-trash-o"></i></a>
+					</span>
+				</li>
+
+				<li class="list-group-item im-show-if-only-child">
+					{{'No users selected'| t}}
+				</li>
+			</ul>
+
+		</div>	
+	</div>
+</form>
+
+<script type="text/ng-template" id="multiSelectUsers.html">
+	<div class="modal-content">
+	<div class="modal-header">
+	<h3 class="modal-title">Select users</h3>
+	</div>
+	<div class="modal-body">			
+
+	<div style="height:300px;overflow:auto" class="list-group" im-infinite-scroll="storeSelectModal.availableStore.nextPage()" im-infinite-scroll-disabled="!storeSelectModal.availableStore.shouldLoad()">
+
+	<ul class="list-group">
+	<label class="list-group-item" ng-class="{selected: user.attributes.checked}" ng-repeat="user in storeSelectModal.availableStore.items" im-infinite-use-window="true">
+	<input type="checkbox" ng-model="user.attributes.checked"> {{user.attributes.username}}
+	</label>  
+	</ul>
+	</div>				
+
+	</div>
+	<div class="modal-footer">
+	<button class="btn btn-primary" ng-click="ok()">OK</button>
+	<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+	</div>
+	</div>
+</script>

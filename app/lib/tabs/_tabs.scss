@@ -1,0 +1,114 @@
+
+.go-tab-bar{
+	
+	height: $toolbar-height;
+	padding:0px 10px;	
+	background: $medium-bg;	
+	
+	position:absolute;	
+	top:0px;
+	left:0px;
+	right:0px;
+	
+	a{		
+		margin-top:10px;
+		height: $toolbar-height - 10px;		
+		color: $light-font-color;
+		text-align:center;
+
+		padding:14px 20px 0;
+		
+		min-width: 60px;		
+		float: left;
+		white-space: nowrap;
+
+		&:hover, &:active, &:visited, &:focus{
+			text-decoration: none;
+		}
+
+		&.active{
+			padding:10px 20px 0;
+			color: $primary-color;
+			background-color: $light-bg;
+			border-radius:  4px 4px 0 0;
+		}
+	}
+		
+}
+
+
+
+.go-tab-view{
+	
+	.go-toolbar{
+		top: 0px;
+	}
+
+	top: $header-height;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	position:absolute;
+	
+	background: white;
+	
+	z-index: 100;
+	
+	&.ng-enter {
+		@include transition(all .3s ease-out);
+		z-index: 99 !important;
+	}
+	
+	&.ng-leave {
+		@include transition(all .6s ease-out);
+		
+		z-index: 98 !important;
+	}
+	
+
+	&.ng-enter.right{
+		@include transform(translateX(-100%));		
+		/*opacity: 0;*/
+	}
+	
+
+	&.ng-enter-active.right {
+		@include transform(translateX(0%));
+		/*opacity: 1;*/		
+	}
+
+	&.ng-leave.right {
+		/*opacity: 1;*/
+		@include transform(translateX(0%));		
+	}
+
+	&.ng-leave-active.right {
+		/*opacity: 0;*/
+		@include transform(translateX(100%));		
+	}
+	
+	
+	
+	&.ng-enter.left{
+		@include transform(translateX(100%));		
+		/*opacity: 0;*/
+	}
+	
+
+	&.ng-enter-active.left {
+		@include transform(translateX(0%));
+		/*opacity: 1;*/		
+	}
+
+	&.ng-leave.left {
+		/*opacity: 1;*/
+		@include transform(translateX(0%));		
+	}
+
+	&.ng-leave-active.left {
+		/*opacity: 0;*/
+		@include transform(translateX(-100%));		
+	}
+	
+
+}

@@ -1,0 +1,37 @@
+/* line 4, ../../../../../.tmp/scss/modules/timeline/scss/timeline.scss */
+.em-headers h1 {
+  color: black;
+  font-size: 1.5em;
+}
+/* line 9, ../../../../../.tmp/scss/modules/timeline/scss/timeline.scss */
+.em-headers dl.em-header {
+  border-bottom: 1px solid #E7E7E7;
+  padding: 8px 0;
+  margin-bottom: 0px;
+}
+/* line 15, ../../../../../.tmp/scss/modules/timeline/scss/timeline.scss */
+.em-headers dl.em-header dt {
+  display: inline-block;
+  width: 80px;
+}
+/* line 21, ../../../../../.tmp/scss/modules/timeline/scss/timeline.scss */
+.em-headers dl.em-header dd {
+  display: inline-block;
+}
+
+/* line 28, ../../../../../.tmp/scss/modules/timeline/scss/timeline.scss */
+.em-attachments {
+  padding: 6px 0px;
+  border-bottom: 1px solid #E7E7E7;
+  margin-bottom: 10px;
+}
+/* line 33, ../../../../../.tmp/scss/modules/timeline/scss/timeline.scss */
+.em-attachments a {
+  display: block;
+  float: left;
+  border: 1px solid #E7E7E7;
+  background-color: #f1f1f1;
+  padding: 6px;
+  border-radius: 4px;
+  margin: 6px 6px 0;
+}
