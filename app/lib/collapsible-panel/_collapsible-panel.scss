@@ -114,6 +114,11 @@
 		&.collapse-lg{
 
 		}
+		
+		&.pinned{
+			float: left;
+			position: relative;
+		}
 
 
 	}

@@ -29,7 +29,7 @@ angular.module('GO.controllers').
 							w: 75,
 							h: 100,
 							zoomCrop: 1,
-							src: $scope.contact.attributes.photoFilePath
+							contactId: $scope.contact.attributes.id
 						});
 					} else
 					{

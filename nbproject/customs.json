@@ -1,0 +1,10 @@
+{
+	"attributes": {},
+	"elements": {
+		"go-collapsible-panel": {
+			"attributes": {
+				"on-close": {}
+			}
+		}
+	}
+}

@@ -1,7 +1,7 @@
 
 angular.module('GO.form')
-		.directive('imSubmit', [
-			function() {
+		.directive('imSubmit', ['$log',
+			function($log) {
 
 				return {
 					// restrict to an element tag type.
@@ -22,7 +22,19 @@ angular.module('GO.form')
 						
 						var form = $element.controller("form");
 						
-						$element.on('submit', function($event){							
+						$element.on('submit', function($event){	
+							
+							//Hack for autocomplete event
+							
+//							var arr = $element.find('input');						
+//							for(var i=0,l=arr.length;i<l;i++){
+//								console.log(arr[i]);
+//								$log.info("Firing input,change and keydown listeners in im-submit directive to fix autocomplete problem");
+//								if(arr[i].autocomplete){
+//									arr[i].triggerHandler('input').triggerHandler('change').triggerHandler('keydown');
+//								}
+//							}
+							
 							form.submitted = true;							
 							$element.addClass('submitted');
 								

@@ -81,11 +81,11 @@ angular.module('GO.modules')
 						
 						var deferred = $q.defer();
 						
-						this.promise = deferred.promise;
 						
 						var promise = this.store.load();
 						
 						promise.then(function(data){
+							
 							for(var i = 0, l = this.store.items.length;i < l; i++){
 								
 								if(!modules[this.store.items[i].attributes.name]){
@@ -100,7 +100,8 @@ angular.module('GO.modules')
 							}
 							
 							this.modules = this.store.items;
-							
+							this.promise = deferred.promise;
+						
 //							console.log(this.store.items);
 							
 							deferred.resolve(this.modules);

@@ -9529,6 +9529,11 @@ a.im-file i {
     position: relative;
   }
 }
+/* line 118, ../../../.tmp/scss/lib/collapsible-panel/_collapsible-panel.scss */
+.go-body .go-col.pinned {
+  float: left;
+  position: relative;
+}
 
 /*.go-collapsible-panel-handle{
 	display:table-cell;
@@ -10612,7 +10617,7 @@ body {
   height: 100%;
   overflow: auto;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  /*background-color: #f9f9f9;*/
+  /*background-color: $light-bg;*/
 }
 
 /* line 54, ../../../.tmp/scss/scss/app.scss */
@@ -10734,82 +10739,82 @@ h3 {
 
 /* line 163, ../../../.tmp/scss/scss/app.scss */
 .go-login-window {
-  width: 350px;
-  margin: auto;
-  padding: 20px;
-  background-color: white;
+  width: 400px;
+  margin: 20px auto;
   position: relative;
+  float: none;
+  /*background-color: white;*/
 }
-/* line 171, ../../../.tmp/scss/scss/app.scss */
-.go-login-window .body {
-  margin: 20px 0;
+/* line 172, ../../../.tmp/scss/scss/app.scss */
+.go-login-window .panel-body {
+  padding: 20px;
 }
-/* line 175, ../../../.tmp/scss/scss/app.scss */
+/* line 176, ../../../.tmp/scss/scss/app.scss */
 .go-login-window .input-group-addon i {
   width: 20px;
 }
-/* line 179, ../../../.tmp/scss/scss/app.scss */
+/* line 180, ../../../.tmp/scss/scss/app.scss */
 .go-login-window header {
   font-size: 2em;
   text-align: center;
 }
-/* line 184, ../../../.tmp/scss/scss/app.scss */
+/* line 185, ../../../.tmp/scss/scss/app.scss */
 .go-login-window footer {
   text-align: right;
 }
-/* line 187, ../../../.tmp/scss/scss/app.scss */
+/* line 188, ../../../.tmp/scss/scss/app.scss */
 .go-login-window footer input.btn {
   width: 100%;
 }
 
 /* modals */
-/* line 197, ../../../.tmp/scss/scss/app.scss */
+/* line 198, ../../../.tmp/scss/scss/app.scss */
 .go-modal-alert .glyphicon {
   font-size: 32px;
   vertical-align: middle;
   margin-right: 6px;
 }
 
-/* line 202, ../../../.tmp/scss/scss/app.scss */
+/* line 203, ../../../.tmp/scss/scss/app.scss */
 .go-modal-alert .modal-footer {
   margin-top: 0px;
 }
 
 /* end modals */
-/* line 210, ../../../.tmp/scss/scss/app.scss */
+/* line 211, ../../../.tmp/scss/scss/app.scss */
 ul.comma-list {
   display: inline;
   margin: 0;
   padding: 0;
 }
-/* line 214, ../../../.tmp/scss/scss/app.scss */
+/* line 215, ../../../.tmp/scss/scss/app.scss */
 ul.comma-list li {
   display: inline;
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 220, ../../../.tmp/scss/scss/app.scss */
+/* line 221, ../../../.tmp/scss/scss/app.scss */
 ul.comma-list li .fa {
   display: inline;
   padding-right: 2px;
 }
-/* line 226, ../../../.tmp/scss/scss/app.scss */
+/* line 227, ../../../.tmp/scss/scss/app.scss */
 ul.comma-list li:after {
   content: ", ";
 }
-/* line 230, ../../../.tmp/scss/scss/app.scss */
+/* line 231, ../../../.tmp/scss/scss/app.scss */
 ul.comma-list li:last-child:after {
   content: "";
 }
 
-/* line 237, ../../../.tmp/scss/scss/app.scss */
+/* line 238, ../../../.tmp/scss/scss/app.scss */
 .nopadding {
   padding: 0 !important;
   margin: 0 !important;
 }
 
-/* line 249, ../../../.tmp/scss/scss/app.scss */
+/* line 250, ../../../.tmp/scss/scss/app.scss */
 .go-mask {
   position: absolute;
   top: 0px;
@@ -10824,7 +10829,7 @@ ul.comma-list li:last-child:after {
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
-/* line 264, ../../../.tmp/scss/scss/app.scss */
+/* line 265, ../../../.tmp/scss/scss/app.scss */
 .go-mask.active {
   visibility: visible;
   opacity: 0.5;

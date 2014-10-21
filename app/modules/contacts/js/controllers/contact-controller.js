@@ -155,15 +155,11 @@ angular.module('GO.controllers').
 					$scope.customFilters = {};
 					$scope.filters = angular.copy(defaultFilters);
 				};
-
-				$scope.openSidePanel = function() {
-					if (!$scope.tagStore) {
-						$scope.tagStore = Tags.getTagStore();
-					}
-				};
-
-				$scope.closeSidePanel = function() {
-
+				
+			
+				$scope.closeSidePanelCallback = function() {
+					
+				
 					var where = CustomFields.filterModelToWhereParameter($scope.customFilters);
 
 					var tags = [];

@@ -54,20 +54,21 @@ angular.module('GO.collapsiblePanel', []).
 
 				return {
 					scope: {
-						isActive: '=',
 						onOpen: '&?',
-						onClose: '&?',
-						collapseFrom: '=?'
+						onClose: '&?'
 					},
 					transclude: true,
 					restrict: 'E',
-					link: function(scope, element, attr) {
+//					compile: function(element, attrs){
+//						if (!attrs.collapseFrom) { attrs.collapseFrom = 'lg'; }
+//					},
+	   
+					
+					link: function(scope, element, attr) {					
 						
-						if(!scope.collapseFrom){
-							scope.collapseFrom = 'lg';
-						}
-						
-						var mask = angular.element('<div class="go-mask" ng-class="{active: isActive}"></div>');
+		
+
+						var mask = angular.element('<div class="go-mask" ng-class="{active: isActive && !isPinned}"></div>');
 						element.append(mask);
 						$compile(mask)(scope);								
 
@@ -94,18 +95,33 @@ angular.module('GO.collapsiblePanel', []).
 							}							
 						});
 						
-						scope.close = function() {		
-						
-							
-							scope.$apply(function(){
-								scope.isActive = false;
-							});
-						
+						scope.close = function() {							
+							scope.isActive = false;
 						};
 						
-						scope.$parent.imSideNav = scope;
+						scope.toggle = function(){
+							
+							scope.isActive = !scope.isActive;
+
+							if(!scope.isActive){
+								scope.isPinned = false;
+							}						
+						};
+						
+						
+						scope.togglePinned = function(){							
+							
+							scope.isPinned = !scope.isPinned;	
+							if(scope.isPinned){
+								scope.isActive = true;	
+							}
+				
+							
+						};
+
+						scope.$parent.goCollapsiblePanel = scope;
 
 					},
-					template: '<div class="go-col collapse-{{collapseFrom}}" ng-class="{active: isActive}"><ng-transclude></ng-transclude></div>'
+					template: '<div class="go-col collapse-lg" ng-class="{active: isActive, pinned: isPinned}"><ng-transclude></ng-transclude></div>'
 				};
 			}]);

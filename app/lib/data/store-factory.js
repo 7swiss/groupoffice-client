@@ -69,19 +69,23 @@ angular.module('GO.data')
 
 					$http.get(Utils.url(this.storeRoute, defaultParams))
 							.success(function(data) {
-
-								//When there are less results then the limit we sent then we must have gotten the last results.
-								this.allRecordsLoaded = data.results.length < defaultParams.limit;
-
-								this.loadData(data.results);
-
-								this.busy = false;
-								this.init = true;
-								
-								
 								data.store = this;								
-								
-								deferred.resolve(data);
+
+								if(data.success){
+
+									//When there are less results then the limit we sent then we must have gotten the last results.
+									this.allRecordsLoaded = data.results.length < defaultParams.limit;
+
+									this.loadData(data.results);
+
+									this.busy = false;
+									this.init = true;
+									
+									deferred.resolve(data);
+								}else
+								{
+									deferred.reject(data);
+								}
 
 							}.bind(this))
 							.error(function(data){
@@ -169,7 +173,7 @@ angular.module('GO.data')
 					}
 					this.items = [];
 					this.allRecordsLoaded = false;
-					this.init = false;
+					this.init = false;					
 				};
 
 

@@ -4,13 +4,14 @@
 
 
 <div class="go-body">
-	<go-collapsible-panel collapse-from="lg" is-active="asideActive" on-close="closeAside()">
+	<go-collapsible-panel on-close="closeSidePanelCallback()">
 
 		<div class="go-toolbar">{{'Filters'| t}}
 
 			<div class="go-toolbar-right">
 				<a ng-click="resetFilters()" tooltip="{{'Reset'| t}}" tooltip-placement='bottom'><i class="fa fa-undo"></i></a>
-				<a ng-click="asideActive = false" tooltip="{{'Close'| t}}" tooltip-placement='bottom'><i class="fa fa-times"></i></a>
+				<a ng-click="goCollapsiblePanel.toggle()" tooltip="{{'Close'| t}}" tooltip-placement='bottom'><i class="fa fa-times"></i></a>
+				<a ng-if="!goCollapsiblePanel.isPinned" ng-click="goCollapsiblePanel.togglePinned()" tooltip="{{'Pin'| t}}" tooltip-placement='bottom'><i class="fa fa-thumb-tack"></i></a>
 			</div>
 		</div>
 
@@ -48,7 +49,7 @@
 
 		<div class="go-toolbar">
 
-			<a ng-click="asideActive = !asideActive" class="-hidden-lg">
+			<a ng-click="goCollapsiblePanel.toggle()">
 				<span class="fa fa-filter"></span>
 			</a>
 

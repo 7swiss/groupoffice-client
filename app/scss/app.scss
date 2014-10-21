@@ -48,7 +48,7 @@ body{
 	height:100%;
 	overflow: auto;
 	font-family: $font-stack;
-	/*background-color: #f9f9f9;*/
+	/*background-color: $light-bg;*/
 }
 
 pre {
@@ -162,14 +162,15 @@ h3{
 
 .go-login-window{	
 
-	width:350px;
-	margin:auto;
-	padding:20px;
-	background-color:white;
+	width:400px;
+	margin:20px auto;
 	position:relative;
-
-	.body{
-		margin:20px 0;
+	float:none;
+	/*background-color: white;*/
+	
+	
+	.panel-body {
+		padding: 20px;
 	}
 
 	.input-group-addon i{

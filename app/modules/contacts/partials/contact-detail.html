@@ -50,9 +50,11 @@
 			<div class="panel-body">
 
 
-				<div class="visible-xs-inline-block thumbnail">
+				<div class="thumbnail" style="float:left">
 					<img ng-if="photoUrl" ng-src="{{photoUrl}}" alt="{{'Photo'| t}}" />			
 				</div>
+				
+				<div class="overflow:hidden;float:left;">
 
 				<dl ng-if="contact.attributes.emailAddresses.length">						
 					<dt>{{"E-mail"| t}}</dt>
@@ -106,7 +108,7 @@
 
 					</dd>
 				</dl>
-
+</div>
 			</div>
 		</div>
 

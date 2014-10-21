@@ -3,7 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="PocketOffice">
-            <file>file:/var/www/html/groupoffice-client/bower.json</file>
+            <file>file:/var/www/html/groupoffice-client/app/lib/collapsible-panel/collapsible-panel.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/contacts/js/controllers/contact-controller.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/contacts/partials/main.html</file>
+            <file>file:/var/www/html/groupoffice-client/app/lib/form/submit-directive.js</file>
         </group>
     </open-files>
 </project-private>
