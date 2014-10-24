@@ -1,0 +1,73 @@
+
+<div ng-include="'partials/header.html'"></div>
+
+<div class="go-toolbar">
+	<a ui-sref="announcements.edit({announcementId:0})"><i class="fa fa-plus"></i></a>	
+</div>
+
+<div class="go-body">
+
+	<div class="go-scrollable-panel" im-infinite-scroll="timelineStore.nextPage()" im-infinite-scroll-disabled="!timelineStore.shouldLoad()">
+
+	
+		<div style="max-width:800px;margin:0 auto">
+		
+	<div ng-repeat="announcement in announcementStore.items" class="timeline-item">
+
+	
+		<div ng-if="!announcement.attributes.imapMessageId">
+			<img class="thumbnail" ng-src="{{'intermesh/contacts/contact/thumb'| apiRoute: {w: 45, h: 50, zoomCrop: 1, userId: announcement.attributes.ownerUserId} }}">
+
+
+			<div  class="timeline-panel-container">
+				<div class="panel panel-default timeline-panel">
+					<div class="panel-heading">
+						<h4 style="display:inline-block">{{announcement.attributes.title}}</h4> 
+						<div style="float:right;font-style:italic;">{{"by" | t }} {{announcement.attributes.owner.attributes.username}} at {{announcement.attributes.createdAt | date}}</div>
+					</div>
+					<div class="panel-body" ng-class="{'deleted-visible': announcement.attributes.deleted}">
+						
+						<a target="_blank" href="{{::'intermesh/announcements/announcement/original'| apiRoute: {announcementId: announcement.attributes.id} }}">
+						<img  style="width:200px;height:150px;float:left;margin: 0px 10px 10px 0px" ng-src="{{::'intermesh/announcements/announcement/thumb'| apiRoute: {w: 200, h: 150, zoomCrop: 1, announcementId: announcement.attributes.id} }}" />
+						
+						</a>
+				 
+						
+						<span ng-bind-html="announcement.attributes.text | nl2br">
+							
+							
+							
+							
+						</span>
+					</div>
+
+
+					<div style="text-align:right;padding:0px 20px 20px 0px">						
+						<a ui-sref="announcements.edit({announcementId: announcement.attributes.id})" class="btn btn-xs btn-default">
+							<i class="fa fa-edit"></i>
+						</a>
+						<im-soft-delete-button im-model="announcement"></im-soft-delete-button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+	</div>
+			
+	
+	<div ng-if="!timelineStore.busy" class="im-show-if-only-child">
+		{{'No items found'| t}}
+	</div>
+	
+	<div ng-if="timelineStore.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| t}}</div>
+	
+	</div>
+</div>
+
+
+
+<div ui-view></div>
+
+</div>

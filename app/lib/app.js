@@ -31,10 +31,11 @@ var GO = angular.module('GO', [
 	//Various
 	'ngAnimate', // only enabled on elements with the "im-animate" class !
 	'ngTouch',
-	'toggle-switch',
+//	'toggle-switch',
 	'flow',
 	'ngSanitize',
 	'monospaced.elastic',
+	'textAngular',
 
 	//App modules
 	'GO.filters',

@@ -8433,16 +8433,16 @@ button.close {
 }
 /*#e7e7e7;*/
 /* Dark grey */
-/*$dark-bg: #259b24;
-$medium-bg: #a3e9a4;
-$light-bg: #d0f8ce;*/
+/*$dark-bg: #607d8b;
+$medium-bg: #cfd8dc;
+$light-bg: #eceff1;*/
 /*Color palette (http://www.google.com/design/spec/style/color.html#color-ui-color-palette)*/
 /* line 1, ../../../.tmp/scss/scss/_toolbar.scss */
 .go-toolbar {
   position: relative;
   height: 50px;
   padding: 8px 12px;
-  background-color: #cfd8dc;
+  background-color: #fff;
   border-bottom: 1px solid #ddd;
   border-right: 1px solid #ddd;
   line-height: 50px;
@@ -8451,7 +8451,7 @@ $light-bg: #d0f8ce;*/
 }
 /* line 15, ../../../.tmp/scss/scss/_toolbar.scss */
 .go-toolbar a {
-  background-color: #eceff1;
+  /*background-color: #eceff1;*/
   float: left;
   display: block;
   margin-top: 8px;
@@ -8481,7 +8481,7 @@ $light-bg: #d0f8ce;*/
 
 /* line 62, ../../../.tmp/scss/scss/_toolbar.scss */
 .go-tab-view .go-toolbar {
-  background-color: #eceff1;
+  background-color: #e0e0e0;
 }
 /* line 64, ../../../.tmp/scss/scss/_toolbar.scss */
 .go-tab-view .go-toolbar a {
@@ -8638,13 +8638,13 @@ styling to your application:
 /* list group */
 /* line 13, ../../../.tmp/scss/scss/_bootstrap-overrides.scss */
 a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.active:focus {
-  background-color: #607d8b;
-  border-color: #607d8b;
+  background-color: #8bc34a;
+  border-color: #8bc34a;
 }
 
 /* line 19, ../../../.tmp/scss/scss/_bootstrap-overrides.scss */
 .list-group-item.selected {
-  background-color: #607d8b;
+  background-color: #8bc34a;
   border-color: white;
   color: white;
 }
@@ -8763,14 +8763,13 @@ textarea.form-control, form.form-horizontal.go-labels .form-group textarea, form
 .go-header {
   height: 50px;
   padding: 0px 0px 0px 14px;
-  /*background: $dark-bg;*/
-  background: #eceff1;
+  background: #8bc34a;
 }
 /* line 51, ../../../.tmp/scss/scss/_header.scss */
 .go-header h1 {
   margin: 0px;
   padding: 0px;
-  color: #333;
+  color: white;
   line-height: 50px;
   font-size: 20px;
   display: inline;
@@ -8781,7 +8780,7 @@ textarea.form-control, form.form-horizontal.go-labels .form-group textarea, form
   padding: 0px;
   line-height: 50px;
   font-size: 20px;
-  color: #333;
+  color: white;
 }
 /* line 67, ../../../.tmp/scss/scss/_header.scss */
 .go-header a:hover {
@@ -8935,11 +8934,11 @@ textarea.form-control, form.form-horizontal.go-labels .form-group textarea, form
 }
 /* line 36, ../../../.tmp/scss/scss/_start-screen.scss */
 .go-start-screen .go-start-icon span {
-  background: #f1f1f1;
+  background: #e0e0e0;
   width: 100px;
   height: 100px;
   border-radius: 50px;
-  color: #607d8b;
+  color: #8bc34a;
   font-size: 48px;
   display: block;
   line-height: 26px;
@@ -8983,7 +8982,7 @@ textarea.form-control, form.form-horizontal.go-labels .form-group textarea, form
 }
 /* line 26, ../../../.tmp/scss/scss/_panels.scss */
 .go-detail-panel .panel-heading {
-  background-color: #eceff1;
+  background-color: #e0e0e0;
   border-color: #ddd;
 }
 
@@ -9151,7 +9150,7 @@ a.im-file {
 /* line 10, ../../../.tmp/scss/scss/_files.scss */
 a.im-file:hover {
   text-decoration: none;
-  color: #607d8b;
+  color: #8bc34a;
 }
 /* line 15, ../../../.tmp/scss/scss/_files.scss */
 a.im-file i {
@@ -9498,7 +9497,7 @@ a.im-file i {
   float: none;
   position: absolute;
   left: -600px;
-  background-color: #eceff1;
+  background-color: #e0e0e0;
   border-right: 1px solid #ddd;
 }
 /* line 87, ../../../.tmp/scss/lib/collapsible-panel/_collapsible-panel.scss */
@@ -9568,7 +9567,7 @@ a.im-file i {
 .go-tab-bar {
   height: 50px;
   padding: 0px 10px;
-  background: #cfd8dc;
+  background: #fff;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -9593,7 +9592,7 @@ a.im-file i {
 .go-tab-bar a.active {
   padding: 10px 20px 0;
   color: #333;
-  background-color: #eceff1;
+  background-color: #e0e0e0;
   border-radius: 4px 4px 0 0;
 }
 
@@ -10507,13 +10506,13 @@ a.im-file i {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* line 1, ../../../.tmp/scss/modules/contacts/scss/contacts.scss */
+/* line 1, ../../../.tmp/scss/modules/contacts/scss/_contacts.scss */
 .ab-name-group {
   padding-right: 65px;
   position: relative;
 }
 
-/* line 8, ../../../.tmp/scss/modules/contacts/scss/contacts.scss */
+/* line 8, ../../../.tmp/scss/modules/contacts/scss/_contacts.scss */
 .ab-contact-photo .im-image-upload-placeholder-container {
   margin: 0;
   position: absolute;
@@ -10521,13 +10520,13 @@ a.im-file i {
   right: 10px;
   cursor: pointer;
 }
-/* line 14, ../../../.tmp/scss/modules/contacts/scss/contacts.scss */
+/* line 14, ../../../.tmp/scss/modules/contacts/scss/_contacts.scss */
 .ab-contact-photo .im-image-upload-placeholder-container .thumbnail {
   width: 45px;
   height: 60px;
   margin-bottom: 2px;
 }
-/* line 18, ../../../.tmp/scss/modules/contacts/scss/contacts.scss */
+/* line 18, ../../../.tmp/scss/modules/contacts/scss/_contacts.scss */
 .ab-contact-photo .im-image-upload-placeholder-container .thumbnail i {
   color: #ddd;
   /*font-size:45px;*/
@@ -10535,51 +10534,51 @@ a.im-file i {
   /*padding: 6px 4px;*/
 }
 
-/* line 31, ../../../.tmp/scss/modules/contacts/scss/contacts.scss */
+/* line 31, ../../../.tmp/scss/modules/contacts/scss/_contacts.scss */
 .ab-contact-name-detail .thumbnail {
   width: 75px;
   height: 100px;
   margin-right: 10px;
   margin-bottom: 0px;
 }
-/* line 34, ../../../.tmp/scss/modules/contacts/scss/contacts.scss */
+/* line 34, ../../../.tmp/scss/modules/contacts/scss/_contacts.scss */
 .ab-contact-name-detail .thumbnail img {
   vertical-align: middle;
   display: inline;
 }
-/* line 43, ../../../.tmp/scss/modules/contacts/scss/contacts.scss */
+/* line 43, ../../../.tmp/scss/modules/contacts/scss/_contacts.scss */
 .ab-contact-name-detail h1 {
   display: inline;
 }
 
-/* line 4, ../../../.tmp/scss/modules/timeline/scss/timeline.scss */
+/* line 4, ../../../.tmp/scss/modules/timeline/scss/_timeline.scss */
 .em-headers h1 {
   color: black;
   font-size: 1.5em;
 }
-/* line 9, ../../../.tmp/scss/modules/timeline/scss/timeline.scss */
+/* line 9, ../../../.tmp/scss/modules/timeline/scss/_timeline.scss */
 .em-headers dl.em-header {
   border-bottom: 1px solid #E7E7E7;
   padding: 8px 0;
   margin-bottom: 0px;
 }
-/* line 15, ../../../.tmp/scss/modules/timeline/scss/timeline.scss */
+/* line 15, ../../../.tmp/scss/modules/timeline/scss/_timeline.scss */
 .em-headers dl.em-header dt {
   display: inline-block;
   width: 80px;
 }
-/* line 21, ../../../.tmp/scss/modules/timeline/scss/timeline.scss */
+/* line 21, ../../../.tmp/scss/modules/timeline/scss/_timeline.scss */
 .em-headers dl.em-header dd {
   display: inline-block;
 }
 
-/* line 28, ../../../.tmp/scss/modules/timeline/scss/timeline.scss */
+/* line 28, ../../../.tmp/scss/modules/timeline/scss/_timeline.scss */
 .em-attachments {
   padding: 6px 0px;
   border-bottom: 1px solid #E7E7E7;
   margin-bottom: 10px;
 }
-/* line 33, ../../../.tmp/scss/modules/timeline/scss/timeline.scss */
+/* line 33, ../../../.tmp/scss/modules/timeline/scss/_timeline.scss */
 .em-attachments a {
   display: block;
   float: left;
@@ -10588,6 +10587,12 @@ a.im-file i {
   padding: 6px;
   border-radius: 4px;
   margin: 6px 6px 0;
+}
+
+/* line 2, ../../../.tmp/scss/modules/announcements/scss/_announcements.scss */
+.announcement-modal .thumbnail {
+  width: 200px;
+  height: 150px;
 }
 
 /* module stylesheets */

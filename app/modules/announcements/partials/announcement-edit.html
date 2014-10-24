@@ -1,0 +1,45 @@
+
+
+<form name="anouncementForm"  im-submit="save()" novalidate class="announcement-modal">
+
+
+	<div class="modal-header">{{"New post"| t}}</div>
+
+	<div class="modal-body">
+		
+		<div class="form-group">
+			<label for="text">{{"Title" | t}}</label>
+			<input name="title" type="text" class="form-control" ng-model="announcement.attributes.title" placeholder="{{'Title' | t }}" required />
+			<im-show-error for="title" im-model="announcement"></im-show-error>
+		</div>
+		
+		<!--<div class="row">-->
+			
+			<!--<div class="col-sm-3">-->
+				<im-image-upload-placeholder
+					im-image-attribute="announcement.attributes.imagePath"
+					im-image-temp-attribute="announcement.attributes.imageTempPath"
+					im-thumb-route="Intermesh/announcements/announcement/thumb"
+					im-thumb-params="{announcementId: announcement.attributes.id}"
+					im-original-route="Intermesh/announcementas/announcement/original"
+					im-thumb-width="200"
+					im-thumb-height="150"
+				></im-image-upload-placeholder>
+<!--			</div>
+			
+			<div class="col-sm-9">-->
+				<text-angular ta-toolbar="[['bold','italics','underline'], ['quote'], ['insertLink'], ['undo','redo']]" ng-model="announcement.attributes.text"></text-angular>
+			<!--</div>-->
+		
+		<!--</div>-->
+		
+		
+	</div>
+
+	<div class="modal-footer">				
+		<button type="submit" class="btn btn-primary">{{"OK"| t}}</button>
+		<button class="btn btn-default" ng-click="cancel();" type="button">{{"Cancel"| t}}</button>	
+	</div>			
+
+
+</form> 

@@ -34,7 +34,7 @@ $start-icon-size: 100px;
 		width:$start-icon-size + 20px;
 		
 		span{
-			background: #f1f1f1;
+			background: $light-bg;
 			width:$start-icon-size;
 			height:$start-icon-size;
 			border-radius:$start-icon-size / 2;

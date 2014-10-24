@@ -60,8 +60,8 @@ angular.module('GO.ImageUploadPlaceholder', ['ui.bootstrap','GO.core'])
 				attrs.imDefaultImageUrl = '';
 			}
 			
-			if(!attrs.imDeletePermission){
-				attrs.imDeletePermission = false;
+			if(angular.isUndefined(attrs.imDeletePermission)){
+				attrs.imDeletePermission = true;
 			}						
 			
 			scope.imDeletePermission = attrs.imDeletePermission;
@@ -98,31 +98,36 @@ angular.module('GO.ImageUploadPlaceholder', ['ui.bootstrap','GO.core'])
 			
 			scope.uploadSuccess = function($file, $message){
 
-				var data = angular.fromJson($message);
-				scope.imImageTempAttribute = data.file;				
-				scope.imageUrl = scope.createThumb(data.file, true);				
-				scope.originalUrl = scope.createOriginalUrl(data.file, true);
-				
-				if(scope.imOnChange){
-//					scope.$digest();
-					//need to call timeout otherwise the scope model hasn't changed yet !?
-					$timeout(function(){
-						scope.imOnChange({file: data.file});
-					});
-				}
+				scope.$apply(function(){
+					var data = angular.fromJson($message);
+					scope.imImageTempAttribute = data.file;				
+					scope.imageUrl = scope.createThumb(data.file, true);				
+					scope.originalUrl = scope.createOriginalUrl(data.file, true);
+
+					if(scope.imOnChange){
+	//					scope.$digest();
+						//need to call timeout otherwise the scope model hasn't changed yet !?
+//						$timeout(function(){
+							scope.imOnChange({file: data.file});
+//						});
+					}
+				});
 
 			};
 
 			scope.delete = function($event){
+				
 				scope.imageUrl = false;
-				scope.imImageAttribute = "";				
+				scope.imImageAttribute = "";	
+				
+				console.log('delete');
 				
 			};			
 
 			scope.$watch('imImageAttribute',function(newValue, oldValue){			
 				
-				scope.imageUrl = scope.createThumb(scope.imImageAttribute, false);
-				scope.originalUrl = scope.createOriginalUrl(scope.imImageAttribute, false);
+				scope.imageUrl = scope.imImageAttribute ? scope.createThumb(scope.imImageAttribute, false) : false;
+				scope.originalUrl = scope.imImageAttribute ?  scope.createOriginalUrl(scope.imImageAttribute, false) : false;
 			});
 				
 
@@ -145,13 +150,13 @@ angular.module('GO.ImageUploadPlaceholder', ['ui.bootstrap','GO.core'])
 \
 <ul class="dropdown-menu">\
         <li><div class="im-dropdown-option" flow-btn><span class="fa fa-edit"></span> {{"Select image" | t}}</div></li>\
-		<li><a ng-if="imImageAttribute" ng-href="{{originalUrl}}" target="_blank"><span class="fa fa-external-link"></span> {{"Show original" | t}}</a></li>\
-		<li><a ng-if="imDeletePermission && imImageAttribute" ng-click="delete($event);"><span class="fa fa-trash-o"></span> {{"Delete" | t}}</a></li>\
+		<li><a ng-if="imageUrl" ng-href="{{originalUrl}}" target="_blank"><span class="fa fa-external-link"></span> {{"Show original" | t}}</a></li>\
+		<li><a ng-if="imDeletePermission && imageUrl" ng-click="delete($event);"><span class="fa fa-trash-o"></span> {{"Delete" | t}}</a></li>\
       </ul>\
 	\
 	<div data-flow-drop dropdown-toggle>\
-				<img class="thumbnail" ng-if="imImageAttribute" ng-src="{{imageUrl}}" alt="{{imAlt}}" />\
-				<div ng-if="!imImageAttribute" class="thumbnail"><i class="fa fa-image"></i></div>\
+				<img class="thumbnail" ng-if="imageUrl" ng-src="{{imageUrl}}" alt="{{imAlt}}" />\
+				<div ng-if="!imageUrl" class="thumbnail"><i class="fa fa-image"></i></div>\
 			</div>\
 \
 			<div class="progress-bar-container" ng-repeat="file in $flow.files">\

@@ -1,10 +1,23 @@
 {
-	"attributes": {},
+	"attributes": {
+		"ui-sref": {
+			"context": "a"
+		},
+		"im-infinite-scroll-disabled": {},
+		"ui-view": {
+			"context": "div"
+		},
+		"im-model": {},
+		"im-submit": {
+			"context": "form"
+		}
+	},
 	"elements": {
 		"go-collapsible-panel": {
 			"attributes": {
 				"on-close": {}
 			}
-		}
+		},
+		"im-soft-delete-button": {}
 	}
 }

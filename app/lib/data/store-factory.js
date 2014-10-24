@@ -23,6 +23,10 @@ angular.module('GO.data')
 
 					this.storeRoute = storeRoute;
 					this.baseModel = model;
+					
+					if(loadParams.returnAttributes){
+						this.baseModel.baseParams.returnAttributes = loadParams.returnAttributes;
+					}
 
 					this.allRecordsLoaded = false;
 
