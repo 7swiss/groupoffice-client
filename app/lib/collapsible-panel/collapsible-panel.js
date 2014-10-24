@@ -76,17 +76,22 @@ angular.module('GO.collapsiblePanel', []).
 
 						scope.$watch('isActive', function(newValue, oldValue) {
 					
+//							console.log('isActive watcher');
+//							console.log(newValue);
+					
 							if(newValue){	
 								
 								if(scope.onOpen){
 									scope.onOpen();
 								}
+								
+								
 
-								mask.bind('click', scope.close);
+								mask.bind('click', close);
 							}else
 							{
 								if(oldValue){
-									mask.unbind('click', scope.close);
+									mask.unbind('click', close);
 
 									if(scope.onClose){						
 										scope.onClose();
@@ -95,17 +100,21 @@ angular.module('GO.collapsiblePanel', []).
 							}							
 						});
 						
-						scope.close = function() {							
-							scope.isActive = false;
+						var close = function() {	
+							//must use $apply here from listener
+							scope.$apply(function(){
+								scope.isActive = false;
+							});
 						};
 						
 						scope.toggle = function(){
-							
+//							console.log('toggle');
 							scope.isActive = !scope.isActive;
 
 							if(!scope.isActive){
 								scope.isPinned = false;
 							}						
+		
 						};
 						
 						

@@ -10,30 +10,30 @@ angular.module('GO.customFields')
 		.directive('imCustomFieldsDetail', ['$templateCache', function($templateCache) {
 
 				$templateCache.put('customfield-text-detail.html',
-						'<dl ng-if="imModel.attributes.customfields.attributes[field.attributes.databaseName] != \'\'">\
+						'<dl ng-if="!$root.isEmpty(imModel.attributes.customfields.attributes[field.attributes.databaseName])">\
 							<dt>{{field.attributes.name}}</dt>\
 							<dd>{{imModel.attributes.customfields.attributes[field.attributes.databaseName]}}</dd>\
 						</dl>');
 
 				$templateCache.put('customfield-textarea-detail.html',
-						'<dl ng-if="imModel.attributes.customfields.attributes[field.attributes.databaseName] != null">\
+						'<dl ng-if="!$root.isEmpty(imModel.attributes.customfields.attributes[field.attributes.databaseName])">\
 							<dt>{{field.attributes.name}}</dt>\
 							<dd><pre>{{imModel.attributes.customfields.attributes[field.attributes.databaseName]}}</pre></dd>\
 						</dl>');
 				
 				$templateCache.put('customfield-select-detail.html',
-						'<dl ng-if="imModel.attributes.customfields.attributes[field.attributes.databaseName] != \'\'">\
+						'<dl ng-if="!$root.isEmpty(imModel.attributes.customfields.attributes[field.attributes.databaseName])">\
 							<dt>{{field.attributes.name}}</dt>\
 							<dd>{{imModel.attributes.customfields.attributes[field.attributes.databaseName]}}</dd>\
 						</dl>');
 						
 				$templateCache.put('customfield-checkbox-detail.html',
-						'<dl  ng-if="imModel.attributes.customfields.attributes[field.attributes.databaseName] != \'\'">\
+						'<dl>\
 							<dt>&nbsp;</dt><dd><i class="fa" ng-class="{\'fa-square-o\': !imModel.attributes.customfields.attributes[field.attributes.databaseName],\'fa-check-square-o\': imModel.attributes.customfields.attributes[field.attributes.databaseName]}"></i> {{field.attributes.name}}</dd>\
 						</dl>');
 						
 				$templateCache.put('customfield-date-detail.html',
-						'<dl ng-if="imModel.attributes.customfields.attributes[field.attributes.databaseName] != \'\'">\
+						'<dl ng-if="!$root.isEmpty(imModel.attributes.customfields.attributes[field.attributes.databaseName])">\
 							<dt>{{field.attributes.name}}</dt>\
 							<dd>{{imModel.attributes.customfields.attributes[field.attributes.databaseName] | date:\'longDate\'}}</dd>\
 						</dl>');
@@ -43,7 +43,7 @@ angular.module('GO.customFields')
 						
 						
 				$templateCache.put('customfield-number-detail.html',
-						'<dl ng-if="imModel.attributes.customfields.attributes[field.attributes.databaseName] != \'\'">\
+						'<dl ng-if="!$root.isEmpty(imModel.attributes.customfields.attributes[field.attributes.databaseName])">\
 							<dt>{{field.attributes.name}}</dt>\
 							<dd>{{imModel.attributes.customfields.attributes[field.attributes.databaseName] | number}}</dd>\
 						</dl>');

@@ -178,8 +178,6 @@ var GO = angular.module('GO', [
 		});
 
 
-
-
 GO.value('appVersion', '7.0');
 GO.value('appTitle', 'Group-Office');
 

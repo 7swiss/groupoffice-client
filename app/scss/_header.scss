@@ -44,13 +44,14 @@
 .go-header{
 	height:$header-height;
 	padding: 0px 0px 0px 14px;
-	background: $dark-bg;
+	/*background: $dark-bg;*/
+	background: $light-bg;
 
 	
 	h1{
 		margin:0px;
 		padding:0px;
-		color:white;
+		color:$primary-color;
 		line-height:$header-height;
 		font-size:20px;
 		display: inline;
@@ -61,7 +62,7 @@
 		padding:0px;
 		line-height:$header-height;
 		font-size:20px;
-		color:white;
+		color:$primary-color;
 
 		&:hover{
 			text-decoration:none;

@@ -54,7 +54,7 @@
 			</a>
 
 
-			<!--<go-store-search store="store"></go-store-search>-->
+			<go-store-search store="store"></go-store-search>
 
 
 			<a class="btn-primary" ui-sref="contacts.edit({contactId: 0})">
@@ -72,7 +72,7 @@
 			<div class="go-list list-group" im-infinite-scroll="store.nextPage()" im-infinite-scroll-disabled="!store.shouldLoad()">
 				<div class="deletable" ng-class="{'deleted-invisible': contact.attributes.deleted}" ng-repeat="contact in store.items track by contact.attributes.id">
 					<a ui-sref-active="active" ui-sref="contacts.contact({contactId: contact.attributes.id})" class="list-group-item">
-						<img class="thumbnail" ng-src="{{::'intermesh/contacts/contact/thumb'| apiRoute: {w: 45, h: 60, zoomCrop: 1, contactId: contact.attributes.id} }}" />
+						<img class="thumbnail" style="width:40px;height:40px;" ng-src="{{::'intermesh/contacts/contact/thumb'| apiRoute: {w: 40, h: 40, zoomCrop: 1, contactId: contact.attributes.id} }}" />
 						{{contact.attributes.name}}
 
 						<small style="float:right" ng-if="contact.attributes.company"><i class="fa fa-building"></i> {{contact.attributes.company.attributes.name}}</small>
