@@ -69,7 +69,7 @@
 
 .go-body{
 
-	.go-col{
+	.go-panel{
 
 		/* make aside on tablet or smaller */
 		&.collapse-xs, &.collapse-sm, &.collapse-lg{
@@ -81,14 +81,24 @@
 			float:none;
 			position:absolute;		
 			left: -600px;
-			background-color: $light-bg;
-			border-right: 1px solid $border-color;
+			top: -5px; //to clear shadow of header
+			border-top: 5px solid $header-bg;
+			background-color: $body-bg;
+			/*border-right: 1px solid $border-color;*/
+			
+			box-shadow: 0px 2px 0px 0px  rgba(0, 0, 0, 0.26);
 
 			&.active{
 				left:0px;
 			}
-
-
+			
+			
+			.go-toolbar {
+				background-color: $header-bg;
+				color: white;
+				
+				
+			}
 		}
 
 		&.collapse-xs{

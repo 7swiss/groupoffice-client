@@ -36,20 +36,19 @@
 
 
 <div class="go-scrollable-panel">
+	
+		<div class="go-col lg-2">
 
-	<div class="go-lg-col-2">
+		<div class="go-card" style="position: relative">
 
-		<div class="go-detail-panel">
-
-			<div class="panel-heading">
+			<h1>
 				{{contact.attributes.name}}
-			</div>
+			</h1>
 
-			<div class="panel-body" style="position:relative;">
-
+		
 
 <!--				<div class="thumbnail" style=>-->
-					<img class="thumbnail" style="position:absolute;top:10px;left:10px;width:60px;height:60px;" ng-src="{{'intermesh/contacts/contact/thumb'| apiRoute: {w: 60, h: 60, zoomCrop: 1, contactId: contact.attributes.id} }}" />
+					<img class="thumbnail" style="position:absolute;top:50px;left:10px;width:60px;height:60px;" ng-src="{{'intermesh/contacts/contact/thumb'| apiRoute: {w: 60, h: 60, zoomCrop: 1, contactId: contact.attributes.id} }}" />
 				<!--</div>-->
 				
 				<div style="padding-left:30px;">
@@ -106,32 +105,28 @@
 
 					</dd>
 				</dl>
-</div>
 			</div>
 		</div>
 
+		
 
-
-		<div class="go-detail-panel" ng-if="contact.attributes.employees.length">
-			<div class="panel-heading">{{"Employees"| t}}</div>
-			<div class="panel-body">
+		<div class="go-card" ng-if="contact.attributes.employees.length">
+			<h1>{{"Employees"| t}}</h1>
+		
 				<a ui-sref="contacts.contact.detail({contactId: contact.attributes.id})" style="float:left;width:100px;text-align:center;margin:20px;" ng-repeat="contact in contact.attributes.employees">
 					<img class="thumbnail" style="display:inline-block" ng-src="{{::'intermesh/contacts/contact/thumb'| apiRoute: {w: 75, h: 100, zoomCrop: 1, contactId: contact.attributes.id} }}" />
 
 					{{contact.attributes.name}}
 
 				</a>					
-			</div>
+		
 		</div>
-
-
-
-		<im-custom-fields-detail im-model="contact" im-server-model="Intermesh\Modules\Contacts\Model\ContactCustomFields"></im-custom-fields-detail>
-
-
-		<div class="go-detail-panel">
-			<div class="panel-heading">{{"Notes"| t}}</div>
-			<div class="panel-body">
+			
+		</div>
+	
+	<div class="go-col lg-2">
+		<div class="go-card">
+			<h1>{{"Notes"| t}}</h1>
 
 
 				<div ng-if="contact.permissions.editAccess">
@@ -142,9 +137,8 @@
 				<div ng-if="!contact.permissions.editAccess">
 					<pre>{{contact.attributes.notes}}</pre>
 				</div>
-			</div>
+			
 		</div>
-
-</div>
-
+		<im-custom-fields-detail im-model="contact" im-server-model="Intermesh\Modules\Contacts\Model\ContactCustomFields"></im-custom-fields-detail>
+	</div>
 </div>

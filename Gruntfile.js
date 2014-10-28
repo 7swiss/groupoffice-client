@@ -13,7 +13,7 @@ module.exports = function (grunt) {
             dist: {
                 expand: true,
                 cwd: 'app/',
-                src: ['**', '!lib/**', '!lib/**', '!css/**', '!scss/*','!modules/*/lib/**','!modules/*/scss/**'],
+                src: ['**', '!lib/**', '!lib/**', '!css/**', '!scss/*','!modules/*/js/**','!modules/*/scss/**'],
                 dest: 'dist/app'
             },
 			fonts:{
@@ -110,33 +110,33 @@ module.exports = function (grunt) {
                 }
             }
         },
-		
-		compass: {  
-			dev: {
-			  options: {
-				sassDir: '.tmp/scss',
-				cssDir: 'app/css'
-			  }
-			}
-		  },
+//		
+//		compass: {  
+//			dev: {
+//			  options: {
+//				sassDir: '.tmp/scss',
+//				cssDir: 'app/css'
+//			  }
+//			}
+//		  },
 
         watch: {
             blocks: {
                 files: [
 					'app/**/*.js',
-					'app/css/**/scss/*.css',
-					'app/css/modules/**/scss/*.css'
+					'app/css/**/scss/*.css'
+					//'app/css/modules/**/scss/*.css'
 				],
                 tasks: ['fileblocks:dev']
-            },
-            scss: {
-                files: [
-					'app/**/*.scss',
-					'app/modules/**/scss/*.scss',
-					'app/lib/**/*.scss'
-				],
-                tasks: ['clean:tmp', 'copy:scss', 'compass:dev']
             }
+//            scss: {
+//                files: [
+//					'app/**/*.scss',
+//					'app/modules/**/scss/*.scss',
+//					'app/lib/**/*.scss'
+//				],
+//                tasks: ['clean:tmp', 'copy:scss', 'compass:dev']
+//            }
 			
         },
         ngdocs: {

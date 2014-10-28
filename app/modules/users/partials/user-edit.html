@@ -13,12 +13,11 @@
 
 	<div class="go-scrollable-panel">
 
-		<div class="panel panel-default">
+		<div class="go-card">
 			<!-- Default panel contents -->
-			<div class="panel-heading">{{"Properties"| t}}</div>
+			<h1>{{"Properties"| t}}</h1>
 
-			<div class='panel-body'>
-
+		
 
 				<div class="form-group">
 					<div class="checkbox">
@@ -106,23 +105,21 @@
 					<im-show-error for="passwordConfirm" im-model="user" im-messages="{'imMatch': 'The passwords don\'t match'}"></im-show-error>
 				
 				</div>
-			</div>
+			
 		</div>
 
-		<div class="panel panel-default">
-			<!-- Default panel contents -->
-			<div class="panel-heading">{{"Roles"| t}}
+		<div class="go-card">
+			
+			<div class="go-toolbar go-toolbar-xs">
+				<h1>{{"Roles"| t}}</h1>
 
-				<div class="go-toolbar go-toolbar-xs">
-					<div class="go-right-toolbar">
+				<div class="go-toolbar-right">
 
-						<a ng-click="storeSelectModal.openModal()">
-							<i class="fa fa-plus"></i>
-						</a>
+					<a ng-click="storeSelectModal.openModal()">
+						<i class="fa fa-plus"></i>
+					</a>
 
-					</div>
 				</div>
-
 			</div>
 
 

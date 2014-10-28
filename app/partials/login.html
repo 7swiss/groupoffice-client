@@ -1,59 +1,57 @@
 <form name="loginForm" novalidate im-submit="login(user)" role="form">
 
 
-	<div class="go-detail-panel go-login-window">
+	<div class="go-card go-login-window">
 
-		<div class="panel-heading">{{::title}}</div>
+		<h1>{{::title}}</h1>
 
 
-		<div class="panel-body">
+		<input type="hidden"  ng-model="user.id">
 
-			<input type="hidden"  ng-model="user.id">
+		<div class="form-group">
+			<label>
+				URL
+			</label>
+			<!--<div class="input-group">-->
+				<!--<div class="input-group-addon"><i class="fa fa-database"></i></div>-->
+				<input id="url" name="url" type="text" class="form-control" ng-model="config.url" placeholder="https://example.groupoffice.biz/groupoffice/" required autofocus>
 
-			<div class="form-group">
-				<label>
-					URL
-				</label>
-				<!--<div class="input-group">-->
-					<!--<div class="input-group-addon"><i class="fa fa-database"></i></div>-->
-					<input id="url" name="url" type="text" class="form-control" ng-model="config.url" placeholder="https://example.groupoffice.biz/groupoffice/" required autofocus>
+			<!--</div>-->
+			<im-show-error for="url"></im-show-error>
+		</div>
 
-				<!--</div>-->
-				<im-show-error for="url"></im-show-error>
-			</div>
-
-			<div class="form-group">
-				<label>
-					Username
-				</label>
+		<div class="form-group">
+			<label>
+				Username
+			</label>
 <!--				<div class="input-group">
-					<div class="input-group-addon"><i class="fa fa-user"></i></div>-->
-					<input id="username" name="username" type="text" class="form-control" ng-model="user.username" placeholder="{{'Username'| t}}" required autocomplete>						
-				<!--</div>-->
-				<im-show-error for="username"></im-show-error>
-			</div>
+				<div class="input-group-addon"><i class="fa fa-user"></i></div>-->
+				<input id="username" name="username" type="text" class="form-control" ng-model="user.username" placeholder="{{'Username'| t}}" required autocomplete>						
+			<!--</div>-->
+			<im-show-error for="username"></im-show-error>
+		</div>
 
-			<div class="form-group">
-				<label>
-					Password
-				</label>
+		<div class="form-group">
+			<label>
+				Password
+			</label>
 <!--				<div class="input-group">
-					<div class="input-group-addon"><i class="fa fa-lock"></i></div>-->
-					<input id="password" name="password" type="password" class="form-control" ng-model="user.password" placeholder="{{'Password'| t}}" required autocomplete>						
+				<div class="input-group-addon"><i class="fa fa-lock"></i></div>-->
+				<input id="password" name="password" type="password" class="form-control" ng-model="user.password" placeholder="{{'Password'| t}}" required autocomplete>						
 <!--				</div>-->
-				<im-show-error for="password"></im-show-error>
-			</div>
-
-			<div class="checkbox">
-				<label>
-					<input type="checkbox" ng-model="user.remember"> {{'Remember my login'| t}}
-				</label>
-			</div>
+			<im-show-error for="password"></im-show-error>
 		</div>
 
-		<div class="panel-footer">
-			<input type="submit" class="btn btn-primary" value="{{'Login'| t}}"/>
+		<div class="checkbox">
+			<label>
+				<input type="checkbox" ng-model="user.remember"> {{'Remember my login'| t}}
+			</label>
 		</div>
+	
+
+	
+		<input type="submit" class="btn btn-primary" value="{{'Login'| t}}"/>
+	
 	</div>
 
 </form>

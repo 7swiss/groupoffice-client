@@ -1,7 +1,7 @@
 
 <div ng-include="'partials/header.html'"></div>
 
-<div class="go-toolbar">
+<div class="go-toolbar" ng-if="announcementsModule.permissions.createAccess">
 	<a ui-sref="announcements.edit({announcementId:0})"><i class="fa fa-plus"></i></a>	
 </div>
 
@@ -12,44 +12,34 @@
 	
 		<div style="max-width:800px;margin:0 auto">
 		
-	<div ng-repeat="announcement in announcementStore.items" class="timeline-item">
+	<div ng-repeat="announcement in announcementStore.items" class="go-card">
 
 	
 		<div ng-if="!announcement.attributes.imapMessageId">
-			<img class="thumbnail" ng-src="{{'intermesh/contacts/contact/thumb'| apiRoute: {w: 45, h: 50, zoomCrop: 1, userId: announcement.attributes.ownerUserId} }}">
+			<!--<img class="thumbnail" ng-src="{{'intermesh/contacts/contact/thumb'| apiRoute: {w: 45, h: 50, zoomCrop: 1, userId: announcement.attributes.ownerUserId} }}">-->
+
+<!--			<div style="width:auto;height:300px;margin:-16px -16px 20px;background-position:center;background-image:url({{::'intermesh/announcements/announcement/thumb'| apiRoute: {w: 800, announcementId: announcement.attributes.id} }})" target="_blank" href="{{::'intermesh/announcements/announcement/original'| apiRoute: {announcementId: announcement.attributes.id} }}">
+				&nbsp;
+			</div>-->
+
+			<a target="_blank" href="{{::'intermesh/announcements/announcement/original'| apiRoute: {announcementId: announcement.attributes.id} }}">
+				<img style="float:left;width:274px;margin:0px 10px 10px 0px" ng-src="{{::'intermesh/announcements/announcement/thumb'| apiRoute: {w: 274, announcementId: announcement.attributes.id} }}" />
+			</a>
+	
+			<h1 style="display: inline-block">{{announcement.attributes.title}}</h1> 
+			<small>{{"by" | t }} {{announcement.attributes.owner.attributes.username}} at {{announcement.attributes.createdAt | date}}</small>
+
+			<p ng-bind-html="announcement.attributes.text | nl2br">
+			</p>
 
 
-			<div  class="timeline-panel-container">
-				<div class="panel panel-default timeline-panel">
-					<div class="panel-heading">
-						<h4 style="display:inline-block">{{announcement.attributes.title}}</h4> 
-						<div style="float:right;font-style:italic;">{{"by" | t }} {{announcement.attributes.owner.attributes.username}} at {{announcement.attributes.createdAt | date}}</div>
-					</div>
-					<div class="panel-body" ng-class="{'deleted-visible': announcement.attributes.deleted}">
-						
-						<a target="_blank" href="{{::'intermesh/announcements/announcement/original'| apiRoute: {announcementId: announcement.attributes.id} }}">
-						<img  style="width:200px;height:150px;float:left;margin: 0px 10px 10px 0px" ng-src="{{::'intermesh/announcements/announcement/thumb'| apiRoute: {w: 200, h: 150, zoomCrop: 1, announcementId: announcement.attributes.id} }}" />
-						
-						</a>
-				 
-						
-						<span ng-bind-html="announcement.attributes.text | nl2br">
-							
-							
-							
-							
-						</span>
-					</div>
-
-
-					<div style="text-align:right;padding:0px 20px 20px 0px">						
-						<a ui-sref="announcements.edit({announcementId: announcement.attributes.id})" class="btn btn-xs btn-default">
-							<i class="fa fa-edit"></i>
-						</a>
-						<im-soft-delete-button im-model="announcement"></im-soft-delete-button>
-					</div>
-				</div>
+			<div ng-if="announcementsModule.permissions.createAccess" style="text-align:right;">						
+				<a ui-sref="announcements.edit({announcementId: announcement.attributes.id})" class="btn btn-xs btn-default">
+					<i class="fa fa-edit"></i>
+				</a>
+				<im-soft-delete-button im-model="announcement"></im-soft-delete-button>
 			</div>
+			
 		</div>
 		
 		

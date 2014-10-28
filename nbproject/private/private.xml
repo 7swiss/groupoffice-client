@@ -2,6 +2,51 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group name="PocketOffice"/>
+        <group name="PocketOffice">
+            <file>file:/var/www/html/groupoffice-client/app/modules/announcements/partials/announcement-edit.html</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/announcements/partials/main.html</file>
+            <file>file:/var/www/html/groupoffice-client/bower_components/textAngular/src/textAngularSetup.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/announcements/js/controller/announcements-controller.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/announcements/js/controller/announcement-edit-controller.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/contacts/partials/main.html</file>
+            <file>file:/var/www/html/groupoffice-client/app/lib/data/model-factory.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/lib/data/store-factory.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/announcements/scss/_announcements.scss</file>
+            <file>file:/var/www/html/groupoffice-client/app/scss/app.scss</file>
+            <file>file:/var/www/html/groupoffice-client/app/lib/image-upload-placeholder/image-upload-placeholder-directive.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/scss/_header.scss</file>
+            <file>file:/var/www/html/groupoffice-client/app/scss/_config.scss</file>
+            <file>file:/var/www/html/groupoffice-client/app/scss/_start-screen.scss</file>
+            <file>file:/var/www/html/groupoffice-client/app/scss/_toolbar.scss</file>
+            <file>file:/var/www/html/groupoffice-client/Gruntfile.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/lib/tabs/_tabs.scss</file>
+            <file>file:/var/www/html/groupoffice-client/app/scss/_panels.scss</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/contacts/partials/contact-detail.html</file>
+            <file>file:/var/www/html/groupoffice-client/app/lib/custom-fields/custom-fields-detail-directive.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/scss/_bootstrap-overrides.scss</file>
+            <file>file:/var/www/html/groupoffice-client/app/lib/collapsible-panel/_collapsible-panel.scss</file>
+            <file>file:/var/www/html/groupoffice-client/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_variables.scss</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/contacts/partials/contact-files.html</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/contacts/partials/contact-timeline.html</file>
+            <file>file:/var/www/html/groupoffice-client/app/partials/login.html</file>
+            <file>file:/var/www/html/groupoffice-client/app/scss/_layout.scss</file>
+            <file>file:/var/www/html/groupoffice-client/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_grid.scss</file>
+            <file>file:/var/www/html/groupoffice-client/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins/_grid-framework.scss</file>
+            <file>file:/var/www/html/groupoffice-client/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins/_grid.scss</file>
+            <file>file:/var/www/html/groupoffice-client/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_buttons.scss</file>
+            <file>file:/var/www/html/groupoffice-client/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_code.scss</file>
+            <file>file:/var/www/html/groupoffice-client/bower_components/bootstrap-sass-official/README.md</file>
+            <file>file:/var/www/html/groupoffice-client/app/lib/collapsible-panel/collapsible-panel.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/contacts/partials/contact-edit.html</file>
+            <file>file:/var/www/html/groupoffice-client/app/lib/custom-fields/custom-fields-edit-directive.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/scss/_bootstrap.scss</file>
+            <file>file:/var/www/html/groupoffice-client/app/scss/_boostrap-variables.scss</file>
+            <file>file:/var/www/html/groupoffice-client/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_scaffolding.scss</file>
+            <file>file:/var/www/html/groupoffice-client/app/css/app.css</file>
+            <file>file:/var/www/html/groupoffice-client/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_close.scss</file>
+            <file>file:/var/www/html/groupoffice-client/app/scss/_ui-select.scss</file>
+            <file>file:/var/www/html/groupoffice-client/app/index.html</file>
+            <file>file:/var/www/html/groupoffice-client/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins/_buttons.scss</file>
+        </group>
     </open-files>
 </project-private>

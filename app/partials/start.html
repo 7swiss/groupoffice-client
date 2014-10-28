@@ -12,18 +12,21 @@
 	</div>
 </div>
 
-<div class="go-start-screen">
+<div class="go-body">
+	<div class="go-scrollable-panel go-start-screen">
 
-<div class="row">
+		<div class="row">
 
-	<div class="go-start-icon-col col-sm-2 col-xs-6" ng-repeat="module in ::modules">
-		<a class="go-start-icon {{::module.attributes.type}}" ui-sref="{{module.attributes.name}}">
-		<span><i class="fa {{::module.clientAttributes.iconCls}}"></i></span> 
-		{{::module.clientAttributes.title | t}}</a>
-		
+			<div class="go-start-icon-col col-sm-2 col-xs-6" ng-repeat="module in ::modules">
+				<a class="go-start-icon {{::module.attributes.type}}" ui-sref="{{module.attributes.name}}">
+					<span><i class="fa {{::module.clientAttributes.iconCls}}"></i></span> 
+					{{::module.clientAttributes.title| t}}</a>
+
+			</div>
+		</div>
+
+		<div ng-if="modulesService.store.busy;"><i class="fa fa-spinner go-rotate"></i> {{"Loading..."| t}}</div>
+
 	</div>
-</div>
-	
-<div ng-if="modulesService.store.busy;"><i class="fa fa-spinner go-rotate"></i> {{"Loading..."| t}}</div>
 
 </div>

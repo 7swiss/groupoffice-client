@@ -11,13 +11,13 @@ styling to your application:
 
 /* list group */
 a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.active:focus {
-	background-color: $dark-bg;
-	border-color: $dark-bg;
+	background-color: $header-bg;
+	border-color: $header-bg;
 }
 
 
 .list-group-item.selected{
-	background-color: $dark-bg;
+	background-color: $header-bg;
 	border-color: white;
 	color:white;
 }

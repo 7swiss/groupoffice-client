@@ -1,14 +1,15 @@
-
 .go-tab-bar{
 	
 	height: $toolbar-height;
 	padding:0px 10px;	
-	background: $medium-bg;	
+	background: $tab-bar-bg;	
 	
 	position:absolute;	
 	top:0px;
 	left:0px;
 	right:0px;
+	
+	border-bottom: 1px solid $border-color;
 	
 	a{		
 		margin-top:10px;
@@ -29,8 +30,14 @@
 		&.active{
 			padding:10px 20px 0;
 			color: $primary-color;
-			background-color: $light-bg;
-			border-radius:  4px 4px 0 0;
+			background-color: $tab-color;
+			border-radius:  2px 2px 0 0;
+			border-color: $border-color;
+			border-width: 1px;
+			border-style: solid;
+			border-bottom-width:0px;
+			
+			
 		}
 	}
 		
@@ -41,8 +48,13 @@
 .go-tab-view{
 	
 	.go-toolbar{
-		top: 0px;
+		background-color: $tab-color;
+		a{
+			background-color: white;
+		}
+		border-bottom: 0px;
 	}
+
 
 	top: $header-height;
 	bottom:0px;
@@ -50,64 +62,64 @@
 	right:0px;
 	position:absolute;
 	
-	background: white;
+	background: $body-bg;
 	
 	z-index: 100;
 	
 	&.ng-enter {
-		@include transition(all .3s ease-out);
+		transition: all .3s ease-out;
 		z-index: 99 !important;
 	}
 	
 	&.ng-leave {
-		@include transition(all .6s ease-out);
+		transition: all .6s ease-out;
 		
 		z-index: 98 !important;
 	}
 	
 
 	&.ng-enter.right{
-		@include transform(translateX(-100%));		
+		transform: translateX(-100%);		
 		/*opacity: 0;*/
 	}
 	
 
 	&.ng-enter-active.right {
-		@include transform(translateX(0%));
+		transform: translateX(0%);
 		/*opacity: 1;*/		
 	}
 
 	&.ng-leave.right {
 		/*opacity: 1;*/
-		@include transform(translateX(0%));		
+		transform: translateX(0%);		
 	}
 
 	&.ng-leave-active.right {
 		/*opacity: 0;*/
-		@include transform(translateX(100%));		
+		transform: translateX(100%);		
 	}
 	
 	
 	
 	&.ng-enter.left{
-		@include transform(translateX(100%));		
+		transform: translateX(100%);		
 		/*opacity: 0;*/
 	}
 	
 
 	&.ng-enter-active.left {
-		@include transform(translateX(0%));
+		transform: translateX(0%);
 		/*opacity: 1;*/		
 	}
 
 	&.ng-leave.left {
 		/*opacity: 1;*/
-		@include transform(translateX(0%));		
+		transform: translateX(0%);		
 	}
 
 	&.ng-leave-active.left {
 		/*opacity: 0;*/
-		@include transform(translateX(-100%));		
+		transform: translateX(-100%);		
 	}
 	
 

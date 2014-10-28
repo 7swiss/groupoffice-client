@@ -24,7 +24,7 @@ angular.module('GO.data')
 					this.storeRoute = storeRoute;
 					this.baseModel = model;
 					
-					if(loadParams.returnAttributes){
+					if(loadParams && loadParams.returnAttributes){
 						this.baseModel.baseParams.returnAttributes = loadParams.returnAttributes;
 					}
 

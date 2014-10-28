@@ -28,59 +28,57 @@
 
 	<div class="go-scrollable-panel">
 
-		<div class="panel panel-default">
-			<div class="panel-heading">{{"Properties"| t}}</div>
-			<div class="panel-body">
-				<div class="form-group">
-					<label for="name">{{"Role name"| t}}</label>
-					<input type="text" name="name" id="name" ng-model="role.attributes.name" required autofocus />
-					<im-show-error for="name" im-model="role"></im-show-error>
-				</div>
+		<div class="go-card">
+			<h1>{{"Properties"| t}}</h1>
+	
+			<div class="form-group">
+				<label for="name">{{"Role name"| t}}</label>
+				<input type="text" name="name" id="name" ng-model="role.attributes.name" required autofocus />
+				<im-show-error for="name" im-model="role"></im-show-error>
+			</div>
 
-				<div class="form-group">
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" ng-model="role.attributes.autoAdd" /> {{"Grant permission to new items automatically"| t}}
-						</label>
-					</div>
+			<div class="form-group">
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" ng-model="role.attributes.autoAdd" /> {{"Grant permission to new items automatically"| t}}
+					</label>
 				</div>
 			</div>
+			
 		</div>
 
-		<div class="panel panel-default">
+		<div class="go-card">
 			<!-- Default panel contents -->
-			<div class="panel-heading">{{"Enabled modules"| t}}</div>
-			<div class="panel-body">
-				<table class="table">
-					<tr>
-						<th>{{"Name"| t }}</th>
-						<th>{{"Use access"| t }}</th>
-						<th>{{"Create access"| t }}</th>
-					</tr>
-					<tr ng-repeat="module in role.attributes.modulesWithPermissions">
+			<h1>{{"Enabled modules"| t}}</h1>
+			
+			<table class="table">
+				<tr>
+					<th>{{"Name"| t }}</th>
+					<th>{{"Use access"| t }}</th>
+					<th>{{"Create access"| t }}</th>
+				</tr>
+				<tr ng-repeat="module in role.attributes.modulesWithPermissions">
 
-						<td>{{module.attributes.name}}</td>
-						<td><input type="checkbox" ng-model="module.attributes.useAccess"></td>
-						<td><input type="checkbox" ng-model="module.attributes.createAccess"></td>					
-					</tr>
-				</table>
-			</div>
+					<td>{{module.attributes.name}}</td>
+					<td><input type="checkbox" ng-model="module.attributes.useAccess"></td>
+					<td><input type="checkbox" ng-model="module.attributes.createAccess"></td>					
+				</tr>
+			</table>
+
 		</div>
 
 
-		<div class="panel panel-default">
-			<!-- Default panel contents -->
-			<div class="panel-heading">{{"Users in role"| t}}
-
-				<div class="go-toolbar go-toolbar-xs">
-					<div class="go-right-toolbar">					
-						<a ng-click="storeSelectModal.openModal()">
-							<i class="fa fa-plus"></i>					
-						</a>
-					</div>
+		<div class="go-card">
+		
+			<div class="go-toolbar go-toolbar-xs">
+				<h1>{{"Users in role"| t}}</h1>
+				<div class="go-toolbar-right">					
+					<a ng-click="storeSelectModal.openModal()">
+						<i class="fa fa-plus"></i>					
+					</a>
 				</div>
-
 			</div>
+
 
 			<ul class="list-group">
 

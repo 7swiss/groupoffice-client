@@ -201,6 +201,9 @@ angular.module('GO.controllers').
 				
 			
 				$scope.hasProjects = Modules.getModule('projects') !== false;
+				
+				
+				$scope.contactsModule = Modules.getModule('contacts');
 
 				
 			}]);

@@ -3,14 +3,14 @@
 	height: $toolbar-height;
 	padding:8px 12px;
 
-	background-color: $medium-bg;
+	background-color: $toolbar-bg;
 	border-bottom: 1px solid $border-color;
 	border-right: 1px solid $border-color;
 	
 	
 	line-height:$toolbar-height;
 	padding:0 10px;
-	/*font-size: 1.2em;*/
+	font-size: 1.2em;
 	
 	a {
 		@extend .btn;
@@ -22,12 +22,18 @@
 		display:block;
 		
 		margin-top: 8px;
-
+		margin-right:10px;
+	}
+	
+	button {
+		float:left;
+		display:block;
+		
+		margin-top: 8px;
 		margin-right:10px;
 	}
 
-
-	a:last-child{
+	button:last-child, a:last-child{
 		margin-right:0px;
 	}
 
@@ -53,19 +59,25 @@
 		input{
 			margin-top: 8px;
 		}
+		
+		button{
+			float: none;
+			display: inline-block;
+		
+			margin-top: 0px;
+			margin-right: 0px;
+		}
 	}
+	
+	h1{
+			display:inline-block;
+			margin:0px;
+		}
 	
 	
 }
 
-.go-tab-view{
-	.go-toolbar{
-		background-color: $light-bg;
-		a{
-			background-color: white;
-		}
-	}
-}
+
 
 .go-toolbar + .go-body{
 	top: $header-height + $toolbar-height;
@@ -92,15 +104,13 @@
 	}
 }*/
 
-.panel-heading{
-	.go-toolbar{
-		height:auto;
-		position:static;
-		float:right;
-		background:none;
-		border:0px;
+.go-card{
+	.go-toolbar{		
+		margin:0px 16px 16px 0px;
 		padding:0px;
-		margin:0px;	
+		border:0px;
+		height: auto;
+		line-height: 1em;		
 	}
 }
 

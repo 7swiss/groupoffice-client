@@ -68,10 +68,10 @@ angular.module('GO.customFields')
 						};
 
 					}],
-					template: '<div class="go-detail-panel"  ng-repeat="fieldSet in customFieldSetStore.items">\
-							<div class="panel-heading">{{fieldSet.attributes.name}}</div><div class="panel-body">\
+					template: '<div class="go-card"  ng-repeat="fieldSet in customFieldSetStore.items">\
+							<h1>{{fieldSet.attributes.name}}</h1>\
 								<ng-include ng-repeat="field in fieldSet.attributes.fields" src="\'customfield-\'+field.attributes.type+\'-detail.html\'"></ng-include>\
-							</div></div>'
+							</div>'
 				};
 			}]);
 

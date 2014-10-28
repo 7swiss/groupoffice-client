@@ -131,6 +131,6 @@ angular.module('GO.collapsiblePanel', []).
 						scope.$parent.goCollapsiblePanel = scope;
 
 					},
-					template: '<div class="go-col collapse-lg" ng-class="{active: isActive, pinned: isPinned}"><ng-transclude></ng-transclude></div>'
+					template: '<div class="go-panel collapse-lg" ng-class="{active: isActive, pinned: isPinned}"><ng-transclude></ng-transclude></div>'
 				};
 			}]);

@@ -16,15 +16,14 @@ angular.module('GO.customFields')
 						
 						var fieldSet = customFieldSetStore.items[i];
 						
-						tpl +=  '<div class="go-detail-panel"><div class="panel-heading">'+fieldSet.attributes.name+'</div>'
-								+'<div class="panel-body">';
+						tpl +=  '<div class="go-card"><h1>'+fieldSet.attributes.name+'</h1>';
 				
 						for(var n = 0, cl = fieldSet.attributes.fields.length; n < cl; n++){
 							var field = fieldSet.attributes.fields[n];
 							tpl += buildFunctions[field.attributes.type](field);
 						}
 								
-						tpl += '</div></div>';
+						tpl += '</div>';
 						
 					}
 					

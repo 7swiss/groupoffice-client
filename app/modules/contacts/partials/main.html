@@ -17,35 +17,38 @@
 
 		<div class="go-scrollable-panel">
 
-			<div class="form-group">
-				<label class="control-label">{{'Gender'| t}}</label>
+			<div class="go-padding-panel">
+				<div class="form-group">
+					<label class="control-label">{{'Gender'| t}}</label>
 
-				<ui-select ng-model="filters.gender">
-					<ui-select-match class="ab-multi-input-select">{{$select.selected.label}}</ui-select-match>
-					<ui-select-choices repeat="item.value as item in genderFilterOptions | filter: $select.search">
-						<div ng-bind-html="item.label | highlight: $select.search"></div>
-					</ui-select-choices>
-				</ui-select>			
+					<ui-select ng-model="filters.gender">
+						<ui-select-match class="ab-multi-input-select">{{$select.selected.label}}</ui-select-match>
+						<ui-select-choices repeat="item.value as item in genderFilterOptions | filter: $select.search">
+							<div ng-bind-html="item.label | highlight: $select.search"></div>
+						</ui-select-choices>
+					</ui-select>			
+				</div>
+				<div class="form-group">
+					<label class="control-label">{{"Tags"| t}}</label>	
+
+					<im-multi-select-field 
+						auto-create="false"
+						store-route="Intermesh/tags/tag/store" 
+						model-attribute="filters.tags" 
+						model-attribute-display-name="name" 
+						input-placeholder="{{'Enter tags...'| t}}">				
+					</im-multi-select-field>
+				</div>
+
+				<im-custom-fields-filter im-server-model="Intermesh\Modules\Contacts\Model\ContactCustomFields" im-model="customFilters"></im-custom-fields-filter>
+			
 			</div>
-			<div class="form-group">
-				<label class="control-label">{{"Tags"| t}}</label>	
-
-				<im-multi-select-field 
-					auto-create="false"
-					store-route="Intermesh/tags/tag/store" 
-					model-attribute="filters.tags" 
-					model-attribute-display-name="name" 
-					input-placeholder="{{'Enter tags...'| t}}">				
-				</im-multi-select-field>
-			</div>
-
-			<im-custom-fields-filter im-server-model="Intermesh\Modules\Contacts\Model\ContactCustomFields" im-model="customFilters"></im-custom-fields-filter>
 		</div>
 
 
 	</go-collapsible-panel>
 
-	<div class="go-col sm list" ng-class="{'active': showList()}">
+	<div class="go-panel sm list" ng-class="{'active': showList()}">
 
 		<div class="go-toolbar">
 
@@ -57,11 +60,11 @@
 			<go-store-search store="store"></go-store-search>
 
 
-			<a class="btn-primary" ui-sref="contacts.edit({contactId: 0})">
+			<a ng-if="contactsModule.permissions.createAccess" class="btn-primary" ui-sref="contacts.edit({contactId: 0})">
 				<span class="fa fa-plus"></span>
 			</a>
 
-			<a class="btn-primary" ui-sref="contacts.createCompany">
+			<a ng-if="contactsModule.permissions.createAccess" class="btn-primary" ui-sref="contacts.createCompany">
 				<span class="fa fa-building"></span>
 			</a>
 
@@ -88,7 +91,7 @@
 
 	</div>
 
-	<div class="go-col fill"  ng-class="{'active': !showList()}">
+	<div class="go-panel fill"  ng-class="{'active': !showList()}">
 		<!-- The detail and edit pane is loaded in this view -->
 		<div ui-view></div>
 	</div>

@@ -7,7 +7,7 @@
 <div class="go-body">
 
 	<!-- Start of list panel with toolbar -->
-	<div ng-class="{active: !contentActive()}" class="go-col list">
+	<div ng-class="{active: !contentActive()}" class="go-panel list">
 
 		<div class="go-toolbar">
 
@@ -34,7 +34,7 @@
 
 	</div>
 	<!-- The detail and edit pane is loaded in this view -->
-	<div class="go-col fill" ng-class="{active: contentActive()}">
+	<div class="go-panel fill" ng-class="{active: contentActive()}">
 		<div ui-view></div>
 	</div>
 

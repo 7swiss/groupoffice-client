@@ -6,6 +6,8 @@ $start-icon-size: 100px;
 	padding:20px;
 	/*padding-left:20px;*/
 	
+	background-color:white;
+	
 /*	h1{
 		color: $primary-color;
 		border-bottom: 1px solid $primary-color;
@@ -34,16 +36,22 @@ $start-icon-size: 100px;
 		width:$start-icon-size + 20px;
 		
 		span{
-			background: $light-bg;
+			background: #eeeeee;
 			width:$start-icon-size;
 			height:$start-icon-size;
 			border-radius:$start-icon-size / 2;
-			color:$dark-bg;
+			color:$header-bg;
 			font-size:48px;
 			display:block;
 			line-height:($start-icon-size - 48px) / 2;
 			padding:($start-icon-size - 48px) / 2;
 			margin:4px;
+			
+			/*box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);*/
+			
+			&:active{
+				box-shadow: none;
+			}
 		}
 		
 		&:hover{

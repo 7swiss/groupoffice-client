@@ -42,11 +42,11 @@
 }
 
 .go-header{
-	height:$header-height;
+	height: $header-height;
 	padding: 0px 0px 0px 14px;
-	background: $dark-bg;
-
-
+	background: $header-bg;
+	box-shadow: 0 2px 5px rgba(0,0,0,.26);
+	
 	
 	h1{
 		margin:0px;

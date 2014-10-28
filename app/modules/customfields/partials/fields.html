@@ -1,21 +1,20 @@
 
 <div class="col-md-4">
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			{{"Fields"| t}}
-		
+	<div class="go-card">
 
-			<div class="go-toolbar go-toolbar-xs">
-				<div class="go-right-toolbar">
-					
-					<a ui-sref="customfields.model.fields.field({fieldId:0})">
-						<i class="fa fa-plus"></i>
-					</a>
-					
-				</div>
-			</div>		
-		
-		</div>
+
+		<div class="go-toolbar go-toolbar-xs">
+			<h1>	{{"Fields"| t}}</h1>
+			<div class="go-toolbar-right">
+
+				<a ui-sref="customfields.model.fields.field({fieldId:0})">
+					<i class="fa fa-plus"></i>
+				</a>
+
+			</div>
+		</div>		
+
+
 
 		<div class="list-group" sortable="dragControlListeners" ng-model="fieldStore.items">
 

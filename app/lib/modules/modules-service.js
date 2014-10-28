@@ -80,7 +80,7 @@ angular.module('GO.modules')
 					{
 						
 						var deferred = $q.defer();
-						
+						this.promise = deferred.promise;
 						
 						var promise = this.store.load();
 						
@@ -100,7 +100,7 @@ angular.module('GO.modules')
 							}
 							
 							this.modules = this.store.items;
-							this.promise = deferred.promise;
+							
 						
 //							console.log(this.store.items);
 							

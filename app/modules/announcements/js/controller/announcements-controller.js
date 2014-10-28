@@ -2,7 +2,7 @@
 
 /* Controllers */
 angular.module('GO.controllers').
-		controller('AnnouncementsController', ['$scope', 'Store', 'Model', 'Translate', function ($scope, Store, Model, Translate) {
+		controller('AnnouncementsController', ['$scope', 'Store', 'Model', 'Translate', 'Modules', function ($scope, Store, Model, Translate, Modules) {
 
 				$scope.pageTitle = Translate.t('Announcements');
 
@@ -19,6 +19,9 @@ angular.module('GO.controllers').
 						});
 
 				$scope.announcementStore.load();
+				
+				
+				$scope.announcementsModule = Modules.getModule('announcements');
 
 
 			}]);
