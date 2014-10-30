@@ -67,9 +67,7 @@ angular.module('GO.customFields').
 								'Intermesh/customFields/fieldSet/store',
 								new Model(
 										'fieldset',
-										'Intermesh/customFields/fieldSet/create',
-										'Intermesh/customFields/fieldSet/update',
-										'Intermesh/customFields/fieldSet/delete'
+										'Intermesh/customFields/fieldSet'
 										),
 								{
 									returnAttributes: '*,fields',

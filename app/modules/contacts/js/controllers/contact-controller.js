@@ -158,7 +158,6 @@ angular.module('GO.controllers').
 				
 			
 				$scope.closeSidePanelCallback = function() {
-					
 				
 					var where = CustomFields.filterModelToWhereParameter($scope.customFilters);
 

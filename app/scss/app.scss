@@ -1,5 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,700,700italic,400italic);
-
 @import "bootstrap";
 
 @import 'config';
@@ -16,6 +14,7 @@
 
 @import 'files';
 @import 'timeline';
+
 
 @import '../lib/multi-select-field/multi-select-field';
 @import '../lib/soft-delete-button/soft-delete-button';
@@ -62,11 +61,15 @@ a {
 }
 
 
-button{
+button, input[type=button] {
 	@extend .btn;
 	@extend .btn-default;
 }
 
+input[type=submit] {
+	@extend .btn;
+	@extend .btn-primary;
+}
 
 
 dl{
@@ -165,32 +168,15 @@ h3{
 
 .go-login-window{	
 
-	width:400px;
-	margin:20px auto;
-	position:relative;
-	float:none;
-	/*background-color: white;*/
+	@media(min-width: $screen-sm-min){
+		width:400px;
+		margin:20px auto;
+	}
 	
 	
-	.panel-body {
-		padding: 20px;
-	}
-
-	.input-group-addon i{
-		width: 20px;
-	}
-
-	header{
-		font-size: 2em;
-		text-align:center;
-	}
-
-	footer{
-		text-align:right;
-
-		input.btn{
-			width:100%;
-		}
+	
+	h1{
+		margin-bottom: 30px;
 	}
 }
 
@@ -263,7 +249,7 @@ ul.comma-list {
 
 	visibility: hidden;
 
-	@include transition(all 0.5s ease-in-out);	
+	transition: all 0.5s ease-in-out;	
 
 	&.active{
 		visibility: visible;

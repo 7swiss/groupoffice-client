@@ -1,24 +1,33 @@
+<div class="go-header">	
+	<div class="go-header-left">
+		<h1>{{::title}}</h1>
+	</div>	
+</div>
+
+
+<div class="go-body">
+
 <form name="loginForm" novalidate im-submit="login(user)" role="form">
 
 
 	<div class="go-card go-login-window">
 
-		<h1>{{::title}}</h1>
+		<h1>Login</h1>
 
 
 		<input type="hidden"  ng-model="user.id">
 
-		<div class="form-group">
+<!--		<div class="form-group">
 			<label>
 				URL
 			</label>
-			<!--<div class="input-group">-->
-				<!--<div class="input-group-addon"><i class="fa fa-database"></i></div>-->
+			<div class="input-group">
+				<div class="input-group-addon"><i class="fa fa-database"></i></div>
 				<input id="url" name="url" type="text" class="form-control" ng-model="config.url" placeholder="https://example.groupoffice.biz/groupoffice/" required autofocus>
 
-			<!--</div>-->
+			</div>
 			<im-show-error for="url"></im-show-error>
-		</div>
+		</div>-->
 
 		<div class="form-group">
 			<label>
@@ -55,6 +64,7 @@
 	</div>
 	
 	
-	<div style="margin:30px auto; width:400px;text-align: center;">Powered by <a href="https://www.group-office.com">https://www.group-office.com</a></div>
+	<div style="margin:30px auto; width:200px;text-align: center;">Powered by <a href="https://www.group-office.com">https://www.group-office.com</a></div>
 
 </form>
+</div>

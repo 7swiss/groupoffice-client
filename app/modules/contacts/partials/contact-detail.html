@@ -36,108 +36,104 @@
 
 
 <div class="go-scrollable-panel">
-	
-		<div class="go-col lg-2">
 
-		<div class="go-card" style="position: relative">
+	<div class="go-col lg-2">
+
+		<div class="go-card" style="position: relative; min-height: 130px;padding-left:132px">
+			
+			
+			<img class="thumbnail" style="display:block;position:absolute;top:16px;left:16px;width:100px;" ng-src="{{'intermesh/contacts/contact/thumb'| apiRoute: {w: 80, contactId: contact.attributes.id} }}" />
+			
 
 			<h1>
 				{{contact.attributes.name}}
 			</h1>
+			
+			<dl ng-if="contact.attributes.emailAddresses.length">						
+				<dt>{{"E-mail"| t}}</dt>
+				<dd>
+					<ul class="comma-list">
+						<li ng-repeat="emailAddress in contact.attributes.emailAddresses"><i style="margin-right:2px;" class="fa" ng-class="{'fa-envelope-o':emailAddress.attributes.type == 'other', 'fa-money':emailAddress.attributes.type == 'billing', 'fa-users':emailAddress.attributes.type == 'work','fa-home':emailAddress.attributes.type == 'home'}"></i><a href="mailto:{{emailAddress.attributes.email}}">{{emailAddress.attributes.email}}</a></li>
+					</ul>
+				</dd>
+			</dl>
 
+			<dl ng-if="contact.attributes.phoneNumbers.length">
+				<dt>{{"Phone numbers"| t}}</dt>
+				<dd>
+					<ul class="comma-list">
+						<li ng-repeat="phoneNumber in contact.attributes.phoneNumbers"><i style="margin-right:2px;" class="fa fa-phone"></i><a href="tel:{{phoneNumber.attributes.number}}">{{phoneNumber.attributes.number}}</a></li>
+					</ul>
+				</dd>
+			</dl>
+
+			<dl ng-if="contact.attributes.company">
+				<dt>{{"Company"| t}}</dt>
+				<dd>
+					<a ui-sref="contacts.contact.detail({contactId: contact.attributes.company.attributes.id})">{{contact.attributes.company.attributes.name}}</a>
+				</dd>
+			</dl>
+
+			<dl ng-if="contact.attributes.tags.length">
+				<dt>{{"Tags"| t}}</dt>
+				<dd>
+					<ul class="comma-list">
+						<li ng-repeat="tag in contact.attributes.tags">{{tag.attributes.name}}</li>
+					</ul>
+				</dd>
+			</dl>
+
+			<dl ng-repeat="date in contact.attributes.dates">
+				<dt>{{findDateLabel(date.attributes.type)}}</dt>
+				<dd>{{date.attributes.date|date:"longDate"}} ({{date.attributes.date|age}}{{'yr'| t}})</dd>
+			</dl>
 		
 
-<!--				<div class="thumbnail" style=>-->
-					<img class="thumbnail" style="position:absolute;top:50px;left:10px;width:60px;height:60px;" ng-src="{{'intermesh/contacts/contact/thumb'| apiRoute: {w: 60, h: 60, zoomCrop: 1, contactId: contact.attributes.id} }}" />
-				<!--</div>-->
-				
-				<div style="padding-left:30px;">
+			<dl ng-if="contact.attributes.addresses.length">
+				<dt>{{"Address"| t}}</dt>
+				<dd>
+					<div class="col-md-6 nopadding" ng-repeat="address in contact.attributes.addresses">
+						<h3>{{address.attributes.type}}</h3>
+						<a target="_blank" href="http://maps.google.com/?q={{address.attributes.street + ', ' + address.attributes.zipCode + ', ' + address.attributes.state + ', ' + address.attributes.country| encodeURIComponent}}" ng-bind-html="address.attributes.formatted | nl2br">
 
-				<dl ng-if="contact.attributes.emailAddresses.length">						
-					<dt>{{"E-mail"| t}}</dt>
-					<dd>
-						<ul class="comma-list">
-							<li ng-repeat="emailAddress in contact.attributes.emailAddresses"><i style="margin-right:2px;" class="fa" ng-class="{'fa-envelope-o':emailAddress.attributes.type == 'other', 'fa-money':emailAddress.attributes.type == 'billing', 'fa-users':emailAddress.attributes.type == 'work','fa-home':emailAddress.attributes.type == 'home'}"></i><a href="mailto:{{emailAddress.attributes.email}}">{{emailAddress.attributes.email}}</a></li>
-						</ul>
-					</dd>
-				</dl>
+						</a>
+					</div>
 
-				<dl ng-if="contact.attributes.phoneNumbers.length">
-					<dt>{{"Phone numbers"| t}}</dt>
-					<dd>
-						<ul class="comma-list">
-							<li ng-repeat="phoneNumber in contact.attributes.phoneNumbers"><i style="margin-right:2px;" class="fa fa-phone"></i><a href="tel:{{phoneNumber.attributes.number}}">{{phoneNumber.attributes.number}}</a></li>
-						</ul>
-					</dd>
-				</dl>
+				</dd>
+			</dl>
 
-				<dl ng-if="contact.attributes.company">
-					<dt>{{"Company"| t}}</dt>
-					<dd>
-						<a ui-sref="contacts.contact.detail({contactId: contact.attributes.company.attributes.id})">{{contact.attributes.company.attributes.name}}</a>
-					</dd>
-				</dl>
-
-				<dl ng-if="contact.attributes.tags.length">
-					<dt>{{"Tags"| t}}</dt>
-					<dd>
-						<ul class="comma-list">
-							<li ng-repeat="tag in contact.attributes.tags">{{tag.attributes.name}}</li>
-						</ul>
-					</dd>
-				</dl>
-
-				<dl ng-repeat="date in contact.attributes.dates">
-					<dt>{{findDateLabel(date.attributes.type)}}</dt>
-					<dd>{{date.attributes.date|date:"longDate"}} ({{date.attributes.date|age}}{{'yr'| t}})</dd>
-				</dl>
-
-
-				<dl ng-if="contact.attributes.addresses.length">
-					<dt>{{"Address"| t}}</dt>
-					<dd>
-						<div class="col-md-6 nopadding" ng-repeat="address in contact.attributes.addresses">
-							<h3>{{address.attributes.type}}</h3>
-							<a target="_blank" href="http://maps.google.com/?q={{address.attributes.street + ', ' + address.attributes.zipCode + ', ' + address.attributes.state + ', ' + address.attributes.country| encodeURIComponent}}" ng-bind-html="address.attributes.formatted | nl2br">
-
-							</a>
-						</div>
-
-					</dd>
-				</dl>
-			</div>
 		</div>
 
-		
+
 
 		<div class="go-card" ng-if="contact.attributes.employees.length">
 			<h1>{{"Employees"| t}}</h1>
-		
-				<a ui-sref="contacts.contact.detail({contactId: contact.attributes.id})" style="float:left;width:100px;text-align:center;margin:20px;" ng-repeat="contact in contact.attributes.employees">
-					<img class="thumbnail" style="display:inline-block" ng-src="{{::'intermesh/contacts/contact/thumb'| apiRoute: {w: 75, h: 100, zoomCrop: 1, contactId: contact.attributes.id} }}" />
 
-					{{contact.attributes.name}}
+			<a ui-sref="contacts.contact.detail({contactId: contact.attributes.id})" style="float:left;width:100px;text-align:center;margin:20px;" ng-repeat="contact in contact.attributes.employees">
+				<img class="thumbnail" style="display:inline-block" ng-src="{{::'intermesh/contacts/contact/thumb'| apiRoute: {w: 75, h: 100, zoomCrop: 1, contactId: contact.attributes.id} }}" />
 
-				</a>					
-		
+				{{contact.attributes.name}}
+
+			</a>					
+
 		</div>
-			
-		</div>
-	
+
+	</div>
+
 	<div class="go-col lg-2">
-		<div class="go-card">
+		<div class="go-card" ng-if="!contact.permissions.editAccess && contact.attributes.notes">
 			<h1>{{"Notes"| t}}</h1>
 
 
-				<div ng-if="contact.permissions.editAccess">
-					<textarea msd-elastic="\n" ng-model="contact.attributes.notes" class="form-control" style="height:60px" ng-blur="contact.save()">
+			<div ng-if="contact.permissions.editAccess">
+				<textarea msd-elastic="\n" ng-model="contact.attributes.notes" class="form-control" style="height:60px" ng-blur="contact.save()">
 
-					</textarea>		
-				</div>
-				<div ng-if="!contact.permissions.editAccess">
-					<pre>{{contact.attributes.notes}}</pre>
-				</div>
-			
+				</textarea>		
+			</div>
+			<div ng-if="!contact.permissions.editAccess">
+				<pre>{{contact.attributes.notes}}</pre>
+			</div>
+
 		</div>
 		<im-custom-fields-detail im-model="contact" im-server-model="Intermesh\Modules\Contacts\Model\ContactCustomFields"></im-custom-fields-detail>
 	</div>

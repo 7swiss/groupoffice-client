@@ -4,7 +4,7 @@
 <div class="go-body">
 
 	<!-- Start of list panel with toolbar -->
-	<div ng-class="{active: !contentActive()}" class="go-panel list">
+	<div ng-class="{active: !contentActive()}" class="go-panel sm list">
 
 		<div class="go-toolbar">
 			<go-store-search store="store"></go-store-search>				
@@ -22,8 +22,7 @@
 			<div class="go-list list-group" im-infinite-scroll="store.nextPage()" im-infinite-scroll-disabled="!store.shouldLoad()">
 				<div class="deletable" ng-class="{'deleted-invisible': user.attributes.deleted}" ng-repeat="user in store.items">
 					<a ui-sref-active="active" ui-sref="users.detail({userId: user.attributes.id})" class="list-group-item">				
-						{{user.attributes.username}}
-						<span class="go-list-date">{{user.attributes.createdAt| date:'short'}}</span>
+						{{user.attributes.username}}						
 					</a>
 				</div>
 

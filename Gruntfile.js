@@ -104,7 +104,7 @@ module.exports = function (grunt) {
             dev: {
                 src: 'app/index.html',
                 blocks: {
-                    'styles': { src: 'app/css/scss/app.css' },
+                    'styles': { src: 'app/css/app.css' },
                     'core': { src: 'app/lib/**/*.js' },
                     'modules': { src: 'app/modules/**/*.js' }
                 }

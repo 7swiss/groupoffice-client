@@ -1,4 +1,4 @@
-.timeline-item{
+.go-card-quote{
 	padding-left: 60px;
 	position: relative;
 	
@@ -6,38 +6,37 @@
 		position:absolute;
 		top: 0px;
 		left:0px;
+		width: 45px;
 	}
 
-	.timeline-panel-container{
-		position:relative;		
-	}
+	
 
-	.timeline-panel:before, .timeline-panel:after {
+	.go-card:before, .go-card:after {
 		content: " ";
 		display: table;
 	}
 
-	.timeline-panel:before {
+	.go-card:before {
 		position: absolute;
 		top: 10px;
-		left: -10px;
+		left: 53px;
 		display: inline-block;
-		border-top: 11px solid transparent;
-		border-left: 0px solid #ddd;
-		border-right: 11px solid #ddd;
-		border-bottom: 11px solid transparent;
+		border-top: 15px solid transparent;
+		border-left: 0px solid $border-color;
+		border-right: 15px solid $border-color;
+		border-bottom: 15px solid transparent;
 		content: " ";
 	}
 
-	.timeline-panel:after {
+	.go-card:after {
 		position: absolute;
 		top: 11px;
-		left: -9px;
+		left: 54px;
 		display: inline-block;
-		border-top: 10px solid transparent;
-		border-left: 0px solid whitesmoke;
-		border-right: 10px solid whitesmoke;
-		border-bottom: 10px solid transparent;
+		border-top: 14px solid transparent;
+		border-left: 0px solid white;
+		border-right: 14px solid white;
+		border-bottom: 14px solid transparent;
 		content: " ";
 	}
 

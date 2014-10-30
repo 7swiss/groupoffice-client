@@ -169,18 +169,23 @@ var GO = angular.module('GO', [
 				return $delegate;
 			});
 		})
-		.run(function($rootScope, appTitle, appVersion) {
+		.run(function($rootScope, appTitle, Utils) {
 		  FastClick.attach(document.body);
   
-			$rootScope.title = appTitle+' '+appVersion;
+  
+			//Special config
+			$rootScope.title = appTitle;
 		})
 		.config(function(uiSelectConfig) {
 			uiSelectConfig.theme = 'bootstrap';
 		});
+		
+		
+
 
 
 GO.value('appVersion', '7.0');
-GO.value('appTitle', 'Group-Office');
+
 
 angular.module('GO.services', []);
 angular.module('GO.directives', []);

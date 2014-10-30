@@ -10,7 +10,7 @@ angular.module('GO.controllers')
 							remember: false
 						};
 
-						$scope.config = {url: Utils.baseUrl || "http://localhost/intermesh-php-example/html/"};
+						$scope.config = {url: Utils.baseUrl || "http://localhost/groupoffice-server/html/"};
 
 						$scope.login = function(user) {
 

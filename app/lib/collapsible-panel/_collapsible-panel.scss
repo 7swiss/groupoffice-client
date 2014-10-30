@@ -74,7 +74,7 @@
 		/* make aside on tablet or smaller */
 		&.collapse-xs, &.collapse-sm, &.collapse-lg{
 
-			width: 380px;
+			width: 310px;
 
 			@include transition(all 0.3s ease-out);
 			z-index: $zindex-menu;
@@ -97,7 +97,11 @@
 				background-color: $header-bg;
 				color: white;
 				
-				
+				a, button{
+					border:0;
+					background: transparent;
+					color:white;
+				}
 			}
 		}
 

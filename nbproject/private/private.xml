@@ -3,19 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="PocketOffice">
-            <file>file:/var/www/html/groupoffice-client/app/modules/contacts/js/controllers/contact-controller.js</file>
-            <file>file:/var/www/html/groupoffice-client/app/modules/contacts/partials/main.html</file>
-            <file>file:/var/www/html/groupoffice-client/app/modules/announcements/partials/main.html</file>
-            <file>file:/var/www/html/groupoffice-client/app/modules/announcements/js/controller/announcements-controller.js</file>
-            <file>file:/var/www/html/groupoffice-client/app/scss/_bootstrap.scss</file>
-            <file>file:/var/www/html/groupoffice-client/app/scss/_toolbar.scss</file>
-            <file>file:/var/www/html/groupoffice-client/app/partials/start.html</file>
-            <file>file:/var/www/html/groupoffice-client/app/lib/modules/modules-service.js</file>
-            <file>file:/var/www/html/groupoffice-client/Gruntfile.js</file>
-            <file>file:/var/www/html/groupoffice-client/app/index.html</file>
-            <file>file:/var/www/html/groupoffice-client/app/css/app.css</file>
             <file>file:/var/www/html/groupoffice-client/app/scss/app.scss</file>
+            <file>file:/var/www/html/groupoffice-client/tools/find-language.php</file>
+            <file>file:/var/www/html/groupoffice-client/app/lib/custom-fields/custom-fields-service.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/lib/core/global-functions.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/contacts/partials/contact.html</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/contacts/partials/contact-detail.html</file>
             <file>file:/var/www/html/groupoffice-client/app/lib/app.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/lib/data/store-factory.js</file>
+            <file>file:/var/www/html/groupoffice-client/Gruntfile.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/contacts/js/controllers/contact-controller.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/lib/config.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/partials/store/search.html</file>
+            <file>file:/var/www/html/groupoffice-client/app/lib/core/utils-service.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/contacts/partials/main.html</file>
+            <file>file:/var/www/html/groupoffice-client/app/index.html</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/core/controllers/login-controller.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/lib/language/nl.js</file>
             <file>file:/var/www/html/groupoffice-client/app/partials/login.html</file>
         </group>
     </open-files>

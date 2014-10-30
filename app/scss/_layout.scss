@@ -72,12 +72,13 @@
 }
 
 .go-col{
-	float:left;
 
 	&.sm-2{
 		/*Full width when tablet or smaller*/ 
 		@media(min-width: $screen-sm-min){
 			width:50%;
+			float:left;
+
 		}
 	}
 
@@ -85,6 +86,8 @@
 		/*Full width when tablet or smaller*/ 
 		@media(min-width: $screen-lg-min){
 			width:50%;
+			float:left;
+
 		}
 	}
 }

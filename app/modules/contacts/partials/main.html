@@ -5,13 +5,17 @@
 
 <div class="go-body">
 	<go-collapsible-panel on-close="closeSidePanelCallback()">
+		
+		<form name="contacts-filter-form" im-submit="goCollapsiblePanel.toggle()">
 
 		<div class="go-toolbar">{{'Filters'| t}}
 
 			<div class="go-toolbar-right">
+				
+				<a class="visible-lg" ng-if="!goCollapsiblePanel.isPinned" ng-click="goCollapsiblePanel.togglePinned()" tooltip="{{'Pin'| t}}" tooltip-placement='bottom'><i class="fa fa-thumb-tack"></i></a>
 				<a ng-click="resetFilters()" tooltip="{{'Reset'| t}}" tooltip-placement='bottom'><i class="fa fa-undo"></i></a>
 				<a ng-click="goCollapsiblePanel.toggle()" tooltip="{{'Close'| t}}" tooltip-placement='bottom'><i class="fa fa-times"></i></a>
-				<a ng-if="!goCollapsiblePanel.isPinned" ng-click="goCollapsiblePanel.togglePinned()" tooltip="{{'Pin'| t}}" tooltip-placement='bottom'><i class="fa fa-thumb-tack"></i></a>
+				
 			</div>
 		</div>
 
@@ -42,9 +46,12 @@
 
 				<im-custom-fields-filter im-server-model="Intermesh\Modules\Contacts\Model\ContactCustomFields" im-model="customFilters"></im-custom-fields-filter>
 			
+				<input type="submit" value="{{'Toepassen' | t}}" />
 			</div>
+			
+			
 		</div>
-
+</form>
 
 	</go-collapsible-panel>
 
