@@ -4,17 +4,17 @@
 
 <div class="go-toolbar">
 
-	<a ui-sref="contacts" class="visible-xs">
+	<a ui-sref="contacts" class="btn visible-xs">
 		<span class="fa fa-chevron-left"></span>
 	</a>
 
 
-	<a  ng-disabled="!contact.permissions.editAccess" ui-sref="contacts.edit({contactId: contact.attributes.id})">
+	<a class="btn" ng-disabled="!contact.permissions.editAccess" ui-sref="contacts.edit({contactId: contact.attributes.id})">
 		<span class="fa fa-edit"></span> {{'Edit'| t}}
 	</a>
 
 
-	<a tooltip="{{'Share'| t}}" ng-click="shareModal.open(contact.attributes.id)" ng-disabled="!contact.currentUserCanManagePermissions">
+	<a class="btn" tooltip="{{'Share'| t}}" ng-click="shareModal.open(contact.attributes.id)" ng-disabled="!contact.currentUserCanManagePermissions">
 		<span class="fa fa-share-alt"></span>
 	</a>
 

@@ -78,7 +78,7 @@ angular.module('GO.MultiSelectField', ['GO.core'])
 									}
 								};
 
-								newItem.attribute[scope.modelAttributeDisplayName] = value;
+								newItem.attributes[scope.modelAttributeDisplayName] = value;
 								
 								scope.modelAttribute.push(newItem);
 							}

@@ -1,7 +1,7 @@
 <form class="ab-contact-form form-horizontal go-labels" name="contactForm" im-submit="save()" novalidate>
 	<div class="go-toolbar">
 	
-		<a ng-click="cancel();">
+		<a class="btn" ng-click="cancel();">
 			<span class="fa fa-chevron-left"></span>
 		</a>
 
@@ -141,7 +141,7 @@
 									</ui-select>
 
 								</div>
-								<input type="email" name="email" ng-model="emailAddress.attributes.email" autofocus="!emailAddress.attributes.id">
+									<input type="email" name="email" ng-model="emailAddress.attributes.email" autofocus="$index > 0 && !emailAddress.attributes.id">
 								<span class="input-group-btn">
 									<button type="button" class="btn btn-danger" ng-click="emailAddress.attributes.markDeleted = true;"><i class="fa fa-trash-o"></i></button>
 								</span>
@@ -176,7 +176,7 @@
 										</ui-select-choices>
 									</ui-select>
 								</div>
-								<input type="text" ng-model="phoneNumber.attributes.number" autofocus="!phoneNumber.attributes.id">
+								<input type="text" ng-model="phoneNumber.attributes.number" autofocus="$index > 0 && !phoneNumber.attributes.id">
 								<span class="input-group-btn">
 									<button type="button" class="btn btn-danger" ng-click="phoneNumber.attributes.markDeleted = true;"><i class="fa fa-trash-o"></i></button>
 								</span>				

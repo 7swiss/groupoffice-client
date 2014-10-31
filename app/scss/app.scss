@@ -63,16 +63,21 @@ a {
 	cursor:pointer;
 }
 
+.btn{
+	@extend .btn-default;
+}
 
-button, input[type=button] {
+button {
 	@extend .btn;
 	@extend .btn-default;
 }
 
-input[type=submit] {
+button[type=submit] {
 	@extend .btn;
 	@extend .btn-primary;
 }
+
+
 
 
 dl{
@@ -180,6 +185,17 @@ h3{
 	
 	h1{
 		margin-bottom: 30px;
+	}
+}
+
+.go-alerts{
+	position: absolute;
+	bottom: 0px;
+	right: 35px;
+	z-index: 10000;
+	width: 300px;
+	alert {
+		text-align: center;
 	}
 }
 

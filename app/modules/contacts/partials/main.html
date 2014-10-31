@@ -12,9 +12,9 @@
 
 			<div class="go-toolbar-right">
 				
-				<a class="visible-lg" ng-if="!goCollapsiblePanel.isPinned" ng-click="goCollapsiblePanel.togglePinned()" tooltip="{{'Pin'| t}}" tooltip-placement='bottom'><i class="fa fa-thumb-tack"></i></a>
-				<a ng-click="resetFilters()" tooltip="{{'Reset'| t}}" tooltip-placement='bottom'><i class="fa fa-undo"></i></a>
-				<a ng-click="goCollapsiblePanel.toggle()" tooltip="{{'Close'| t}}" tooltip-placement='bottom'><i class="fa fa-times"></i></a>
+				<a type="button" class="btn visible-lg" ng-if="!goCollapsiblePanel.isPinned" ng-click="goCollapsiblePanel.togglePinned()" tooltip="{{'Pin'| t}}" tooltip-placement='bottom'><i class="fa fa-thumb-tack"></i></a>
+				<button type="button" ng-click="resetFilters()" tooltip="{{'Reset'| t}}" tooltip-placement='bottom'><i class="fa fa-undo"></i></button>
+				<button type="button" ng-click="goCollapsiblePanel.toggle()" tooltip="{{'Close'| t}}" tooltip-placement='bottom'><i class="fa fa-times"></i></button>
 				
 			</div>
 		</div>
@@ -46,7 +46,7 @@
 
 				<im-custom-fields-filter im-server-model="Intermesh\Modules\Contacts\Model\ContactCustomFields" im-model="customFilters"></im-custom-fields-filter>
 			
-				<input type="submit" value="{{'Toepassen' | t}}" />
+				<button type="submit">{{'Toepassen' | t}}</button>
 			</div>
 			
 			
@@ -59,19 +59,19 @@
 
 		<div class="go-toolbar">
 
-			<a ng-click="goCollapsiblePanel.toggle()" ng-class="{'btn-info' : isFilterActive}">
+			<button ng-click="goCollapsiblePanel.toggle()" ng-class="{'btn-info' : isFilterActive}">
 				<span class="fa fa-filter"></span>
-			</a>
+			</button>
 
 
 			<go-store-search store="store"></go-store-search>
 
 
-			<a ng-if="contactsModule.permissions.createAccess" class="btn-primary" ui-sref="contacts.edit({contactId: 0})">
+			<a ng-if="contactsModule.permissions.createAccess" class="btn" ui-sref="contacts.edit({contactId: 0})">
 				<span class="fa fa-plus"></span>
 			</a>
 
-			<a ng-if="contactsModule.permissions.createAccess" class="btn-primary" ui-sref="contacts.createCompany">
+			<a ng-if="contactsModule.permissions.createAccess" class="btn" ui-sref="contacts.createCompany">
 				<span class="fa fa-building"></span>
 			</a>
 

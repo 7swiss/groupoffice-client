@@ -12,10 +12,7 @@
 	padding:0 10px;
 	font-size: 1.2em;
 	
-	a {
-		@extend .btn;
-		@extend .btn-default;
-		
+	.btn {		
 		/*background-color: #eceff1;*/
 		
 		float:left;

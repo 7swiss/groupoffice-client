@@ -62,18 +62,21 @@ angular.module('GO.controllers').
 
 
 				$scope.changeFullName = function() {
-					var parts = $scope.contact.attributes.name.split(' ');
+					
+					if($scope.contact.attributes.name) {
+						var parts = $scope.contact.attributes.name.split(' ');
 
-					$scope.contact.attributes.firstName = parts.shift();
+						$scope.contact.attributes.firstName = parts.shift();
 
-					if (parts.length > 1) {
-						$scope.contact.attributes.middleName = parts.shift();
-					} else
-					{
-						$scope.contact.attributes.middleName = "";
+						if (parts.length > 1) {
+							$scope.contact.attributes.middleName = parts.shift();
+						} else
+						{
+							$scope.contact.attributes.middleName = "";
+						}
+
+						$scope.contact.attributes.lastName = parts.join(' ');
 					}
-
-					$scope.contact.attributes.lastName = parts.join(' ');
 				};
 
 				$scope.toggleName = function(){

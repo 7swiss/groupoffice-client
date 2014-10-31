@@ -5,11 +5,11 @@
 	
 	<div class="go-toolbar">
 
-		<a class="visible-xs" ui-sref="roles">				
+		<a class="btn visible-xs" ui-sref="roles">				
 			<span class="fa fa-chevron-left"></span> {{'Back'| t}}
 		</a>
 
-		<button type="submit" class="btn-primary">
+		<button type="submit">
 			<i class="fa fa-floppy-o"></i> {{'Save'| t}}
 		</button>
 
@@ -73,7 +73,7 @@
 			<div class="go-toolbar go-toolbar-xs">
 				<h1>{{"Users in role"| t}}</h1>
 				<div class="go-toolbar-right">					
-					<a ng-click="storeSelectModal.openModal()">
+					<a class="btn" ng-click="storeSelectModal.openModal()">
 						<i class="fa fa-plus"></i>					
 					</a>
 				</div>

@@ -47,18 +47,20 @@ angular.module('GO.controllers').
 
 				$scope.changeFullName = function () {
 
-					var parts = $scope.user.fullName.split(' ');
+					if($scope.user.fullName){
+						var parts = $scope.user.fullName.split(' ');
 
-					$scope.user.attributes.contact.attributes.firstName = parts.shift();
+						$scope.user.attributes.contact.attributes.firstName = parts.shift();
 
-					if (parts.length > 1) {
-						$scope.user.attributes.contact.attributes.middleName = parts.shift();
-					} else
-					{
-						$scope.user.attributes.contact.attributes.middleName = "";
+						if (parts.length > 1) {
+							$scope.user.attributes.contact.attributes.middleName = parts.shift();
+						} else
+						{
+							$scope.user.attributes.contact.attributes.middleName = "";
+						}
+
+						$scope.user.attributes.contact.attributes.lastName = parts.join(' ');
 					}
-
-					$scope.user.attributes.contact.attributes.lastName = parts.join(' ');
 				};
 
 				$scope.user.showNameParts = false;

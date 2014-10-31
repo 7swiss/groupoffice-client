@@ -14,7 +14,7 @@ $light-bg: #eceff1;*/
   line-height: 50px;
   padding: 0 10px;
   font-size: 1.2em; }
-  .go-toolbar a {
+  .go-toolbar .btn, .go-toolbar button, .go-toolbar button[type=submit] {
     /*background-color: #eceff1;*/
     float: left;
     display: block;
@@ -331,12 +331,10 @@ th {
   .table th {
     background-color: #fff !important; }
 
-  .btn > .caret, .go-toolbar a > .caret, button > .caret, input[type=button] > .caret, input[type=submit] > .caret,
+  .btn > .caret, button > .caret, button[type=submit] > .caret,
   .dropup > .btn > .caret,
-  .go-toolbar .dropup > a > .caret,
   .dropup > button > .caret,
-  .dropup > input[type=button] > .caret,
-  .dropup > input[type=submit] > .caret {
+  .dropup > button[type=submit] > .caret {
     border-top-color: #000 !important; }
 
   .label {
@@ -2339,8 +2337,6 @@ input[type="month"] {
   input[type="date"].input-sm, .form-horizontal .form-group-sm input[type="date"].form-control, form.form-horizontal.go-labels .form-group-sm .form-group input[type="date"][type="text"], form.form-horizontal.go-labels .form-group .form-group-sm input[type="date"][type="text"], form.form-horizontal.go-labels .form-group-sm .form-group input[type="date"][type="email"], form.form-horizontal.go-labels .form-group .form-group-sm input[type="date"][type="email"], form.form-horizontal.go-labels .form-group-sm .form-group input[type="date"][type="password"], form.form-horizontal.go-labels .form-group .form-group-sm input[type="date"][type="password"], form.form-horizontal.go-labels-100 .form-group-sm .form-group input[type="date"][type="text"], form.form-horizontal.go-labels-100 .form-group .form-group-sm input[type="date"][type="text"], form.form-horizontal.go-labels-100 .form-group-sm .form-group input[type="date"][type="email"], form.form-horizontal.go-labels-100 .form-group .form-group-sm input[type="date"][type="email"], form.form-horizontal.go-labels-100 .form-group-sm .form-group input[type="date"][type="password"], form.form-horizontal.go-labels-100 .form-group .form-group-sm input[type="date"][type="password"], form.form-horizontal.go-labels-300 .form-group-sm .form-group input[type="date"][type="text"], form.form-horizontal.go-labels-300 .form-group .form-group-sm input[type="date"][type="text"], form.form-horizontal.go-labels-300 .form-group-sm .form-group input[type="date"][type="email"], form.form-horizontal.go-labels-300 .form-group .form-group-sm input[type="date"][type="email"], form.form-horizontal.go-labels-300 .form-group-sm .form-group input[type="date"][type="password"], form.form-horizontal.go-labels-300 .form-group .form-group-sm input[type="date"][type="password"], .input-group-sm > input[type="date"].form-control, form.form-horizontal.go-labels .form-group .input-group-sm > input[type="date"][type="text"], form.form-horizontal.go-labels .form-group .input-group-sm > input[type="date"][type="email"], form.form-horizontal.go-labels .form-group .input-group-sm > input[type="date"][type="password"], form.form-horizontal.go-labels-100 .form-group .input-group-sm > input[type="date"][type="text"], form.form-horizontal.go-labels-100 .form-group .input-group-sm > input[type="date"][type="email"], form.form-horizontal.go-labels-100 .form-group .input-group-sm > input[type="date"][type="password"], form.form-horizontal.go-labels-300 .form-group .input-group-sm > input[type="date"][type="text"], form.form-horizontal.go-labels-300 .form-group .input-group-sm > input[type="date"][type="email"], form.form-horizontal.go-labels-300 .form-group .input-group-sm > input[type="date"][type="password"],
   .input-group-sm > input[type="date"].input-group-addon,
   .input-group-sm > .input-group-btn > input[type="date"].btn,
-  .input-group-sm > .input-group-btn > input[type="date"][type=button],
-  .input-group-sm > .input-group-btn > input[type="date"][type=submit],
   input[type="time"].input-sm,
   .form-horizontal .form-group-sm input[type="time"].form-control,
   form.form-horizontal.go-labels .form-group-sm .form-group input[type="time"][type="text"],
@@ -2373,8 +2369,6 @@ input[type="month"] {
   form.form-horizontal.go-labels-300 .form-group .input-group-sm > input[type="time"][type="password"],
   .input-group-sm > input[type="time"].input-group-addon,
   .input-group-sm > .input-group-btn > input[type="time"].btn,
-  .input-group-sm > .input-group-btn > input[type="time"][type=button],
-  .input-group-sm > .input-group-btn > input[type="time"][type=submit],
   input[type="datetime-local"].input-sm,
   .form-horizontal .form-group-sm input[type="datetime-local"].form-control,
   form.form-horizontal.go-labels .form-group-sm .form-group input[type="datetime-local"][type="text"],
@@ -2407,8 +2401,6 @@ input[type="month"] {
   form.form-horizontal.go-labels-300 .form-group .input-group-sm > input[type="datetime-local"][type="password"],
   .input-group-sm > input[type="datetime-local"].input-group-addon,
   .input-group-sm > .input-group-btn > input[type="datetime-local"].btn,
-  .input-group-sm > .input-group-btn > input[type="datetime-local"][type=button],
-  .input-group-sm > .input-group-btn > input[type="datetime-local"][type=submit],
   input[type="month"].input-sm,
   .form-horizontal .form-group-sm input[type="month"].form-control,
   form.form-horizontal.go-labels .form-group-sm .form-group input[type="month"][type="text"],
@@ -2440,15 +2432,11 @@ input[type="month"] {
   form.form-horizontal.go-labels-300 .form-group .input-group-sm > input[type="month"][type="email"],
   form.form-horizontal.go-labels-300 .form-group .input-group-sm > input[type="month"][type="password"],
   .input-group-sm > input[type="month"].input-group-addon,
-  .input-group-sm > .input-group-btn > input[type="month"].btn,
-  .input-group-sm > .input-group-btn > input[type="month"][type=button],
-  .input-group-sm > .input-group-btn > input[type="month"][type=submit] {
+  .input-group-sm > .input-group-btn > input[type="month"].btn {
     line-height: 30px; }
   input[type="date"].input-lg, .form-horizontal .form-group-lg input[type="date"].form-control, form.form-horizontal.go-labels .form-group-lg .form-group input[type="date"][type="text"], form.form-horizontal.go-labels .form-group .form-group-lg input[type="date"][type="text"], form.form-horizontal.go-labels .form-group-lg .form-group input[type="date"][type="email"], form.form-horizontal.go-labels .form-group .form-group-lg input[type="date"][type="email"], form.form-horizontal.go-labels .form-group-lg .form-group input[type="date"][type="password"], form.form-horizontal.go-labels .form-group .form-group-lg input[type="date"][type="password"], form.form-horizontal.go-labels-100 .form-group-lg .form-group input[type="date"][type="text"], form.form-horizontal.go-labels-100 .form-group .form-group-lg input[type="date"][type="text"], form.form-horizontal.go-labels-100 .form-group-lg .form-group input[type="date"][type="email"], form.form-horizontal.go-labels-100 .form-group .form-group-lg input[type="date"][type="email"], form.form-horizontal.go-labels-100 .form-group-lg .form-group input[type="date"][type="password"], form.form-horizontal.go-labels-100 .form-group .form-group-lg input[type="date"][type="password"], form.form-horizontal.go-labels-300 .form-group-lg .form-group input[type="date"][type="text"], form.form-horizontal.go-labels-300 .form-group .form-group-lg input[type="date"][type="text"], form.form-horizontal.go-labels-300 .form-group-lg .form-group input[type="date"][type="email"], form.form-horizontal.go-labels-300 .form-group .form-group-lg input[type="date"][type="email"], form.form-horizontal.go-labels-300 .form-group-lg .form-group input[type="date"][type="password"], form.form-horizontal.go-labels-300 .form-group .form-group-lg input[type="date"][type="password"], .input-group-lg > input[type="date"].form-control, form.form-horizontal.go-labels .form-group .input-group-lg > input[type="date"][type="text"], form.form-horizontal.go-labels .form-group .input-group-lg > input[type="date"][type="email"], form.form-horizontal.go-labels .form-group .input-group-lg > input[type="date"][type="password"], form.form-horizontal.go-labels-100 .form-group .input-group-lg > input[type="date"][type="text"], form.form-horizontal.go-labels-100 .form-group .input-group-lg > input[type="date"][type="email"], form.form-horizontal.go-labels-100 .form-group .input-group-lg > input[type="date"][type="password"], form.form-horizontal.go-labels-300 .form-group .input-group-lg > input[type="date"][type="text"], form.form-horizontal.go-labels-300 .form-group .input-group-lg > input[type="date"][type="email"], form.form-horizontal.go-labels-300 .form-group .input-group-lg > input[type="date"][type="password"],
   .input-group-lg > input[type="date"].input-group-addon,
   .input-group-lg > .input-group-btn > input[type="date"].btn,
-  .input-group-lg > .input-group-btn > input[type="date"][type=button],
-  .input-group-lg > .input-group-btn > input[type="date"][type=submit],
   input[type="time"].input-lg,
   .form-horizontal .form-group-lg input[type="time"].form-control,
   form.form-horizontal.go-labels .form-group-lg .form-group input[type="time"][type="text"],
@@ -2481,8 +2469,6 @@ input[type="month"] {
   form.form-horizontal.go-labels-300 .form-group .input-group-lg > input[type="time"][type="password"],
   .input-group-lg > input[type="time"].input-group-addon,
   .input-group-lg > .input-group-btn > input[type="time"].btn,
-  .input-group-lg > .input-group-btn > input[type="time"][type=button],
-  .input-group-lg > .input-group-btn > input[type="time"][type=submit],
   input[type="datetime-local"].input-lg,
   .form-horizontal .form-group-lg input[type="datetime-local"].form-control,
   form.form-horizontal.go-labels .form-group-lg .form-group input[type="datetime-local"][type="text"],
@@ -2515,8 +2501,6 @@ input[type="month"] {
   form.form-horizontal.go-labels-300 .form-group .input-group-lg > input[type="datetime-local"][type="password"],
   .input-group-lg > input[type="datetime-local"].input-group-addon,
   .input-group-lg > .input-group-btn > input[type="datetime-local"].btn,
-  .input-group-lg > .input-group-btn > input[type="datetime-local"][type=button],
-  .input-group-lg > .input-group-btn > input[type="datetime-local"][type=submit],
   input[type="month"].input-lg,
   .form-horizontal .form-group-lg input[type="month"].form-control,
   form.form-horizontal.go-labels .form-group-lg .form-group input[type="month"][type="text"],
@@ -2548,9 +2532,7 @@ input[type="month"] {
   form.form-horizontal.go-labels-300 .form-group .input-group-lg > input[type="month"][type="email"],
   form.form-horizontal.go-labels-300 .form-group .input-group-lg > input[type="month"][type="password"],
   .input-group-lg > input[type="month"].input-group-addon,
-  .input-group-lg > .input-group-btn > input[type="month"].btn,
-  .input-group-lg > .input-group-btn > input[type="month"][type=button],
-  .input-group-lg > .input-group-btn > input[type="month"][type=submit] {
+  .input-group-lg > .input-group-btn > input[type="month"].btn {
     line-height: 46px; }
 
 .form-group {
@@ -2619,26 +2601,18 @@ input[type="checkbox"] {
   .form-control-static.input-lg, .form-horizontal .form-group-lg .form-control-static.form-control, form.form-horizontal.go-labels .form-group-lg .form-group input.form-control-static[type="text"], form.form-horizontal.go-labels .form-group .form-group-lg input.form-control-static[type="text"], form.form-horizontal.go-labels .form-group-lg .form-group input.form-control-static[type="email"], form.form-horizontal.go-labels .form-group .form-group-lg input.form-control-static[type="email"], form.form-horizontal.go-labels .form-group-lg .form-group input.form-control-static[type="password"], form.form-horizontal.go-labels .form-group .form-group-lg input.form-control-static[type="password"], form.form-horizontal.go-labels .form-group-lg .form-group textarea.form-control-static, form.form-horizontal.go-labels .form-group .form-group-lg textarea.form-control-static, form.form-horizontal.go-labels-100 .form-group-lg .form-group input.form-control-static[type="text"], form.form-horizontal.go-labels-100 .form-group .form-group-lg input.form-control-static[type="text"], form.form-horizontal.go-labels-100 .form-group-lg .form-group input.form-control-static[type="email"], form.form-horizontal.go-labels-100 .form-group .form-group-lg input.form-control-static[type="email"], form.form-horizontal.go-labels-100 .form-group-lg .form-group input.form-control-static[type="password"], form.form-horizontal.go-labels-100 .form-group .form-group-lg input.form-control-static[type="password"], form.form-horizontal.go-labels-100 .form-group-lg .form-group textarea.form-control-static, form.form-horizontal.go-labels-100 .form-group .form-group-lg textarea.form-control-static, form.form-horizontal.go-labels-300 .form-group-lg .form-group input.form-control-static[type="text"], form.form-horizontal.go-labels-300 .form-group .form-group-lg input.form-control-static[type="text"], form.form-horizontal.go-labels-300 .form-group-lg .form-group input.form-control-static[type="email"], form.form-horizontal.go-labels-300 .form-group .form-group-lg input.form-control-static[type="email"], form.form-horizontal.go-labels-300 .form-group-lg .form-group input.form-control-static[type="password"], form.form-horizontal.go-labels-300 .form-group .form-group-lg input.form-control-static[type="password"], form.form-horizontal.go-labels-300 .form-group-lg .form-group textarea.form-control-static, form.form-horizontal.go-labels-300 .form-group .form-group-lg textarea.form-control-static, .input-group-lg > .form-control-static.form-control, form.form-horizontal.go-labels .form-group .input-group-lg > input.form-control-static[type="text"], form.form-horizontal.go-labels .form-group .input-group-lg > input.form-control-static[type="email"], form.form-horizontal.go-labels .form-group .input-group-lg > input.form-control-static[type="password"], form.form-horizontal.go-labels .form-group .input-group-lg > textarea.form-control-static, form.form-horizontal.go-labels-100 .form-group .input-group-lg > input.form-control-static[type="text"], form.form-horizontal.go-labels-100 .form-group .input-group-lg > input.form-control-static[type="email"], form.form-horizontal.go-labels-100 .form-group .input-group-lg > input.form-control-static[type="password"], form.form-horizontal.go-labels-100 .form-group .input-group-lg > textarea.form-control-static, form.form-horizontal.go-labels-300 .form-group .input-group-lg > input.form-control-static[type="text"], form.form-horizontal.go-labels-300 .form-group .input-group-lg > input.form-control-static[type="email"], form.form-horizontal.go-labels-300 .form-group .input-group-lg > input.form-control-static[type="password"], form.form-horizontal.go-labels-300 .form-group .input-group-lg > textarea.form-control-static,
   .input-group-lg > .form-control-static.input-group-addon,
   .input-group-lg > .input-group-btn > .form-control-static.btn,
-  .go-toolbar .input-group-lg > .input-group-btn > a.form-control-static,
-  .input-group-lg > .input-group-btn > button.form-control-static,
-  .input-group-lg > .input-group-btn > input.form-control-static[type=button],
-  .input-group-lg > .input-group-btn > input.form-control-static[type=submit], .form-control-static.input-sm, .form-horizontal .form-group-sm .form-control-static.form-control, form.form-horizontal.go-labels .form-group-sm .form-group input.form-control-static[type="text"], form.form-horizontal.go-labels .form-group .form-group-sm input.form-control-static[type="text"], form.form-horizontal.go-labels .form-group-sm .form-group input.form-control-static[type="email"], form.form-horizontal.go-labels .form-group .form-group-sm input.form-control-static[type="email"], form.form-horizontal.go-labels .form-group-sm .form-group input.form-control-static[type="password"], form.form-horizontal.go-labels .form-group .form-group-sm input.form-control-static[type="password"], form.form-horizontal.go-labels .form-group-sm .form-group textarea.form-control-static, form.form-horizontal.go-labels .form-group .form-group-sm textarea.form-control-static, form.form-horizontal.go-labels-100 .form-group-sm .form-group input.form-control-static[type="text"], form.form-horizontal.go-labels-100 .form-group .form-group-sm input.form-control-static[type="text"], form.form-horizontal.go-labels-100 .form-group-sm .form-group input.form-control-static[type="email"], form.form-horizontal.go-labels-100 .form-group .form-group-sm input.form-control-static[type="email"], form.form-horizontal.go-labels-100 .form-group-sm .form-group input.form-control-static[type="password"], form.form-horizontal.go-labels-100 .form-group .form-group-sm input.form-control-static[type="password"], form.form-horizontal.go-labels-100 .form-group-sm .form-group textarea.form-control-static, form.form-horizontal.go-labels-100 .form-group .form-group-sm textarea.form-control-static, form.form-horizontal.go-labels-300 .form-group-sm .form-group input.form-control-static[type="text"], form.form-horizontal.go-labels-300 .form-group .form-group-sm input.form-control-static[type="text"], form.form-horizontal.go-labels-300 .form-group-sm .form-group input.form-control-static[type="email"], form.form-horizontal.go-labels-300 .form-group .form-group-sm input.form-control-static[type="email"], form.form-horizontal.go-labels-300 .form-group-sm .form-group input.form-control-static[type="password"], form.form-horizontal.go-labels-300 .form-group .form-group-sm input.form-control-static[type="password"], form.form-horizontal.go-labels-300 .form-group-sm .form-group textarea.form-control-static, form.form-horizontal.go-labels-300 .form-group .form-group-sm textarea.form-control-static, .input-group-sm > .form-control-static.form-control, form.form-horizontal.go-labels .form-group .input-group-sm > input.form-control-static[type="text"], form.form-horizontal.go-labels .form-group .input-group-sm > input.form-control-static[type="email"], form.form-horizontal.go-labels .form-group .input-group-sm > input.form-control-static[type="password"], form.form-horizontal.go-labels .form-group .input-group-sm > textarea.form-control-static, form.form-horizontal.go-labels-100 .form-group .input-group-sm > input.form-control-static[type="text"], form.form-horizontal.go-labels-100 .form-group .input-group-sm > input.form-control-static[type="email"], form.form-horizontal.go-labels-100 .form-group .input-group-sm > input.form-control-static[type="password"], form.form-horizontal.go-labels-100 .form-group .input-group-sm > textarea.form-control-static, form.form-horizontal.go-labels-300 .form-group .input-group-sm > input.form-control-static[type="text"], form.form-horizontal.go-labels-300 .form-group .input-group-sm > input.form-control-static[type="email"], form.form-horizontal.go-labels-300 .form-group .input-group-sm > input.form-control-static[type="password"], form.form-horizontal.go-labels-300 .form-group .input-group-sm > textarea.form-control-static,
+  .input-group-lg > .input-group-btn > button.form-control-static, .form-control-static.input-sm, .form-horizontal .form-group-sm .form-control-static.form-control, form.form-horizontal.go-labels .form-group-sm .form-group input.form-control-static[type="text"], form.form-horizontal.go-labels .form-group .form-group-sm input.form-control-static[type="text"], form.form-horizontal.go-labels .form-group-sm .form-group input.form-control-static[type="email"], form.form-horizontal.go-labels .form-group .form-group-sm input.form-control-static[type="email"], form.form-horizontal.go-labels .form-group-sm .form-group input.form-control-static[type="password"], form.form-horizontal.go-labels .form-group .form-group-sm input.form-control-static[type="password"], form.form-horizontal.go-labels .form-group-sm .form-group textarea.form-control-static, form.form-horizontal.go-labels .form-group .form-group-sm textarea.form-control-static, form.form-horizontal.go-labels-100 .form-group-sm .form-group input.form-control-static[type="text"], form.form-horizontal.go-labels-100 .form-group .form-group-sm input.form-control-static[type="text"], form.form-horizontal.go-labels-100 .form-group-sm .form-group input.form-control-static[type="email"], form.form-horizontal.go-labels-100 .form-group .form-group-sm input.form-control-static[type="email"], form.form-horizontal.go-labels-100 .form-group-sm .form-group input.form-control-static[type="password"], form.form-horizontal.go-labels-100 .form-group .form-group-sm input.form-control-static[type="password"], form.form-horizontal.go-labels-100 .form-group-sm .form-group textarea.form-control-static, form.form-horizontal.go-labels-100 .form-group .form-group-sm textarea.form-control-static, form.form-horizontal.go-labels-300 .form-group-sm .form-group input.form-control-static[type="text"], form.form-horizontal.go-labels-300 .form-group .form-group-sm input.form-control-static[type="text"], form.form-horizontal.go-labels-300 .form-group-sm .form-group input.form-control-static[type="email"], form.form-horizontal.go-labels-300 .form-group .form-group-sm input.form-control-static[type="email"], form.form-horizontal.go-labels-300 .form-group-sm .form-group input.form-control-static[type="password"], form.form-horizontal.go-labels-300 .form-group .form-group-sm input.form-control-static[type="password"], form.form-horizontal.go-labels-300 .form-group-sm .form-group textarea.form-control-static, form.form-horizontal.go-labels-300 .form-group .form-group-sm textarea.form-control-static, .input-group-sm > .form-control-static.form-control, form.form-horizontal.go-labels .form-group .input-group-sm > input.form-control-static[type="text"], form.form-horizontal.go-labels .form-group .input-group-sm > input.form-control-static[type="email"], form.form-horizontal.go-labels .form-group .input-group-sm > input.form-control-static[type="password"], form.form-horizontal.go-labels .form-group .input-group-sm > textarea.form-control-static, form.form-horizontal.go-labels-100 .form-group .input-group-sm > input.form-control-static[type="text"], form.form-horizontal.go-labels-100 .form-group .input-group-sm > input.form-control-static[type="email"], form.form-horizontal.go-labels-100 .form-group .input-group-sm > input.form-control-static[type="password"], form.form-horizontal.go-labels-100 .form-group .input-group-sm > textarea.form-control-static, form.form-horizontal.go-labels-300 .form-group .input-group-sm > input.form-control-static[type="text"], form.form-horizontal.go-labels-300 .form-group .input-group-sm > input.form-control-static[type="email"], form.form-horizontal.go-labels-300 .form-group .input-group-sm > input.form-control-static[type="password"], form.form-horizontal.go-labels-300 .form-group .input-group-sm > textarea.form-control-static,
   .input-group-sm > .form-control-static.input-group-addon,
   .input-group-sm > .input-group-btn > .form-control-static.btn,
-  .go-toolbar .input-group-sm > .input-group-btn > a.form-control-static,
-  .input-group-sm > .input-group-btn > button.form-control-static,
-  .input-group-sm > .input-group-btn > input.form-control-static[type=button],
-  .input-group-sm > .input-group-btn > input.form-control-static[type=submit] {
+  .input-group-sm > .input-group-btn > button.form-control-static {
     padding-left: 0;
     padding-right: 0; }
 
 .input-sm, .form-horizontal .form-group-sm .form-control, form.form-horizontal.go-labels .form-group-sm .form-group input[type="text"], form.form-horizontal.go-labels .form-group .form-group-sm input[type="text"], form.form-horizontal.go-labels .form-group-sm .form-group input[type="email"], form.form-horizontal.go-labels .form-group .form-group-sm input[type="email"], form.form-horizontal.go-labels .form-group-sm .form-group input[type="password"], form.form-horizontal.go-labels .form-group .form-group-sm input[type="password"], form.form-horizontal.go-labels .form-group-sm .form-group textarea, form.form-horizontal.go-labels .form-group .form-group-sm textarea, form.form-horizontal.go-labels-100 .form-group-sm .form-group input[type="text"], form.form-horizontal.go-labels-100 .form-group .form-group-sm input[type="text"], form.form-horizontal.go-labels-100 .form-group-sm .form-group input[type="email"], form.form-horizontal.go-labels-100 .form-group .form-group-sm input[type="email"], form.form-horizontal.go-labels-100 .form-group-sm .form-group input[type="password"], form.form-horizontal.go-labels-100 .form-group .form-group-sm input[type="password"], form.form-horizontal.go-labels-100 .form-group-sm .form-group textarea, form.form-horizontal.go-labels-100 .form-group .form-group-sm textarea, form.form-horizontal.go-labels-300 .form-group-sm .form-group input[type="text"], form.form-horizontal.go-labels-300 .form-group .form-group-sm input[type="text"], form.form-horizontal.go-labels-300 .form-group-sm .form-group input[type="email"], form.form-horizontal.go-labels-300 .form-group .form-group-sm input[type="email"], form.form-horizontal.go-labels-300 .form-group-sm .form-group input[type="password"], form.form-horizontal.go-labels-300 .form-group .form-group-sm input[type="password"], form.form-horizontal.go-labels-300 .form-group-sm .form-group textarea, form.form-horizontal.go-labels-300 .form-group .form-group-sm textarea, .input-group-sm > .form-control, form.form-horizontal.go-labels .form-group .input-group-sm > input[type="text"], form.form-horizontal.go-labels .form-group .input-group-sm > input[type="email"], form.form-horizontal.go-labels .form-group .input-group-sm > input[type="password"], form.form-horizontal.go-labels .form-group .input-group-sm > textarea, form.form-horizontal.go-labels-100 .form-group .input-group-sm > input[type="text"], form.form-horizontal.go-labels-100 .form-group .input-group-sm > input[type="email"], form.form-horizontal.go-labels-100 .form-group .input-group-sm > input[type="password"], form.form-horizontal.go-labels-100 .form-group .input-group-sm > textarea, form.form-horizontal.go-labels-300 .form-group .input-group-sm > input[type="text"], form.form-horizontal.go-labels-300 .form-group .input-group-sm > input[type="email"], form.form-horizontal.go-labels-300 .form-group .input-group-sm > input[type="password"], form.form-horizontal.go-labels-300 .form-group .input-group-sm > textarea,
 .input-group-sm > .input-group-addon,
 .input-group-sm > .input-group-btn > .btn,
-.go-toolbar .input-group-sm > .input-group-btn > a,
 .input-group-sm > .input-group-btn > button,
-.input-group-sm > .input-group-btn > input[type=button],
-.input-group-sm > .input-group-btn > input[type=submit] {
+.input-group-sm > .input-group-btn > button[type=submit] {
   height: 30px;
   padding: 5px 10px;
   font-size: 12px;
@@ -2664,10 +2638,8 @@ select[multiple].input-sm,
 .input-lg, .form-horizontal .form-group-lg .form-control, form.form-horizontal.go-labels .form-group-lg .form-group input[type="text"], form.form-horizontal.go-labels .form-group .form-group-lg input[type="text"], form.form-horizontal.go-labels .form-group-lg .form-group input[type="email"], form.form-horizontal.go-labels .form-group .form-group-lg input[type="email"], form.form-horizontal.go-labels .form-group-lg .form-group input[type="password"], form.form-horizontal.go-labels .form-group .form-group-lg input[type="password"], form.form-horizontal.go-labels .form-group-lg .form-group textarea, form.form-horizontal.go-labels .form-group .form-group-lg textarea, form.form-horizontal.go-labels-100 .form-group-lg .form-group input[type="text"], form.form-horizontal.go-labels-100 .form-group .form-group-lg input[type="text"], form.form-horizontal.go-labels-100 .form-group-lg .form-group input[type="email"], form.form-horizontal.go-labels-100 .form-group .form-group-lg input[type="email"], form.form-horizontal.go-labels-100 .form-group-lg .form-group input[type="password"], form.form-horizontal.go-labels-100 .form-group .form-group-lg input[type="password"], form.form-horizontal.go-labels-100 .form-group-lg .form-group textarea, form.form-horizontal.go-labels-100 .form-group .form-group-lg textarea, form.form-horizontal.go-labels-300 .form-group-lg .form-group input[type="text"], form.form-horizontal.go-labels-300 .form-group .form-group-lg input[type="text"], form.form-horizontal.go-labels-300 .form-group-lg .form-group input[type="email"], form.form-horizontal.go-labels-300 .form-group .form-group-lg input[type="email"], form.form-horizontal.go-labels-300 .form-group-lg .form-group input[type="password"], form.form-horizontal.go-labels-300 .form-group .form-group-lg input[type="password"], form.form-horizontal.go-labels-300 .form-group-lg .form-group textarea, form.form-horizontal.go-labels-300 .form-group .form-group-lg textarea, .input-group-lg > .form-control, form.form-horizontal.go-labels .form-group .input-group-lg > input[type="text"], form.form-horizontal.go-labels .form-group .input-group-lg > input[type="email"], form.form-horizontal.go-labels .form-group .input-group-lg > input[type="password"], form.form-horizontal.go-labels .form-group .input-group-lg > textarea, form.form-horizontal.go-labels-100 .form-group .input-group-lg > input[type="text"], form.form-horizontal.go-labels-100 .form-group .input-group-lg > input[type="email"], form.form-horizontal.go-labels-100 .form-group .input-group-lg > input[type="password"], form.form-horizontal.go-labels-100 .form-group .input-group-lg > textarea, form.form-horizontal.go-labels-300 .form-group .input-group-lg > input[type="text"], form.form-horizontal.go-labels-300 .form-group .input-group-lg > input[type="email"], form.form-horizontal.go-labels-300 .form-group .input-group-lg > input[type="password"], form.form-horizontal.go-labels-300 .form-group .input-group-lg > textarea,
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .btn,
-.go-toolbar .input-group-lg > .input-group-btn > a,
 .input-group-lg > .input-group-btn > button,
-.input-group-lg > .input-group-btn > input[type=button],
-.input-group-lg > .input-group-btn > input[type=submit] {
+.input-group-lg > .input-group-btn > button[type=submit] {
   height: 46px;
   padding: 10px 16px;
   font-size: 18px;
@@ -2709,10 +2681,7 @@ select[multiple].input-lg,
 .input-lg + .form-control-feedback, .form-horizontal .form-group-lg .form-control + .form-control-feedback, form.form-horizontal.go-labels .form-group-lg .form-group input[type="text"] + .form-control-feedback, form.form-horizontal.go-labels .form-group .form-group-lg input[type="text"] + .form-control-feedback, form.form-horizontal.go-labels .form-group-lg .form-group input[type="email"] + .form-control-feedback, form.form-horizontal.go-labels .form-group .form-group-lg input[type="email"] + .form-control-feedback, form.form-horizontal.go-labels .form-group-lg .form-group input[type="password"] + .form-control-feedback, form.form-horizontal.go-labels .form-group .form-group-lg input[type="password"] + .form-control-feedback, form.form-horizontal.go-labels .form-group-lg .form-group textarea + .form-control-feedback, form.form-horizontal.go-labels .form-group .form-group-lg textarea + .form-control-feedback, form.form-horizontal.go-labels-100 .form-group-lg .form-group input[type="text"] + .form-control-feedback, form.form-horizontal.go-labels-100 .form-group .form-group-lg input[type="text"] + .form-control-feedback, form.form-horizontal.go-labels-100 .form-group-lg .form-group input[type="email"] + .form-control-feedback, form.form-horizontal.go-labels-100 .form-group .form-group-lg input[type="email"] + .form-control-feedback, form.form-horizontal.go-labels-100 .form-group-lg .form-group input[type="password"] + .form-control-feedback, form.form-horizontal.go-labels-100 .form-group .form-group-lg input[type="password"] + .form-control-feedback, form.form-horizontal.go-labels-100 .form-group-lg .form-group textarea + .form-control-feedback, form.form-horizontal.go-labels-100 .form-group .form-group-lg textarea + .form-control-feedback, form.form-horizontal.go-labels-300 .form-group-lg .form-group input[type="text"] + .form-control-feedback, form.form-horizontal.go-labels-300 .form-group .form-group-lg input[type="text"] + .form-control-feedback, form.form-horizontal.go-labels-300 .form-group-lg .form-group input[type="email"] + .form-control-feedback, form.form-horizontal.go-labels-300 .form-group .form-group-lg input[type="email"] + .form-control-feedback, form.form-horizontal.go-labels-300 .form-group-lg .form-group input[type="password"] + .form-control-feedback, form.form-horizontal.go-labels-300 .form-group .form-group-lg input[type="password"] + .form-control-feedback, form.form-horizontal.go-labels-300 .form-group-lg .form-group textarea + .form-control-feedback, form.form-horizontal.go-labels-300 .form-group .form-group-lg textarea + .form-control-feedback, .input-group-lg > .form-control + .form-control-feedback, form.form-horizontal.go-labels .form-group .input-group-lg > input[type="text"] + .form-control-feedback, form.form-horizontal.go-labels .form-group .input-group-lg > input[type="email"] + .form-control-feedback, form.form-horizontal.go-labels .form-group .input-group-lg > input[type="password"] + .form-control-feedback, form.form-horizontal.go-labels .form-group .input-group-lg > textarea + .form-control-feedback, form.form-horizontal.go-labels-100 .form-group .input-group-lg > input[type="text"] + .form-control-feedback, form.form-horizontal.go-labels-100 .form-group .input-group-lg > input[type="email"] + .form-control-feedback, form.form-horizontal.go-labels-100 .form-group .input-group-lg > input[type="password"] + .form-control-feedback, form.form-horizontal.go-labels-100 .form-group .input-group-lg > textarea + .form-control-feedback, form.form-horizontal.go-labels-300 .form-group .input-group-lg > input[type="text"] + .form-control-feedback, form.form-horizontal.go-labels-300 .form-group .input-group-lg > input[type="email"] + .form-control-feedback, form.form-horizontal.go-labels-300 .form-group .input-group-lg > input[type="password"] + .form-control-feedback, form.form-horizontal.go-labels-300 .form-group .input-group-lg > textarea + .form-control-feedback,
 .input-group-lg > .input-group-addon + .form-control-feedback,
 .input-group-lg > .input-group-btn > .btn + .form-control-feedback,
-.go-toolbar .input-group-lg > .input-group-btn > a + .form-control-feedback,
-.input-group-lg > .input-group-btn > button + .form-control-feedback,
-.input-group-lg > .input-group-btn > input[type=button] + .form-control-feedback,
-.input-group-lg > .input-group-btn > input[type=submit] + .form-control-feedback {
+.input-group-lg > .input-group-btn > button + .form-control-feedback {
   width: 46px;
   height: 46px;
   line-height: 46px; }
@@ -2720,10 +2689,7 @@ select[multiple].input-lg,
 .input-sm + .form-control-feedback, .form-horizontal .form-group-sm .form-control + .form-control-feedback, form.form-horizontal.go-labels .form-group-sm .form-group input[type="text"] + .form-control-feedback, form.form-horizontal.go-labels .form-group .form-group-sm input[type="text"] + .form-control-feedback, form.form-horizontal.go-labels .form-group-sm .form-group input[type="email"] + .form-control-feedback, form.form-horizontal.go-labels .form-group .form-group-sm input[type="email"] + .form-control-feedback, form.form-horizontal.go-labels .form-group-sm .form-group input[type="password"] + .form-control-feedback, form.form-horizontal.go-labels .form-group .form-group-sm input[type="password"] + .form-control-feedback, form.form-horizontal.go-labels .form-group-sm .form-group textarea + .form-control-feedback, form.form-horizontal.go-labels .form-group .form-group-sm textarea + .form-control-feedback, form.form-horizontal.go-labels-100 .form-group-sm .form-group input[type="text"] + .form-control-feedback, form.form-horizontal.go-labels-100 .form-group .form-group-sm input[type="text"] + .form-control-feedback, form.form-horizontal.go-labels-100 .form-group-sm .form-group input[type="email"] + .form-control-feedback, form.form-horizontal.go-labels-100 .form-group .form-group-sm input[type="email"] + .form-control-feedback, form.form-horizontal.go-labels-100 .form-group-sm .form-group input[type="password"] + .form-control-feedback, form.form-horizontal.go-labels-100 .form-group .form-group-sm input[type="password"] + .form-control-feedback, form.form-horizontal.go-labels-100 .form-group-sm .form-group textarea + .form-control-feedback, form.form-horizontal.go-labels-100 .form-group .form-group-sm textarea + .form-control-feedback, form.form-horizontal.go-labels-300 .form-group-sm .form-group input[type="text"] + .form-control-feedback, form.form-horizontal.go-labels-300 .form-group .form-group-sm input[type="text"] + .form-control-feedback, form.form-horizontal.go-labels-300 .form-group-sm .form-group input[type="email"] + .form-control-feedback, form.form-horizontal.go-labels-300 .form-group .form-group-sm input[type="email"] + .form-control-feedback, form.form-horizontal.go-labels-300 .form-group-sm .form-group input[type="password"] + .form-control-feedback, form.form-horizontal.go-labels-300 .form-group .form-group-sm input[type="password"] + .form-control-feedback, form.form-horizontal.go-labels-300 .form-group-sm .form-group textarea + .form-control-feedback, form.form-horizontal.go-labels-300 .form-group .form-group-sm textarea + .form-control-feedback, .input-group-sm > .form-control + .form-control-feedback, form.form-horizontal.go-labels .form-group .input-group-sm > input[type="text"] + .form-control-feedback, form.form-horizontal.go-labels .form-group .input-group-sm > input[type="email"] + .form-control-feedback, form.form-horizontal.go-labels .form-group .input-group-sm > input[type="password"] + .form-control-feedback, form.form-horizontal.go-labels .form-group .input-group-sm > textarea + .form-control-feedback, form.form-horizontal.go-labels-100 .form-group .input-group-sm > input[type="text"] + .form-control-feedback, form.form-horizontal.go-labels-100 .form-group .input-group-sm > input[type="email"] + .form-control-feedback, form.form-horizontal.go-labels-100 .form-group .input-group-sm > input[type="password"] + .form-control-feedback, form.form-horizontal.go-labels-100 .form-group .input-group-sm > textarea + .form-control-feedback, form.form-horizontal.go-labels-300 .form-group .input-group-sm > input[type="text"] + .form-control-feedback, form.form-horizontal.go-labels-300 .form-group .input-group-sm > input[type="email"] + .form-control-feedback, form.form-horizontal.go-labels-300 .form-group .input-group-sm > input[type="password"] + .form-control-feedback, form.form-horizontal.go-labels-300 .form-group .input-group-sm > textarea + .form-control-feedback,
 .input-group-sm > .input-group-addon + .form-control-feedback,
 .input-group-sm > .input-group-btn > .btn + .form-control-feedback,
-.go-toolbar .input-group-sm > .input-group-btn > a + .form-control-feedback,
-.input-group-sm > .input-group-btn > button + .form-control-feedback,
-.input-group-sm > .input-group-btn > input[type=button] + .form-control-feedback,
-.input-group-sm > .input-group-btn > input[type=submit] + .form-control-feedback {
+.input-group-sm > .input-group-btn > button + .form-control-feedback {
   width: 30px;
   height: 30px;
   line-height: 30px; }
@@ -2915,7 +2881,7 @@ form.form-horizontal.go-labels-300 .has-error .form-group > label,
   .form-horizontal .form-group-sm .control-label, form.form-horizontal.go-labels .form-group-sm .form-group > label, form.form-horizontal.go-labels-100 .form-group-sm .form-group > label, form.form-horizontal.go-labels-300 .form-group-sm .form-group > label {
     padding-top: 6px; } }
 
-.btn, .go-toolbar a, button, input[type=button], input[type=submit] {
+.btn, button, button[type=submit] {
   display: inline-block;
   margin-bottom: 0;
   font-weight: normal;
@@ -2933,19 +2899,19 @@ form.form-horizontal.go-labels-300 .has-error .form-group > label,
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
-  .btn:focus, .go-toolbar a:focus, button:focus, input[type=button]:focus, input[type=submit]:focus, .btn:active:focus, .go-toolbar a:active:focus, button:active:focus, input[type=button]:active:focus, input[type=submit]:active:focus, .btn.active:focus, .go-toolbar a.active:focus, button.active:focus, input.active[type=button]:focus, input.active[type=submit]:focus {
+  .btn:focus, button:focus, .btn:active:focus, button:active:focus, .btn.active:focus, button.active:focus {
     outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
-  .btn:hover, .go-toolbar a:hover, button:hover, input[type=button]:hover, input[type=submit]:hover, .btn:focus, .go-toolbar a:focus, button:focus, input[type=button]:focus, input[type=submit]:focus {
+  .btn:hover, button:hover, .btn:focus, button:focus {
     color: #333;
     text-decoration: none; }
-  .btn:active, .go-toolbar a:active, button:active, input[type=button]:active, input[type=submit]:active, .btn.active, .go-toolbar a.active, button.active, input.active[type=button], input.active[type=submit] {
+  .btn:active, button:active, .btn.active, button.active {
     outline: 0;
     background-image: none;
     -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
-  .btn.disabled, .go-toolbar a.disabled, button.disabled, input.disabled[type=button], input.disabled[type=submit], .btn[disabled], .go-toolbar a[disabled], button[disabled], input[disabled][type=button], input[disabled][type=submit], fieldset[disabled] .btn, fieldset[disabled] .go-toolbar a, .go-toolbar fieldset[disabled] a, fieldset[disabled] button, fieldset[disabled] input[type=button], fieldset[disabled] input[type=submit] {
+  .btn.disabled, button.disabled, .btn[disabled], button[disabled], fieldset[disabled] .btn, fieldset[disabled] button, fieldset[disabled] button[type=submit] {
     cursor: not-allowed;
     pointer-events: none;
     opacity: 0.65;
@@ -2953,37 +2919,37 @@ form.form-horizontal.go-labels-300 .has-error .form-group > label,
     -webkit-box-shadow: none;
     box-shadow: none; }
 
-.btn-default, .go-toolbar a, button, input[type=button] {
+.btn-default, .btn, button, button[type=submit] {
   color: #333;
   background-color: #fff;
   border-color: #ccc; }
-  .btn-default:hover, .go-toolbar a:hover, button:hover, input[type=button]:hover, .btn-default:focus, .go-toolbar a:focus, button:focus, input[type=button]:focus, .btn-default:active, .go-toolbar a:active, button:active, input[type=button]:active, .btn-default.active, .go-toolbar a.active, button.active, input.active[type=button], .open > .btn-default.dropdown-toggle, .go-toolbar .open > a.dropdown-toggle, .open > button.dropdown-toggle, .open > input.dropdown-toggle[type=button] {
+  .btn-default:hover, .btn:hover, button:hover, .btn-default:focus, .btn:focus, button:focus, .btn-default:active, .btn:active, button:active, .btn-default.active, .active.btn, button.active, .open > .btn-default.dropdown-toggle, .open > .dropdown-toggle.btn, .open > button.dropdown-toggle {
     color: #333;
     background-color: #e6e6e6;
     border-color: #adadad; }
-  .btn-default:active, .go-toolbar a:active, button:active, input[type=button]:active, .btn-default.active, .go-toolbar a.active, button.active, input.active[type=button], .open > .btn-default.dropdown-toggle, .go-toolbar .open > a.dropdown-toggle, .open > button.dropdown-toggle, .open > input.dropdown-toggle[type=button] {
+  .btn-default:active, .btn:active, button:active, .btn-default.active, .active.btn, button.active, .open > .btn-default.dropdown-toggle, .open > .dropdown-toggle.btn, .open > button.dropdown-toggle {
     background-image: none; }
-  .btn-default.disabled, .go-toolbar a.disabled, button.disabled, input.disabled[type=button], .btn-default.disabled:hover, .go-toolbar a.disabled:hover, button.disabled:hover, input.disabled[type=button]:hover, .btn-default.disabled:focus, .go-toolbar a.disabled:focus, button.disabled:focus, input.disabled[type=button]:focus, .btn-default.disabled:active, .go-toolbar a.disabled:active, button.disabled:active, input.disabled[type=button]:active, .btn-default.disabled.active, .go-toolbar a.disabled.active, button.disabled.active, input.disabled.active[type=button], .btn-default[disabled], .go-toolbar a[disabled], button[disabled], input[disabled][type=button], .btn-default[disabled]:hover, .go-toolbar a[disabled]:hover, button[disabled]:hover, input[disabled][type=button]:hover, .btn-default[disabled]:focus, .go-toolbar a[disabled]:focus, button[disabled]:focus, input[disabled][type=button]:focus, .btn-default[disabled]:active, .go-toolbar a[disabled]:active, button[disabled]:active, input[disabled][type=button]:active, .btn-default[disabled].active, .go-toolbar a[disabled].active, button[disabled].active, input[disabled].active[type=button], fieldset[disabled] .btn-default, fieldset[disabled] .go-toolbar a, .go-toolbar fieldset[disabled] a, fieldset[disabled] button, fieldset[disabled] input[type=button], fieldset[disabled] .btn-default:hover, fieldset[disabled] .go-toolbar a:hover, .go-toolbar fieldset[disabled] a:hover, fieldset[disabled] button:hover, fieldset[disabled] input[type=button]:hover, fieldset[disabled] .btn-default:focus, fieldset[disabled] .go-toolbar a:focus, .go-toolbar fieldset[disabled] a:focus, fieldset[disabled] button:focus, fieldset[disabled] input[type=button]:focus, fieldset[disabled] .btn-default:active, fieldset[disabled] .go-toolbar a:active, .go-toolbar fieldset[disabled] a:active, fieldset[disabled] button:active, fieldset[disabled] input[type=button]:active, fieldset[disabled] .btn-default.active, fieldset[disabled] .go-toolbar a.active, .go-toolbar fieldset[disabled] a.active, fieldset[disabled] button.active, fieldset[disabled] input.active[type=button] {
+  .btn-default.disabled, .disabled.btn, button.disabled, .btn-default.disabled:hover, .disabled.btn:hover, button.disabled:hover, .btn-default.disabled:focus, .disabled.btn:focus, button.disabled:focus, .btn-default.disabled:active, .disabled.btn:active, button.disabled:active, .btn-default.disabled.active, .disabled.active.btn, button.disabled.active, .btn-default[disabled], [disabled].btn, button[disabled], .btn-default[disabled]:hover, [disabled].btn:hover, button[disabled]:hover, .btn-default[disabled]:focus, [disabled].btn:focus, button[disabled]:focus, .btn-default[disabled]:active, [disabled].btn:active, button[disabled]:active, .btn-default[disabled].active, [disabled].active.btn, button[disabled].active, fieldset[disabled] .btn-default, fieldset[disabled] .btn, fieldset[disabled] button, fieldset[disabled] button[type=submit], fieldset[disabled] .btn-default:hover, fieldset[disabled] .btn:hover, fieldset[disabled] button:hover, fieldset[disabled] .btn-default:focus, fieldset[disabled] .btn:focus, fieldset[disabled] button:focus, fieldset[disabled] .btn-default:active, fieldset[disabled] .btn:active, fieldset[disabled] button:active, fieldset[disabled] .btn-default.active, fieldset[disabled] .active.btn, fieldset[disabled] button.active {
     background-color: #fff;
     border-color: #ccc; }
-  .btn-default .badge, .go-toolbar a .badge, button .badge, input[type=button] .badge {
+  .btn-default .badge, .btn .badge, button .badge, button[type=submit] .badge {
     color: #fff;
     background-color: #333; }
 
-.btn-primary, input[type=submit] {
+.btn-primary, button[type=submit] {
   color: #fff;
   background-color: #428bca;
   border-color: #357ebd; }
-  .btn-primary:hover, input[type=submit]:hover, .btn-primary:focus, input[type=submit]:focus, .btn-primary:active, input[type=submit]:active, .btn-primary.active, input.active[type=submit], .open > .btn-primary.dropdown-toggle, .open > input.dropdown-toggle[type=submit] {
+  .btn-primary:hover, button[type=submit]:hover, .btn-primary:focus, button[type=submit]:focus, .btn-primary:active, button[type=submit]:active, .btn-primary.active, button.active[type=submit], .open > .btn-primary.dropdown-toggle, .open > button.dropdown-toggle[type=submit] {
     color: #fff;
     background-color: #3071a9;
     border-color: #285e8e; }
-  .btn-primary:active, input[type=submit]:active, .btn-primary.active, input.active[type=submit], .open > .btn-primary.dropdown-toggle, .open > input.dropdown-toggle[type=submit] {
+  .btn-primary:active, button[type=submit]:active, .btn-primary.active, button.active[type=submit], .open > .btn-primary.dropdown-toggle, .open > button.dropdown-toggle[type=submit] {
     background-image: none; }
-  .btn-primary.disabled, input.disabled[type=submit], .btn-primary.disabled:hover, input.disabled[type=submit]:hover, .btn-primary.disabled:focus, input.disabled[type=submit]:focus, .btn-primary.disabled:active, input.disabled[type=submit]:active, .btn-primary.disabled.active, input.disabled.active[type=submit], .btn-primary[disabled], input[disabled][type=submit], .btn-primary[disabled]:hover, input[disabled][type=submit]:hover, .btn-primary[disabled]:focus, input[disabled][type=submit]:focus, .btn-primary[disabled]:active, input[disabled][type=submit]:active, .btn-primary[disabled].active, input[disabled].active[type=submit], fieldset[disabled] .btn-primary, fieldset[disabled] input[type=submit], fieldset[disabled] .btn-primary:hover, fieldset[disabled] input[type=submit]:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] input[type=submit]:focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] input[type=submit]:active, fieldset[disabled] .btn-primary.active, fieldset[disabled] input.active[type=submit] {
+  .btn-primary.disabled, button.disabled[type=submit], .btn-primary.disabled:hover, button.disabled[type=submit]:hover, .btn-primary.disabled:focus, button.disabled[type=submit]:focus, .btn-primary.disabled:active, button.disabled[type=submit]:active, .btn-primary.disabled.active, button.disabled.active[type=submit], .btn-primary[disabled], button[disabled][type=submit], .btn-primary[disabled]:hover, button[disabled][type=submit]:hover, .btn-primary[disabled]:focus, button[disabled][type=submit]:focus, .btn-primary[disabled]:active, button[disabled][type=submit]:active, .btn-primary[disabled].active, button[disabled].active[type=submit], fieldset[disabled] .btn-primary, fieldset[disabled] button[type=submit], fieldset[disabled] .btn-primary:hover, fieldset[disabled] button[type=submit]:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] button[type=submit]:focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] button[type=submit]:active, fieldset[disabled] .btn-primary.active, fieldset[disabled] button.active[type=submit] {
     background-color: #428bca;
     border-color: #357ebd; }
-  .btn-primary .badge, input[type=submit] .badge {
+  .btn-primary .badge, button[type=submit] .badge {
     color: #428bca;
     background-color: #fff; }
 
@@ -3074,19 +3040,19 @@ form.form-horizontal.go-labels-300 .has-error .form-group > label,
     color: #777777;
     text-decoration: none; }
 
-.btn-lg, .btn-group-lg > .btn, .go-toolbar .btn-group-lg > a, .btn-group-lg > button, .btn-group-lg > input[type=button], .btn-group-lg > input[type=submit] {
+.btn-lg, .btn-group-lg > .btn, .btn-group-lg > button, .btn-group-lg > button[type=submit] {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.33;
   border-radius: 6px; }
 
-.btn-sm, .btn-group-sm > .btn, .go-toolbar .btn-group-sm > a, .btn-group-sm > button, .btn-group-sm > input[type=button], .btn-group-sm > input[type=submit] {
+.btn-sm, .btn-group-sm > .btn, .btn-group-sm > button, .btn-group-sm > button[type=submit] {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px; }
 
-.btn-xs, .go-toolbar.go-toolbar-xs a, .btn-group-xs > .btn, .go-toolbar .btn-group-xs > a, .btn-group-xs > button, .btn-group-xs > input[type=button], .btn-group-xs > input[type=submit] {
+.btn-xs, .go-toolbar.go-toolbar-xs a, .btn-group-xs > .btn, .btn-group-xs > button, .btn-group-xs > button[type=submit] {
   padding: 1px 5px;
   font-size: 12px;
   line-height: 1.5;
@@ -3234,57 +3200,39 @@ input[type="button"].btn-block {
   position: relative;
   display: inline-block;
   vertical-align: middle; }
-  .btn-group > .btn, .go-toolbar .btn-group > a, .btn-group > button, .btn-group > input[type=button], .btn-group > input[type=submit],
+  .btn-group > .btn, .btn-group > button, .btn-group > button[type=submit],
   .btn-group-vertical > .btn,
-  .go-toolbar .btn-group-vertical > a,
   .btn-group-vertical > button,
-  .btn-group-vertical > input[type=button],
-  .btn-group-vertical > input[type=submit] {
+  .btn-group-vertical > button[type=submit] {
     position: relative;
     float: left; }
-    .btn-group > .btn:hover, .go-toolbar .btn-group > a:hover, .btn-group > button:hover, .btn-group > input[type=button]:hover, .btn-group > input[type=submit]:hover, .btn-group > .btn:focus, .go-toolbar .btn-group > a:focus, .btn-group > button:focus, .btn-group > input[type=button]:focus, .btn-group > input[type=submit]:focus, .btn-group > .btn:active, .go-toolbar .btn-group > a:active, .btn-group > button:active, .btn-group > input[type=button]:active, .btn-group > input[type=submit]:active, .btn-group > .btn.active, .go-toolbar .btn-group > a.active, .btn-group > button.active, .btn-group > input.active[type=button], .btn-group > input.active[type=submit],
+    .btn-group > .btn:hover, .btn-group > button:hover, .btn-group > button[type=submit]:hover, .btn-group > .btn:focus, .btn-group > button:focus, .btn-group > button[type=submit]:focus, .btn-group > .btn:active, .btn-group > button:active, .btn-group > button[type=submit]:active, .btn-group > .btn.active, .btn-group > button.active, .btn-group > button.active[type=submit],
     .btn-group-vertical > .btn:hover,
-    .go-toolbar .btn-group-vertical > a:hover,
     .btn-group-vertical > button:hover,
-    .btn-group-vertical > input[type=button]:hover,
-    .btn-group-vertical > input[type=submit]:hover,
+    .btn-group-vertical > button[type=submit]:hover,
     .btn-group-vertical > .btn:focus,
-    .go-toolbar .btn-group-vertical > a:focus,
     .btn-group-vertical > button:focus,
-    .btn-group-vertical > input[type=button]:focus,
-    .btn-group-vertical > input[type=submit]:focus,
+    .btn-group-vertical > button[type=submit]:focus,
     .btn-group-vertical > .btn:active,
-    .go-toolbar .btn-group-vertical > a:active,
     .btn-group-vertical > button:active,
-    .btn-group-vertical > input[type=button]:active,
-    .btn-group-vertical > input[type=submit]:active,
+    .btn-group-vertical > button[type=submit]:active,
     .btn-group-vertical > .btn.active,
-    .go-toolbar .btn-group-vertical > a.active,
     .btn-group-vertical > button.active,
-    .btn-group-vertical > input.active[type=button],
-    .btn-group-vertical > input.active[type=submit] {
+    .btn-group-vertical > button.active[type=submit] {
       z-index: 2; }
-    .btn-group > .btn:focus, .go-toolbar .btn-group > a:focus, .btn-group > button:focus, .btn-group > input[type=button]:focus, .btn-group > input[type=submit]:focus,
+    .btn-group > .btn:focus, .btn-group > button:focus, .btn-group > button[type=submit]:focus,
     .btn-group-vertical > .btn:focus,
-    .go-toolbar .btn-group-vertical > a:focus,
     .btn-group-vertical > button:focus,
-    .btn-group-vertical > input[type=button]:focus,
-    .btn-group-vertical > input[type=submit]:focus {
+    .btn-group-vertical > button[type=submit]:focus {
       outline: 0; }
 
-.btn-group .btn + .btn, .btn-group .go-toolbar a + .btn, .go-toolbar .btn-group a + .btn, .btn-group button + .btn, .btn-group input[type=button] + .btn, .btn-group input[type=submit] + .btn, .btn-group .go-toolbar .btn + a, .go-toolbar .btn-group .btn + a, .btn-group .go-toolbar a + a, .go-toolbar .btn-group a + a, .btn-group .go-toolbar button + a, .go-toolbar .btn-group button + a, .btn-group .go-toolbar input[type=button] + a, .go-toolbar .btn-group input[type=button] + a, .btn-group .go-toolbar input[type=submit] + a, .go-toolbar .btn-group input[type=submit] + a, .btn-group .btn + button, .btn-group .go-toolbar a + button, .go-toolbar .btn-group a + button, .btn-group button + button, .btn-group input[type=button] + button, .btn-group input[type=submit] + button, .btn-group .btn + input[type=button], .btn-group .go-toolbar a + input[type=button], .go-toolbar .btn-group a + input[type=button], .btn-group button + input[type=button], .btn-group input[type=button] + input[type=button], .btn-group input[type=submit] + input[type=button], .btn-group .btn + input[type=submit], .btn-group .go-toolbar a + input[type=submit], .go-toolbar .btn-group a + input[type=submit], .btn-group button + input[type=submit], .btn-group input[type=button] + input[type=submit], .btn-group input[type=submit] + input[type=submit],
+.btn-group .btn + .btn, .btn-group button + .btn, .btn-group button[type=submit] + .btn, .btn-group .btn + button, .btn-group button + button, .btn-group button[type=submit] + button, .btn-group .btn + button[type=submit], .btn-group button + button[type=submit], .btn-group button[type=submit] + button[type=submit],
 .btn-group .btn + .btn-group,
-.btn-group .go-toolbar a + .btn-group,
-.go-toolbar .btn-group a + .btn-group,
 .btn-group button + .btn-group,
-.btn-group input[type=button] + .btn-group,
-.btn-group input[type=submit] + .btn-group,
+.btn-group button[type=submit] + .btn-group,
 .btn-group .btn-group + .btn,
-.btn-group .go-toolbar .btn-group + a,
-.go-toolbar .btn-group .btn-group + a,
 .btn-group .btn-group + button,
-.btn-group .btn-group + input[type=button],
-.btn-group .btn-group + input[type=submit],
+.btn-group .btn-group + button[type=submit],
 .btn-group .btn-group + .btn-group {
   margin-left: -1px; }
 
@@ -3298,21 +3246,21 @@ input[type="button"].btn-block {
   .btn-toolbar .btn-group,
   .btn-toolbar .input-group {
     float: left; }
-  .btn-toolbar > .btn, .go-toolbar .btn-toolbar > a, .btn-toolbar > button, .btn-toolbar > input[type=button], .btn-toolbar > input[type=submit],
+  .btn-toolbar > .btn, .btn-toolbar > button, .btn-toolbar > button[type=submit],
   .btn-toolbar > .btn-group,
   .btn-toolbar > .input-group {
     margin-left: 5px; }
 
-.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle), .go-toolbar .btn-group > a:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > button:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > input[type=button]:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > input[type=submit]:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > button:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > button[type=submit]:not(:first-child):not(:last-child):not(.dropdown-toggle) {
   border-radius: 0; }
 
-.btn-group > .btn:first-child, .go-toolbar .btn-group > a:first-child, .btn-group > button:first-child, .btn-group > input[type=button]:first-child, .btn-group > input[type=submit]:first-child {
+.btn-group > .btn:first-child, .btn-group > button:first-child, .btn-group > button[type=submit]:first-child {
   margin-left: 0; }
-  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle), .go-toolbar .btn-group > a:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > button:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > input[type=button]:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > input[type=submit]:first-child:not(:last-child):not(.dropdown-toggle) {
+  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > button:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > button[type=submit]:first-child:not(:last-child):not(.dropdown-toggle) {
     border-bottom-right-radius: 0;
     border-top-right-radius: 0; }
 
-.btn-group > .btn:last-child:not(:first-child), .go-toolbar .btn-group > a:last-child:not(:first-child), .btn-group > button:last-child:not(:first-child), .btn-group > input[type=button]:last-child:not(:first-child), .btn-group > input[type=submit]:last-child:not(:first-child),
+.btn-group > .btn:last-child:not(:first-child), .btn-group > button:last-child:not(:first-child), .btn-group > button[type=submit]:last-child:not(:first-child),
 .btn-group > .dropdown-toggle:not(:first-child) {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
@@ -3320,15 +3268,15 @@ input[type="button"].btn-block {
 .btn-group > .btn-group {
   float: left; }
 
-.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn, .go-toolbar .btn-group > .btn-group:not(:first-child):not(:last-child) > a, .btn-group > .btn-group:not(:first-child):not(:last-child) > button, .btn-group > .btn-group:not(:first-child):not(:last-child) > input[type=button], .btn-group > .btn-group:not(:first-child):not(:last-child) > input[type=submit] {
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group > .btn-group:not(:first-child):not(:last-child) > button, .btn-group > .btn-group:not(:first-child):not(:last-child) > button[type=submit] {
   border-radius: 0; }
 
-.btn-group > .btn-group:first-child > .btn:last-child, .go-toolbar .btn-group > .btn-group:first-child > a:last-child, .btn-group > .btn-group:first-child > button:last-child, .btn-group > .btn-group:first-child > input[type=button]:last-child, .btn-group > .btn-group:first-child > input[type=submit]:last-child,
+.btn-group > .btn-group:first-child > .btn:last-child, .btn-group > .btn-group:first-child > button:last-child, .btn-group > .btn-group:first-child > button[type=submit]:last-child,
 .btn-group > .btn-group:first-child > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
-.btn-group > .btn-group:last-child > .btn:first-child, .go-toolbar .btn-group > .btn-group:last-child > a:first-child, .btn-group > .btn-group:last-child > button:first-child, .btn-group > .btn-group:last-child > input[type=button]:first-child, .btn-group > .btn-group:last-child > input[type=submit]:first-child {
+.btn-group > .btn-group:last-child > .btn:first-child, .btn-group > .btn-group:last-child > button:first-child, .btn-group > .btn-group:last-child > button[type=submit]:first-child {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
@@ -3336,11 +3284,11 @@ input[type="button"].btn-block {
 .btn-group.open .dropdown-toggle {
   outline: 0; }
 
-.btn-group > .btn + .dropdown-toggle, .go-toolbar .btn-group > a + .dropdown-toggle, .btn-group > button + .dropdown-toggle, .btn-group > input[type=button] + .dropdown-toggle, .btn-group > input[type=submit] + .dropdown-toggle {
+.btn-group > .btn + .dropdown-toggle, .btn-group > button + .dropdown-toggle, .btn-group > button[type=submit] + .dropdown-toggle {
   padding-left: 8px;
   padding-right: 8px; }
 
-.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle, .go-toolbar .btn-group-lg.btn-group > a + .dropdown-toggle, .btn-group-lg.btn-group > button + .dropdown-toggle, .btn-group-lg.btn-group > input[type=button] + .dropdown-toggle, .btn-group-lg.btn-group > input[type=submit] + .dropdown-toggle {
+.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle, .btn-group-lg.btn-group > button + .dropdown-toggle {
   padding-left: 12px;
   padding-right: 12px; }
 
@@ -3351,23 +3299,21 @@ input[type="button"].btn-block {
     -webkit-box-shadow: none;
     box-shadow: none; }
 
-.btn .caret, .go-toolbar a .caret, button .caret, input[type=button] .caret, input[type=submit] .caret {
+.btn .caret, button .caret, button[type=submit] .caret {
   margin-left: 0; }
 
-.btn-lg .caret, .btn-group-lg > .btn .caret, .go-toolbar .btn-group-lg > a .caret, .btn-group-lg > button .caret, .btn-group-lg > input[type=button] .caret, .btn-group-lg > input[type=submit] .caret {
+.btn-lg .caret, .btn-group-lg > .btn .caret, .btn-group-lg > button .caret {
   border-width: 5px 5px 0;
   border-bottom-width: 0; }
 
-.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret, .dropup .go-toolbar .btn-group-lg > a .caret, .go-toolbar .dropup .btn-group-lg > a .caret, .dropup .btn-group-lg > button .caret, .dropup .btn-group-lg > input[type=button] .caret, .dropup .btn-group-lg > input[type=submit] .caret {
+.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret, .dropup .btn-group-lg > button .caret {
   border-width: 0 5px 5px; }
 
-.btn-group-vertical > .btn, .go-toolbar .btn-group-vertical > a, .btn-group-vertical > button, .btn-group-vertical > input[type=button], .btn-group-vertical > input[type=submit],
+.btn-group-vertical > .btn, .btn-group-vertical > button, .btn-group-vertical > button[type=submit],
 .btn-group-vertical > .btn-group,
 .btn-group-vertical > .btn-group > .btn,
-.go-toolbar .btn-group-vertical > .btn-group > a,
 .btn-group-vertical > .btn-group > button,
-.btn-group-vertical > .btn-group > input[type=button],
-.btn-group-vertical > .btn-group > input[type=submit] {
+.btn-group-vertical > .btn-group > button[type=submit] {
   display: block;
   float: none;
   width: 100%;
@@ -3377,43 +3323,39 @@ input[type="button"].btn-block {
   display: table; }
 .btn-group-vertical > .btn-group:after {
   clear: both; }
-.btn-group-vertical > .btn-group > .btn, .go-toolbar .btn-group-vertical > .btn-group > a, .btn-group-vertical > .btn-group > button, .btn-group-vertical > .btn-group > input[type=button], .btn-group-vertical > .btn-group > input[type=submit] {
+.btn-group-vertical > .btn-group > .btn, .btn-group-vertical > .btn-group > button, .btn-group-vertical > .btn-group > button[type=submit] {
   float: none; }
-.btn-group-vertical > .btn + .btn, .go-toolbar .btn-group-vertical > a + .btn, .btn-group-vertical > button + .btn, .btn-group-vertical > input[type=button] + .btn, .btn-group-vertical > input[type=submit] + .btn, .go-toolbar .btn-group-vertical > .btn + a, .go-toolbar .btn-group-vertical > a + a, .go-toolbar .btn-group-vertical > button + a, .go-toolbar .btn-group-vertical > input[type=button] + a, .go-toolbar .btn-group-vertical > input[type=submit] + a, .btn-group-vertical > .btn + button, .go-toolbar .btn-group-vertical > a + button, .btn-group-vertical > button + button, .btn-group-vertical > input[type=button] + button, .btn-group-vertical > input[type=submit] + button, .btn-group-vertical > .btn + input[type=button], .go-toolbar .btn-group-vertical > a + input[type=button], .btn-group-vertical > button + input[type=button], .btn-group-vertical > input[type=button] + input[type=button], .btn-group-vertical > input[type=submit] + input[type=button], .btn-group-vertical > .btn + input[type=submit], .go-toolbar .btn-group-vertical > a + input[type=submit], .btn-group-vertical > button + input[type=submit], .btn-group-vertical > input[type=button] + input[type=submit], .btn-group-vertical > input[type=submit] + input[type=submit],
+.btn-group-vertical > .btn + .btn, .btn-group-vertical > button + .btn, .btn-group-vertical > button[type=submit] + .btn, .btn-group-vertical > .btn + button, .btn-group-vertical > button + button, .btn-group-vertical > button[type=submit] + button, .btn-group-vertical > .btn + button[type=submit], .btn-group-vertical > button + button[type=submit], .btn-group-vertical > button[type=submit] + button[type=submit],
 .btn-group-vertical > .btn + .btn-group,
-.go-toolbar .btn-group-vertical > a + .btn-group,
 .btn-group-vertical > button + .btn-group,
-.btn-group-vertical > input[type=button] + .btn-group,
-.btn-group-vertical > input[type=submit] + .btn-group,
+.btn-group-vertical > button[type=submit] + .btn-group,
 .btn-group-vertical > .btn-group + .btn,
-.go-toolbar .btn-group-vertical > .btn-group + a,
 .btn-group-vertical > .btn-group + button,
-.btn-group-vertical > .btn-group + input[type=button],
-.btn-group-vertical > .btn-group + input[type=submit],
+.btn-group-vertical > .btn-group + button[type=submit],
 .btn-group-vertical > .btn-group + .btn-group {
   margin-top: -1px;
   margin-left: 0; }
 
-.btn-group-vertical > .btn:not(:first-child):not(:last-child), .go-toolbar .btn-group-vertical > a:not(:first-child):not(:last-child), .btn-group-vertical > button:not(:first-child):not(:last-child), .btn-group-vertical > input[type=button]:not(:first-child):not(:last-child), .btn-group-vertical > input[type=submit]:not(:first-child):not(:last-child) {
+.btn-group-vertical > .btn:not(:first-child):not(:last-child), .btn-group-vertical > button:not(:first-child):not(:last-child), .btn-group-vertical > button[type=submit]:not(:first-child):not(:last-child) {
   border-radius: 0; }
-.btn-group-vertical > .btn:first-child:not(:last-child), .go-toolbar .btn-group-vertical > a:first-child:not(:last-child), .btn-group-vertical > button:first-child:not(:last-child), .btn-group-vertical > input[type=button]:first-child:not(:last-child), .btn-group-vertical > input[type=submit]:first-child:not(:last-child) {
+.btn-group-vertical > .btn:first-child:not(:last-child), .btn-group-vertical > button:first-child:not(:last-child), .btn-group-vertical > button[type=submit]:first-child:not(:last-child) {
   border-top-right-radius: 2px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
-.btn-group-vertical > .btn:last-child:not(:first-child), .go-toolbar .btn-group-vertical > a:last-child:not(:first-child), .btn-group-vertical > button:last-child:not(:first-child), .btn-group-vertical > input[type=button]:last-child:not(:first-child), .btn-group-vertical > input[type=submit]:last-child:not(:first-child) {
+.btn-group-vertical > .btn:last-child:not(:first-child), .btn-group-vertical > button:last-child:not(:first-child), .btn-group-vertical > button[type=submit]:last-child:not(:first-child) {
   border-bottom-left-radius: 2px;
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
-.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn, .go-toolbar .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > a, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > button, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > input[type=button], .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > input[type=submit] {
+.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > button, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > button[type=submit] {
   border-radius: 0; }
 
-.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child, .go-toolbar .btn-group-vertical > .btn-group:first-child:not(:last-child) > a:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > button:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > input[type=button]:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > input[type=submit]:last-child,
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > button:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > button[type=submit]:last-child,
 .btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
 
-.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child, .go-toolbar .btn-group-vertical > .btn-group:last-child:not(:first-child) > a:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > button:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > input[type=button]:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > input[type=submit]:first-child {
+.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > button:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > button[type=submit]:first-child {
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
@@ -3422,22 +3364,20 @@ input[type="button"].btn-block {
   width: 100%;
   table-layout: fixed;
   border-collapse: separate; }
-  .btn-group-justified > .btn, .go-toolbar .btn-group-justified > a, .btn-group-justified > button, .btn-group-justified > input[type=button], .btn-group-justified > input[type=submit],
+  .btn-group-justified > .btn, .btn-group-justified > button, .btn-group-justified > button[type=submit],
   .btn-group-justified > .btn-group {
     float: none;
     display: table-cell;
     width: 1%; }
-  .btn-group-justified > .btn-group .btn, .btn-group-justified > .btn-group .go-toolbar a, .go-toolbar .btn-group-justified > .btn-group a, .btn-group-justified > .btn-group button, .btn-group-justified > .btn-group input[type=button], .btn-group-justified > .btn-group input[type=submit] {
+  .btn-group-justified > .btn-group .btn, .btn-group-justified > .btn-group button, .btn-group-justified > .btn-group button[type=submit] {
     width: 100%; }
   .btn-group-justified > .btn-group .dropdown-menu {
     left: auto; }
 
-[data-toggle="buttons"] > .btn > input[type="radio"], .go-toolbar [data-toggle="buttons"] > a > input[type="radio"], [data-toggle="buttons"] > button > input[type="radio"], [data-toggle="buttons"] > input[type=button] > input[type="radio"], [data-toggle="buttons"] > input[type=submit] > input[type="radio"],
+[data-toggle="buttons"] > .btn > input[type="radio"], [data-toggle="buttons"] > button > input[type="radio"], [data-toggle="buttons"] > button[type=submit] > input[type="radio"],
 [data-toggle="buttons"] > .btn > input[type="checkbox"],
-.go-toolbar [data-toggle="buttons"] > a > input[type="checkbox"],
 [data-toggle="buttons"] > button > input[type="checkbox"],
-[data-toggle="buttons"] > input[type=button] > input[type="checkbox"],
-[data-toggle="buttons"] > input[type=submit] > input[type="checkbox"] {
+[data-toggle="buttons"] > button[type=submit] > input[type="checkbox"] {
   position: absolute;
   z-index: -1;
   opacity: 0;
@@ -3534,20 +3474,14 @@ form.form-horizontal.go-labels-300 .form-group .input-group textarea {
   .input-group-addon.input-sm, .form-horizontal .form-group-sm .input-group-addon.form-control, form.form-horizontal.go-labels .form-group-sm .form-group input.input-group-addon[type="text"], form.form-horizontal.go-labels .form-group .form-group-sm input.input-group-addon[type="text"], form.form-horizontal.go-labels .form-group-sm .form-group input.input-group-addon[type="email"], form.form-horizontal.go-labels .form-group .form-group-sm input.input-group-addon[type="email"], form.form-horizontal.go-labels .form-group-sm .form-group input.input-group-addon[type="password"], form.form-horizontal.go-labels .form-group .form-group-sm input.input-group-addon[type="password"], form.form-horizontal.go-labels .form-group-sm .form-group textarea.input-group-addon, form.form-horizontal.go-labels .form-group .form-group-sm textarea.input-group-addon, form.form-horizontal.go-labels-100 .form-group-sm .form-group input.input-group-addon[type="text"], form.form-horizontal.go-labels-100 .form-group .form-group-sm input.input-group-addon[type="text"], form.form-horizontal.go-labels-100 .form-group-sm .form-group input.input-group-addon[type="email"], form.form-horizontal.go-labels-100 .form-group .form-group-sm input.input-group-addon[type="email"], form.form-horizontal.go-labels-100 .form-group-sm .form-group input.input-group-addon[type="password"], form.form-horizontal.go-labels-100 .form-group .form-group-sm input.input-group-addon[type="password"], form.form-horizontal.go-labels-100 .form-group-sm .form-group textarea.input-group-addon, form.form-horizontal.go-labels-100 .form-group .form-group-sm textarea.input-group-addon, form.form-horizontal.go-labels-300 .form-group-sm .form-group input.input-group-addon[type="text"], form.form-horizontal.go-labels-300 .form-group .form-group-sm input.input-group-addon[type="text"], form.form-horizontal.go-labels-300 .form-group-sm .form-group input.input-group-addon[type="email"], form.form-horizontal.go-labels-300 .form-group .form-group-sm input.input-group-addon[type="email"], form.form-horizontal.go-labels-300 .form-group-sm .form-group input.input-group-addon[type="password"], form.form-horizontal.go-labels-300 .form-group .form-group-sm input.input-group-addon[type="password"], form.form-horizontal.go-labels-300 .form-group-sm .form-group textarea.input-group-addon, form.form-horizontal.go-labels-300 .form-group .form-group-sm textarea.input-group-addon, form.form-horizontal.go-labels .form-group .input-group-sm > input.input-group-addon[type="text"], form.form-horizontal.go-labels .form-group .input-group-sm > input.input-group-addon[type="email"], form.form-horizontal.go-labels .form-group .input-group-sm > input.input-group-addon[type="password"], form.form-horizontal.go-labels .form-group .input-group-sm > textarea.input-group-addon, form.form-horizontal.go-labels-100 .form-group .input-group-sm > input.input-group-addon[type="text"], form.form-horizontal.go-labels-100 .form-group .input-group-sm > input.input-group-addon[type="email"], form.form-horizontal.go-labels-100 .form-group .input-group-sm > input.input-group-addon[type="password"], form.form-horizontal.go-labels-100 .form-group .input-group-sm > textarea.input-group-addon, form.form-horizontal.go-labels-300 .form-group .input-group-sm > input.input-group-addon[type="text"], form.form-horizontal.go-labels-300 .form-group .input-group-sm > input.input-group-addon[type="email"], form.form-horizontal.go-labels-300 .form-group .input-group-sm > input.input-group-addon[type="password"], form.form-horizontal.go-labels-300 .form-group .input-group-sm > textarea.input-group-addon,
   .input-group-sm > .input-group-addon,
   .input-group-sm > .input-group-btn > .input-group-addon.btn,
-  .go-toolbar .input-group-sm > .input-group-btn > a.input-group-addon,
-  .input-group-sm > .input-group-btn > button.input-group-addon,
-  .input-group-sm > .input-group-btn > input.input-group-addon[type=button],
-  .input-group-sm > .input-group-btn > input.input-group-addon[type=submit] {
+  .input-group-sm > .input-group-btn > button.input-group-addon {
     padding: 5px 10px;
     font-size: 12px;
     border-radius: 3px; }
   .input-group-addon.input-lg, .form-horizontal .form-group-lg .input-group-addon.form-control, form.form-horizontal.go-labels .form-group-lg .form-group input.input-group-addon[type="text"], form.form-horizontal.go-labels .form-group .form-group-lg input.input-group-addon[type="text"], form.form-horizontal.go-labels .form-group-lg .form-group input.input-group-addon[type="email"], form.form-horizontal.go-labels .form-group .form-group-lg input.input-group-addon[type="email"], form.form-horizontal.go-labels .form-group-lg .form-group input.input-group-addon[type="password"], form.form-horizontal.go-labels .form-group .form-group-lg input.input-group-addon[type="password"], form.form-horizontal.go-labels .form-group-lg .form-group textarea.input-group-addon, form.form-horizontal.go-labels .form-group .form-group-lg textarea.input-group-addon, form.form-horizontal.go-labels-100 .form-group-lg .form-group input.input-group-addon[type="text"], form.form-horizontal.go-labels-100 .form-group .form-group-lg input.input-group-addon[type="text"], form.form-horizontal.go-labels-100 .form-group-lg .form-group input.input-group-addon[type="email"], form.form-horizontal.go-labels-100 .form-group .form-group-lg input.input-group-addon[type="email"], form.form-horizontal.go-labels-100 .form-group-lg .form-group input.input-group-addon[type="password"], form.form-horizontal.go-labels-100 .form-group .form-group-lg input.input-group-addon[type="password"], form.form-horizontal.go-labels-100 .form-group-lg .form-group textarea.input-group-addon, form.form-horizontal.go-labels-100 .form-group .form-group-lg textarea.input-group-addon, form.form-horizontal.go-labels-300 .form-group-lg .form-group input.input-group-addon[type="text"], form.form-horizontal.go-labels-300 .form-group .form-group-lg input.input-group-addon[type="text"], form.form-horizontal.go-labels-300 .form-group-lg .form-group input.input-group-addon[type="email"], form.form-horizontal.go-labels-300 .form-group .form-group-lg input.input-group-addon[type="email"], form.form-horizontal.go-labels-300 .form-group-lg .form-group input.input-group-addon[type="password"], form.form-horizontal.go-labels-300 .form-group .form-group-lg input.input-group-addon[type="password"], form.form-horizontal.go-labels-300 .form-group-lg .form-group textarea.input-group-addon, form.form-horizontal.go-labels-300 .form-group .form-group-lg textarea.input-group-addon, form.form-horizontal.go-labels .form-group .input-group-lg > input.input-group-addon[type="text"], form.form-horizontal.go-labels .form-group .input-group-lg > input.input-group-addon[type="email"], form.form-horizontal.go-labels .form-group .input-group-lg > input.input-group-addon[type="password"], form.form-horizontal.go-labels .form-group .input-group-lg > textarea.input-group-addon, form.form-horizontal.go-labels-100 .form-group .input-group-lg > input.input-group-addon[type="text"], form.form-horizontal.go-labels-100 .form-group .input-group-lg > input.input-group-addon[type="email"], form.form-horizontal.go-labels-100 .form-group .input-group-lg > input.input-group-addon[type="password"], form.form-horizontal.go-labels-100 .form-group .input-group-lg > textarea.input-group-addon, form.form-horizontal.go-labels-300 .form-group .input-group-lg > input.input-group-addon[type="text"], form.form-horizontal.go-labels-300 .form-group .input-group-lg > input.input-group-addon[type="email"], form.form-horizontal.go-labels-300 .form-group .input-group-lg > input.input-group-addon[type="password"], form.form-horizontal.go-labels-300 .form-group .input-group-lg > textarea.input-group-addon,
   .input-group-lg > .input-group-addon,
   .input-group-lg > .input-group-btn > .input-group-addon.btn,
-  .go-toolbar .input-group-lg > .input-group-btn > a.input-group-addon,
-  .input-group-lg > .input-group-btn > button.input-group-addon,
-  .input-group-lg > .input-group-btn > input.input-group-addon[type=button],
-  .input-group-lg > .input-group-btn > input.input-group-addon[type=submit] {
+  .input-group-lg > .input-group-btn > button.input-group-addon {
     padding: 10px 16px;
     font-size: 18px;
     border-radius: 6px; }
@@ -3558,26 +3492,18 @@ form.form-horizontal.go-labels-300 .form-group .input-group textarea {
 .input-group .form-control:first-child, .input-group form.form-horizontal.go-labels .form-group input[type="text"]:first-child, form.form-horizontal.go-labels .form-group .input-group input[type="text"]:first-child, .input-group form.form-horizontal.go-labels .form-group input[type="email"]:first-child, form.form-horizontal.go-labels .form-group .input-group input[type="email"]:first-child, .input-group form.form-horizontal.go-labels .form-group input[type="password"]:first-child, form.form-horizontal.go-labels .form-group .input-group input[type="password"]:first-child, .input-group form.form-horizontal.go-labels .form-group textarea:first-child, form.form-horizontal.go-labels .form-group .input-group textarea:first-child, .input-group form.form-horizontal.go-labels-100 .form-group input[type="text"]:first-child, form.form-horizontal.go-labels-100 .form-group .input-group input[type="text"]:first-child, .input-group form.form-horizontal.go-labels-100 .form-group input[type="email"]:first-child, form.form-horizontal.go-labels-100 .form-group .input-group input[type="email"]:first-child, .input-group form.form-horizontal.go-labels-100 .form-group input[type="password"]:first-child, form.form-horizontal.go-labels-100 .form-group .input-group input[type="password"]:first-child, .input-group form.form-horizontal.go-labels-100 .form-group textarea:first-child, form.form-horizontal.go-labels-100 .form-group .input-group textarea:first-child, .input-group form.form-horizontal.go-labels-300 .form-group input[type="text"]:first-child, form.form-horizontal.go-labels-300 .form-group .input-group input[type="text"]:first-child, .input-group form.form-horizontal.go-labels-300 .form-group input[type="email"]:first-child, form.form-horizontal.go-labels-300 .form-group .input-group input[type="email"]:first-child, .input-group form.form-horizontal.go-labels-300 .form-group input[type="password"]:first-child, form.form-horizontal.go-labels-300 .form-group .input-group input[type="password"]:first-child, .input-group form.form-horizontal.go-labels-300 .form-group textarea:first-child, form.form-horizontal.go-labels-300 .form-group .input-group textarea:first-child,
 .input-group-addon:first-child,
 .input-group-btn:first-child > .btn,
-.go-toolbar .input-group-btn:first-child > a,
 .input-group-btn:first-child > button,
-.input-group-btn:first-child > input[type=button],
-.input-group-btn:first-child > input[type=submit],
+.input-group-btn:first-child > button[type=submit],
 .input-group-btn:first-child > .btn-group > .btn,
-.go-toolbar .input-group-btn:first-child > .btn-group > a,
 .input-group-btn:first-child > .btn-group > button,
-.input-group-btn:first-child > .btn-group > input[type=button],
-.input-group-btn:first-child > .btn-group > input[type=submit],
+.input-group-btn:first-child > .btn-group > button[type=submit],
 .input-group-btn:first-child > .dropdown-toggle,
 .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle),
-.go-toolbar .input-group-btn:last-child > a:not(:last-child):not(.dropdown-toggle),
 .input-group-btn:last-child > button:not(:last-child):not(.dropdown-toggle),
-.input-group-btn:last-child > input[type=button]:not(:last-child):not(.dropdown-toggle),
-.input-group-btn:last-child > input[type=submit]:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:last-child > button[type=submit]:not(:last-child):not(.dropdown-toggle),
 .input-group-btn:last-child > .btn-group:not(:last-child) > .btn,
-.go-toolbar .input-group-btn:last-child > .btn-group:not(:last-child) > a,
 .input-group-btn:last-child > .btn-group:not(:last-child) > button,
-.input-group-btn:last-child > .btn-group:not(:last-child) > input[type=button],
-.input-group-btn:last-child > .btn-group:not(:last-child) > input[type=submit] {
+.input-group-btn:last-child > .btn-group:not(:last-child) > button[type=submit] {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
@@ -3587,26 +3513,18 @@ form.form-horizontal.go-labels-300 .form-group .input-group textarea {
 .input-group .form-control:last-child, .input-group form.form-horizontal.go-labels .form-group input[type="text"]:last-child, form.form-horizontal.go-labels .form-group .input-group input[type="text"]:last-child, .input-group form.form-horizontal.go-labels .form-group input[type="email"]:last-child, form.form-horizontal.go-labels .form-group .input-group input[type="email"]:last-child, .input-group form.form-horizontal.go-labels .form-group input[type="password"]:last-child, form.form-horizontal.go-labels .form-group .input-group input[type="password"]:last-child, .input-group form.form-horizontal.go-labels .form-group textarea:last-child, form.form-horizontal.go-labels .form-group .input-group textarea:last-child, .input-group form.form-horizontal.go-labels-100 .form-group input[type="text"]:last-child, form.form-horizontal.go-labels-100 .form-group .input-group input[type="text"]:last-child, .input-group form.form-horizontal.go-labels-100 .form-group input[type="email"]:last-child, form.form-horizontal.go-labels-100 .form-group .input-group input[type="email"]:last-child, .input-group form.form-horizontal.go-labels-100 .form-group input[type="password"]:last-child, form.form-horizontal.go-labels-100 .form-group .input-group input[type="password"]:last-child, .input-group form.form-horizontal.go-labels-100 .form-group textarea:last-child, form.form-horizontal.go-labels-100 .form-group .input-group textarea:last-child, .input-group form.form-horizontal.go-labels-300 .form-group input[type="text"]:last-child, form.form-horizontal.go-labels-300 .form-group .input-group input[type="text"]:last-child, .input-group form.form-horizontal.go-labels-300 .form-group input[type="email"]:last-child, form.form-horizontal.go-labels-300 .form-group .input-group input[type="email"]:last-child, .input-group form.form-horizontal.go-labels-300 .form-group input[type="password"]:last-child, form.form-horizontal.go-labels-300 .form-group .input-group input[type="password"]:last-child, .input-group form.form-horizontal.go-labels-300 .form-group textarea:last-child, form.form-horizontal.go-labels-300 .form-group .input-group textarea:last-child,
 .input-group-addon:last-child,
 .input-group-btn:last-child > .btn,
-.go-toolbar .input-group-btn:last-child > a,
 .input-group-btn:last-child > button,
-.input-group-btn:last-child > input[type=button],
-.input-group-btn:last-child > input[type=submit],
+.input-group-btn:last-child > button[type=submit],
 .input-group-btn:last-child > .btn-group > .btn,
-.go-toolbar .input-group-btn:last-child > .btn-group > a,
 .input-group-btn:last-child > .btn-group > button,
-.input-group-btn:last-child > .btn-group > input[type=button],
-.input-group-btn:last-child > .btn-group > input[type=submit],
+.input-group-btn:last-child > .btn-group > button[type=submit],
 .input-group-btn:last-child > .dropdown-toggle,
 .input-group-btn:first-child > .btn:not(:first-child),
-.go-toolbar .input-group-btn:first-child > a:not(:first-child),
 .input-group-btn:first-child > button:not(:first-child),
-.input-group-btn:first-child > input[type=button]:not(:first-child),
-.input-group-btn:first-child > input[type=submit]:not(:first-child),
+.input-group-btn:first-child > button[type=submit]:not(:first-child),
 .input-group-btn:first-child > .btn-group:not(:first-child) > .btn,
-.go-toolbar .input-group-btn:first-child > .btn-group:not(:first-child) > a,
 .input-group-btn:first-child > .btn-group:not(:first-child) > button,
-.input-group-btn:first-child > .btn-group:not(:first-child) > input[type=button],
-.input-group-btn:first-child > .btn-group:not(:first-child) > input[type=submit] {
+.input-group-btn:first-child > .btn-group:not(:first-child) > button[type=submit] {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
@@ -3617,16 +3535,16 @@ form.form-horizontal.go-labels-300 .form-group .input-group textarea {
   position: relative;
   font-size: 0;
   white-space: nowrap; }
-  .input-group-btn > .btn, .go-toolbar .input-group-btn > a, .input-group-btn > button, .input-group-btn > input[type=button], .input-group-btn > input[type=submit] {
+  .input-group-btn > .btn, .input-group-btn > button, .input-group-btn > button[type=submit] {
     position: relative; }
-    .input-group-btn > .btn + .btn, .go-toolbar .input-group-btn > a + .btn, .input-group-btn > button + .btn, .input-group-btn > input[type=button] + .btn, .input-group-btn > input[type=submit] + .btn, .go-toolbar .input-group-btn > .btn + a, .go-toolbar .input-group-btn > a + a, .go-toolbar .input-group-btn > button + a, .go-toolbar .input-group-btn > input[type=button] + a, .go-toolbar .input-group-btn > input[type=submit] + a, .input-group-btn > .btn + button, .go-toolbar .input-group-btn > a + button, .input-group-btn > button + button, .input-group-btn > input[type=button] + button, .input-group-btn > input[type=submit] + button, .input-group-btn > .btn + input[type=button], .go-toolbar .input-group-btn > a + input[type=button], .input-group-btn > button + input[type=button], .input-group-btn > input[type=button] + input[type=button], .input-group-btn > input[type=submit] + input[type=button], .input-group-btn > .btn + input[type=submit], .go-toolbar .input-group-btn > a + input[type=submit], .input-group-btn > button + input[type=submit], .input-group-btn > input[type=button] + input[type=submit], .input-group-btn > input[type=submit] + input[type=submit] {
+    .input-group-btn > .btn + .btn, .input-group-btn > button + .btn, .input-group-btn > button[type=submit] + .btn, .input-group-btn > .btn + button, .input-group-btn > button + button, .input-group-btn > button[type=submit] + button, .input-group-btn > .btn + button[type=submit], .input-group-btn > button + button[type=submit], .input-group-btn > button[type=submit] + button[type=submit] {
       margin-left: -1px; }
-    .input-group-btn > .btn:hover, .go-toolbar .input-group-btn > a:hover, .input-group-btn > button:hover, .input-group-btn > input[type=button]:hover, .input-group-btn > input[type=submit]:hover, .input-group-btn > .btn:focus, .go-toolbar .input-group-btn > a:focus, .input-group-btn > button:focus, .input-group-btn > input[type=button]:focus, .input-group-btn > input[type=submit]:focus, .input-group-btn > .btn:active, .go-toolbar .input-group-btn > a:active, .input-group-btn > button:active, .input-group-btn > input[type=button]:active, .input-group-btn > input[type=submit]:active {
+    .input-group-btn > .btn:hover, .input-group-btn > button:hover, .input-group-btn > button[type=submit]:hover, .input-group-btn > .btn:focus, .input-group-btn > button:focus, .input-group-btn > button[type=submit]:focus, .input-group-btn > .btn:active, .input-group-btn > button:active, .input-group-btn > button[type=submit]:active {
       z-index: 2; }
-  .input-group-btn:first-child > .btn, .go-toolbar .input-group-btn:first-child > a, .input-group-btn:first-child > button, .input-group-btn:first-child > input[type=button], .input-group-btn:first-child > input[type=submit],
+  .input-group-btn:first-child > .btn, .input-group-btn:first-child > button, .input-group-btn:first-child > button[type=submit],
   .input-group-btn:first-child > .btn-group {
     margin-right: -1px; }
-  .input-group-btn:last-child > .btn, .go-toolbar .input-group-btn:last-child > a, .input-group-btn:last-child > button, .input-group-btn:last-child > input[type=button], .input-group-btn:last-child > input[type=submit],
+  .input-group-btn:last-child > .btn, .input-group-btn:last-child > button, .input-group-btn:last-child > button[type=submit],
   .input-group-btn:last-child > .btn-group {
     margin-left: -1px; }
 
@@ -3643,7 +3561,7 @@ form.form-horizontal.go-labels-300 .form-group .input-group textarea {
   border-radius: .25em; }
   .label:empty {
     display: none; }
-  .btn .label, .go-toolbar a .label, button .label, input[type=button] .label, input[type=submit] .label {
+  .btn .label, button .label, button[type=submit] .label {
     position: relative;
     top: -1px; }
 
@@ -3709,6 +3627,68 @@ a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active {
   border-color: #428bca; }
+
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 2px; }
+  .alert h4 {
+    margin-top: 0;
+    color: inherit; }
+  .alert .alert-link {
+    font-weight: bold; }
+  .alert > p,
+  .alert > ul {
+    margin-bottom: 0; }
+  .alert > p + p {
+    margin-top: 5px; }
+
+.alert-dismissable,
+.alert-dismissible {
+  padding-right: 35px; }
+  .alert-dismissable .close,
+  .alert-dismissible .close {
+    position: relative;
+    top: -2px;
+    right: -21px;
+    color: inherit; }
+
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #3c763d; }
+  .alert-success hr {
+    border-top-color: #c9e2b3; }
+  .alert-success .alert-link {
+    color: #2b542c; }
+
+.alert-info {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #31708f; }
+  .alert-info hr {
+    border-top-color: #a6e1ec; }
+  .alert-info .alert-link {
+    color: #245269; }
+
+.alert-warning {
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+  color: #8a6d3b; }
+  .alert-warning hr {
+    border-top-color: #f7e1b5; }
+  .alert-warning .alert-link {
+    color: #66512c; }
+
+.alert-danger {
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  color: #a94442; }
+  .alert-danger hr {
+    border-top-color: #e4b9c0; }
+  .alert-danger .alert-link {
+    color: #843534; }
 
 @-webkit-keyframes progress-bar-stripes {
   from {
@@ -4006,10 +3986,10 @@ a.list-group-item-danger {
     display: table; }
   .modal-footer:after {
     clear: both; }
-  .modal-footer .btn + .btn, .modal-footer .go-toolbar a + .btn, .go-toolbar .modal-footer a + .btn, .modal-footer button + .btn, .modal-footer input[type=button] + .btn, .modal-footer input[type=submit] + .btn, .modal-footer .go-toolbar .btn + a, .go-toolbar .modal-footer .btn + a, .modal-footer .go-toolbar a + a, .go-toolbar .modal-footer a + a, .modal-footer .go-toolbar button + a, .go-toolbar .modal-footer button + a, .modal-footer .go-toolbar input[type=button] + a, .go-toolbar .modal-footer input[type=button] + a, .modal-footer .go-toolbar input[type=submit] + a, .go-toolbar .modal-footer input[type=submit] + a, .modal-footer .btn + button, .modal-footer .go-toolbar a + button, .go-toolbar .modal-footer a + button, .modal-footer button + button, .modal-footer input[type=button] + button, .modal-footer input[type=submit] + button, .modal-footer .btn + input[type=button], .modal-footer .go-toolbar a + input[type=button], .go-toolbar .modal-footer a + input[type=button], .modal-footer button + input[type=button], .modal-footer input[type=button] + input[type=button], .modal-footer input[type=submit] + input[type=button], .modal-footer .btn + input[type=submit], .modal-footer .go-toolbar a + input[type=submit], .go-toolbar .modal-footer a + input[type=submit], .modal-footer button + input[type=submit], .modal-footer input[type=button] + input[type=submit], .modal-footer input[type=submit] + input[type=submit] {
+  .modal-footer .btn + .btn, .modal-footer button + .btn, .modal-footer button[type=submit] + .btn, .modal-footer .btn + button, .modal-footer button + button, .modal-footer button[type=submit] + button, .modal-footer .btn + button[type=submit], .modal-footer button + button[type=submit], .modal-footer button[type=submit] + button[type=submit] {
     margin-left: 5px;
     margin-bottom: 0; }
-  .modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .go-toolbar a + .btn, .go-toolbar .modal-footer .btn-group a + .btn, .modal-footer .btn-group button + .btn, .modal-footer .btn-group input[type=button] + .btn, .modal-footer .btn-group input[type=submit] + .btn, .modal-footer .btn-group .go-toolbar .btn + a, .go-toolbar .modal-footer .btn-group .btn + a, .modal-footer .btn-group .go-toolbar a + a, .go-toolbar .modal-footer .btn-group a + a, .modal-footer .btn-group .go-toolbar button + a, .go-toolbar .modal-footer .btn-group button + a, .modal-footer .btn-group .go-toolbar input[type=button] + a, .go-toolbar .modal-footer .btn-group input[type=button] + a, .modal-footer .btn-group .go-toolbar input[type=submit] + a, .go-toolbar .modal-footer .btn-group input[type=submit] + a, .modal-footer .btn-group .btn + button, .modal-footer .btn-group .go-toolbar a + button, .go-toolbar .modal-footer .btn-group a + button, .modal-footer .btn-group button + button, .modal-footer .btn-group input[type=button] + button, .modal-footer .btn-group input[type=submit] + button, .modal-footer .btn-group .btn + input[type=button], .modal-footer .btn-group .go-toolbar a + input[type=button], .go-toolbar .modal-footer .btn-group a + input[type=button], .modal-footer .btn-group button + input[type=button], .modal-footer .btn-group input[type=button] + input[type=button], .modal-footer .btn-group input[type=submit] + input[type=button], .modal-footer .btn-group .btn + input[type=submit], .modal-footer .btn-group .go-toolbar a + input[type=submit], .go-toolbar .modal-footer .btn-group a + input[type=submit], .modal-footer .btn-group button + input[type=submit], .modal-footer .btn-group input[type=button] + input[type=submit], .modal-footer .btn-group input[type=submit] + input[type=submit] {
+  .modal-footer .btn-group .btn + .btn, .modal-footer .btn-group button + .btn, .modal-footer .btn-group button[type=submit] + .btn, .modal-footer .btn-group .btn + button, .modal-footer .btn-group button + button, .modal-footer .btn-group button[type=submit] + button, .modal-footer .btn-group .btn + button[type=submit], .modal-footer .btn-group button + button[type=submit], .modal-footer .btn-group button[type=submit] + button[type=submit] {
     margin-left: -1px; }
   .modal-footer .btn-block + .btn-block {
     margin-left: 0; }
@@ -4870,7 +4850,7 @@ textarea.form-control, form.form-horizontal.go-labels .form-group textarea, form
       height: 100px;
       /*flex: 1;*/ } }
 /*.sortable-item, .sortable-placeholder {*/
-.sortable-placeholder {
+.as-sortable-placeholder {
   display: block;
   min-height: 20px;
   margin: 1px 2px 5px 1px;
@@ -4880,28 +4860,28 @@ textarea.form-control, form.form-horizontal.go-labels .form-group textarea, form
 	border: solid 1px darkgrey;
 	background-color: #ffffff;
 }*/
-.sortable-handle {
+.as-sortable-item-handle {
   cursor: move;
   border-left: 3px dotted grey;
   border-right: 3px dotted grey;
   width: 8px;
   position: absolute;
   left: 4px;
-  top: 8px;
-  bottom: 8px; }
+  top: 7px;
+  height: 27px; }
 
-.sortable-placeholder {
+.as-sortable-placeholder {
   border: 1px dashed darkgrey;
   box-sizing: border-box;
   background-color: #dbdbdb; }
 
-.sortable-drag {
+.as-sortable-drag {
   position: absolute;
   pointer-events: none;
   opacity: .8;
   z-index: 9999; }
 
-.sortable-hidden {
+.as-sortable-hidden {
   display: none !important; }
 
 .ui-select-match, .ui-select-search {
@@ -5503,6 +5483,15 @@ h3 {
     margin: 20px auto; } }
 .go-login-window h1 {
   margin-bottom: 30px; }
+
+.go-alerts {
+  position: absolute;
+  bottom: 0px;
+  right: 35px;
+  z-index: 10000;
+  width: 300px; }
+  .go-alerts alert {
+    text-align: center; }
 
 /* modals */
 .go-modal-alert .glyphicon {

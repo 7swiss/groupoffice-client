@@ -1,11 +1,11 @@
 <form name="userForm" im-submit="save()" novalidate class='form-horizontal go-labels'>
 	<div class="go-toolbar">
 
-		<a ng-click="cancel();">
+		<a class="btn" ng-click="cancel();">
 			<span class="fa fa-chevron-left"></span>
 		</a>
 
-		<button type="submit" class="btn-primary">
+		<button type="submit">
 			<i class="fa fa-floppy-o"></i> {{'Save'| t}}
 		</button>
 
@@ -115,7 +115,7 @@
 
 				<div class="go-toolbar-right">
 
-					<a ng-click="storeSelectModal.openModal()">
+					<a class="btn" ng-click="storeSelectModal.openModal()">
 						<i class="fa fa-plus"></i>
 					</a>
 

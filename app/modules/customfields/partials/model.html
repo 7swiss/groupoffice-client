@@ -10,17 +10,17 @@
 
 			<div class="go-toolbar-right">
 
-				<a ui-sref="customfields.model.fieldset({fieldSetId:0})">
+				<a class="btn" ui-sref="customfields.model.fieldset({fieldSetId:0})">
 					<i class="fa fa-plus"></i>
 				</a>
 			</div>
 		</div>	
 
 
-		<div class="list-group" sortable="dragControlListeners" ng-model="fieldSetStore.items">
+		<div class="list-group" as-sortable="dragControlListeners" ng-model="fieldSetStore.items">
 
-			<a draggable="false" sortable-item  ng-repeat="fieldSet in fieldSetStore.items"  class="list-group-item" ui-sref-active="active" ng-class="{'deleted-visible': fieldSet.attributes.deleted}" ui-sref="customfields.model.fields({fieldSetId: fieldSet.attributes.id})">
-				<span sortable-item-handle></span>&nbsp;
+			<a draggable="false" as-sortable-item  ng-repeat="fieldSet in fieldSetStore.items"  class="list-group-item" ui-sref-active="active" ng-class="{'deleted-visible': fieldSet.attributes.deleted}" ui-sref="customfields.model.fields({fieldSetId: fieldSet.attributes.id})">
+				<span as-sortable-item-handle></span>&nbsp;
 
 				{{fieldSet.attributes.name}}
 

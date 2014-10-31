@@ -32,6 +32,15 @@
 		<div class="go-loadmask-msg"><i class="fa fa-spinner go-rotate"></i> Loading...</div>
 	</div>-->
 
+	
+	<div class="go-alerts">
+
+		<div ng-repeat="alert in alerts" class="alert alert-{{alert.type}} fade in">
+			{{alert.msg}}
+		</div>
+	</div>
+
+
 	<div ui-view></div>
 
 	<!-- build:js js/app.min.js -->
@@ -63,7 +72,7 @@
 	
 
 	<!-- fileblock:js core -->
-	<script src="../app/lib/app.js"></script>	
+	<script src="../app/lib/app.js"></script>
 	<script src="../app/lib/language/nl.js"></script>
 	<script src="../app/lib/services/http-request-tracker.js"></script>
 	<script src="../app/lib/core/common.js"></script>
@@ -112,6 +121,7 @@
 	<script src="../app/lib/core/numeric/numeric-directive.js"></script>
 	<script src="../app/lib/collapsible-panel/collapsible-panel.js"></script>
 	<script src="../app/lib/config.js"></script>
+	<script src="../app/lib/core/alert-service.js"></script>
 	<!-- endfileblock -->
 
 

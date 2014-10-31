@@ -7,7 +7,7 @@
 			<h1>	{{"Fields"| t}}</h1>
 			<div class="go-toolbar-right">
 
-				<a ui-sref="customfields.model.fields.field({fieldId:0})">
+				<a class="btn" ui-sref="customfields.model.fields.field({fieldId:0})">
 					<i class="fa fa-plus"></i>
 				</a>
 
@@ -16,10 +16,10 @@
 
 
 
-		<div class="list-group" sortable="dragControlListeners" ng-model="fieldStore.items">
+		<div class="list-group" as-sortable="dragControlListeners" ng-model="fieldStore.items">
 
-			<a dragable="false" sortable-item ng-repeat="field in fieldStore.items" ng-class="{'deleted-visible': field.attributes.deleted}" class="list-group-item" ui-sref="customfields.model.fields.field({fieldId: field.attributes.id})">
-				<span sortable-item-handle></span>&nbsp;
+			<a dragable="false" as-sortable-item ng-repeat="field in fieldStore.items" ng-class="{'deleted-visible': field.attributes.deleted}" class="list-group-item" ui-sref="customfields.model.fields.field({fieldId: field.attributes.id})">
+				<span as-sortable-item-handle></span>&nbsp;
 
 				{{field.attributes.name}}
 

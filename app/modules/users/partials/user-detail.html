@@ -2,15 +2,15 @@
 
 <div class="go-toolbar">
 
-	<a class=""visible-xs" ui-sref="users">				
+	<a class="btn visible-xs" ui-sref="users">				
 	   <span class="fa fa-chevron-left"></span>
 	</a>
 
-	<a ui-sref="users.edit({userId: user.attributes.id})">
+	<a class="btn" ui-sref="users.edit({userId: user.attributes.id})">
 		<span class="fa fa-edit"></span> {{'Edit'| t}}
 	</a>
 
-	<a ui-sref="contacts.contact({contactId: user.attributes.contact.attributes.id})">
+	<a class="btn" ui-sref="contacts.contact({contactId: user.attributes.contact.attributes.id})">
 		<span class="fa fa-user"></span> {{'View profile'| t}}
 	</a>
 

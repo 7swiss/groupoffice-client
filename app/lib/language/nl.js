@@ -142,7 +142,9 @@ angular.module("GO").config(["TranslateProvider", function (TranslateProvider) {
     "Other": "Anders",
     "Mobile": "Mobiel",
     "Birthday": "Verjaardag",
-    "Anniversary": "Jubileum"
+    "Anniversary": "Jubileum",
+	
+	"The form contains errors. Please check your input." : "Het formulier bevat fouten. Controlleer uw invoer aub."
 
 
 		});

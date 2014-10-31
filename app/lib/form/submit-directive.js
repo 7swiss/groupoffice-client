@@ -1,7 +1,7 @@
 
 angular.module('GO.form')
-		.directive('imSubmit', ['$log',
-			function($log) {
+		.directive('imSubmit', ['$log','Alerts','Translate',
+			function($log, Alerts, Translate) {
 
 				return {
 					// restrict to an element tag type.
@@ -44,6 +44,21 @@ angular.module('GO.form')
 								
 								//otherwise popups don't show in modal windows.
 								$scope.$parent.$digest();
+								
+//								console.log(form);
+								
+								//find first form element with error and focus it.
+								for(var key in form){
+									var el = form[key];
+									if(angular.isObject(el) && angular.isDefined(el.$valid) && !el.$valid){
+										document.forms[form.$name].elements[el.$name].focus();
+										break;
+									}
+								}
+								
+								//document.forms[$scope.form.$name].elements[$scope.formEl.$name].focus();
+								
+								Alerts.addAlert(Translate.t("The form contains errors. Please check your input."), "danger");
 							}
 						});
 
