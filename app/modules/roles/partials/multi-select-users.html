@@ -13,21 +13,19 @@
 				<button class="btn btn-default" ng-click="storeSelectModal.availableStore.search();"><i class="fa fa-search"></i></button>
 			</div>
 		</div>
-	
+
 		<div style="margin-top:10px;height:300px;overflow:auto" class="list-group" im-infinite-scroll="storeSelectModal.availableStore.nextPage()" im-infinite-scroll-disabled="!storeSelectModal.availableStore.shouldLoad()">
 
 			<ul class="list-group">
-				<label class="list-group-item" ng-class="{selected: model.attributes.checked}" ng-repeat="model in storeSelectModal.availableStore.items">
-					<input type="checkbox" ng-model="model.attributes.checked"> {{model.attributes.name}}
-
+				<label class="list-group-item" ng-class="{selected: user.attributes.checked}" ng-repeat="user in storeSelectModal.availableStore.items" im-infinite-use-window="true">
+					<input type="checkbox" ng-model="user.attributes.checked"> {{user.attributes.username}}
 				</label>  
 			</ul>
 		</div>				
 
 	</div>
 	<div class="modal-footer">
-		<button class="btn btn-primary" ng-click="ok()">{{"OK" | t}}</button>
-		<button class="btn btn-warning" ng-click="cancel()">{{"Cancel" | t}}</button>
+		<button class="btn btn-primary" ng-click="ok()">{{"OK"| t}}</button>
+		<button class="btn btn-warning" ng-click="cancel()">{{"Cancel"| t}}</button>
 	</div>
 </div>
-

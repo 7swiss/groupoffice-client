@@ -13,7 +13,7 @@ module.exports = function (grunt) {
             dist: {
                 expand: true,
                 cwd: 'app/',
-                src: ['**', '!lib/**', '!lib/**', '!css/**', '!scss/*','!modules/*/js/**','!modules/*/scss/**'],
+                src: ['**', '!lib/**/*.{js,scss}', '!css/**', '!scss/*','!modules/*/js/**','!modules/*/scss/**'],
                 dest: 'dist/app'
             },
 			fonts:{
@@ -21,17 +21,17 @@ module.exports = function (grunt) {
                 cwd: 'bower_components/components-font-awesome/fonts/',
                 src: ['*'],
                 dest: 'dist/app/fonts'
-			},
-			scss:{
-				expand: true,
-                cwd: 'app/',
-                src: [
-					'scss/*.scss',
-					'modules/**/scss/*.scss',
-					'lib/**/*.scss'
-				],
-                dest: '.tmp/scss'
 			}
+//			scss:{
+//				expand: true,
+//                cwd: 'app/',
+//                src: [
+//					'scss/*.scss',
+//					'modules/**/scss/*.scss',
+//					'lib/**/*.scss'
+//				],
+//                dest: '.tmp/scss'
+//			}
         },
 
         rev: {

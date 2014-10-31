@@ -99,27 +99,3 @@
 		</div>	
 	</div>
 </form>
-
-<script type="text/ng-template" id="multiSelectUsers.html">
-	<div class="modal-content">
-	<div class="modal-header">
-	<h3 class="modal-title">Select users</h3>
-	</div>
-	<div class="modal-body">			
-
-	<div style="height:300px;overflow:auto" class="list-group" im-infinite-scroll="storeSelectModal.availableStore.nextPage()" im-infinite-scroll-disabled="!storeSelectModal.availableStore.shouldLoad()">
-
-	<ul class="list-group">
-	<label class="list-group-item" ng-class="{selected: user.attributes.checked}" ng-repeat="user in storeSelectModal.availableStore.items" im-infinite-use-window="true">
-	<input type="checkbox" ng-model="user.attributes.checked"> {{user.attributes.username}}
-	</label>  
-	</ul>
-	</div>				
-
-	</div>
-	<div class="modal-footer">
-	<button class="btn btn-primary" ng-click="ok()">OK</button>
-	<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-	</div>
-	</div>
-</script>

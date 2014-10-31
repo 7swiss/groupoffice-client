@@ -154,6 +154,9 @@ angular.module('GO.controllers').
 				$scope.resetFilters = function() {
 					$scope.customFilters = {};
 					$scope.filters = angular.copy(defaultFilters);
+					
+					
+					$scope.isFilterActive = false;
 				};
 				
 			
@@ -179,6 +182,7 @@ angular.module('GO.controllers').
 
 					$scope.store.loadParams.where = where;
 
+					$scope.isFilterActive = where.length > 0;
 
 					$scope.store.reset();
 					$scope.store.load();

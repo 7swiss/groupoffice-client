@@ -11,7 +11,7 @@ angular.module('GO.controllers').
 								{
 									roleId: $stateParams.roleId
 								}),
-						'multiSelectUsers.html',
+						'modules/roles/partials/multi-select-users.html',
 						function (selected) {
 							$scope.role.attributes.users = $scope.role.attributes.users.concat(selected);
 						}
