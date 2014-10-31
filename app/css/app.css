@@ -1015,7 +1015,7 @@ img {
   height: auto; }
 
 .img-rounded {
-  border-radius: 6px; }
+  border-radius: 4px; }
 
 .img-thumbnail {
   padding: 4px;
@@ -2644,7 +2644,7 @@ select[multiple].input-sm,
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.33;
-  border-radius: 6px; }
+  border-radius: 4px; }
 
 select.input-lg, .form-horizontal .form-group-lg select.form-control, .input-group-lg > select.form-control,
 .input-group-lg > select.input-group-addon,
@@ -3044,7 +3044,7 @@ form.form-horizontal.go-labels-300 .has-error .form-group > label,
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.33;
-  border-radius: 6px; }
+  border-radius: 4px; }
 
 .btn-sm, .btn-group-sm > .btn, .btn-group-sm > button, .btn-group-sm > button[type=submit] {
   padding: 5px 10px;
@@ -3484,7 +3484,7 @@ form.form-horizontal.go-labels-300 .form-group .input-group textarea {
   .input-group-lg > .input-group-btn > button.input-group-addon {
     padding: 10px 16px;
     font-size: 18px;
-    border-radius: 6px; }
+    border-radius: 4px; }
   .input-group-addon input[type="radio"],
   .input-group-addon input[type="checkbox"] {
     margin-top: 0; }
@@ -3940,7 +3940,7 @@ a.list-group-item-danger {
   background-color: #fff;
   border: 1px solid #999;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
+  border-radius: 4px;
   -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   background-clip: padding-box;
@@ -4114,7 +4114,7 @@ a.list-group-item-danger {
   background-clip: padding-box;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
+  border-radius: 4px;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   white-space: normal; }
@@ -4135,7 +4135,7 @@ a.list-group-item-danger {
   line-height: 18px;
   background-color: #f7f7f7;
   border-bottom: 1px solid #ebebeb;
-  border-radius: 5px 5px 0 0; }
+  border-radius: 3px 3px 0 0; }
 
 .popover-content {
   padding: 9px 14px; }
@@ -4419,12 +4419,12 @@ a.list-group-item-danger {
   .hidden-print {
     display: none !important; } }
 input.ng-invalid.ng-dirty, form.submitted input.ng-invalid {
-  border-color: #A94442;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset; }
+  border-color: #A94442 !important;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset !important; }
 
 input.ng-valid.ng-dirty, form.submitted input.ng-valid {
-  border-color: #3C763D;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset; }
+  border-color: #3C763D !important;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset !important; }
 
 textarea {
   resize: none; }
