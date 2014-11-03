@@ -16,7 +16,6 @@
     "components-font-awesome": "latest",
     "angular-sanitize": "latest",
     "angular-bootstrap": "latest",
-    "bootstrap": "latest",
     "angular-elastic": "latest",
     "angular-ui-select": "latest",
     "fastclick": "latest",

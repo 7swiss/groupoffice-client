@@ -18,7 +18,7 @@ angular.module('GO.controllers').
 								'Intermesh/Contacts/contact'
 								),
 						{
-							returnAttributes: "id,name,photoFilePath,company.name"
+							returnAttributes: "id,name,thumbUrl,company.name"
 						});
 
 
@@ -30,7 +30,7 @@ angular.module('GO.controllers').
 						'contact',
 						'Intermesh/Contacts/contact',
 						{
-							returnAttributes: "*,emailAddresses,phoneNumbers,dates,addresses[*, formatted],tags,customfields,company,employees[id, name, photoFilePath]"
+							returnAttributes: "*,thumbUrl,emailAddresses,phoneNumbers,dates,addresses[*, formatted],tags,customfields,company,employees[id, name, photoFilePath]"
 						});
 
 
@@ -55,16 +55,20 @@ angular.module('GO.controllers').
 
 				$scope.phoneNumberOptions = [{
 						value: 'work,voice',
-						label: Translate.t('Phone') + ' <i class="fa fa-users"></i>'
+						//label: Translate.t('Phone') + ' <i class="fa fa-users"></i>'
+						label: Translate.t('Phone') + ' ' + Translate.t('Work')
 					}, {
 						value: 'work,cell',
-						label: Translate.t('Mobile') + ' <i class="fa fa-users"></i>'
+						//label: Translate.t('Mobile') + ' <i class="fa fa-users"></i>'
+						label: Translate.t('Mobile') + ' ' + Translate.t('Work')
 					}, {
 						value: 'home,voice',
-						label: Translate.t('Phone') + ' <i class="fa fa-home"></i>'
+//						label: Translate.t('Phone') + ' <i class="fa fa-home"></i>'
+						label: Translate.t('Phone') + ' ' + Translate.t('Home')
 					}, {
 						value: 'home,cell',
-						label: Translate.t('Mobile') + ' <i class="fa fa-home"></i>'
+//						label: Translate.t('Mobile') + ' <i class="fa fa-home"></i>'
+						label: Translate.t('Mobile') + ' ' + Translate.t('Home')
 					}];
 
 				$scope.dateOptions = [{

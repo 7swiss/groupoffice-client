@@ -108,6 +108,9 @@ angular.module('GO.modules')
 							
 							
 							
+						}.bind(this),
+						function(data){
+							this.promise = false;
 						}.bind(this));
 						
 						return deferred.promise;

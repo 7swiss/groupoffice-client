@@ -25,12 +25,14 @@ angular.module('GO.customFields')
 						'<div class="form-group">\
 							<label class="control-label">{{field.attributes.name}}</label>\
 							\
-								<ui-select ng-model="imModel[field.attributes.databaseName]">\
+							<select class="form-control" ng-model="imModel[field.attributes.databaseName]" ng-options="option.value as option.label for option in field.attributes.data.options"></select>\
+							\
+								<!--<ui-select ng-model="imModel[field.attributes.databaseName]">\
 									<ui-select-match class="ab-multi-input-select" placeholder="{{field.attributes.placeHolder}}">{{$select.selected.value}}</ui-select-match>\
 									<ui-select-choices repeat="item.value as item in field.attributes.data.options | filter: $select.search">\
 										<div ng-bind-html="item.value | highlight: $select.search"></div>\
 									</ui-select-choices>\
-								</ui-select>\
+								</ui-select>-->\
 							\
 						</div>');
 
@@ -38,12 +40,13 @@ angular.module('GO.customFields')
 						'<div class="form-group">\
 							<label class="control-label">{{field.attributes.name}}</label>\
 							\
-								<ui-select ng-model="imModel[field.attributes.databaseName]">\
+							<select class="form-control" ng-model="imModel[field.attributes.databaseName]" ng-options="option.value as option.label for option in checkBoxSelectOptions"></select>\
+								<!--<ui-select ng-model="imModel[field.attributes.databaseName]">\
 											<ui-select-match class="ab-multi-input-select" placeholder="{{field.attributes.placeHolder}}">{{$select.selected.label}}</ui-select-match>\
 											<ui-select-choices repeat="item.value as item in checkBoxSelectOptions | filter: $select.search">\
 												<div ng-bind-html="item.label | highlight: $select.search"></div>\
 											</ui-select-choices>\
-										</ui-select>\
+										</ui-select>-->\
 							\
 						</div>');
 

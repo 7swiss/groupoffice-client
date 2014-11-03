@@ -24,13 +24,15 @@
 			<div class="go-padding-panel">
 				<div class="form-group">
 					<label class="control-label">{{'Gender'| t}}</label>
+					
+					<select class="form-control" ng-model="filters.gender" ng-options="option.value as option.label for option in genderFilterOptions"></select>
 
-					<ui-select ng-model="filters.gender">
+<!--					<ui-select ng-model="filters.gender">
 						<ui-select-match class="ab-multi-input-select">{{$select.selected.label}}</ui-select-match>
 						<ui-select-choices repeat="item.value as item in genderFilterOptions | filter: $select.search">
 							<div ng-bind-html="item.label | highlight: $select.search"></div>
 						</ui-select-choices>
-					</ui-select>			
+					</ui-select>			-->
 				</div>
 				<div class="form-group">
 					<label class="control-label">{{"Tags"| t}}</label>	
@@ -82,7 +84,7 @@
 			<div class="go-list list-group" im-infinite-scroll="store.nextPage()" im-infinite-scroll-disabled="!store.shouldLoad()">
 				<div class="deletable" ng-class="{'deleted-invisible': contact.attributes.deleted}" ng-repeat="contact in store.items track by contact.attributes.id">
 					<a ui-sref-active="active" ui-sref="contacts.contact({contactId: contact.attributes.id})" class="list-group-item">
-						<img class="thumbnail" style="width:40px;height:40px;" ng-src="{{::'intermesh/contacts/contact/thumb'| apiRoute: {w: 40, h: 40, zoomCrop: 1, contactId: contact.attributes.id} }}" />
+						<img class="thumbnail" style="width:40px;height:40px;" ng-src="{{contact.attributes.thumbUrl}}&amp;w=40&amp;h=40&amp;zoomCrop=1" />
 						{{contact.attributes.name}}
 
 						<small style="float:right" ng-if="contact.attributes.company"><i class="fa fa-building"></i> {{contact.attributes.company.attributes.name}}</small>

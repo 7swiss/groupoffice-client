@@ -8,13 +8,15 @@
 	<div class="modal-body">
 		<div class="form-group">
 			<label for="type">{{"Type"| t}}</label>
+			
+			<select class="form-control" ng-model="field.attributes.type" ng-options="option.value as option.label for option in customFieldTypes"></select>
 
-			<ui-select ng-model="field.attributes.type">
+<!--			<ui-select ng-model="field.attributes.type">
 				<ui-select-match name="type" placeholder="Please select...">{{$select.selected.label}}</ui-select-match>
 				<ui-select-choices repeat="item.value as item in customFieldTypes | filter: $select.search">
 					<div ng-bind-html="item.label | highlight: $select.search"></div>
 				</ui-select-choices>
-			</ui-select>
+			</ui-select>-->
 
 		</div>
 

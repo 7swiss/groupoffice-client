@@ -43,8 +43,8 @@ angular.module('GO.core')
 				}
 
 				return function(value) {
-					var date = jsonStringToDate(value);
-					var ageDifMs = Date.now() - date.getTime();
+//					var date = jsonStringToDate(value);
+					var ageDifMs = Date.now() - value.getTime();
 					var ageDate = new Date(ageDifMs); // miliseconds from epoch
 					return Math.abs(ageDate.getUTCFullYear() - 1970);
 				};

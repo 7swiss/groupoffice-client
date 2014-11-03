@@ -23,7 +23,7 @@ var GO = angular.module('GO', [
 	'ui.sortable',
 	//Bootstrap ui
 	'ui.bootstrap',
-	'ui.select', // https://github.com/angular-ui/ui-select
+//	'ui.select', // https://github.com/angular-ui/ui-select
 
 	//Various
 	'ngAnimate', // only enabled on elements with the "im-animate" class !
@@ -76,9 +76,12 @@ var GO = angular.module('GO', [
 			}
 
 
-			$provide.factory('myHttpInterceptor', ['$injector', '$q', function ($injector, $q) {
+			$provide.factory('myHttpInterceptor', ['$injector', '$q', '$log', function ($injector, $q, $log) {
 					return {
 						response: function (response) {
+							
+							;
+							
 							//When an authorization token was successfullu used the server will return a new one.
 							//We will store this and delete the header from our requests.
 							var authHeader = response.headers('Authorization');
@@ -94,7 +97,31 @@ var GO = angular.module('GO', [
 
 							if (contentType && contentType.indexOf('application/json') > -1) {
 								if (response.data.success === false && response.data.exception) {
-									$injector.get('MessageBox').alert(response.data.exception.message, "Error: " + response.data.exception.className);
+									$injector.get('Alert').addAlert("<h1>Error: " + response.data.exception.className+"</h1><p>"+response.data.exception.message+"</p>", "danger");
+									
+									$log.error("ERROR: "+response.config.method+": "+response.config.url);
+									$log.error(response.data);
+								}
+								
+								if(response.data.debug){
+									
+									$log.info("DEBUG: "+response.config.method+": "+response.config.url);
+									
+									for(var key in response.data.debug){
+										
+										if(console && console.groupCollapsed){
+											console.groupCollapsed(key);
+										}
+//										$log.debug(response.data.debug[key]);
+										for(var k2 in response.data.debug[key]){
+											$log.debug(response.data.debug[key][k2]);
+										}
+										
+										if(console && console.groupEnd){
+											console.groupEnd();
+										}
+//										$log.debug(response.data.debug[key]);
+									}
 								}
 							}
 
@@ -152,33 +179,39 @@ var GO = angular.module('GO', [
 		.config(function ($provide) {
 
 			//monkey patch fo bug: https://github.com/angular-ui/bootstrap/commit/42cc3f269bae020ba17b4dcceb4e5afaf671d49b
-			$provide.decorator('dateParser', function ($delegate) {
-
-				var oldParse = $delegate.parse;
-				$delegate.parse = function (input, format) {
-					if (!angular.isString(input) || !format) {
-						return input;
-					}
-					return oldParse.apply(this, arguments);
-				};
-
-				return $delegate;
-			});
+//			$provide.decorator('dateParser', function ($delegate) {
+//
+//				var oldParse = $delegate.parse;
+//				$delegate.parse = function (input, format) {
+//					if (!angular.isString(input) || !format) {
+//						return input;
+//					}
+//					return oldParse.apply(this, arguments);
+//				};
+//
+//				return $delegate;
+//			});
 		})
 		.run(function ($rootScope, appTitle, Utils) {
 			FastClick.attach(document.body);
-
-
+	
 			//Special config
 			$rootScope.title = appTitle;
-
-
-
-			
-
 		})
-		.config(function (uiSelectConfig) {
-			uiSelectConfig.theme = 'bootstrap';
+//		.config(function (uiSelectConfig) {
+//			uiSelectConfig.theme = 'bootstrap';
+//		})
+		.directive('datepickerPopup', function () {
+
+			//fix for https://github.com/angular-ui/bootstrap/issues/2659
+			return {
+				restrict: 'EAC',
+				require: 'ngModel',
+				link: function (scope, element, attr, controller) {
+					//remove the default formatter from the input directive to prevent conflict
+					controller.$formatters.shift();
+				}
+			};
 		});
 
 

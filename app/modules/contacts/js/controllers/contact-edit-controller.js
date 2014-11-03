@@ -34,6 +34,7 @@ angular.module('GO.controllers').
 							$scope.contact.attributes.name += " " + $scope.contact.attributes.lastName;
 						}
 					}
+					console.log($scope.contact.attributes);
 				});
 
 
@@ -51,7 +52,7 @@ angular.module('GO.controllers').
 				};
 				
 				$scope.addDate = function() {
-					$scope.contact.attributes.dates.push({attributes: {type: "anniversary"}});
+					$scope.contact.attributes.dates.push({attributes: {type: "anniversary", date: new Date()}});
 				};
 
 
@@ -113,5 +114,9 @@ angular.module('GO.controllers').
 									return data.data.results;
 								});
 				};
+				 $scope.datePickerOptions = {
+    formatYear: 'yy',
+    startingDay: 1
+  };
 
 			}]);

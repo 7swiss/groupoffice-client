@@ -132,9 +132,9 @@ angular.module('GO.data')
 				 * This will change the date and the server doesn't know which timezone it's in. We just want to post 2014-07-28 when it's about a date.
 				 * This function will check for dates without time and changes it into a string.
 				 *
-				 * @returns {_L317.Model.prototype._fixDates@arr;attributes}
+				 * @returns {_L317.Model.prototype.convertDateToString@arr;attributes}
 				 */
-				Model.prototype._fixDates = function(attributes) {
+				Model.prototype.convertDateToString = function(attributes) {
 
 					var attr = {};
 
@@ -142,7 +142,7 @@ angular.module('GO.data')
 						if (attributes[attrName] instanceof Date) {
 							attr[attrName] = attributes[attrName].toIntermeshApiFormat();							
 						} else if(angular.isObject(attributes[attrName]) && attributes[attrName].attributes){
-							var fixed = this._fixDates(attributes[attrName].attributes);							
+							var fixed = this.convertDateToString(attributes[attrName].attributes);							
 							attr[attrName] = {attributes: fixed};
 						}else if(angular.isArray(attributes[attrName])){
 							var l = attributes[attrName].length;
@@ -150,7 +150,7 @@ angular.module('GO.data')
 							if(l){
 								attr[attrName] = [];
 								for(var i = 0, l; i < l; i++){							
-									var fixed = this._fixDates(attributes[attrName][i].attributes);							
+									var fixed = this.convertDateToString(attributes[attrName][i].attributes);							
 									attr[attrName].push({attributes: fixed});
 								}
 							}
@@ -163,6 +163,31 @@ angular.module('GO.data')
 
 					return attr;
 				};
+				
+			
+				
+				Model.prototype.convertDateStringsToDates = function (input) {
+
+					for (var key in input) {
+//						if (!input.hasOwnProperty(key))
+//							continue;
+						
+						// Check for string properties which look like dates.
+						if (typeof input[key] === "string") {		
+							
+							var value = Date.fromIntermeshApiFormat(input[key]);
+							if(value !== false) {
+								input[key] = value;
+							}
+							
+						} else if (typeof input[key] === "object") {
+							// Recurse into object
+							this.convertDateStringsToDates(input[key]);
+						}
+					}
+				};
+				
+				
 
 				/**
 				 * @ngdoc method
@@ -285,7 +310,7 @@ angular.module('GO.data')
 						var saveParams = {};
 						saveParams[this.modelName] = {};
 						
-						saveParams[this.modelName]['attributes'] = this._fixDates(modifiedAttributes);
+						saveParams[this.modelName]['attributes'] = this.convertDateToString(modifiedAttributes);
 
 						$http.post(url, saveParams)
 								.success(function(result) {
@@ -401,6 +426,8 @@ angular.module('GO.data')
 				 */
 				Model.prototype.loadData = function(data) {
 					
+					this.convertDateStringsToDates(data);
+					
 					for (var key in data){
 						if(angular.isObject(this[key])){
 							angular.copy(data[key], this[key]);
@@ -409,6 +436,7 @@ angular.module('GO.data')
 							this[key] = data[key];
 						}
 					}
+					
 					this.oldAttributes = angular.copy(data.attributes);
 				};
 				
