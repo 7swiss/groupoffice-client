@@ -11,7 +11,7 @@ angular.module('GO.controllers').
 						
 						$scope.$state = $state;
 						
-						$http.get(Utils.url("intermesh/customFields/model/getModelNames")).then(function(response){
+						$http.get(Utils.url("CustomFields/models")).then(function(response){
 							
 		
 							$scope.models = response.data.results;

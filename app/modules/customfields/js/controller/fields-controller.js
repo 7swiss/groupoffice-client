@@ -14,8 +14,17 @@ angular.module('GO.controllers').
 
 
 				$scope.dragControlListeners = {
-					orderChanged: function(event) {
-						$scope.fieldStore.saveSortOrder('Intermesh/CustomFields/Field/SaveSort');
+					orderChanged: function(event) {						
+
+						var draggedModel = $scope.fieldStore.items[event.source.index];
+						
+						var droppedModel = $scope.fieldStore.items[event.dest.index];
+						
+						draggedModel.attributes.sortOrder = droppedModel.attributes.sortOrder;
+						draggedModel.attributes.resort = true;
+						draggedModel.save();
+						
+
 					}
 				};
 

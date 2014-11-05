@@ -38,7 +38,7 @@
 			</div>
 
 
-			<a ng-class="{'deleted-visible': file.attributes.deleted}" ng-repeat="file in filesStore.items" class="list-group-item" target="_blank" href="{{'intermesh/contacts/files/download'| apiRoute:{id: file.attributes.id} }}">
+			<a ng-class="{'deleted-visible': file.attributes.deleted}" ng-repeat="file in filesStore.items" class="list-group-item" target="_blank" href="{{file.attributes.downloadUrl}}">
 				<i class="fa fa-file-o"></i>
 
 				<span ng-if="!file.rename">							

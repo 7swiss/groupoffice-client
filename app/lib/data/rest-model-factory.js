@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc service
- * @name GO.data.Model
+ * @name GO.data.RestModel
  *
  * @description
  * A model is an item that can be saved and loaded from the server. A user for example.
@@ -14,25 +14,25 @@
  * @param {string} baseParams GET parameters for each request
  */
 angular.module('GO.data')
-		.factory('Model', ['$http', '$q', '$timeout', 'Utils', function($http, $q, $timeout, Utils) {
+		.factory('RestModel', ['$http', '$q', '$timeout', 'Utils', function($http, $q, $timeout, Utils) {
 
-				var Model = function(controllerRoute,  baseParams) {
+				var RestModel = function(controllerRoute,  baseParams) {
 
 					
 					this.controllerRoute = controllerRoute;
 
 //					/**
 //					 * @ngdoc property
-//					 * @name GO.data.Model#saveParams
-//					 * @propertyOf GO.data.Model
+//					 * @name GO.data.RestModel#saveParams
+//					 * @propertyOf GO.data.RestModel
 //					 * @returns {object} Key value pair of POST parameters to pass on save.
 //					 */
 //					this.saveParams = {};
 
 					/**
 					 * @ngdoc property
-					 * @name GO.data.Model#attributes
-					 * @propertyOf GO.data.Model
+					 * @name GO.data.RestModel#attributes
+					 * @propertyOf GO.data.RestModel
 					 * @returns {object} Key value pair of model attributes
 					 */
 					this.attributes = {};
@@ -46,8 +46,8 @@ angular.module('GO.data')
 
 					/**
 					 * @ngdoc property
-					 * @name GO.data.Model#baseParams
-					 * @propertyOf GO.data.Model
+					 * @name GO.data.RestModel#baseParams
+					 * @propertyOf GO.data.RestModel
 					 * @returns {object} Key value pair of GET parameters to pass on load.
 					 */
 					this.baseParams = baseParams || {};
@@ -55,10 +55,10 @@ angular.module('GO.data')
 					this.init();
 				};
 
-				Model.prototype.init = function() {
+				RestModel.prototype.init = function() {
 				};
 
-				Model.prototype.getBaseParams = function() {
+				RestModel.prototype.getBaseParams = function() {
 					var params = angular.copy(this.baseParams);
 
 					if (this.attributes && this.attributes[this.idAttribute]) {
@@ -70,25 +70,25 @@ angular.module('GO.data')
 
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Model#delete
-				 * @methodOf GO.data.Model
+				 * @name GO.data.RestModel#delete
+				 * @methodOf GO.data.RestModel
 				 * @description
 				 * Delete the model on the server
 				 
 				 * @returns {HttpPromise} Returns a HttpPromise. See: {@link https://docs.angularjs.org/api/ng/service/$http#get}
 				 */
-				Model.prototype.delete = function() {
+				RestModel.prototype.delete = function() {
 
 					var deferred = $q.defer();
 
 					Utils.promiseSuccessDecorator(deferred.promise);
 
-					var url = Utils.url(this.controllerRoute+'/'+this.attributes[this.idAttribute], this.getBaseParams());
-					$http.delete(url)
+					var url = Utils.url(this.deleteRoute, this.getBaseParams());
+					$http.post(url)
 							.success(function(result) {
 
 								if (result.success) {
-									var data = result.data;
+									var data = result.data["data"];
 
 									if (!data.success) {
 										
@@ -116,7 +116,7 @@ angular.module('GO.data')
 				};
 				
 				
-				Model.prototype.unDelete = function(){
+				RestModel.prototype.unDelete = function(){
 					this.resetAttributes();
 					this.attributes.deleted = false;
 					return this.save();
@@ -128,9 +128,9 @@ angular.module('GO.data')
 				 * This will change the date and the server doesn't know which timezone it's in. We just want to post 2014-07-28 when it's about a date.
 				 * This function will check for dates without time and changes it into a string.
 				 *
-				 * @returns {_L317.Model.prototype.convertDateToString@arr;attributes}
+				 * @returns {_L317.RestModel.prototype.convertDateToString@arr;attributes}
 				 */
-				Model.prototype.convertDateToString = function(attributes) {
+				RestModel.prototype.convertDateToString = function(attributes) {
 
 					var attr = {};
 
@@ -162,7 +162,7 @@ angular.module('GO.data')
 				
 			
 				
-				Model.prototype.convertDateStringsToDates = function (input) {
+				RestModel.prototype.convertDateStringsToDates = function (input) {
 
 					for (var key in input) {
 //						if (!input.hasOwnProperty(key))
@@ -187,22 +187,22 @@ angular.module('GO.data')
 
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Model#isModified
-				 * @methodOf GO.data.Model
+				 * @name GO.data.RestModel#isModified
+				 * @methodOf GO.data.RestModel
 				 * @description
 				 * Check if the model has modified attributes
 				 *
 				 * @returns {boolean} Returns true if the model was modified
 				 */
-				Model.prototype.isModified = function() {
+				RestModel.prototype.isModified = function() {
 					return angular.toJson(this.attributes) !== angular.toJson(this.oldAttributes);
 				};
 				
-				Model.prototype.isNew = function(){
+				RestModel.prototype.isNew = function(){
 					return this.attributes[this.idAttribute] < 1;
 				};
 
-				Model.prototype.getModifiedAttributes = function(attributes, oldAttributes) {
+				RestModel.prototype.getModifiedAttributes = function(attributes, oldAttributes) {
 					if (typeof (attributes) === 'undefined') {
 
 						var attributes = this.attributes;
@@ -265,7 +265,7 @@ angular.module('GO.data')
 					return modified;
 				};
 				
-				Model.prototype._initModifiedAttributes = function(modified, attributes){
+				RestModel.prototype._initModifiedAttributes = function(modified, attributes){
 					//todo id should be dynamic?
 					if(!modified)
 					{
@@ -278,14 +278,14 @@ angular.module('GO.data')
 
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Model#save
-				 * @methodOf GO.data.Model
+				 * @name GO.data.RestModel#save
+				 * @methodOf GO.data.RestModel
 				 * @description
 				 * Save the model on the server
 				 *
 				 * @returns {HttpPromise} Returns a HttpPromise. See: {@link https://docs.angularjs.org/api/ng/service/$http#post}
 				 */
-				Model.prototype.save = function(getParams) {
+				RestModel.prototype.save = function(getParams) {
 					
 					var params = this.getBaseParams();
 					
@@ -293,11 +293,11 @@ angular.module('GO.data')
 						angular.extend(params, getParams);
 					}
 
-					var url = this.attributes[this.idAttribute] > 0 ? Utils.url(this.controllerRoute+'/'+this.attributes[this.idAttribute], params) : Utils.url(this.controllerRoute, params);
+//					var url = this.attributes[this.idAttribute] > 0 ? Utils.url(this.updateRoute, params) : Utils.url(this.createRoute, params);
 
 					var method = this.attributes[this.idAttribute] > 0 ? 'put' : 'post';
 					
-//					var url = Utils.url(this.controllerRoute+'/'+this.attributes[this.idAttribute], params);
+					var url = Utils.url(this.controllerRoute+'/'+this.attributes[this.idAttribute], params).replace('api.php','rest.php');
 
 					var deferred = $q.defer();
 
@@ -340,8 +340,8 @@ angular.module('GO.data')
 
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Model#delete
-				 * @methodOf GO.data.Model
+				 * @name GO.data.RestModel#delete
+				 * @methodOf GO.data.RestModel
 				 * @description
 				 * Load the model data from the server but only if not already loaded
 				 * with the same ID. Useful with detail and edit pages that share the same model.
@@ -349,7 +349,7 @@ angular.module('GO.data')
 				 * @param {object} params Key value pair of GET params for the request
 				 * @returns {HttpPromise} Returns a HttpPromise. See: {@link https://docs.angularjs.org/api/ng/service/$http#get}
 				 */
-				Model.prototype.readIf = function(id, params) {
+				RestModel.prototype.readIf = function(id, params) {
 					if (this.attributes[this.idAttribute] == id) {
 						return $timeout(function() {
 						});
@@ -361,13 +361,13 @@ angular.module('GO.data')
 
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Model#resetAttributes
-				 * @methodOf GO.data.Model
+				 * @name GO.data.RestModel#resetAttributes
+				 * @methodOf GO.data.RestModel
 				 * @description
 				 * Reset the attributes to their original state.
 				 *
 				 */
-				Model.prototype.resetAttributes = function() {
+				RestModel.prototype.resetAttributes = function() {
 					//this.attributes = angular.copy(this.oldAttributes);
 					
 					//keep reference 
@@ -380,7 +380,7 @@ angular.module('GO.data')
 					}
 				};
 				
-				Model.prototype.loadValidationErrors = function(data, obj){
+				RestModel.prototype.loadValidationErrors = function(data, obj){
 					if(!obj){
 						obj = this;
 					}
@@ -416,15 +416,15 @@ angular.module('GO.data')
 
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Model#loadData
-				 * @methodOf GO.data.Model
+				 * @name GO.data.RestModel#loadData
+				 * @methodOf GO.data.RestModel
 				 * @description
 				 * Load the initial model attributes from the server.
 				 * Don't set attributes directly because this function makes a copy so the model can be reset to the old attributes.
 				 *
 				 * @param {object} data to load		 
 				 */
-				Model.prototype.loadData = function(data) {
+				RestModel.prototype.loadData = function(data) {
 					
 					this.convertDateStringsToDates(data);
 					
@@ -443,15 +443,15 @@ angular.module('GO.data')
 				
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Model#load
-				 * @methodOf GO.data.Model
+				 * @name GO.data.RestModel#load
+				 * @methodOf GO.data.RestModel
 				 * @description
 				 * Load the model data from the server
 				 *
 				 * @param {object} params Key value pair of GET params for the request
 				 * @returns {HttpPromise} Returns a HttpPromise. See: {@link https://docs.angularjs.org/api/ng/service/$http#get}
 				 */
-				Model.prototype.read = function(id, params) {
+				RestModel.prototype.read = function(id, params) {
 
 					var p = this.getBaseParams();
 
@@ -461,7 +461,7 @@ angular.module('GO.data')
 //						p[this.idAttribute] = id;
 //					}
 
-					var url = Utils.url(this.controllerRoute+'/'+id, p);
+					var url = Utils.url(this.controllerRoute+'/'+id, p).replace('api.php','rest.php');
 					
 				
 
@@ -475,6 +475,6 @@ angular.module('GO.data')
 
 				};
 				
-				return Model;
+				return RestModel;
 
 			}]);

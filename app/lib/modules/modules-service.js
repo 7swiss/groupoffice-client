@@ -44,12 +44,10 @@ angular.module('GO.modules')
 
 				var Modules = function() {
 					this.store = new Store(
-							'Intermesh/modules/module/store',
-							new Model(
-									'module'
-									), {
-						limit: 0
-					}
+							'modules',
+							 {
+							limit: 0
+						}
 					);
 	
 				};

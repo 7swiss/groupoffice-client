@@ -18,7 +18,7 @@ angular.module('GO.controllers').
 				};
 
 
-				$scope.contact.loadForm($stateParams.contactId).then(function() {
+				$scope.contact.readIf($stateParams.contactId).then(function() {
 					if($state.is('contacts.createCompany')){
 						$scope.contact.attributes.isCompany = true;
 					}

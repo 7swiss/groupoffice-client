@@ -12,11 +12,7 @@ angular.module('GO.controllers').
 						};
 
 						$scope.store = new Store(
-								'intermesh/auth/role/store',
-								new Model(
-										'role',
-										'intermesh/auth/role'
-										)
+								'auth/roles'
 								);
 
 
@@ -25,8 +21,7 @@ angular.module('GO.controllers').
 						//Child scopes automatically inherit properties of the parents but
 						//not the other way around.
 						$scope.role = new Model(
-								'role', 
-								'intermesh/auth/role',
+								'auth/roles',
 								{
 									'returnAttributes':'*, modulesWithPermissions[*], users'
 								}

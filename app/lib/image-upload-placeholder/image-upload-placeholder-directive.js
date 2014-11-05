@@ -28,7 +28,7 @@ angular.module('GO.ImageUploadPlaceholder', ['ui.bootstrap','GO.core'])
 //		replace:true,
 
 		controller: function($scope, $element, $attrs, $transclude, Utils) { 
-			$scope.flowInit = {singleFile:true, target: Utils.url('intermesh/upload/flow/upload')};
+			$scope.flowInit = {singleFile:true, target: Utils.url('upload')};
 		},
 		
 		link: function(scope, element, attrs){
@@ -69,11 +69,12 @@ angular.module('GO.ImageUploadPlaceholder', ['ui.bootstrap','GO.core'])
 			scope.createOriginalUrl = function(src, fromTmp){
 
 				var defaults = {
-					src: src
+					w: null,
+					h: null
 				};
 				angular.extend(defaults, scope.imThumbParams);				
 				
-				var route = fromTmp ? 'intermesh/upload/flow/original' : attrs.imOriginalRoute;
+				var route = fromTmp ? 'upload/thumb/'+src : attrs.imThumbRoute;
 				return Utils.url(route, defaults);
 			};
 			
@@ -84,13 +85,13 @@ angular.module('GO.ImageUploadPlaceholder', ['ui.bootstrap','GO.core'])
 				var defaults = {
 					w: attrs.imThumbWidth,
 					h: attrs.imThumbHeight,
-					zoomCrop: attrs.imThumbZoomCrop,
-					src: src
+					zoomCrop: attrs.imThumbZoomCrop
 				};
 				
 				angular.extend(defaults, scope.imThumbParams);				
 								
-				var route = fromTmp ? 'intermesh/upload/flow/thumb' : attrs.imThumbRoute;
+				var route = fromTmp ? 'upload/thumb/'+src : attrs.imThumbRoute;
+				
 				return Utils.url(route, defaults);
 			};
 			

@@ -12,11 +12,7 @@ angular.module('GO.controllers').
 				};
 
 				$scope.store = new Store(
-						'intermesh/auth/user/store',
-						new Model(
-								'user',
-								'intermesh/auth/user'
-								)
+						'auth/users'						
 						);
 				$scope.store.returnAttributes = 'id,username,email,createdAt';
 
@@ -26,8 +22,7 @@ angular.module('GO.controllers').
 				//Child scopes automatically inherit properties of the parents but
 				//not the other way around.
 				$scope.user = new Model(
-						'user',
-						'intermesh/auth/user',
+						'auth/users',
 						{
 							returnAttributes: '*,roles,contact.*'
 						});

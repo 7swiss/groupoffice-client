@@ -14,19 +14,15 @@
 angular.module('GO.data')
 		.factory('Store', ['$http', 'Utils', 'Model', '$q', function($http, Utils, Model, $q) {
 
-				var Store = function(storeRoute, model, loadParams) {
+				var Store = function(restRoute, loadParams) {
 					this.items = [];
 					this.busy = false;
 					this.init = false;
 
 					this.searchQuery = '';
 
-					this.storeRoute = storeRoute;
-					this.baseModel = model;
-					
-					if(loadParams && loadParams.returnAttributes){
-						this.baseModel.baseParams.returnAttributes = loadParams.returnAttributes;
-					}
+					this.restRoute = restRoute;
+			
 
 					this.allRecordsLoaded = false;
 
@@ -71,7 +67,7 @@ angular.module('GO.data')
 
 					Utils.promiseSuccessDecorator(deferred.promise);
 
-					$http.get(Utils.url(this.storeRoute, defaultParams))
+					$http.get(Utils.url(this.restRoute, defaultParams))
 							.success(function(data) {
 								data.store = this;								
 
@@ -119,7 +115,13 @@ angular.module('GO.data')
 				Store.prototype.loadData = function(data) {
 					for (var i = 0; i < data.length; i++) {
 
-						var model = angular.copy(this.baseModel);
+
+						var baseParams = {};
+						if(this.loadParams.returnAttributes){
+							baseParams.loadParams = this.loadParams.returnAttributes;
+						}
+
+						var model = new Model(this.restRoute, baseParams);
 						model.loadData(data[i]);
 
 						this.items.push(model);

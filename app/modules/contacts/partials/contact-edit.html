@@ -42,9 +42,7 @@
 								im-image-attribute="contact.attributes.photoFilePath"
 								im-image-temp-attribute="contact.attributes.photoTempPath"
 								im-delete-permission="contact.permissions.editAccess" 
-								im-thumb-route="Intermesh/contacts/contact/thumb"
-								im-thumb-params="{contactId: contact.attributes.id}"
-								im-original-route="Intermesh/contacts/contact/original"
+								im-thumb-route="contacts/{{contact.attributes.id}}/thumb"
 								im-thumb-width="75"
 								im-thumb-height="100"
 							></im-image-upload-placeholder>

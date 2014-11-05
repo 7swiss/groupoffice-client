@@ -35,12 +35,11 @@ angular.module('GO.controllers')
 				} else
 				{
 					$scope.timelineItem = new Model(
-							'item',
-							'intermesh/timeline/item'
+							'contacts/'+$stateParams.contactId+'/timeline'
 							);
 				}
 
-				$scope.timelineItem.loadForm($stateParams.timelineItemId).then(function () {
+				$scope.timelineItem.read($stateParams.timelineItemId).then(function () {
 
 				});
 

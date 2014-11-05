@@ -3,7 +3,7 @@
 angular.module('GO.controllers').
 		controller('RoleEditController', ['Model', '$scope', '$state', '$stateParams', 'Store', '$http', 'Utils', '$modal', '$log', 'StoreSelectModal', function (Model, $scope, $state, $stateParams, Store, $http, Utils, $modal, $log, StoreSelectModal) {
 
-				$scope.role.loadForm($stateParams.roleId);
+				$scope.role.read($stateParams.roleId);
 
 				$scope.storeSelectModal = new StoreSelectModal(
 						new Store('intermesh/auth/role/availableUsers',

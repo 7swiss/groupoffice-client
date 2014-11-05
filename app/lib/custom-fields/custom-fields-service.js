@@ -64,15 +64,10 @@ angular.module('GO.customFields').
 					if (!loadedFieldSets[modelName]) {
 
 						loadedFieldSets[modelName] = new Store(
-								'Intermesh/customFields/fieldSet/store',
-								new Model(
-										'fieldset',
-										'Intermesh/customFields/fieldSet'
-										),
+								'CustomFields/fieldsets/'+modelName,
 								{
 									returnAttributes: '*,fields',
-									limit: 0,
-									where: [{modelName: modelName}]
+									limit: 0
 								});
 
 						loadedFieldSets[modelName].load();

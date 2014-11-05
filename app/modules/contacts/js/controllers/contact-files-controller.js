@@ -9,20 +9,15 @@ angular.module('GO.controllers').
 				});
 				
 				$scope.filesStore =  new Store(
-						'intermesh/contacts/files/store',
-						new Model(
-								'file',
-								'Intermesh/Contacts/files'
-								),
+						'contacts/'+$stateParams.contactId+'/files',
 						{
-							modelId: $stateParams.contactId,
 							returnAttributes: 'id,name'
 						});
 						
 				$scope.filesStore.load();
 				
 				$scope.flowInit = {
-					target: Utils.url('intermesh/contacts/files/upload',{modelId: $stateParams.contactId}),
+					target: Utils.url('upload'),
 					permanentErrors: [404, 500, 501],
 					maxChunkRetries: 1,
 					chunkRetryInterval: 5000,
@@ -30,8 +25,19 @@ angular.module('GO.controllers').
 				};
 				
 				$scope.uploadSuccess = function($file, $message){
-//					var result = angular.fromJson($message);					
+					var result = angular.fromJson($message);			
+					
+//					console.log(result);
 //					$scope.filesStore.items.push(result.data.file);
+
+					var file = new Model('contacts/'+$stateParams.contactId+'/files');
+					file.attributes.name = result.file;
+					file.attributes.tempPath = result.file;
+					
+					file.save();
+					
+					
+					$scope.filesStore.items.push(file);
 				};
 				
 				

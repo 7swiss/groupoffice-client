@@ -2,7 +2,7 @@
 
 /* Controllers */
 angular.module('GO.controllers').
-		controller('ContactController', ['$scope', '$state', 'Translate', 'Store', 'Model', 'Tags', 'CustomFields','Modules', function($scope, $state, Translate, Store, Model, Tags, CustomFields, Modules) {
+		controller('ContactController', ['$scope', '$state', 'Translate', 'Store', 'Model', 'Tags', 'CustomFields','Modules','RestModel', function($scope, $state, Translate, Store, Model, Tags, CustomFields, Modules, RestModel) {
 
 				$scope.pageTitle = Translate.t('Contacts');
 
@@ -12,11 +12,7 @@ angular.module('GO.controllers').
 				};
 
 				$scope.store = new Store(
-						'Intermesh/Contacts/contact/store',
-						new Model(
-								'contact',
-								'Intermesh/Contacts/contact'
-								),
+						'contacts',
 						{
 							returnAttributes: "id,name,thumbUrl,company.name"
 						});
@@ -27,8 +23,7 @@ angular.module('GO.controllers').
 				//Child scopes automatically inherit properties of the parents but
 				//not the other way around.
 				$scope.contact = new Model(
-						'contact',
-						'Intermesh/Contacts/contact',
+						'contacts',
 						{
 							returnAttributes: "*,thumbUrl,emailAddresses,phoneNumbers,dates,addresses[*, formatted],tags,customfields,company,employees[id, name, photoFilePath]"
 						});

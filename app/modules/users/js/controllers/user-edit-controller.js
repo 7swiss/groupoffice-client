@@ -16,7 +16,7 @@ angular.module('GO.controllers').
 						}
 						);
 
-				$scope.user.loadForm($stateParams.userId).then(function () {
+				$scope.user.read($stateParams.userId).then(function () {
 
 				});
 

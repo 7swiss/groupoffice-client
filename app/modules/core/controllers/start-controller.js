@@ -10,9 +10,9 @@ angular.module('GO.controllers')
 					//for "remember my login"
 					delete localStorage.authorizationToken;
 
-					var url = Utils.url('intermesh/auth/auth/logout');
+					var url = Utils.url('auth');
 
-					$http.post(url, {ajax: 1})
+					$http.delete(url)
 							.success(function(data, status, header) {
 //								$state.go('login');
 								

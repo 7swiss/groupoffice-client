@@ -17,7 +17,7 @@ angular.module('GO.controllers')
 							//We set the base Group-Office URL given from the form.
 							Utils.setBaseUrl($scope.config.url);
 
-							var url = Utils.url('intermesh/auth/auth/login');
+							var url = Utils.url('auth');
 
 							$http.post(url, user)
 											.success(function(data, status, header) {

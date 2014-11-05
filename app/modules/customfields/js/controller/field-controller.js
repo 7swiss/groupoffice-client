@@ -35,14 +35,13 @@ angular.module('GO.controllers')
 				}else
 				{
 					$scope.field = new Model(
-							'field',
-							'intermesh/customFields/field'
+							'CustomFields/fieldsets/'+encodeURI($stateParams.modelName)+'/fields'
 							);
 
 					
 				}
 				
-				$scope.field.loadForm($stateParams.fieldId).then(function(){
+				$scope.field.read($stateParams.fieldId).then(function(){
 						
 						if(!$scope.field.attributes.data){
 							$scope.field.attributes.data = {};

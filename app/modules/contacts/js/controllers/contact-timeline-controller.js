@@ -9,15 +9,10 @@ angular.module('GO.controllers').
 				});
 				
 				$scope.timelineStore =  new Store(
-						'intermesh/timeline/item/store',
-						new Model(
-								'item',
-								'intermesh/timeline/item'
-								),
+						'contacts/'+$stateParams.contactId+'/timeline',
 						{
 							limit: 5,
-							where:[{contactId: $stateParams.contactId}],
-							returnAttributes: '*, owner.username, imapMessage.*, imapMessage.excerpt, imapMessage.currentUserIsAuthor'
+							returnAttributes: '*, authorThumbUrl, owner.username, imapMessage.*, imapMessage.excerpt, imapMessage.currentUserIsAuthor'
 						});
 						
 				$scope.timelineStore.load();

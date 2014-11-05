@@ -9,17 +9,9 @@ angular.module('GO.controllers').
 				$scope.$state = $state;
 
 				$scope.fieldSetStore = new Store(
-						'Intermesh/customFields/fieldSet/store',
-						new Model(
-								'fieldset',
-								'Intermesh/customFields/fieldSet'
-								),
+						'CustomFields/fieldsets/'+encodeURI($stateParams.modelName),
 						{
-							limit: 0,
-							where: [{
-								modelName: $scope.modelName
-							}]
-
+							limit: 0
 						}
 				);
 
@@ -27,17 +19,19 @@ angular.module('GO.controllers').
 
 				$scope.dragControlListeners = {
 					orderChanged: function(event) {						
-						$scope.fieldSetStore.saveSortOrder('Intermesh/CustomFields/FieldSet/SaveSort');
+						var draggedModel = $scope.fieldStore.items[event.source.index];
+						
+						var droppedModel = $scope.fieldStore.items[event.dest.index];
+						
+						draggedModel.attributes.sortOrder = droppedModel.attributes.sortOrder;
+						draggedModel.attributes.resort = true;
+						draggedModel.save();
 					}
 				};
 				
 				
 				$scope.fieldStore = new Store(
-						'Intermesh/customFields/field/store',
-						new Model(
-								'field',
-								'Intermesh/customFields/field'
-								),
+						'CustomFields/fieldsets/'+encodeURI($stateParams.modelName)+'/fields',						
 						{
 							limit: 0
 						}
