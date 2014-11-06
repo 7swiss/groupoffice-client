@@ -1,7 +1,9 @@
 Date.prototype.toIntermeshApiFormat = function () {
-	if (this.getUTCHours() === 0 && this.getUTCMinutes() === 0) {
+	
+	
+	if (this.getHours() === 0 && this.getMinutes() === 0) {
 		//when there's no time in the date we just want to send 2014-09-01 for example.
-		return this.getUTCFullYear() + "-" + (this.getUTCMonth() + 1) + "-" + this.getUTCDate();
+		return this.getFullYear() + "-" + (this.getMonth() + 1) + "-" + this.getDate();
 	} else
 	{
 		return this.toISOString();

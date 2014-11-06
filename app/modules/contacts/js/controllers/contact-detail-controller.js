@@ -24,17 +24,7 @@ angular.module('GO.controllers').
 							
 				//Contact model is defined in the parent scope of ContactsController			
 				$scope.contact.read($stateParams.contactId).then(function() {
-//					if ($scope.contact.attributes.photoFilePath) {
-						$scope.photoUrl = Utils.url('Intermesh/Contacts/contact/thumb', {
-							w: 75,
-							h: 100,
-							zoomCrop: 1,
-							contactId: $scope.contact.attributes.id
-						});
-//					} else
-//					{
-//						$scope.photoUrl = "";
-//					}
+
 				});
 				
 	

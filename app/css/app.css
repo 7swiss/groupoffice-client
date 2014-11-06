@@ -5377,9 +5377,12 @@ a.im-file {
     border-radius: 4px;
     margin: 6px 6px 0; }
 
-.announcement-modal .thumbnail {
+.announcement-modal .im-image-upload-placeholder-container, .announcement-modal .thumbnail {
   width: 200px;
   height: 150px; }
+
+.go-announcement {
+  min-height: 200px; }
 
 /* module stylesheets */
 html {

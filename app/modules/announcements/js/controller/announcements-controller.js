@@ -8,14 +8,10 @@ angular.module('GO.controllers').
 
 
 				$scope.announcementStore = new Store(
-						'intermesh/announcements/announcement/store',
-						new Model(
-								'announcement',
-								'intermesh/announcements/announcement'
-								),
+						'announcements',						
 						{
 							limit: 10,
-							returnAttributes: '*, owner.username'
+							returnAttributes: '*, owner.username, thumbUrl'
 						});
 
 				$scope.announcementStore.load();

@@ -36,12 +36,11 @@ angular.module('GO.controllers')
 				} else
 				{
 					$scope.announcement = new Model(
-							'announcement',
-							'intermesh/announcements/announcement'
+							'announcements'							
 							);
 				}
 
-				$scope.announcement.loadForm($stateParams.announcementId).then(function () {
+				$scope.announcement.read($stateParams.announcementId).then(function () {
 
 				});
 

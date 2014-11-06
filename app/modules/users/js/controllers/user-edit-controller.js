@@ -5,15 +5,11 @@ angular.module('GO.controllers').
 
 
 				$scope.storeSelectModal = new StoreSelectModal(
-						new Store('intermesh/auth/user/availableRoles',
-								new Model('user'),
-								{
-									userId: $stateParams.userId
-								}),
+						new Store('auth/users/'+$stateParams.userId+'/roles',{availableOnly: "1" }),
 						'modules/users/partials/multi-select-roles.html',
-						function(selected){							
-							$scope.user.attributes.roles = $scope.user.attributes.roles.concat(selected);
-						}
+							function(selected){							
+								$scope.user.attributes.roles = $scope.user.attributes.roles.concat(selected);
+							}
 						);
 
 				$scope.user.read($stateParams.userId).then(function () {

@@ -14,10 +14,7 @@ angular.module('GO.ShareModal', ['GO.core', 'GO.data', 'GO.infiniteScroll']).
 
 					this.permissionAttributes = permissionAttributes;
 					this.store = new Store(
-							'Intermesh/auth/role/getPermissions',
-							new Model(
-									'role'
-									),
+							'auth/permissions',							
 							{
 								modelId: 0,
 								modelName: modelName
@@ -53,8 +50,8 @@ angular.module('GO.ShareModal', ['GO.core', 'GO.data', 'GO.infiniteScroll']).
 
 //						$scope.loading = true;
 
-						$http.post(Utils.url(
-								'Intermesh/auth/role/setPermissions',
+						$http.put(Utils.url(
+								'auth/permissions',
 								{
 									modelId: shareModal.store.loadParams.modelId,
 									modelName: shareModal.modelName

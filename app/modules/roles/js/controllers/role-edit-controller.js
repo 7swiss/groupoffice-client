@@ -6,21 +6,14 @@ angular.module('GO.controllers').
 				$scope.role.read($stateParams.roleId);
 
 				$scope.storeSelectModal = new StoreSelectModal(
-						new Store('intermesh/auth/role/availableUsers',
-								new Model('role'),
-								{
-									roleId: $stateParams.roleId
-								}),
+						new Store('auth/roles/'+$stateParams.roleId+'/users',{availableOnly: 1}),
 						'modules/roles/partials/multi-select-users.html',
 						function (selected) {
 							$scope.role.attributes.users = $scope.role.attributes.users.concat(selected);
 						}
 				);
 		
-				$scope.usersStore = new Store(
-								'intermesh/auth/role/users',
-								new Model('user'),
-								{
-									roleId: $stateParams.roleId
-								});			
+//				$scope.usersStore = new Store(
+//								'auth/roles/'+$stateParams.roleId+'/users'
+//								);
 			}]);

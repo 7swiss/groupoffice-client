@@ -19,9 +19,8 @@
 				<im-image-upload-placeholder
 					im-image-attribute="announcement.attributes.imagePath"
 					im-image-temp-attribute="announcement.attributes.imageTempPath"
-					im-thumb-route="Intermesh/announcements/announcement/thumb"
+					im-thumb-route="announcements/{{announcement.attributes.id}}/thumb"
 					im-thumb-params="{announcementId: announcement.attributes.id}"
-					im-original-route="Intermesh/announcementas/announcement/original"
 					im-thumb-width="200"
 					im-thumb-height="150"
 				></im-image-upload-placeholder>

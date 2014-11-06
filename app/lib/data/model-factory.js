@@ -211,8 +211,12 @@ angular.module('GO.data')
 
 					var modified = false;
 					for (var attributeName in attributes) {
+						
+						
 
 						var value = attributes[attributeName];
+						
+						
 
 						if (angular.isArray(value)) {
 
@@ -252,8 +256,8 @@ angular.module('GO.data')
 								modified[attributeName] = {attributes: attr};				
 							}
 						}else
-						{
-							if (oldAttributes[attributeName] !== value) {
+						{	
+							if (!angular.equals(oldAttributes[attributeName], value)) {
 								
 								modified = this._initModifiedAttributes(modified, attributes);
 

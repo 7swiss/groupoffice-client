@@ -2,7 +2,7 @@
 
 /* Controllers */
 angular.module('GO.controllers').
-		controller('ContactController', ['$scope', '$state', 'Translate', 'Store', 'Model', 'Tags', 'CustomFields','Modules','RestModel', function($scope, $state, Translate, Store, Model, Tags, CustomFields, Modules, RestModel) {
+		controller('ContactController', ['$scope', '$state', 'Translate', 'Store', 'Model', 'Tags', 'CustomFields','Modules', function($scope, $state, Translate, Store, Model, Tags, CustomFields, Modules) {
 
 				$scope.pageTitle = Translate.t('Contacts');
 
