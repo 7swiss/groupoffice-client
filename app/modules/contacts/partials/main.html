@@ -23,9 +23,9 @@
 
 			<div class="go-padding-panel">
 				<div class="form-group">
-					<label class="control-label">{{'Gender'| t}}</label>
+					<label class="control-label" for="filter-gender">{{'Gender'| t}}</label>
 					
-					<select class="form-control" ng-model="filters.gender" ng-options="option.value as option.label for option in genderFilterOptions"></select>
+					<select id="filter-gender" class="form-control" ng-model="filters.gender" ng-options="option.value as option.label for option in genderFilterOptions"></select>
 
 <!--					<ui-select ng-model="filters.gender">
 						<ui-select-match class="ab-multi-input-select">{{$select.selected.label}}</ui-select-match>
@@ -34,6 +34,21 @@
 						</ui-select-choices>
 					</ui-select>			-->
 				</div>
+				
+				
+				<div class="form-group">
+					<label class="control-label" for="filter-age">{{'Age' | t}}</label>
+					<div class="input-group">
+						<div class="input-group-addon">&gt;=</div>
+						<input im-numeric id="filter-age" type="text" ng-model="filters.age.gt" class="form-control" />
+					</div>
+					<div class="input-group">
+						<div class="input-group-addon">&lt;=</div>
+						<input im-numeric type="text" ng-model="filters.age.lt" class="form-control" />
+					</div>
+				</div>
+				
+				
 				<div class="form-group">
 					<label class="control-label">{{"Tags"| t}}</label>	
 

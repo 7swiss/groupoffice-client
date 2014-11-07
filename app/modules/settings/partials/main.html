@@ -1,0 +1,17 @@
+<div ng-include="'partials/header.html'"></div>
+
+
+
+<div class="go-body">
+	
+	<div class="go-panel list">		
+		<div class="go-scrollable-panel list-group">
+			<a class="list-group-item" ui-sref-active="active" ui-sref="{{settingsPage.sref}}" ng-repeat="settingsPage in settingsPages"><span class="{{settingsPage.icon}}"></span> {{settingsPage.title | t}}</a>
+		</div>
+	</div>
+	
+	<div class="go-panel fill">
+		<div ui-view></div>
+	</div>
+	
+</div>

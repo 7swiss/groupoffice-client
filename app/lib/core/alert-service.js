@@ -29,14 +29,11 @@ angular.module('GO.core').
 					var index = $rootScope.alerts.length;
 					
 					
-					$rootScope.$apply(function(){
+//					$rootScope.$apply(function(){
 						$rootScope.alerts.push({msg: msg, type: type});
-					});
+//					});
 					
 					$timeout(function(){
-						
-//						console.log(index);
-						
 						$rootScope.alerts.splice($rootScope.alerts.length-1, 1);
 					}.bind(this), timeout);
 				};

@@ -60,5 +60,17 @@ angular.module('GO').
 											url: "/message/{messageId:[0-9]*}",							
 											controller: 'MessageController',
 											template: '<div ng-init="openModal()"></div>'
+										})
+										
+										.state("settings.contacts",{
+											url: '/settings/contacts',											
+											controller: 'ContactController',
+											template:'<div ui-view></div>'
+										})
+										
+										.state("settings.contacts.editProfile",{
+											url: '/{contactId:[0-9]*}',
+											templateUrl: 'modules/contacts/partials/contact-edit.html',
+											controller: 'ContactEditController'
 										});
 					}]);

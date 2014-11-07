@@ -1,10 +1,10 @@
 
-input.ng-invalid.ng-dirty, form.submitted input.ng-invalid {
+input.ng-invalid.ng-dirty, form.ng-submitted input.ng-invalid {
 		border-color: #A94442 !important;
 		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset !important;
 }
 
-input.ng-valid.ng-dirty, form.submitted input.ng-valid {
+input.ng-valid.ng-dirty, form.ng-submitted input.ng-valid {
 	border-color: #3C763D !important;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset !important;
 }

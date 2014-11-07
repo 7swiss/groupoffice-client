@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('GO.controllers').
-		controller('ContactEditController', ['$scope', '$state', '$stateParams', 'Utils', '$http', '$q', function($scope, $state, $stateParams, Utils, $http, $q) {
+		controller('ContactEditController', ['$scope', '$state', '$stateParams', 'Utils', '$http', '$q','Alerts', function($scope, $state, $stateParams, Utils, $http, $q, Alerts) {
 
 //				var defaultPhotoUrl = "";
 
@@ -17,6 +17,18 @@ angular.module('GO.controllers').
 					}
 				};
 
+
+				if($scope.onSettingsPage) {
+					$scope.save = function() {
+
+						$scope.contact.save()
+								.success(function(result) {
+										$scope.contactForm.$setPristine();
+								
+										Alerts.addAlert("Wijzigingen opgeslagen", "info");
+								});
+					};
+				}
 
 				$scope.contact.readIf($stateParams.contactId).then(function() {
 					if($state.is('contacts.createCompany')){

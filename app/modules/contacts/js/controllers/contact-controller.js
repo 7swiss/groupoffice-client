@@ -91,7 +91,7 @@ angular.module('GO.controllers').
 
 				/* End select options for detail and edit controller */
 
-
+				$scope.onSettingsPage = $state.is("settings.contacts.editProfile");
 
 
 				$scope.save = function() {
@@ -100,18 +100,11 @@ angular.module('GO.controllers').
 							.success(function(result) {
 								//success
 
+								
 								$scope.syncWithStore(true);
-
-
 								$state.go('contacts.contact', {contactId: $scope.contact.attributes.id});
+								
 
-							})
-							.error(function(result) {
-
-								//error
-								for (var attributeName in result.model.validationErrors) {
-//															MessageBox.alert(Translate.t(result.model.validationErrors[attributeName].code));
-								}
 							});
 				};
 
@@ -177,6 +170,29 @@ angular.module('GO.controllers').
 
 					if ($scope.filters.gender) {
 						where.push({gender: $scope.filters.gender});
+					}
+					
+					
+					if($scope.filters.age.lt){		
+						
+						var date = new Date();
+						date.setYear(date.getFullYear() - $scope.filters.age.lt);
+						date.setHours(0);
+						date.setMinutes(0);
+						date.setSeconds(0);
+						
+						where.push(['AND', '>=',{"dates.date": date.toIntermeshApiFormat()}]);
+					}
+					
+					if($scope.filters.age.gt){	
+						
+						var date = new Date();						
+						date.setYear(date.getFullYear() - $scope.filters.age.gt);
+						date.setHours(0);
+						date.setMinutes(0);
+						date.setSeconds(0);
+						
+						where.push(['AND', '<=',{"dates.date": date.toIntermeshApiFormat()}]);
 					}
 
 					$scope.store.loadParams.where = where;

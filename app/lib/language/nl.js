@@ -23,14 +23,13 @@ angular.module("GO").config(["TranslateProvider", function (TranslateProvider) {
 			"Login": "Inloggen",
 			"Username": "Gebruikersnaam",
 			"Password": "Wachtwoord",
-			"Remember username": "Gebruikersnaam onthouden",
 			"Login to GroupOffice": "Inloggen bij GroupOffice",
 			"Access denied": "Geen toegang",
 			"Are you sure you want to delete '{name}'?": "Weet u zeker dat u '{name}' wilt verwijderen?",
 			"Share": "Delen",
 			"Role": "Rol",
 			"Loading...": "Bezig met laden...",
-			"Remember my login": "Onthoud mijn logn",
+			"Remember my login": "Onthoud mijn login",
 			"Field set": "Groep velden",
 			"Name": "Naam",
 			"Model": "Model",
@@ -144,9 +143,16 @@ angular.module("GO").config(["TranslateProvider", function (TranslateProvider) {
     "Birthday": "Verjaardag",
     "Anniversary": "Jubileum",
 	
-	"The form contains errors. Please check your input." : "Het formulier bevat fouten. Controlleer uw invoer aub."
+	"The form contains errors. Please check your input." : "Het formulier bevat fouten. Controlleer uw invoer aub.",
 
-
+	"Age" : "Leeftijd",
+	'Change password' : 'Wachtwoord veranderen',
+	'Settings' : 'Instellingen',
+	'Edit profile' : 'Profiel aanpassen',
+	
+	'Current password' : 'Huidig wachtwoord',
+	'New password' : 'Nieuw wachtwoord'
+	
 		});
 
 

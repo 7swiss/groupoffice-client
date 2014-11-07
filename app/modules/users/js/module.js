@@ -24,5 +24,10 @@ angular.module('GO').
 											url: "/users/edit/{userId:[0-9]*}",
 											templateUrl: 'modules/users/partials/user-edit.html',
 											controller: 'UserEditController'
+										})
+										.state("settings.changePassword",{
+											url: '/settings/change-password',
+											templateUrl: 'modules/users/partials/user-change-password.html',
+											controller: 'UserChangePasswordController'
 										});
 					}]);

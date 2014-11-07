@@ -3,6 +3,7 @@
 /*$dark-bg: #607d8b;
 $medium-bg: #cfd8dc;
 $light-bg: #eceff1;*/
+/*$header-bg: #00B8D4; //blue*/
 /*Color palette (http://www.google.com/design/spec/style/color.html#color-ui-color-palette)*/
 .go-toolbar {
   position: relative;
@@ -4418,11 +4419,11 @@ a.list-group-item-danger {
 @media print {
   .hidden-print {
     display: none !important; } }
-input.ng-invalid.ng-dirty, form.submitted input.ng-invalid {
+input.ng-invalid.ng-dirty, form.ng-submitted input.ng-invalid {
   border-color: #A94442 !important;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset !important; }
 
-input.ng-valid.ng-dirty, form.submitted input.ng-valid {
+input.ng-valid.ng-dirty, form.ng-submitted input.ng-valid {
   border-color: #3C763D !important;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset !important; }
 

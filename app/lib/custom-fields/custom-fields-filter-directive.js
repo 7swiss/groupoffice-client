@@ -11,21 +11,21 @@ angular.module('GO.customFields')
 
 				$templateCache.put('customfield-filtertext.html',
 						'<div class="form-group">\
-							<label class="control-label" for="cf_{{field.attributes.id}}">{{field.attributes.name}}</label>\
+							<label class="control-label" for="cf_filter_{{field.attributes.id}}">{{field.attributes.name}}</label>\
 							<input id="cf_filter_{{field.attributes.id}}" type="text" maxlength="{{field.attributes.data.maxLength}}" ng-model="imModel[field.attributes.databaseName]" class="form-control" />\
 						</div>');
 
 				$templateCache.put('customfield-filtertextarea.html',
 						'<div class="form-group">\
-							<label class="control-label" for="cf_{{field.attributes.id}}">{{field.attributes.name}}</label>\
+							<label class="control-label" for="cf_filter_{{field.attributes.id}}">{{field.attributes.name}}</label>\
 							<input id="cf_filter_{{field.attributes.id}}" type="text" maxlength="{{field.attributes.data.maxLength}}" ng-model="imModel[field.attributes.databaseName]" class="form-control" />\
 						</div>');
 
 				$templateCache.put('customfield-filterselect.html',
 						'<div class="form-group">\
-							<label class="control-label">{{field.attributes.name}}</label>\
+							<label class="control-label" for="cf_filter_{{field.attributes.id}}">{{field.attributes.name}}</label>\
 							\
-							<select class="form-control" ng-model="imModel[field.attributes.databaseName]" ng-options="option.value as option.label for option in field.attributes.data.options"></select>\
+							<select id="cf_filter_{{field.attributes.id}}" class="form-control" ng-model="imModel[field.attributes.databaseName]" ng-options="option.value as option.label for option in field.attributes.data.options"></select>\
 							\
 								<!--<ui-select ng-model="imModel[field.attributes.databaseName]">\
 									<ui-select-match class="ab-multi-input-select" placeholder="{{field.attributes.placeHolder}}">{{$select.selected.value}}</ui-select-match>\
@@ -38,9 +38,9 @@ angular.module('GO.customFields')
 
 				$templateCache.put('customfield-filtercheckbox.html',
 						'<div class="form-group">\
-							<label class="control-label">{{field.attributes.name}}</label>\
+							<label class="control-label" for="cf_filter_{{field.attributes.id}}">{{field.attributes.name}}</label>\
 							\
-							<select class="form-control" ng-model="imModel[field.attributes.databaseName]" ng-options="option.value as option.label for option in checkBoxSelectOptions"></select>\
+							<select id="cf_filter_{{field.attributes.id}}" class="form-control" ng-model="imModel[field.attributes.databaseName]" ng-options="option.value as option.label for option in checkBoxSelectOptions"></select>\
 								<!--<ui-select ng-model="imModel[field.attributes.databaseName]">\
 											<ui-select-match class="ab-multi-input-select" placeholder="{{field.attributes.placeHolder}}">{{$select.selected.label}}</ui-select-match>\
 											<ui-select-choices repeat="item.value as item in checkBoxSelectOptions | filter: $select.search">\
@@ -75,14 +75,14 @@ angular.module('GO.customFields')
 
 				$templateCache.put('customfield-filternumber.html',
 						'<div class="form-group">\
-							<label class="control-label" for="cf_{{field.attributes.id}}">{{field.attributes.name}}</label>\
+							<label class="control-label" for="cf_filter_{{field.attributes.id}}_gt">{{field.attributes.name}}</label>\
 							<div class="input-group">\
 								<div class="input-group-addon">&gt;=</div>\
-								<input im-numeric id="cf_filter_{{field.attributes.id}}" type="text" ng-model="imModel[field.attributes.databaseName].gt" class="form-control" />\
+								<input im-numeric id="cf_filter_{{field.attributes.id}}_gt" type="text" ng-model="imModel[field.attributes.databaseName].gt" class="form-control" />\
 							</div>\
 							<div class="input-group">\
 								<div class="input-group-addon">&lt;=</div>\
-								<input im-numeric id="cf_filter_{{field.attributes.id}}" type="text" ng-model="imModel[field.attributes.databaseName].lt" class="form-control" />\
+								<input im-numeric id="cf_filter_{{field.attributes.id}}_lt" type="text" ng-model="imModel[field.attributes.databaseName].lt" class="form-control" />\
 							</div>\
 						</div>');
 

@@ -41,9 +41,11 @@ angular.module('GO.form')
 							messages = messagesGetter();
 						}
 						
+//						console.log($scope.form);
+						
 						$scope.hasErrors = function(){			
 			
-							return !$scope.formEl.$valid && ($scope.formEl.$dirty || $scope.form.submitted);
+							return !$scope.formEl.$valid && ($scope.formEl.$dirty || $scope.form.$submitted);
 						};
 
 						if ($scope.imModel) {

@@ -35,8 +35,13 @@ angular.module('GO.form')
 //								}
 //							}
 							
-							form.submitted = true;							
-							$element.addClass('submitted');
+	
+							
+							//ng-submitted was added in angularjs 1.3
+							//$submitted too
+							//
+//							$element.addClass('submitted');
+//							form.submitted = true;	
 								
 							if($scope.$parent[formName].$valid){
 								$scope.imSubmit();
