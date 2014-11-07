@@ -4939,6 +4939,14 @@ a.im-file {
     border-bottom: 14px solid transparent;
     content: " "; }
 
+.go-logo {
+  background-image: url(http://localhost/tv-oosterplas.jpg);
+  background-repeat: no-repeat;
+  background-size: 126px 94px;
+  background-position: right;
+  height: 94px;
+  margin-bottom: -50px; }
+
 .im-multiselect-field {
   min-height: 34px;
   height: auto;
@@ -5010,6 +5018,9 @@ a.im-file {
   transition: all 0.2s ease-in-out; }
   .error-balloon.active {
     opacity: .9; }
+
+.im-input-group-multiple .error-balloon {
+  bottom: -34px; }
 
 .error-balloon.top {
   padding: 5px 0;

@@ -115,8 +115,8 @@
 								
 								
 								
-								<input type="text" ng-model="specialDate.attributes.date" datepicker-options="datePickerOptions" datepicker-popup="dd-MM-yyyy" is-open="specialDate.isOpen" ng-click="specialDate.isOpen = true" close-text="{{'Close' | t}}" />
-								
+								<input type="text" name="date_{{$index}}" ng-model="specialDate.attributes.date" datepicker-options="datePickerOptions" datepicker-popup="dd-MM-yyyy" is-open="specialDate.isOpen" ng-click="specialDate.isOpen = true" close-text="{{'Close' | t}}" />
+								<im-show-error for="date_{{$index}}" attribute-name="date" im-model="specialDate"></im-show-error>
 								<div class="input-group-btn">
 									<!--<button type="button" class="btn btn-default" ng-click="openDate(specialDate, $event)"><i class="fa fa-calendar"></i></button>-->
 
@@ -156,14 +156,14 @@
 									</ui-select>-->
 
 								</div>
-									<input type="email" name="email" ng-model="emailAddress.attributes.email" autofocus="$index > 0 && !emailAddress.attributes.id">
+									<input type="email" name="email_{{$index}}" ng-model="emailAddress.attributes.email" autofocus="$index > 0 && !emailAddress.attributes.id">
 								<span class="input-group-btn">
 									<button type="button" class="btn btn-danger" ng-click="emailAddress.attributes.markDeleted = true;"><i class="fa fa-trash-o"></i></button>
 								</span>
 
 
 								</div>
-								<im-show-error for="email" im-model="emailAddress"></im-show-error>
+								<im-show-error for="email_{{$index}}" attribute-name="email" im-model="emailAddress"></im-show-error>
 							</div>
 
 							<span class="btn btn-default" ng-click="addEmailAddress()"><i class="fa fa-plus"></i> {{"Add e-mail address"| t}}</span>
@@ -189,7 +189,8 @@
 										</ui-select-choices>
 									</ui-select>-->
 								</div>
-								<input type="text" ng-model="phoneNumber.attributes.number" autofocus="$index > 0 && !phoneNumber.attributes.id">
+								<input type="text" name="number_{{$index}}" ng-model="phoneNumber.attributes.number" autofocus="$index > 0 && !phoneNumber.attributes.id">
+								<im-show-error for="number_{{$index}}" attribute-name="number" im-model="phoneNumber"></im-show-error>
 								<span class="input-group-btn">
 									<button type="button" class="btn btn-danger" ng-click="phoneNumber.attributes.markDeleted = true;"><i class="fa fa-trash-o"></i></button>
 								</span>				

@@ -18,6 +18,8 @@
 @import 'files';
 @import 'timeline';
 
+@import 'local';
+
 
 @import '../lib/multi-select-field/multi-select-field';
 @import '../lib/soft-delete-button/soft-delete-button';
@@ -275,3 +277,5 @@ ul.comma-list {
 		opacity: 0.5;
 	}
 }
+
+

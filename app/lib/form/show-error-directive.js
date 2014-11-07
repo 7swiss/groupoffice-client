@@ -9,6 +9,7 @@ angular.module('GO.form')
 					// create a copy of the scope, inheriting the data
 					scope: {
 						'for': '@',
+						'attributeName': '@?',
 						imModel: '=?'
 					},
 					// require that the element is a child of form
@@ -26,11 +27,27 @@ angular.module('GO.form')
 					controller: function($scope, $element, $attrs) {
 						$scope.form = $element.controller("form");
 
-
-						$scope.formEl = $scope.form[$attrs.for];
+						$attrs.$observe('for', function(newValue) {
+							
+							//obser for so we can user for="number_{{$index}}" when using ng-repeat for example.
+							$scope.for = newValue;
 						
-						if(!$scope.formEl)
-							throw $attrs.for+' form element not found!';
+							if($scope.attributeName){
+								$scope.attributeName = $attrs.for;
+							}
+							
+							$scope.formEl = $scope.form[$scope.for];
+							
+							
+							if(!$scope.formEl){
+								throw $scope.for+' form element not found!';
+							}
+						 });		
+						
+						
+						
+						
+						
 
 						var serverError = null;
 						var messages = {};
@@ -45,12 +62,12 @@ angular.module('GO.form')
 						
 						$scope.hasErrors = function(){			
 			
-							return !$scope.formEl.$valid && ($scope.formEl.$dirty || $scope.form.$submitted);
+							return $scope.formEl && !$scope.formEl.$valid && ($scope.formEl.$dirty || $scope.form.$submitted);
 						};
 
 						if ($scope.imModel) {
 							
-							$scope.$watch('imModel.validationErrors["' + $attrs.for + '"]', function(newValue, oldValue) {
+							$scope.$watch('imModel.validationErrors["' + $attrs.attributeName + '"]', function(newValue, oldValue) {
 
 
 								if (newValue) {
@@ -59,11 +76,11 @@ angular.module('GO.form')
 									
 									serverError = newValue;
 									
-									var currentValue = $scope.imModel.attributes[$attrs.for];
+									var currentValue = $scope.imModel.attributes[$attrs.attributeName];
 
 									$scope.formEl.$setValidity('server', false);									
 									
-									var unregister = $scope.$watch('imModel.attributes["' + $attrs.for + '"]', function(newValue, oldValue) {
+									var unregister = $scope.$watch('imModel.attributes["' + $attrs.attributeName + '"]', function(newValue, oldValue) {
 										
 										if(currentValue !== newValue){
 											
@@ -73,7 +90,7 @@ angular.module('GO.form')
 											$timeout(function(){
 												$scope.formEl.$setValidity('server', true);
 												serverError = null;
-												delete $scope.imModel.validationErrors[$attrs.for];				
+												delete $scope.imModel.validationErrors[$attrs.attributeName];				
 
 
 												unregister();
