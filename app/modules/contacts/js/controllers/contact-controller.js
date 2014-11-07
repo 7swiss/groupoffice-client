@@ -202,10 +202,12 @@ angular.module('GO.controllers').
 				$scope.tabs = new Tabs();
 				
 			
-				$scope.hasProjects = Modules.getModule('projects') !== false;
+//				$scope.hasProjects = Modules.getModule('projects') !== false;
 				
 				
-				$scope.contactsModule = Modules.getModule('contacts');
+				Modules.getModule('contacts').then(function(module){
+					$scope.contactsModule = module;
+				});
 
 				
 			}]);

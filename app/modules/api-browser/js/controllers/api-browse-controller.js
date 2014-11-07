@@ -11,7 +11,6 @@ angular.module('GO.controllers').
 						$http.get(Utils.url("intermesh/apiBrowser/browse/controllers"))
 										.success(function(data) {
 
-											console.log(data);
 
 											$scope.controllers = data.results;
 						});
@@ -44,7 +43,7 @@ angular.module('GO.controllers').
 
 							var json = $scope.json != '' ? angular.fromJson($scope.json) : {};
 							
-							console.log(json);
+						
 							
 							var params = {};
 							for(var i=0;i<$scope.getParams.length;i++){

@@ -17,8 +17,11 @@ angular.module('GO.controllers').
 				$scope.announcementStore.load();
 				
 				
-				$scope.announcementsModule = Modules.getModule('announcements');
-
+				Modules.getModule('announcements').then(function(module){
+					$scope.announcementsModule = module;
+				});
+				
+//				console.log($scope.announcementsModule);
 
 			}]);
 

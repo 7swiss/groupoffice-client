@@ -5382,7 +5382,20 @@ a.im-file {
   height: 150px; }
 
 .go-announcement {
-  min-height: 200px; }
+  min-height: 200px;
+  position: relative; }
+  .go-announcement img {
+    float: left;
+    width: 274px;
+    margin: 0px 10px 10px 0px; }
+  .go-announcement .go-announcement-toolbar {
+    position: absolute;
+    right: 20px;
+    bottom: 20px; }
+
+.go-announcements-container {
+  max-width: 800px;
+  margin: 0 auto; }
 
 /* module stylesheets */
 html {

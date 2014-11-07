@@ -21,13 +21,7 @@ angular.module('GO.tags', ['GO.data']).
 					if(!tagStore){
 						
 						tagStore = new Store(
-							'Intermesh/tags/tag/store',
-							new Model(
-									'tag',
-									'Intermesh/tags/tag/create',
-									'Intermesh/tags/tag/update',
-									'Intermesh/tags/tag/delete'
-									),
+							'tags',							
 							{						
 								limit: 0
 							});

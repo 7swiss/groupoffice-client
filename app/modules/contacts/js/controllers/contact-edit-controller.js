@@ -34,7 +34,6 @@ angular.module('GO.controllers').
 							$scope.contact.attributes.name += " " + $scope.contact.attributes.lastName;
 						}
 					}
-					console.log($scope.contact.attributes);
 				});
 
 

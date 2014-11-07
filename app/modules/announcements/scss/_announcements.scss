@@ -7,4 +7,23 @@
 
 .go-announcement{
 	min-height: 200px;
+	
+	position:relative;
+	
+	img{
+		float:left;
+		width:274px;
+		margin:0px 10px 10px 0px;
+	}
+	
+	.go-announcement-toolbar{
+		position:absolute;
+		right: 20px;
+		bottom: 20px;
+		
+	}
+}
+
+.go-announcements-container{
+	max-width:800px;margin:0 auto;
 }

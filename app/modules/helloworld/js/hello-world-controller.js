@@ -7,8 +7,8 @@ angular.module('GO.controllers').
 				$scope.asideActive = false;
 				
 				$scope.closeAside = function(){
-					console.log($scope);
-				}
+					
+				};
 
 			}]);
 

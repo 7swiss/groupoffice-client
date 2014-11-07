@@ -53,20 +53,41 @@ angular.module('GO.modules')
 				};
 				
 				Modules.prototype.getModule = function(moduleName){
-									
-					if(!this.modules){
-						this.getModules();
-						return false;
-					}
-								
-					for(var i = 0, l = this.modules.length;i < l; i++){
-
-						if(this.modules[i].attributes.name === moduleName){
-							return this.modules[i];
-						}
-					}
 					
-					return false;
+					
+					var deferred = $q.defer();
+					
+					var modulesPromise = this.getModules();
+					
+					modulesPromise.then(function(modules){
+						for(var i = 0, l = modules.length;i < l; i++){
+
+							if(modules[i].attributes.name === moduleName){
+								deferred.resolve(modules[i]);
+								return;
+							}
+						}
+						
+						deferred.resolve(false);
+					});
+					
+					return  deferred.promise;
+					
+					
+									
+//					if(!this.modules){
+//						this.getModules();
+//						return false;
+//					}
+//								
+//					for(var i = 0, l = this.modules.length;i < l; i++){
+//
+//						if(this.modules[i].attributes.name === moduleName){
+//							return this.modules[i];
+//						}
+//					}
+//					
+//					return false;
 				};
 
 				Modules.prototype.getModules = function(){					

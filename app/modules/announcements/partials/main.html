@@ -9,47 +9,47 @@
 
 	<div class="go-scrollable-panel" im-infinite-scroll="timelineStore.nextPage()" im-infinite-scroll-disabled="!timelineStore.shouldLoad()">
 
-	
-		<div style="max-width:800px;margin:0 auto">
-		
-	<div ng-repeat="announcement in announcementStore.items" class="go-card go-announcement" ng-class="{'deleted-visible': announcement.attributes.deleted}">
 
-	
-			<a target="_blank" href="{{announcement.attributes.thumbUrl}}">
-				<img style="float:left;width:274px;margin:0px 10px 10px 0px" ng-src="{{announcement.attributes.thumbUrl}}&amp;w=274" />
-			</a>
-	
-			<h1 style="display: inline-block">{{announcement.attributes.title}}</h1> 
-			<small>{{"by" | t }} {{announcement.attributes.owner.attributes.username}} at {{announcement.attributes.createdAt | date}}</small>
+		<div class="go-announcements-container">
 
-			<p ng-bind-html="announcement.attributes.text | nl2br">
-			</p>
+			<div ng-repeat="announcement in announcementStore.items" class="go-card go-announcement" ng-class="{'deleted-visible': announcement.attributes.deleted}">
 
 
-			<div ng-if="announcementsModule.permissions.createAccess" style="text-align:right;">						
-				<a ui-sref="announcements.edit({announcementId: announcement.attributes.id})" class="btn btn-xs btn-default">
-					<i class="fa fa-edit"></i>
+				<a ng-if="announcement.attributes.thumbUrl" target="_blank" href="{{announcement.attributes.thumbUrl}}">
+					<img ng-src="{{announcement.attributes.thumbUrl}}&amp;w=274" />
 				</a>
-				<im-soft-delete-button im-model="announcement"></im-soft-delete-button>
+
+				<h1 style="display: inline-block">{{announcement.attributes.title}}</h1> 
+				<small>{{"by"| t }} {{announcement.attributes.owner.attributes.username}} at {{announcement.attributes.createdAt| date}}</small>
+
+				<p ng-bind-html="announcement.attributes.text | nl2br">
+				</p>
+
+
+				<div class="go-announcement-toolbar" ng-if="announcementsModule.permissions.createAccess">						
+					<a ui-sref="announcements.edit({announcementId: announcement.attributes.id})" class="btn btn-xs btn-default">
+						<i class="fa fa-edit"></i>
+					</a>
+					<im-soft-delete-button im-model="announcement"></im-soft-delete-button>
+				</div>
+
+
+
+
 			</div>
-			
-		
-		
-		
+
+
+			<div ng-if="!announcementStore.busy" class="im-show-if-only-child">
+				{{'No items found'| t}}
+			</div>
+
+			<div ng-if="announcementStore.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| t}}</div>
+
+		</div>
 	</div>
-			
-	
-	<div ng-if="!announcementStore.busy" class="im-show-if-only-child">
-		{{'No items found'| t}}
-	</div>
-	
-	<div ng-if="announcementStore.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| t}}</div>
-	
-	</div>
-</div>
 
 
 
-<div ui-view></div>
+	<div ui-view></div>
 
 </div>
