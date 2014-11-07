@@ -33,23 +33,23 @@
 		</div>-->
 
 		<div class="form-group">
-			<label>
+			<label for="username">
 				{{"Username" | t}}
 			</label>
 <!--				<div class="input-group">
 				<div class="input-group-addon"><i class="fa fa-user"></i></div>-->
-				<input id="username" name="username" type="text" class="form-control" ng-model="user.username" placeholder="{{'Username'| t}}" required autocomplete>						
+				<input id="username" name="username" type="text" class="form-control" ng-model="user.username" placeholder="{{'Username'| t}}" required autofocus>						
 			<!--</div>-->
 			<im-show-error for="username"></im-show-error>
 		</div>
 
 		<div class="form-group">
-			<label>
+			<label for="password">
 				{{"Password" | t}}
 			</label>
 <!--				<div class="input-group">
 				<div class="input-group-addon"><i class="fa fa-lock"></i></div>-->
-				<input id="password" name="password" type="password" class="form-control" ng-model="user.password" placeholder="{{'Password'| t}}" required autocomplete>						
+				<input id="password" name="password" type="password" class="form-control" ng-model="user.password" placeholder="{{'Password'| t}}" required>						
 <!--				</div>-->
 			<im-show-error for="password"></im-show-error>
 		</div>

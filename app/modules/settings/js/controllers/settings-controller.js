@@ -14,7 +14,7 @@ angular.module('GO.controllers').
 						icon: 'fa fa-lock'
 				}
 				,{
-						sref:'settings.contacts.editProfile({contactId: 1})',
+						sref:'settings.contacts.editProfile({contactId: "current"})',
 						title: 'Edit profile',
 						icon: 'fa fa-user'
 				}

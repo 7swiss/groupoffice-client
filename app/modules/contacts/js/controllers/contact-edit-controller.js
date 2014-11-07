@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('GO.controllers').
-		controller('ContactEditController', ['$scope', '$state', '$stateParams', 'Utils', '$http', '$q','Alerts', function($scope, $state, $stateParams, Utils, $http, $q, Alerts) {
+		controller('ContactEditController', ['$scope', '$state', '$stateParams', 'Utils', '$http', '$q','Alerts', 'Translate', function($scope, $state, $stateParams, Utils, $http, $q, Alerts, Translate) {
 
 //				var defaultPhotoUrl = "";
 
@@ -25,7 +25,7 @@ angular.module('GO.controllers').
 								.success(function(result) {
 										$scope.contactForm.$setPristine();
 								
-										Alerts.addAlert("Wijzigingen opgeslagen", "info");
+										Alerts.addAlert(Translate.t("Your changes have been saved"), "info");
 								});
 					};
 				}

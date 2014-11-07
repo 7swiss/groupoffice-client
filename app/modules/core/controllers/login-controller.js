@@ -23,7 +23,7 @@ angular.module('GO.controllers')
 											.success(function(data, status, header) {
 
 												if (!data.success) {
-													MessageBox.alert(Translate.t(data.errors[0]), Translate.t('Login failed'));
+													MessageBox.alert(Translate.t('You entered an incorrect username or password'));
 													
 //													$scope.loginForm.username.$setValidity('badLogin', false);
 											

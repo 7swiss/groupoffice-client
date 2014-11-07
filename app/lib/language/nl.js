@@ -151,7 +151,12 @@ angular.module("GO").config(["TranslateProvider", function (TranslateProvider) {
 	'Edit profile' : 'Profiel aanpassen',
 	
 	'Current password' : 'Huidig wachtwoord',
-	'New password' : 'Nieuw wachtwoord'
+	'New password' : 'Nieuw wachtwoord',
+	"Your changes have been saved" : "Uw wijzigingen zijn opgeslagen",
+	"Your password has been changed" : "Uw wachtwoord is veranderd",
+	'You entered an incorrect password' : 'U heeft een verkeerd wachtwoord ingevoerd',
+	'You entered an incorrect username or password' : 'U heeft een verkeerde gebruikersnaam of wachtwoord ingevoerd',
+	'Error': 'Fout'
 	
 		});
 

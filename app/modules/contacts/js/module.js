@@ -69,7 +69,7 @@ angular.module('GO').
 										})
 										
 										.state("settings.contacts.editProfile",{
-											url: '/{contactId:[0-9]*}',
+											url: '/{contactId:[0-9a-z]*}',
 											templateUrl: 'modules/contacts/partials/contact-edit.html',
 											controller: 'ContactEditController'
 										});

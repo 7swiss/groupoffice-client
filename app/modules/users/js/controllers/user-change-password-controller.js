@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('GO.controllers').
-		controller('UserChangePasswordController', ['Model', '$scope', '$state', '$stateParams', 'Store', '$http', 'Utils', 'StoreSelectModal', function (Model, $scope, $state, $stateParams, Store, $http, Utils, StoreSelectModal) {
+		controller('UserChangePasswordController', ['Model', '$scope', '$state', '$stateParams', 'Store', '$http', 'Utils', 'StoreSelectModal','Alerts','Translate', function (Model, $scope, $state, $stateParams, Store, $http, Utils, StoreSelectModal, Alerts, Translate) {
 
 
 				$scope.user = new Model(
@@ -17,6 +17,8 @@ angular.module('GO.controllers').
 					$scope.user.save()
 							.success(function (result) {
 								$scope.userChangePasswordForm.$setPristine();
+						
+								Alerts.addAlert(Translate.t("Your password has been changed"), "info");
 							});
 				};
 
