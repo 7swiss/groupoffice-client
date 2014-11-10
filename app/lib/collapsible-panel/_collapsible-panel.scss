@@ -82,6 +82,10 @@
 			position:absolute;		
 			left: -600px;
 			top: -5px; //to clear shadow of header
+			bottom: 0px;
+			height: auto;
+		
+			
 			border-top: 5px solid $header-bg;
 			background-color: $body-bg;
 			/*border-right: 1px solid $border-color;*/

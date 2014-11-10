@@ -4776,7 +4776,7 @@ textarea.form-control, form.form-horizontal.go-labels .form-group textarea, form
   bottom: 0px;
   left: 0px;
   right: 0px;
-  overflow: hidden; }
+  /*overflow: hidden;*/ }
   .go-body .go-panel {
     /* Full size on mobile */
     position: absolute;
@@ -5264,6 +5264,8 @@ a.im-file {
     position: absolute;
     left: -600px;
     top: -5px;
+    bottom: 0px;
+    height: auto;
     border-top: 5px solid #8bc34a;
     background-color: #f5f5f5;
     /*border-right: 1px solid $border-color;*/

@@ -158,7 +158,11 @@ angular.module("GO").config(["TranslateProvider", function (TranslateProvider) {
 	'You entered an incorrect username or password' : 'U heeft een verkeerde gebruikersnaam of wachtwoord ingevoerd',
 	'Error': 'Fout',
 	
-	"Please wait": "Even wachten aub."
+	"Please wait": "Even wachten aub.",
+	
+	"Number of logins" : "Aantal keer ingelogd",
+	
+	"Last login" : "Laatste keer ingelogd"
 	
 		});
 
