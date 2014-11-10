@@ -121,18 +121,10 @@
 	</div>
 
 	<div class="go-col lg-2">
-		<div class="go-card" ng-if="!contact.permissions.editAccess && contact.attributes.notes">
+		<div class="go-card" ng-if="contact.attributes.notes">
 			<h1>{{"Notes"| t}}</h1>
 
-
-			<div ng-if="contact.permissions.editAccess">
-				<textarea msd-elastic="\n" ng-model="contact.attributes.notes" class="form-control" style="height:60px" ng-blur="contact.save()">
-
-				</textarea>		
-			</div>
-			<div ng-if="!contact.permissions.editAccess">
-				<pre>{{contact.attributes.notes}}</pre>
-			</div>
+			<div ng-bind-html="contact.attributes.notes | nl2br"></div>		
 
 		</div>
 		<im-custom-fields-detail im-model="contact" im-server-model="Intermesh\Modules\Contacts\Model\ContactCustomFields"></im-custom-fields-detail>
