@@ -2,9 +2,12 @@
 
 /* Controllers */
 angular.module('GO.controllers').
-		controller('SettingsController', ['$scope', '$state', 'Translate', 'Store', 'Model', 'MessageBox', function($scope, $state, Translate, Store, Model, MessageBox) {
+		controller('SettingsController', ['$scope', '$state', 'Translate', 'Store', 'Model', 'MessageBox', 'PanelSwitcher', function($scope, $state, Translate, Store, Model, MessageBox, PanelSwitcher) {
 
 				$scope.pageTitle = Translate.t('Settings');
+
+				$scope.panelSwitcher = new PanelSwitcher($scope, 'settings');
+				
 
 
 				//TODO add settins provider to register these

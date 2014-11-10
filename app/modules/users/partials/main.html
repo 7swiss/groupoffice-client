@@ -4,7 +4,7 @@
 <div class="go-body">
 
 	<!-- Start of list panel with toolbar -->
-	<div ng-class="{active: !contentActive()}" class="go-panel sm list">
+	<div ng-class="{active: panelSwitcher.initialActive}" class="go-panel sm list active">
 
 		<div class="go-toolbar">
 			<go-store-search store="store"></go-store-search>				
@@ -33,7 +33,10 @@
 
 
 	<!-- The detail and edit pane is loaded in this view -->
-	<div class="go-panel fill" ng-class="{active: contentActive()}">
+	<div class="go-panel fill" ng-class="{active: !panelSwitcher.initialActive}">
+		
+		<go-loadmask active="user.showMask"></go-loadmask>
+		
 		<div ui-view></div>
 	</div>
 

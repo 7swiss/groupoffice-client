@@ -1,7 +1,13 @@
+<go-loadmask ng-if="onSettingsPage" active="contact.showMask"></go-loadmask>
+
 <form class="ab-contact-form form-horizontal go-labels" name="contactForm" im-submit="save()" novalidate>
 	<div class="go-toolbar">
 	
 		<a ng-if="!onSettingsPage" class="btn" ng-click="cancel();">
+			<span class="fa fa-chevron-left"></span>
+		</a>
+		
+		<a ng-if="onSettingsPage" class="btn visible-xs" ui-sref="settings">				
 			<span class="fa fa-chevron-left"></span>
 		</a>
 

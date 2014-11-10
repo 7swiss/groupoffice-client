@@ -72,7 +72,7 @@
 
 	</go-collapsible-panel>
 
-	<div class="go-panel sm list" ng-class="{'active': showList()}">
+	<div class="go-panel sm list active" ng-class="{'active': panelSwitcher.initialActive}">
 
 		<div class="go-toolbar">
 
@@ -98,7 +98,7 @@
 
 			<div class="go-list list-group" im-infinite-scroll="store.nextPage()" im-infinite-scroll-disabled="!store.shouldLoad()">
 				<div class="deletable" ng-class="{'deleted-invisible': contact.attributes.deleted}" ng-repeat="contact in store.items track by contact.attributes.id">
-					<a ui-sref-active="active" ui-sref="contacts.contact({contactId: contact.attributes.id})" class="list-group-item">
+					<a ui-sref-active="active" ui-sref="contacts.contact.detail({contactId: contact.attributes.id})" class="list-group-item">
 						<img class="thumbnail" style="width:40px;height:40px;" ng-src="{{contact.attributes.thumbUrl}}&amp;w=40&amp;h=40&amp;zoomCrop=1" />
 						{{contact.attributes.name}}
 
@@ -115,7 +115,10 @@
 
 	</div>
 
-	<div class="go-panel fill"  ng-class="{'active': !showList()}">
+	<div class="go-panel fill"  ng-class="{'active': !panelSwitcher.initialActive}">
+		
+		<go-loadmask active="contact.showMask"></go-loadmask>
+		
 		<!-- The detail and edit pane is loaded in this view -->
 		<div ui-view></div>
 	</div>

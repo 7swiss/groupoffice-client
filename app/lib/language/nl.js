@@ -156,7 +156,9 @@ angular.module("GO").config(["TranslateProvider", function (TranslateProvider) {
 	"Your password has been changed" : "Uw wachtwoord is veranderd",
 	'You entered an incorrect password' : 'U heeft een verkeerd wachtwoord ingevoerd',
 	'You entered an incorrect username or password' : 'U heeft een verkeerde gebruikersnaam of wachtwoord ingevoerd',
-	'Error': 'Fout'
+	'Error': 'Fout',
+	
+	"Please wait": "Even wachten aub."
 	
 		});
 

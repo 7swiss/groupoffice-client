@@ -51,6 +51,10 @@ angular.module('GO.data')
 					 * @returns {object} Key value pair of GET parameters to pass on load.
 					 */
 					this.baseParams = baseParams || {};
+					
+					
+					this.busy = false;
+					this.showMask = false;
 
 					this.init();
 				};
@@ -67,6 +71,23 @@ angular.module('GO.data')
 
 					return params;
 				};
+				
+				Model.prototype.setBusy =  function(busy){
+					
+					//delay 200ms for the loadmask.
+					this.busy = busy;
+					
+					if(busy === true){
+						$timeout(function(){
+							if(this.busy){
+								this.showMask = true;
+							}
+						}.bind(this), 200);
+					}else
+					{
+						this.showMask = false;						
+					}
+				};
 
 				/**
 				 * @ngdoc method
@@ -82,10 +103,15 @@ angular.module('GO.data')
 					var deferred = $q.defer();
 
 					Utils.promiseSuccessDecorator(deferred.promise);
+					
+					
+					this.setBusy(true);
 
 					var url = Utils.url(this.controllerRoute+'/'+this.attributes[this.idAttribute], this.getBaseParams());
 					$http.delete(url)
 							.success(function(result) {
+								
+								this.setBusy(false);
 
 								if (result.success) {
 									var data = result.data;
@@ -111,6 +137,7 @@ angular.module('GO.data')
 								}
 
 							}.bind(this));
+						
 
 					return deferred.promise;
 				};
@@ -291,6 +318,9 @@ angular.module('GO.data')
 				 */
 				Model.prototype.save = function(getParams) {
 					
+					
+					
+					
 					var params = this.getBaseParams();
 					
 					if(getParams){
@@ -315,9 +345,14 @@ angular.module('GO.data')
 						saveParams["data"] = {};
 						
 						saveParams["data"]['attributes'] = this.convertDateToString(modifiedAttributes);
+						
+						
+						this.setBusy(true);
 
 						$http[method](url, saveParams)
 								.success(function(result) {
+									
+									this.setBusy(false);
 								
 									var data = result.data;
 
@@ -468,9 +503,11 @@ angular.module('GO.data')
 					var url = Utils.url(this.controllerRoute+'/'+id, p);
 					
 				
-
+					this.setBusy(true);
 					return $http.get(url).success(function(result) {						
 //							console.log(result);
+						this.setBusy(false);
+						
 						if (result.data) {
 							this.loadData(result.data);
 						}

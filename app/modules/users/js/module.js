@@ -26,7 +26,7 @@ angular.module('GO').
 											controller: 'UserEditController'
 										})
 										.state("settings.changePassword",{
-											url: '/settings/change-password',
+											url: '/change-password',
 											templateUrl: 'modules/users/partials/user-change-password.html',
 											controller: 'UserChangePasswordController'
 										});

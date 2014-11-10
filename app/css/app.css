@@ -4775,47 +4775,73 @@ textarea.form-control, form.form-horizontal.go-labels .form-group textarea, form
   top: 55px;
   bottom: 0px;
   left: 0px;
-  right: 0px; }
+  right: 0px;
+  overflow: hidden; }
   .go-body .go-panel {
-    position: relative;
-    float: left;
-    height: 100%;
+    /* Full size on mobile */
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    overflow: hidden;
     display: block;
-    min-height: 1px;
-    /* Show on desktop only */
-    /* Show on tabler or larger */ }
+    transition: all 0.3s ease-out;
+    transform: translateX(-100%);
+    /*
+    		 Show on desktop only 
+    		&.lg{
+    			 Full width when tablet or smaller 
+    			@media(max-width: $screen-sm-max){
+    				display:none;
+    				transform: translateX(-100%);
+    			}
+    		}
+    
+    		 Show on tabler or larger 
+    		&.sm{	
+    			 tablet 
+    			@media(max-width: $screen-xs-max){		
+    				display:none;	
+    				transform: translateX(-100%);
+    			}
+    		}*/ }
+    @media (min-width: 768px) {
+      .go-body .go-panel {
+        /* floating cards on tabler or higher */
+        left: auto;
+        right: auto;
+        bottom: auto;
+        top: auto;
+        position: relative;
+        float: left;
+        height: 100%;
+        min-height: 1px;
+        width: 100%;
+        transform: translateX(0%); } }
     .go-body .go-panel.active {
-      display: block !important; }
+      /*display: block !important;*/
+      transform: translateX(0%) !important; }
     .go-body .go-panel.hidden {
-      display: none !important; }
-    .go-body .go-panel.list {
-      width: 100%; }
-      @media (min-width: 768px) {
-        .go-body .go-panel.list {
-          width: 370px; } }
-    .go-body .go-panel.grid {
-      width: 100%; }
-      @media (min-width: 768px) {
-        .go-body .go-panel.grid {
-          width: 600px; } }
-    .go-body .go-panel.lg {
-      /* Full width when tablet or smaller */ }
-      @media (max-width: 991px) {
-        .go-body .go-panel.lg {
-          display: none; } }
-    .go-body .go-panel.sm {
+      /*display:none !important;*/
+      transform: translateX(-100%); }
+    @media (min-width: 768px) {
+      .go-body .go-panel.list {
+        width: 370px; } }
+    @media (min-width: 768px) {
+      .go-body .go-panel.grid {
+        width: 600px; } }
+    .go-body .go-panel.fill {
       /* tablet */ }
       @media (max-width: 767px) {
-        .go-body .go-panel.sm {
-          display: none; } }
-    .go-body .go-panel.fill {
-      overflow: hidden;
-      display: block;
-      float: none;
-      /* tablet */ }
-      @media (max-width: 991px) {
         .go-body .go-panel.fill {
-          display: none; } }
+          transform: translateX(100%); } }
+      @media (min-width: 768px) {
+        .go-body .go-panel.fill {
+          width: auto;
+          overflow: hidden;
+          display: block;
+          float: none; } }
 
 .go-col.sm-2 {
   /*Full width when tablet or smaller*/ }
@@ -4938,6 +4964,55 @@ a.im-file {
     border-right: 14px solid white;
     border-bottom: 14px solid transparent;
     content: " "; }
+
+.go-mask {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  opacity: 0;
+  background-color: #000;
+  z-index: 500;
+  visibility: hidden;
+  transition: all 0.5s ease-in-out; }
+  .go-mask.active {
+    visibility: visible;
+    opacity: 0.5; }
+
+.go-loadmask {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 100000;
+  vertical-align: middle;
+  text-align: center; }
+  .go-loadmask .go-loadmask-msg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 250px;
+    height: 50px;
+    margin-left: -125px;
+    margin-top: -25px;
+    line-height: 50px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    background: white;
+    z-index: 100001;
+    color: #333; }
+  .go-loadmask .go-loadmask-screen {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 100000;
+    background-color: #f1f1f1;
+    opacity: 0.5;
+    border-radius: 4px; }
 
 .go-logo {
   background-image: url(https://tvo.group-office.com/tv-oosterplas.jpg);
@@ -5472,39 +5547,6 @@ h3 {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
 /* end rotate an element */
-.go-loadmask {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: 100000;
-  vertical-align: middle;
-  text-align: center; }
-  .go-loadmask .go-loadmask-msg {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 100px;
-    height: 30px;
-    margin-left: -50px;
-    margin-top: -15px;
-    line-height: 30px;
-    border: 1px solid #DDDDDD;
-    background: white;
-    z-index: 100001;
-    color: #333; }
-  .go-loadmask .go-loadmask-screen {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    z-index: 100000;
-    background-color: #f1f1f1;
-    opacity: 0.5;
-    border-radius: 4px; }
-
 @media (min-width: 768px) {
   .go-login-window {
     width: 400px;
@@ -5551,20 +5593,5 @@ ul.comma-list {
 .nopadding {
   padding: 0 !important;
   margin: 0 !important; }
-
-.go-mask {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  opacity: 0;
-  background-color: #000;
-  z-index: 500;
-  visibility: hidden;
-  transition: all 0.5s ease-in-out; }
-  .go-mask.active {
-    visibility: visible;
-    opacity: 0.5; }
 
 /*# sourceMappingURL=app.css.map */

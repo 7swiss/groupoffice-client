@@ -2,14 +2,17 @@
 
 /* Controllers */
 angular.module('GO.controllers').
-		controller('UsersController', ['$scope', '$state', 'Translate', 'Store', 'Model', 'MessageBox', function($scope, $state, Translate, Store, Model, MessageBox) {
+		controller('UsersController', ['$scope', '$state', 'Translate', 'Store', 'Model', 'MessageBox','PanelSwitcher', function($scope, $state, Translate, Store, Model, MessageBox, PanelSwitcher) {
 
 				$scope.pageTitle = Translate.t('User management');
 
 
-				$scope.contentActive = function() {
-					return !$state.is('users');
-				};
+//				$scope.contentActive = function() {
+//					return !$state.is('users');
+//				};
+				
+				$scope.panelSwitcher = new PanelSwitcher($scope, 'users');
+
 
 				$scope.store = new Store(
 						'auth/users'						

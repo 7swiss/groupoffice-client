@@ -10,7 +10,7 @@ angular.module('GO.controllers').
 
 						$scope.contact.resetAttributes();
 
-						$state.go('contacts.contact', {contactId: $scope.contact.attributes.id});
+						$state.go('contacts.contact.detail', {contactId: $scope.contact.attributes.id});
 					} else
 					{
 						$state.go('^');

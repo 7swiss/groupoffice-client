@@ -1,0 +1,67 @@
+
+.go-mask{
+	position:absolute;
+	top: 0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	opacity:0;
+	
+	background-color: #000;
+	z-index: $zindex-mask;
+
+	visibility: hidden;
+
+	transition: all 0.5s ease-in-out;	
+
+	&.active{
+		visibility: visible;
+		opacity: 0.5;
+	}
+}
+
+
+.go-loadmask{
+	position:absolute;
+	top:0;
+	bottom:0;
+	right:0;
+	left:0;
+	z-index:100000;	
+	vertical-align:middle;
+	text-align:center;
+
+	.go-loadmask-msg{
+		position:fixed;
+		top:50%;
+		left:50%;
+		width:250px;
+		height:50px;
+
+		margin-left:-125px;
+		margin-top:-25px;
+
+		line-height:50px;
+
+		border: 1px solid $border-color;
+		border-radius: 2px;
+		
+		background:white;	
+		z-index:100001;
+		color:$primary-color;
+		
+		
+	}
+
+	.go-loadmask-screen{
+		position:absolute;
+		top:0;
+		bottom:0;
+		right:0;
+		left:0;
+		z-index:100000;
+		background-color:#f1f1f1;
+		opacity:0.5;
+		border-radius: 4px;
+	}
+}

@@ -18,6 +18,9 @@ var GO = angular.module('GO', [
 	'GO.tags',
 	'GO.modules',
 	'GO.tabs',
+	'GO.panelSwitcher',
+	'GO.loadmask',
+	
 	//Angular UI modules
 	'ui.router', // http://angular-ui.github.io/ui-router/site/#/api/ui.router
 	'ui.sortable',

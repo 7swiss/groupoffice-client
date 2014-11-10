@@ -3,13 +3,11 @@
 /* Controllers */
 angular.module('GO.controllers').
 
-				controller('RolesController', ['$scope', '$state', 'Translate', 'Store','Model','MessageBox', function($scope, $state, Translate, Store, Model, MessageBox) {
+				controller('RolesController', ['$scope', '$state', 'Translate', 'Store','Model','PanelSwitcher', function($scope, $state, Translate, Store, Model, PanelSwitcher) {
 
 						$scope.pageTitle = Translate.t('Role management');
 
-						$scope.contentActive = function() {
-							return !$state.is('roles');
-						};
+						$scope.panelSwitcher = new PanelSwitcher($scope, 'roles');
 
 						$scope.store = new Store(
 								'auth/roles'

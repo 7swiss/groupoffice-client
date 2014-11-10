@@ -2,14 +2,13 @@
 
 /* Controllers */
 angular.module('GO.controllers').
-		controller('ContactController', ['$scope', '$state', 'Translate', 'Store', 'Model', 'Tags', 'CustomFields','Modules', function($scope, $state, Translate, Store, Model, Tags, CustomFields, Modules) {
+		controller('ContactController', ['$scope', '$state', 'Translate', 'Store', 'Model', 'Tags', 'CustomFields','Modules', 'PanelSwitcher', function($scope, $state, Translate, Store, Model, Tags, CustomFields, Modules, PanelSwitcher) {
 
 				$scope.pageTitle = Translate.t('Contacts');
 
 				/* For mobiles, switch list and details on state */
-				$scope.showList = function() {
-					return $state.is('contacts');
-				};
+			
+				$scope.panelSwitcher = new PanelSwitcher($scope, 'contacts');
 
 				$scope.store = new Store(
 						'contacts',
@@ -102,7 +101,7 @@ angular.module('GO.controllers').
 
 								
 								$scope.syncWithStore(true);
-								$state.go('contacts.contact', {contactId: $scope.contact.attributes.id});
+								$state.go('contacts.contact.detail', {contactId: $scope.contact.attributes.id});
 								
 
 							});

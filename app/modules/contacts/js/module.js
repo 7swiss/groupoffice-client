@@ -7,7 +7,7 @@ angular.module('GO').
 					}]).
 				config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 						
-						$urlRouterProvider.when('/contacts/contact/{id}', '/contacts/contact/{id}/detail');
+//						$urlRouterProvider.when('/contacts/contact/{id}', '/contacts/contact/{id}/detail');
 
 						// Now set up the states
 						$stateProvider
@@ -63,7 +63,7 @@ angular.module('GO').
 										})
 										
 										.state("settings.contacts",{
-											url: '/settings/contacts',											
+											url: '/contacts',											
 											controller: 'ContactController',
 											template:'<div ui-view></div>'
 										})
