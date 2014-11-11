@@ -42,17 +42,18 @@
 }
 
 .go-header{
-	height: $header-height;
+	height: $header-height - 5px;
 	padding: 0px 0px 0px 14px;
 	background: $header-bg;
 	box-shadow: 0 2px 5px rgba(0,0,0,.26);
+	margin-bottom: 5px;
 	
 	
 	h1{
 		margin:0px;
 		padding:0px;
 		color:white;
-		line-height:$header-height;
+		line-height:$header-height - 5px;
 		font-size:20px;
 		display: inline;
 	}
@@ -60,7 +61,7 @@
 	a{
 		margin:0px;
 		padding:0px;
-		line-height:$header-height;
+		line-height:$header-height - 5px;
 		font-size:20px;
 		color:white;
 
@@ -79,7 +80,7 @@
 .go-header-right{
 	float:right;
 	/*padding-right:10px;*/
-	line-height:$header-height;
+	line-height:$header-height - 5px;
 
 	ul{
 		list-style:none;

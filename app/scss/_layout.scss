@@ -1,11 +1,11 @@
 
 .go-body{
 	position:absolute;
-	top: $header-height + 5px;
+	top: $header-height;// + 5px; removed shadow
 	bottom:0px;
 	left: 0px;
 	right: 0px;
-	/*overflow: hidden;*/
+	overflow: hidden;
 
 	.go-panel{
 		

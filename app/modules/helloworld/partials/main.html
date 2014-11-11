@@ -2,25 +2,12 @@
 <div ng-include="'partials/header.html'"></div>
 
 <div class="go-toolbar">
-	<a class="btn" ng-click="asideActive = true">Activate</a>	
+	<a class="btn" ng-click="goCollapsiblePanel.toggle()">Toggle side</a>	
 </div>
 
 <div class="go-body">
 
-	<!--	<div class="go-col aside-sm" ng-class="{active: leftActive}">
-			<div class="go-toolbar">
-				<a ng-click="asideActive = true">Activate</a>	
-			</div>
-	
-			<div class="go-scrollable-panel">
-	
-				<p>1</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p>
-	
-			</div>
-	
-		</div>-->
-
-	<go-collapsible-panel is-active="asideActive" on-close="closeAside()">
+	<go-collapsible-panel on-close="closeAside()">
 
 		<div class="go-toolbar">
 			<a class="btn">Button 1</a>
@@ -33,7 +20,7 @@
 		</div>
 
 	</go-collapsible-panel>
-
+		
 	<div class="go-panel sm list">
 		<div class="go-toolbar">
 			<a class="btn">Button 1</a>
@@ -41,23 +28,18 @@
 
 		<div class="go-scrollable-panel">
 
-			<p>2</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p>
+			<div class="list-group">
+				
+				<a class="list-group-item" ui-sref="helloworld.grid">Grid</a>
+				
+			</div>
 
 		</div>
-
 	</div>
 
 	<div class="go-panel fill">
-		<div class="go-toolbar">
-			<a class="btn">Button 1</a>
-		</div>
-
-		<div class="go-scrollable-panel">
-
-			<p>3</p>
-			<p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p>
-
-		</div>
+		
+		<div ui-view></div>
 
 	</div>
 

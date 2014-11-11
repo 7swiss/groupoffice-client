@@ -48,7 +48,7 @@
  */
 
 angular.module('GO.core')
-				.filter('t', ['Translate',function(Translate) {
+				.filter('goT', ['Translate',function(Translate) {
 						return function(key) {
 							return Translate.t(key);
 						};

@@ -47,7 +47,7 @@ $start-icon-size: 100px;
 			padding:($start-icon-size - 48px) / 2;
 			margin:4px;
 			
-			/*box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);*/
+			box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
 			
 			&:active{
 				box-shadow: none;

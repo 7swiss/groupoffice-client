@@ -3,15 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="PocketOffice">
+            <file>file:/var/www/html/groupoffice-client/app/modules/helloworld/partials/main.html</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/contacts/partials/main.html</file>
+            <file>file:/var/www/html/groupoffice-client/app/scss/_header.scss</file>
+            <file>file:/var/www/html/groupoffice-client/app/lib/collapsible-panel/_collapsible-panel.scss</file>
             <file>file:/var/www/html/groupoffice-client/app/scss/_layout.scss</file>
-            <file>file:/var/www/html/groupoffice-client/app/modules/users/partials/user-change-password.html</file>
-            <file>file:/var/www/html/groupoffice-client/.gitignore</file>
-            <file>file:/var/www/html/groupoffice-client/app/modules/contacts/partials/contact-detail.html</file>
-            <file>file:/var/www/html/groupoffice-client/app/modules/users/js/controllers/user-edit-controller.js</file>
-            <file>file:/var/www/html/groupoffice-client/app/lib/core/autofocus-directive.js</file>
-            <file>file:/var/www/html/groupoffice-client/app/modules/contacts/partials/contact-edit.html</file>
-            <file>file:/var/www/html/groupoffice-client/Gruntfile.js</file>
-            <file>file:/var/www/html/groupoffice-client/app/css/app.css</file>
+            <file>file:/var/www/html/groupoffice-client/app/scss/_config.scss</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/helloworld/partials/grid.html</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/helloworld/js/grid-controller.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/helloworld/js/hello-world-controller.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/index.html</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/helloworld/js/module.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/lib/app.js</file>
         </group>
     </open-files>
 </project-private>
