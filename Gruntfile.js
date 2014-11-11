@@ -94,6 +94,19 @@ module.exports = function (grunt) {
 				mangle: false
 			}
         },
+		
+		autoprefixer: {
+
+				// prefix the specified file
+//				single_file: {
+//				  src: '.tmp/concat/css/app.min.css',
+//				  dest: '.tmp/concat/css/app.min.css'
+//				}
+				single_file: {
+				  src: 'app/css/app.css',
+				  dest: 'app/css/app.css'
+				}
+		},
 
 
         fileblocks: {
@@ -172,12 +185,14 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-file-blocks');
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-ngdocs');
+	grunt.loadNpmTasks('grunt-autoprefixer');
 
     // Tell Grunt what to do when we type "grunt" into the terminal.
     // Default is build the distributable version.
     grunt.registerTask('dist', [
 		'clean:tmp',
         'clean:dist',
+		'autoprefixer',
         'copy:dist',
 		'copy:fonts',
         'useminPrepare',
@@ -185,6 +200,7 @@ module.exports = function (grunt) {
         'ngAnnotate',
         'uglify:generated',
         'cssmin:generated',
+		
         'rev',
         'usemin',
         'htmlmin'

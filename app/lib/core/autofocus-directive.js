@@ -19,22 +19,21 @@
  */
 
 angular.module('GO.core')
-				.directive('autofocus', ['$timeout',function($timeout) {
+				.directive('goAutofocus', ['$timeout',function($timeout) {
 					return {
 						scope: {
-							trigger: '@focus',			
-						    autofocus: '='
-            
+						    goAutofocus: '='            
 						},
-						link: function(scope, element) {							
-							
-							if(scope.autofocus!==false){							
-								scope.$watch('trigger', function(value) {
-										$timeout(function() {
-											element[0].focus();
-										}, 400); //Delay to allow transition. Wierd stuff happens when you use transition (at least with transform: translateX and autofocus at the same time.
-								});
-							}
+						link: function(scope, element) {
+						
+							scope.$watch('goAutofocus', function(value) {
+								if(value || angular.isUndefined(value)){								
+									$timeout(function() {
+										element[0].focus();
+									}, 500); //Delay to allow transition. Wierd stuff happens when you use transition (at least with transform: translateX and autofocus at the same time.
+								}
+							});
+
 						}
 					};
 				}]);

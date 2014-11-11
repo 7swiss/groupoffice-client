@@ -23,7 +23,7 @@
 		<div class="form-group">
 			<label for="name">{{"Name"| t}}</label>
 
-			<input type="text" id="name" name="name" ng-model="field.attributes.name" required autofocus />
+			<input type="text" id="name" name="name" ng-model="field.attributes.name" required go-autofocus />
 			<im-show-error for="name" im-model="field"></im-show-error>
 
 		</div>
@@ -94,7 +94,7 @@
 
 			<div class="input-group im-input-group-multiple" ng-repeat="option in field.attributes.data.options">
 
-				<input type="text" name="option_{{$index}}"  ng-model="option.value" required autofocus="option.value === ''" />
+				<input type="text" name="option_{{$index}}"  ng-model="option.value" required go-autofocus="option.value === ''" />
 				<im-show-error for="option_{{$index}}"></im-show-error>
 
 				<span class="input-group-btn">			
