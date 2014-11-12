@@ -11,10 +11,29 @@
             <file>file:/var/www/html/groupoffice-client/app/scss/_config.scss</file>
             <file>file:/var/www/html/groupoffice-client/app/modules/helloworld/partials/grid.html</file>
             <file>file:/var/www/html/groupoffice-client/app/modules/helloworld/js/grid-controller.js</file>
-            <file>file:/var/www/html/groupoffice-client/app/modules/helloworld/js/hello-world-controller.js</file>
-            <file>file:/var/www/html/groupoffice-client/app/index.html</file>
-            <file>file:/var/www/html/groupoffice-client/app/modules/helloworld/js/module.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/lib/data/store-factory.js</file>
             <file>file:/var/www/html/groupoffice-client/app/lib/app.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/scss/app.scss</file>
+            <file>file:/var/www/html/groupoffice-client/app/scss/_panels.scss</file>
+            <file>file:/var/www/html/groupoffice-client/app/scss/_toolbar.scss</file>
+            <file>file:/var/www/html/groupoffice-client/app/lib/panel-switcher-service.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/contacts/partials/contact-detail.html</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/core/controllers/start-controller.js</file>
+            <file>file:/var/www/html/groupoffice-client/bower_components/angular-ui-grid/README.md</file>
+            <file>file:/var/www/html/groupoffice-client/bower_components/angular-ui-grid/bower.json</file>
+            <file>file:/var/www/html/groupoffice-client/app/lib/core/translate-filter.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/lib/core/utils-service.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/lib/core/translate-provider.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/index.html</file>
+            <file>file:/var/www/html/groupoffice-client/app/scss/_ui-select.scss</file>
+            <file>file:/var/www/html/groupoffice-client/app/scss/_start-screen.scss</file>
+            <file>file:/var/www/html/groupoffice-client/bower_components/angular-ui-grid/ui-grid.js</file>
+            <file>file:/var/www/html/groupoffice-client/bower_components/ng-sortable/dist/ng-sortable.js</file>
+            <file>file:/var/www/html/groupoffice-client/bower_components/ng-flow/src/angular-flow.js</file>
+            <file>file:/var/www/html/groupoffice-client/tools/publishdocs.sh</file>
+            <file>file:/var/www/html/groupoffice-client/tools/find-language.php</file>
+            <file>file:/var/www/html/groupoffice-client/app/partials/login.html</file>
+            <file>file:/var/www/html/groupoffice-client/app/lib/language/nl.js</file>
         </group>
     </open-files>
 </project-private>

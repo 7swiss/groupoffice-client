@@ -162,7 +162,10 @@ angular.module("GO").config(["TranslateProvider", function (TranslateProvider) {
 	
 	"Number of logins" : "Aantal keer ingelogd",
 	
-	"Last login" : "Laatste keer ingelogd"
+	"Last login" : "Laatste keer ingelogd",
+	
+	
+	"Intermesh\\Modules\\Contacts\\Model\\Contact" : "Contactpersoon"
 	
 		});
 

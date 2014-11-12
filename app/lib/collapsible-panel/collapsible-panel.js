@@ -20,17 +20,17 @@
 
 	   <im-side-panel is-active="sideBarActive" on-open='openSidePanel()' on-close='closeSidePanel()'>
 
-			<div class="im-side-nav-title">{{'Filters'| t}}
+			<div class="im-side-nav-title">{{'Filters'| goT}}
 
 				<div class="im-side-nav-buttons">
-					<a ng-click="resetFilters()" tooltip="{{'Reset' | t}}" tooltip-placement='bottom'><i class="fa fa-undo"></i></a>
-					<a ng-click="imSideNav.close()" tooltip="{{'Close' | t}}" tooltip-placement='bottom'><i class="fa fa-times"></i></a>
+					<a ng-click="resetFilters()" tooltip="{{'Reset' | goT}}" tooltip-placement='bottom'><i class="fa fa-undo"></i></a>
+					<a ng-click="imSideNav.close()" tooltip="{{'Close' | goT}}" tooltip-placement='bottom'><i class="fa fa-times"></i></a>
 				</div>
 			</div>
 
 			<div class="go-scrollable-panel">
 
-				<h4>{{'Tags'| t}}</h4>
+				<h4>{{'Tags'| goT}}</h4>
 				<ul class="list-group">
 					<label class="list-group-item" ng-class="{selected: tag.attributes.checked}" ng-repeat="tag in tagStore.items" im-infinite-use-window="true">
 						<input type="checkbox" ng-model="tag.attributes.checked"> {{tag.attributes.name}}

@@ -3,7 +3,7 @@
 <form name="timelineItemForm" class="form-horizontal" im-submit="save()" novalidate>
 
 
-	<div class="modal-header">{{"New Comment"| t}}</div>
+	<div class="modal-header">{{"New Comment"| goT}}</div>
 
 	<div class="modal-body">
 		<textarea msd-elastic="\n" name="text" ng-model="timelineItem.attributes.text" class="form-control" style="height:60px" go-autofocus required></textarea>
@@ -11,8 +11,8 @@
 	</div>
 
 	<div class="modal-footer">				
-		<button type="submit" class="btn btn-primary">{{"OK"| t}}</button>
-		<button class="btn btn-default" ng-click="cancel();" type="button">{{"Cancel"| t}}</button>	
+		<button type="submit" class="btn btn-primary">{{"OK"| goT}}</button>
+		<button class="btn btn-default" ng-click="cancel();" type="button">{{"Cancel"| goT}}</button>	
 	</div>			
 
 

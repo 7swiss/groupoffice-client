@@ -6,11 +6,11 @@
 	<div class="go-toolbar">
 
 		<a class="btn visible-xs" ui-sref="roles">				
-			<span class="fa fa-chevron-left"></span> {{'Back'| t}}
+			<span class="fa fa-chevron-left"></span> {{'Back'| goT}}
 		</a>
 
 		<button type="submit">
-			<i class="fa fa-floppy-o"></i> {{'Save'| t}}
+			<i class="fa fa-floppy-o"></i> {{'Save'| goT}}
 		</button>
 
 
@@ -29,10 +29,10 @@
 	<div class="go-scrollable-panel">
 
 		<div class="go-card">
-			<h1>{{"Properties"| t}}</h1>
+			<h1>{{"Properties"| goT}}</h1>
 	
 			<div class="form-group">
-				<label for="name">{{"Role name"| t}}</label>
+				<label for="name">{{"Role name"| goT}}</label>
 				<input type="text" name="name" id="name" ng-model="role.attributes.name" required go-autofocus />
 				<im-show-error for="name" im-model="role"></im-show-error>
 			</div>
@@ -40,7 +40,7 @@
 			<div class="form-group">
 				<div class="checkbox">
 					<label>
-						<input type="checkbox" ng-model="role.attributes.autoAdd" /> {{"Grant permission to new items automatically"| t}}
+						<input type="checkbox" ng-model="role.attributes.autoAdd" /> {{"Grant permission to new items automatically"| goT}}
 					</label>
 				</div>
 			</div>
@@ -49,13 +49,13 @@
 
 		<div class="go-card">
 			<!-- Default panel contents -->
-			<h1>{{"Enabled modules"| t}}</h1>
+			<h1>{{"Enabled modules"| goT}}</h1>
 			
 			<table class="table">
 				<tr>
-					<th>{{"Name"| t }}</th>
-					<th>{{"Use access"| t }}</th>
-					<th>{{"Create access"| t }}</th>
+					<th>{{"Name"| goT }}</th>
+					<th>{{"Use access"| goT }}</th>
+					<th>{{"Create access"| goT }}</th>
 				</tr>
 				<tr ng-repeat="module in role.attributes.modulesWithPermissions">
 
@@ -71,7 +71,7 @@
 		<div class="go-card">
 		
 			<div class="go-toolbar go-toolbar-xs">
-				<h1>{{"Users in role"| t}}</h1>
+				<h1>{{"Users in role"| goT}}</h1>
 				<div class="go-toolbar-right">					
 					<a class="btn" ng-click="storeSelectModal.openModal()">
 						<i class="fa fa-plus"></i>					
@@ -92,7 +92,7 @@
 				</li>
 
 				<li class="list-group-item im-show-if-only-child">
-					{{'No users selected'| t}}
+					{{'No users selected'| goT}}
 				</li>
 			</ul>
 

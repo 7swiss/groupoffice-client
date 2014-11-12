@@ -10,11 +10,11 @@
 
 
 	<a class="btn" ng-disabled="!contact.permissions.editAccess" ui-sref="contacts.edit({contactId: contact.attributes.id})">
-		<span class="fa fa-edit"></span> {{'Edit'| t}}
+		<span class="fa fa-edit"></span> {{'Edit'| goT}}
 	</a>
 
 
-	<a class="btn" tooltip="{{'Share'| t}}" ng-click="shareModal.open(contact.attributes.id)" ng-disabled="!contact.currentUserCanManagePermissions">
+	<a class="btn" tooltip="{{'Share'| goT}}" ng-click="shareModal.open(contact.attributes.id)" ng-disabled="!contact.currentUserCanManagePermissions">
 		<span class="fa fa-share-alt"></span>
 	</a>
 
@@ -50,7 +50,7 @@
 			</h1>
 			
 			<dl ng-if="contact.attributes.emailAddresses.length">						
-				<dt>{{"E-mail"| t}}</dt>
+				<dt>{{"E-mail"| goT}}</dt>
 				<dd>
 					<ul class="comma-list">
 						<li ng-repeat="emailAddress in contact.attributes.emailAddresses"><i style="margin-right:2px;" class="fa" ng-class="{'fa-envelope-o':emailAddress.attributes.type == 'other', 'fa-money':emailAddress.attributes.type == 'billing', 'fa-users':emailAddress.attributes.type == 'work','fa-home':emailAddress.attributes.type == 'home'}"></i><a href="mailto:{{emailAddress.attributes.email}}">{{emailAddress.attributes.email}}</a></li>
@@ -59,7 +59,7 @@
 			</dl>
 
 			<dl ng-if="contact.attributes.phoneNumbers.length">
-				<dt>{{"Phone numbers"| t}}</dt>
+				<dt>{{"Phone numbers"| goT}}</dt>
 				<dd>
 					<ul class="comma-list">
 						<li ng-repeat="phoneNumber in contact.attributes.phoneNumbers"><i style="margin-right:2px;" class="fa fa-phone"></i><a href="tel:{{phoneNumber.attributes.number}}">{{phoneNumber.attributes.number}}</a></li>
@@ -68,14 +68,14 @@
 			</dl>
 
 			<dl ng-if="contact.attributes.company">
-				<dt>{{"Company"| t}}</dt>
+				<dt>{{"Company"| goT}}</dt>
 				<dd>
 					<a ui-sref="contacts.contact.detail({contactId: contact.attributes.company.attributes.id})">{{contact.attributes.company.attributes.name}}</a>
 				</dd>
 			</dl>
 
 			<dl ng-if="contact.attributes.tags.length">
-				<dt>{{"Tags"| t}}</dt>
+				<dt>{{"Tags"| goT}}</dt>
 				<dd>
 					<ul class="comma-list">
 						<li ng-repeat="tag in contact.attributes.tags">{{tag.attributes.name}}</li>
@@ -85,12 +85,12 @@
 
 			<dl ng-repeat="date in contact.attributes.dates">
 				<dt>{{findDateLabel(date.attributes.type)}}</dt>
-				<dd>{{date.attributes.date|date:"longDate"}} ({{date.attributes.date|age}}{{'yr'| t}})</dd>
+				<dd>{{date.attributes.date|date:"longDate"}} ({{date.attributes.date|age}}{{'yr'| goT}})</dd>
 			</dl>
 		
 
 			<dl ng-if="contact.attributes.addresses.length">
-				<dt>{{"Address"| t}}</dt>
+				<dt>{{"Address"| goT}}</dt>
 				<dd>
 					<div class="col-md-6 nopadding" ng-repeat="address in contact.attributes.addresses">
 						<h3>{{address.attributes.type}}</h3>
@@ -107,7 +107,7 @@
 
 
 		<div class="go-card" ng-if="contact.attributes.employees.length">
-			<h1>{{"Employees"| t}}</h1>
+			<h1>{{"Employees"| goT}}</h1>
 
 			<a ui-sref="contacts.contact.detail({contactId: contact.attributes.id})" style="float:left;width:100px;text-align:center;margin:20px;" ng-repeat="contact in contact.attributes.employees">
 				<img class="thumbnail" style="display:inline-block" ng-src="{{::'intermesh/contacts/contact/thumb'| apiRoute: {w: 75, h: 100, zoomCrop: 1, contactId: contact.attributes.id} }}" />
@@ -122,7 +122,7 @@
 
 	<div class="go-col lg-2">
 		<div class="go-card" ng-if="contact.attributes.notes">
-			<h1>{{"Notes"| t}}</h1>
+			<h1>{{"Notes"| goT}}</h1>
 
 			<div ng-bind-html="contact.attributes.notes | nl2br"></div>		
 

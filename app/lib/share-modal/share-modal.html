@@ -1,11 +1,11 @@
 <div class="modal-content">
 	<div class="modal-header">
-		<h3 class="modal-title"><span class="fa fa-share-alt"></span> {{"Share"| t}}</h3>
+		<h3 class="modal-title"><span class="fa fa-share-alt"></span> {{"Share"| goT}}</h3>
 	</div>
 	<div class="modal-body">	
 
 		<div class="input-group">
-			<input type="text" class="form-control" im-keypress="{13: 'shareModal.store.search()'}" ng-model="shareModal.store.searchQuery" placeholder="{{'Search'| t}}..." />
+			<input type="text" class="form-control" im-keypress="{13: 'shareModal.store.search()'}" ng-model="shareModal.store.searchQuery" placeholder="{{'Search'| goT}}..." />
 
 			<div class="input-group-btn">
 
@@ -20,10 +20,10 @@
 				<tr>
 					<th></th>
 					<th>
-						{{"Role"| t}}
+						{{"Role"| goT}}
 					</th>
 					<th style="text-align:center" ng-repeat="permissionAttribute in shareModal.permissionAttributes">
-						{{permissionAttribute.label| t}}
+						{{permissionAttribute.label| goT}}
 					</th>					
 				</tr>
 				<tr ng-repeat="model in shareModal.store.items">
@@ -44,8 +44,8 @@
 
 	</div>
 	<div class="modal-footer">
-		<button class="btn btn-primary" ng-click="ok()">{{"OK"| t}}</button>
-		<button class="btn btn-default" ng-click="cancel()">{{"Cancel"| t}}</button>
+		<button class="btn btn-primary" ng-click="ok()">{{"OK"| goT}}</button>
+		<button class="btn btn-default" ng-click="cancel()">{{"Cancel"| goT}}</button>
 
 	</div>
 </div>

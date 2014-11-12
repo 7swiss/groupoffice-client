@@ -15,7 +15,7 @@
 		
 		<div class="go-logo"></div>
 
-		<h1>{{"Login" | t}}</h1>
+		<h1>{{"Login" | goT}}</h1>
 
 
 		<input type="hidden"  ng-model="user.id">
@@ -34,35 +34,35 @@
 
 		<div class="form-group">
 			<label for="username">
-				{{"Username" | t}}
+				{{"Username" | goT}}
 			</label>
 <!--				<div class="input-group">
 				<div class="input-group-addon"><i class="fa fa-user"></i></div>-->
-				<input id="username" name="username" type="text" class="form-control" ng-model="user.username" placeholder="{{'Username'| t}}" required autofocus>						
+				<input id="username" name="username" type="text" class="form-control" ng-model="user.username" placeholder="{{'Username'| goT}}" required autofocus>						
 			<!--</div>-->
 			<im-show-error for="username"></im-show-error>
 		</div>
 
 		<div class="form-group">
 			<label for="password">
-				{{"Password" | t}}
+				{{"Password" | goT}}
 			</label>
 <!--				<div class="input-group">
 				<div class="input-group-addon"><i class="fa fa-lock"></i></div>-->
-				<input id="password" name="password" type="password" class="form-control" ng-model="user.password" placeholder="{{'Password'| t}}" required>						
+				<input id="password" name="password" type="password" class="form-control" ng-model="user.password" placeholder="{{'Password'| goT}}" required>						
 <!--				</div>-->
 			<im-show-error for="password"></im-show-error>
 		</div>
 
 		<div class="checkbox">
 			<label>
-				<input type="checkbox" ng-model="user.remember"> {{'Remember my login'| t}}
+				<input type="checkbox" ng-model="user.remember"> {{'Remember my login'| goT}}
 			</label>
 		</div>
 	
 
 	
-		<input type="submit" class="btn btn-primary" value="{{'Login'| t}}"/>
+		<input type="submit" class="btn btn-primary" value="{{'Login'| goT}}"/>
 	
 	</div>
 	

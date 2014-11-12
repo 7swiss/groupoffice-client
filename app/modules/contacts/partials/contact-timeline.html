@@ -14,7 +14,7 @@
 
 			<div class="go-card timeline-panel" ng-class="{'deleted-visible': timelineItem.attributes.deleted}">
 				<h1>
-					<i class="fa fa-envelope-o"></i> {{"by" | t}} {{timelineItem.attributes.imapMessage.attributes.from.display}} {{'at' | t}} {{timelineItem.attributes.imapMessage.attributes.date | date}} {{timelineItem.attributes.imapMessage.attributes.date | date : 'shortTime'}} 
+					<i class="fa fa-envelope-o"></i> {{"by" | goT}} {{timelineItem.attributes.imapMessage.attributes.from.display}} {{'at' | goT}} {{timelineItem.attributes.imapMessage.attributes.date | date}} {{timelineItem.attributes.imapMessage.attributes.date | date : 'shortTime'}} 
 				</h1>
 
 				<h4>{{timelineItem.attributes.imapMessage.attributes.subject}}</h4> 
@@ -24,7 +24,7 @@
 
 
 				<div style="text-align:right;padding:0px 20px 20px 0px">						
-					<a class="btn btn-xs btn-primary" ui-sref="contacts.contact.timeline.message({messageId: timelineItem.attributes.imapMessage.attributes.id})">{{"Open"| t}}</a>
+					<a class="btn btn-xs btn-primary" ui-sref="contacts.contact.timeline.message({messageId: timelineItem.attributes.imapMessage.attributes.id})">{{"Open"| goT}}</a>
 
 					<im-soft-delete-button im-model="timelineItem"></im-soft-delete-button>
 				</div>
@@ -38,7 +38,7 @@
 
 			<div class="go-card" ng-class="{'deleted-visible': timelineItem.attributes.deleted}">
 				<h1>
-					<i class="fa fa-comment-o"></i> {{"by" | t }} {{timelineItem.attributes.owner.attributes.username}} at {{timelineItem.attributes.createdAt | date}}
+					<i class="fa fa-comment-o"></i> {{"by" | goT }} {{timelineItem.attributes.owner.attributes.username}} at {{timelineItem.attributes.createdAt | date}}
 				</h1>
 
 				<p ng-bind-html="timelineItem.attributes.text | nl2br"></p>
@@ -57,10 +57,10 @@
 	</div>
 	
 	<div ng-if="!timelineStore.busy" class="im-show-if-only-child">
-		{{'No items found'| t}}
+		{{'No items found'| goT}}
 	</div>
 	
-	<div ng-if="timelineStore.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| t}}</div>
+	<div ng-if="timelineStore.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| goT}}</div>
 </div>
 
 

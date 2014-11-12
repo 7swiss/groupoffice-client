@@ -8,13 +8,13 @@
 		
 		<form name="contacts-filter-form" im-submit="goCollapsiblePanel.toggle()">
 
-		<div class="go-toolbar">{{'Filters'| t}}
+		<div class="go-toolbar">{{'Filters'| goT}}
 
 			<div class="go-toolbar-right">
 				
-				<a type="button" class="btn visible-lg" ng-if="!goCollapsiblePanel.isPinned" ng-click="goCollapsiblePanel.togglePinned()" tooltip="{{'Pin'| t}}" tooltip-placement='bottom'><i class="fa fa-thumb-tack"></i></a>
-				<button type="button" ng-click="resetFilters()" tooltip="{{'Reset'| t}}" tooltip-placement='bottom'><i class="fa fa-undo"></i></button>
-				<button type="button" ng-click="goCollapsiblePanel.toggle()" tooltip="{{'Close'| t}}" tooltip-placement='bottom'><i class="fa fa-times"></i></button>
+				<a type="button" class="btn visible-lg" ng-if="!goCollapsiblePanel.isPinned" ng-click="goCollapsiblePanel.togglePinned()" tooltip="{{'Pin'| goT}}" tooltip-placement='bottom'><i class="fa fa-thumb-tack"></i></a>
+				<button type="button" ng-click="resetFilters()" tooltip="{{'Reset'| goT}}" tooltip-placement='bottom'><i class="fa fa-undo"></i></button>
+				<button type="button" ng-click="goCollapsiblePanel.toggle()" tooltip="{{'Close'| goT}}" tooltip-placement='bottom'><i class="fa fa-times"></i></button>
 				
 			</div>
 		</div>
@@ -23,7 +23,7 @@
 
 			<div class="go-padding-panel">
 				<div class="form-group">
-					<label class="control-label" for="filter-gender">{{'Gender'| t}}</label>
+					<label class="control-label" for="filter-gender">{{'Gender'| goT}}</label>
 					
 					<select id="filter-gender" class="form-control" ng-model="filters.gender" ng-options="option.value as option.label for option in genderFilterOptions"></select>
 
@@ -37,7 +37,7 @@
 				
 				
 				<div class="form-group">
-					<label class="control-label" for="filter-age">{{'Age' | t}}</label>
+					<label class="control-label" for="filter-age">{{'Age' | goT}}</label>
 					<div class="input-group">
 						<div class="input-group-addon">&gt;=</div>
 						<input im-numeric id="filter-age" type="text" ng-model="filters.age.gt" class="form-control" />
@@ -50,20 +50,20 @@
 				
 				
 				<div class="form-group">
-					<label class="control-label">{{"Tags"| t}}</label>	
+					<label class="control-label">{{"Tags"| goT}}</label>	
 
 					<im-multi-select-field 
 						auto-create="false"
 						store-route="Intermesh/tags/tag/store" 
 						model-attribute="filters.tags" 
 						model-attribute-display-name="name" 
-						input-placeholder="{{'Enter tags...'| t}}">				
+						input-placeholder="{{'Enter tags...'| goT}}">				
 					</im-multi-select-field>
 				</div>
 
 				<im-custom-fields-filter im-server-model="Intermesh\Modules\Contacts\Model\ContactCustomFields" im-model="customFilters"></im-custom-fields-filter>
 			
-				<button type="submit">{{'Toepassen' | t}}</button>
+				<button type="submit">{{'Toepassen' | goT}}</button>
 			</div>
 			
 			
@@ -107,7 +107,7 @@
 					</a>
 				</div>
 
-				<div ng-if="store.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| t}}</div>
+				<div ng-if="store.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| goT}}</div>
 
 			</div>
 

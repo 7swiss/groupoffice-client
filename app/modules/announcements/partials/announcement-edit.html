@@ -3,13 +3,13 @@
 <form name="anouncementForm"  im-submit="save()" novalidate class="announcement-modal">
 
 
-	<div class="modal-header">{{"New post"| t}}</div>
+	<div class="modal-header">{{"New post"| goT}}</div>
 
 	<div class="modal-body">
 		
 		<div class="form-group">
-			<label for="text">{{"Title" | t}}</label>
-			<input name="title" type="text" class="form-control" ng-model="announcement.attributes.title" placeholder="{{'Title' | t }}" required />
+			<label for="text">{{"Title" | goT}}</label>
+			<input name="title" type="text" class="form-control" ng-model="announcement.attributes.title" placeholder="{{'Title' | goT }}" required />
 			<im-show-error for="title" im-model="announcement"></im-show-error>
 		</div>
 		
@@ -36,8 +36,8 @@
 	</div>
 
 	<div class="modal-footer">				
-		<button type="submit" class="btn btn-primary">{{"OK"| t}}</button>
-		<button class="btn btn-default" ng-click="cancel();" type="button">{{"Cancel"| t}}</button>	
+		<button type="submit" class="btn btn-primary">{{"OK"| goT}}</button>
+		<button class="btn btn-default" ng-click="cancel();" type="button">{{"Cancel"| goT}}</button>	
 	</div>			
 
 

@@ -147,9 +147,9 @@ angular.module('GO.ImageUploadPlaceholder', ['ui.bootstrap','GO.core'])
 		>\
 \
 <ul class="dropdown-menu dropdown-menu-right">\
-        <li><div class="im-dropdown-option" flow-btn><span class="fa fa-edit"></span> {{"Select image" | t}}</div></li>\
-		<li><a ng-if="imageUrl" ng-href="{{originalUrl}}" target="_blank"><span class="fa fa-external-link"></span> {{"Show original" | t}}</a></li>\
-		<li><a ng-if="imDeletePermission && imageUrl" ng-click="delete($event);"><span class="fa fa-trash-o"></span> {{"Delete" | t}}</a></li>\
+        <li><div class="im-dropdown-option" flow-btn><span class="fa fa-edit"></span> {{"Select image" | goT}}</div></li>\
+		<li><a ng-if="imageUrl" ng-href="{{originalUrl}}" target="_blank"><span class="fa fa-external-link"></span> {{"Show original" | goT}}</a></li>\
+		<li><a ng-if="imDeletePermission && imageUrl" ng-click="delete($event);"><span class="fa fa-trash-o"></span> {{"Delete" | goT}}</a></li>\
       </ul>\
 	\
 	<div data-flow-drop dropdown-toggle>\

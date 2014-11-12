@@ -17,7 +17,7 @@
 			<div data-sortable-item class="postit-outer col-xs-12 col-sm-4 col-md-3"  ng-repeat="note in store.items" ng-init="attachImages(note)">
 				<div data-sortable-item-handle class="postit {{note.attributes.color}}" ng-class="{lighten:note.attributes.markDeleted}">
 					<div data-no-drag ng-if="note.attributes.markDeleted" class="delete-mask">
-						<span class="center"><a ng-click="restore(note)"><i class="fa fa-undo"></i> {{"Restore"| t}}</a></span>
+						<span class="center"><a ng-click="restore(note)"><i class="fa fa-undo"></i> {{"Restore"| goT}}</a></span>
 					</div>
 					<div ng-class="{deleted:note.attributes.markDeleted}" >
 						<div data-no-drag class="menu">
@@ -65,7 +65,7 @@
 					</div>
 				</div>
 
-				<div ng-if="store.busy" class="go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| t}}</div>
+				<div ng-if="store.busy" class="go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| goT}}</div>
 
 				<div style="clear:both;"></div>
 			</div>

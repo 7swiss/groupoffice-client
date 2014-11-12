@@ -20,12 +20,12 @@
 			<div class="go-start-icon-col col-sm-2 col-xs-6" ng-repeat="module in ::modules">
 				<a class="go-start-icon {{::module.attributes.type}}" ui-sref="{{module.attributes.name}}">
 					<span><i class="fa {{::module.clientAttributes.iconCls}}"></i></span> 
-					{{::module.clientAttributes.title| t}}</a>
+					{{::module.clientAttributes.title| goT}}</a>
 
 			</div>
 		</div>
 
-		<div ng-if="modulesService.store.busy;"><i class="fa fa-spinner go-rotate"></i> {{"Loading..."| t}}</div>
+		<div ng-if="modulesService.store.busy;"><i class="fa fa-spinner go-rotate"></i> {{"Loading..."| goT}}</div>
 
 	</div>
 

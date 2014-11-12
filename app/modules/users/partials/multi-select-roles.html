@@ -1,11 +1,11 @@
 <div class="modal-content">
 	<div class="modal-header">
-		<h3 class="modal-title">{{"Select roles"| t}}</h3>
+		<h3 class="modal-title">{{"Select roles"| goT}}</h3>
 	</div>
 	<div class="modal-body">	
 
 		<div class="input-group">
-			<input type="text" class="form-control" im-keypress="{13: 'storeSelectModal.availableStore.search()'}" ng-model="storeSelectModal.availableStore.searchQuery" placeholder="{{'Search'| t}}..." />
+			<input type="text" class="form-control" im-keypress="{13: 'storeSelectModal.availableStore.search()'}" ng-model="storeSelectModal.availableStore.searchQuery" placeholder="{{'Search'| goT}}..." />
 
 			<div class="input-group-btn">
 
@@ -26,8 +26,8 @@
 
 	</div>
 	<div class="modal-footer">
-		<button class="btn btn-primary" ng-click="ok()">{{"OK" | t}}</button>
-		<button class="btn btn-warning" ng-click="cancel()">{{"Cancel" | t}}</button>
+		<button class="btn btn-primary" ng-click="ok()">{{"OK" | goT}}</button>
+		<button class="btn btn-warning" ng-click="cancel()">{{"Cancel" | goT}}</button>
 	</div>
 </div>
 

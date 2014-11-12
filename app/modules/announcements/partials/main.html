@@ -20,7 +20,7 @@
 				</a>
 
 				<h1 style="display: inline-block">{{announcement.attributes.title}}</h1> 
-				<small>{{"by"| t }} {{announcement.attributes.owner.attributes.username}} at {{announcement.attributes.createdAt| date}}</small>
+				<small>{{"by"| goT }} {{announcement.attributes.owner.attributes.username}} at {{announcement.attributes.createdAt| date}}</small>
 
 				<p ng-bind-html="announcement.attributes.text | nl2br">
 				</p>
@@ -40,10 +40,10 @@
 
 
 			<div ng-if="!announcementStore.busy" class="im-show-if-only-child">
-				{{'No items found'| t}}
+				{{'No items found'| goT}}
 			</div>
 
-			<div ng-if="announcementStore.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| t}}</div>
+			<div ng-if="announcementStore.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| goT}}</div>
 
 		</div>
 	</div>

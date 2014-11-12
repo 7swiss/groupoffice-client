@@ -12,7 +12,7 @@
 		</a>
 
 		<span class="btn" data-flow-btn ng-disabled="!contact.permissions.uploadAccess">
-			<i class="fa fa-cloud-upload"></i> {{"Add files"| t}}
+			<i class="fa fa-cloud-upload"></i> {{"Add files"| goT}}
 		</span>
 	</div>
 
@@ -50,17 +50,17 @@
 
 				<span style="float:right">
 					<span class="btn btn-xs btn-default" ng-click="renameFile($event, file);">
-						<i class="fa fa-edit" tooltip="{{'Rename'| t}}" tooltip-placement="left"></i>
+						<i class="fa fa-edit" tooltip="{{'Rename'| goT}}" tooltip-placement="left"></i>
 					</span>
 					<im-soft-delete-button im-model="file" im-size="xs"></im-soft-delete-button>
 				</span>
 			</a>
 			
 			<div ng-if="!filesStore.busy" class="im-show-if-only-child">
-				{{'No items found'| t}}
+				{{'No items found'| goT}}
 			</div>
 
-			<div ng-if="filesStore.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| t}}</div>
+			<div ng-if="filesStore.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| goT}}</div>
 
 
 

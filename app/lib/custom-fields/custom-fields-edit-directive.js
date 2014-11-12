@@ -75,7 +75,7 @@ angular.module('GO.customFields')
 						return '<div class="form-group">\
 							<label for="'+field.attributes.databaseName+'">'+field.attributes.name+'</label>\
 							<div class="input-group" style="width:300px">\
-								<input name="'+field.attributes.databaseName+'" id="cf_{{field.attributes.id}}" type="text" class="form-control"  ng-model="imModel.attributes.customfields.attributes[\''+field.attributes.databaseName+'\']" datepicker-popup="dd-MM-yyyy" is-open="datePickerOpened[field.attributes.id]" close-text="{{\'Close\' | t}}" ng-click="openDatePicker(field.attributes.id, $event)" />\
+								<input name="'+field.attributes.databaseName+'" id="cf_{{field.attributes.id}}" type="text" class="form-control"  ng-model="imModel.attributes.customfields.attributes[\''+field.attributes.databaseName+'\']" datepicker-popup="dd-MM-yyyy" is-open="datePickerOpened[field.attributes.id]" close-text="{{\'Close\' | goT}}" ng-click="openDatePicker(field.attributes.id, $event)" />\
 								<!--<span class="input-group-btn">\
 									<button type="button" class="btn btn-default" ng-click="openDatePicker(field.attributes.id, $event)"><i class="fa fa-calendar"></i></button>\
 								</span>-->\

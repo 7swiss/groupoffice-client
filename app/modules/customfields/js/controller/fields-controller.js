@@ -15,10 +15,10 @@ angular.module('GO.controllers').
 
 				$scope.dragControlListeners = {
 					orderChanged: function(event) {						
-
-						var draggedModel = $scope.fieldStore.items[event.source.index];
 						
-						var droppedModel = $scope.fieldStore.items[event.dest.index];
+						var draggedModel = $scope.fieldStore.items[event.dest.index];
+						
+						var droppedModel = $scope.fieldStore.items[event.dest.index + 1];
 						
 						draggedModel.attributes.sortOrder = droppedModel.attributes.sortOrder;
 						draggedModel.attributes.resort = true;

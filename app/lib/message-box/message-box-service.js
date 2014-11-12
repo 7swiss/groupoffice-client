@@ -60,7 +60,7 @@ angular.module('GO.MessageBox', ['GO.core', 'ui.bootstrap'])
 										'<div class="modal-body">' +
 										'<i ng-if="!config.title" class="fa fa-{{config.glyphicon}}"></i> {{config.text}}</div>' +
 										'<div class="modal-footer">' +
-										'<button class="btn btn-primary" ng-click="ok()" autofocus>{{\'OK\' | t}}</button>' +
+										'<button class="btn btn-primary" ng-click="ok()" autofocus>{{\'OK\' | goT}}</button>' +
 										'</div>');
 
 						$templateCache.put("intermeshBootstrapMsgConfirm.html", '<div ng-if="config.title" class="modal-header"> \
@@ -74,8 +74,8 @@ angular.module('GO.MessageBox', ['GO.core', 'ui.bootstrap'])
 							\
 						</div>\
 						<div class="modal-footer">\
-							<button class="btn btn-primary" ng-click="ok();">{{\'Yes\' | t}}</button>\
-							<button class="btn btn-warning" ng-click="cancel()" autofocus>{{\'No\' | t}}</button>\
+							<button class="btn btn-primary" ng-click="ok();">{{\'Yes\' | goT}}</button>\
+							<button class="btn btn-warning" ng-click="cancel()" autofocus>{{\'No\' | goT}}</button>\
 						</div>');
 
 						$templateCache.put("intermeshBootstrapMsgPrompt.html", '<form ng-submit="ok()">\
@@ -91,8 +91,8 @@ angular.module('GO.MessageBox', ['GO.core', 'ui.bootstrap'])
 								\
 							</div>\
 							<div class="modal-footer">\
-								<button class="btn btn-primary" type="submit">{{\'OK\' | t}}</button>\
-								<button class="btn btn-warning" ng-click="cancel()">{{\'Cancel\' | t}}</button>\
+								<button class="btn btn-primary" type="submit">{{\'OK\' | goT}}</button>\
+								<button class="btn btn-warning" ng-click="cancel()">{{\'Cancel\' | goT}}</button>\
 							</div>\
 							\
 							</form>');

@@ -46,7 +46,7 @@
 			</file>
 			<file name="modal.html">
 				<div class="modal-header">
-					<h3 class="modal-title">{{"Select roles"| t}}</h3>
+					<h3 class="modal-title">{{"Select roles"| goT}}</h3>
 				</div>
 				<div class="modal-body">
 

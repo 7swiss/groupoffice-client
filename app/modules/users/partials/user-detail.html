@@ -7,11 +7,11 @@
 	</a>
 
 	<a class="btn" ui-sref="users.edit({userId: user.attributes.id})">
-		<span class="fa fa-edit"></span> {{'Edit'| t}}
+		<span class="fa fa-edit"></span> {{'Edit'| goT}}
 	</a>
 
 	<a class="btn" ui-sref="contacts.contact({contactId: user.attributes.contact.attributes.id})">
-		<span class="fa fa-user"></span> {{'View profile'| t}}
+		<span class="fa fa-user"></span> {{'View profile'| goT}}
 	</a>
 
 	<div class="go-toolbar-right">
@@ -36,12 +36,12 @@
 
 
 		<dl>
-			<dt>{{"Enabled"| t}}</dt>
+			<dt>{{"Enabled"| goT}}</dt>
 			<dd>{{user.attributes.enabled| boolean}}</dd>
 		</dl>
 
 		<dl>						
-			<dt>{{"Roles"| t}}</dt>
+			<dt>{{"Roles"| goT}}</dt>
 			<dd>
 				<ul class="comma-list">
 					<li ng-repeat="role in user.attributes.roles">
@@ -52,24 +52,24 @@
 		</dl>
 		
 		<dl>
-			<dt>{{"Number of logins"| t}}</dt>
+			<dt>{{"Number of logins"| goT}}</dt>
 			<dd>{{user.attributes.loginCount}}</dd>
 		</dl>
 		
 		
 		<dl>
-			<dt>{{"Last login"| t}}</dt>
+			<dt>{{"Last login"| goT}}</dt>
 			<dd>{{user.attributes.lastLogin|date:"medium"}}</dd>
 		</dl>
 
 
 		<dl>
-			<dt>{{"Created at"| t}}</dt>
+			<dt>{{"Created at"| goT}}</dt>
 			<dd>{{user.attributes.createdAt|date:"medium"}}</dd>
 		</dl>
 
 		<dl>
-			<dt>{{"Modified at"| t}}</dt>
+			<dt>{{"Modified at"| goT}}</dt>
 			<dd>{{user.attributes.modifiedAt|date:"medium"}}</dd>
 		</dl>
 

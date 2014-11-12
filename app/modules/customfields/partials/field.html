@@ -3,11 +3,11 @@
 <form name="fieldForm" class="form-horizontal go-labels" im-submit="save()" novalidate>
 
 
-	<div class="modal-header">{{"Field"| t}}</div>
+	<div class="modal-header">{{"Field"| goT}}</div>
 
 	<div class="modal-body">
 		<div class="form-group">
-			<label for="type">{{"Type"| t}}</label>
+			<label for="type">{{"Type"| goT}}</label>
 			
 			<select class="form-control" ng-model="field.attributes.type" ng-options="option.value as option.label for option in customFieldTypes"></select>
 
@@ -21,7 +21,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="name">{{"Name"| t}}</label>
+			<label for="name">{{"Name"| goT}}</label>
 
 			<input type="text" id="name" name="name" ng-model="field.attributes.name" required go-autofocus />
 			<im-show-error for="name" im-model="field"></im-show-error>
@@ -29,7 +29,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="databaseName">{{"Database name"| t}}</label>
+			<label for="databaseName">{{"Database name"| goT}}</label>
 
 			<input type="text" id="databaseName" name="databaseName" ng-model="field.attributes.databaseName" required />
 			<im-show-error for="databaseName" im-model="field"></im-show-error>
@@ -37,7 +37,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="defaultValue">{{"Default value"| t}}</label>
+			<label for="defaultValue">{{"Default value"| goT}}</label>
 
 			<input type="text" id="defaultValue" name="defaultValue" ng-model="field.attributes.defaultValue" />
 			<im-show-error for="defaultValue" im-model="field"></im-show-error>
@@ -45,7 +45,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="placeholder">{{"Placeholder"| t}}</label>
+			<label for="placeholder">{{"Placeholder"| goT}}</label>
 
 			<input type="text" id="placeholder" name="placeholder" ng-model="field.attributes.placeholder" />
 			<im-show-error for="placeholder" im-model="field"></im-show-error>
@@ -56,7 +56,7 @@
 
 			<div class="checkbox">
 				<label>
-					<input type="checkbox" ng-model="field.attributes.required"> {{"Field is required"| t}}
+					<input type="checkbox" ng-model="field.attributes.required"> {{"Field is required"| goT}}
 				</label>
 			</div>
 
@@ -66,7 +66,7 @@
 
 			<div class="checkbox">
 				<label>
-					<input type="checkbox" ng-model="field.attributes.filterable"> {{"Field can be filtered on"| t}}
+					<input type="checkbox" ng-model="field.attributes.filterable"> {{"Field can be filtered on"| goT}}
 				</label>
 			</div>
 
@@ -74,7 +74,7 @@
 
 
 		<div class="form-group" ng-if="field.attributes.type === 'text' || field.attributes.type === 'textarea'">
-			<label for="maxLength">{{"Max length"| t}}</label>
+			<label for="maxLength">{{"Max length"| goT}}</label>
 
 			<input type="text" id="maxLength" name="maxLength" ng-model="field.attributes.data.maxLength" im-numeric />
 			<im-show-error for="maxLength" im-model="field"></im-show-error>
@@ -82,7 +82,7 @@
 		</div>
 
 		<!--		<div class="form-group" ng-if="field.attributes.type === 'textarea'">
-					<label for="maxLength">{{"Height"| t}}</label>
+					<label for="maxLength">{{"Height"| goT}}</label>
 					<div class="col-sm-9">
 						<input type="text" id="maxLength" ng-model="field.attributes.data.height" im-numeric required />
 					</div>
@@ -90,7 +90,7 @@
 
 
 		<div class="form-group" ng-if="field.attributes.type === 'select'">
-			<label>{{"Select options"| t}}</label>		
+			<label>{{"Select options"| goT}}</label>		
 
 			<div class="input-group im-input-group-multiple" ng-repeat="option in field.attributes.data.options">
 
@@ -112,8 +112,8 @@
 	</div>
 
 	<div class="modal-footer">				
-		<button type="submit" class="btn-primary">{{"OK"| t}}</button>
-		<button ng-click="cancel();" type="button">{{"Cancel"| t}}</button>	
+		<button type="submit" class="btn-primary">{{"OK"| goT}}</button>
+		<button ng-click="cancel();" type="button">{{"Cancel"| goT}}</button>	
 	</div>			
 
 

@@ -6,7 +6,7 @@
 		<div class="go-toolbar go-toolbar-xs">
 
 			<h1>
-				{{"Field sets"| t}}</h1>
+				{{"Field sets"| goT}}</h1>
 
 			<div class="go-toolbar-right">
 
@@ -26,7 +26,7 @@
 
 				<span style="float:right">
 
-					<span tooltip="{{'Edit'| t}}" class="btn btn-xs btn-default" style="margin-right:10px;" ng-click="$state.go('customfields.model.fieldset', {fieldSetId: fieldSet.attributes.id});
+					<span tooltip="{{'Edit'| goT}}" class="btn btn-xs btn-default" style="margin-right:10px;" ng-click="$state.go('customfields.model.fieldset', {fieldSetId: fieldSet.attributes.id});
 							$event.stopPropagation();
 							$event.preventDefault();">
 						<i class="fa fa-edit"></i>

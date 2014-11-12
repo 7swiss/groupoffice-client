@@ -12,7 +12,7 @@
 		</a>
 
 		<button type="submit" class="btn-primary">
-			<i class="fa fa-floppy-o"></i> {{'Save'| t}}
+			<i class="fa fa-floppy-o"></i> {{'Save'| goT}}
 		</button>
 	
 	</div>
@@ -23,13 +23,13 @@
 			<div class="col-lg-6">-->
 				<div class="go-card">
 					
-					<h1>{{"Properties" | t}}</h1>
+					<h1>{{"Properties" | goT}}</h1>
 
 						
 						<div class="form-group">
 
-							<label ng-if="!contact.attributes.isCompany" for="contactName">{{"Name"| t}}</label>
-							<label ng-if="contact.attributes.isCompany" for="companyName">{{"Name"| t}}</label>
+							<label ng-if="!contact.attributes.isCompany" for="contactName">{{"Name"| goT}}</label>
+							<label ng-if="contact.attributes.isCompany" for="companyName">{{"Name"| goT}}</label>
 
 							<div class="input-group ab-name-group" ng-if='!contact.attributes.isCompany'>
 
@@ -61,43 +61,43 @@
 
 						<div ng-if="showNameParts">
 							<div class="form-group">
-								<label for="firstName">{{"First name"| t}}</label>
+								<label for="firstName">{{"First name"| goT}}</label>
 							
 								<input type="text" id="firstName" ng-model="contact.attributes.firstName" required />
 							
 							</div>
 
 							<div class="form-group">							
-								<label for="middleName">{{"Middle name"| t}}</label>								
+								<label for="middleName">{{"Middle name"| goT}}</label>								
 								<input type="text" id="middleName" ng-model="contact.attributes.middleName" />								
 							</div>
 
 							<div class="form-group">							
-								<label for="lastName">{{"Last name"| t}}</label>
+								<label for="lastName">{{"Last name"| goT}}</label>
 								<input type="text" id="lastName" ng-model="contact.attributes.lastName" />
 							</div>
 						</div>
 
 
 						<div class="form-group" ng-if="!contact.attributes.isCompany">
-							<label>{{"Gender"| t}}</label>
+							<label>{{"Gender"| goT}}</label>
 
 							<div class="input-group">		
 								<label class="radio-inline">
-									<input type="radio" ng-model="contact.attributes.gender" ng-value="null"> {{"Unknown"| t}}
+									<input type="radio" ng-model="contact.attributes.gender" ng-value="null"> {{"Unknown"| goT}}
 								</label>
 								<label class="radio-inline">
-									<input type="radio" ng-model="contact.attributes.gender" value="M"> {{"Male"| t}}
+									<input type="radio" ng-model="contact.attributes.gender" value="M"> {{"Male"| goT}}
 								</label>
 								<label class="radio-inline">
-									<input type="radio" ng-model="contact.attributes.gender" value="F"> {{"Female"| t}}
+									<input type="radio" ng-model="contact.attributes.gender" value="F"> {{"Female"| goT}}
 								</label>
 							</div>
 						</div>
 
 
 						<div class="form-group">
-							<label>{{"Special dates"| t}}</label>			
+							<label>{{"Special dates"| goT}}</label>			
 
 						
 							<div ng-if="!specialDate.attributes.markDeleted" class="im-input-group-multiple input-group" ng-repeat="specialDate in contact.attributes.dates">
@@ -121,7 +121,7 @@
 								
 								
 								
-								<input type="text" name="date_{{$index}}" ng-model="specialDate.attributes.date" datepicker-options="datePickerOptions" datepicker-popup="dd-MM-yyyy" is-open="specialDate.isOpen" ng-click="specialDate.isOpen = true" close-text="{{'Close' | t}}" />
+								<input type="text" name="date_{{$index}}" ng-model="specialDate.attributes.date" datepicker-options="datePickerOptions" datepicker-popup="dd-MM-yyyy" is-open="specialDate.isOpen" ng-click="specialDate.isOpen = true" close-text="{{'Close' | goT}}" />
 								<im-show-error for="date_{{$index}}" attribute-name="date" im-model="specialDate"></im-show-error>
 								<div class="input-group-btn">
 									<!--<button type="button" class="btn btn-default" ng-click="openDate(specialDate, $event)"><i class="fa fa-calendar"></i></button>-->
@@ -130,14 +130,14 @@
 								</div>			
 							</div>
 
-							<span class="btn btn-default" ng-click="addDate()"><i class="fa fa-plus"></i> {{"Add special date"| t}}</span>
+							<span class="btn btn-default" ng-click="addDate()"><i class="fa fa-plus"></i> {{"Add special date"| goT}}</span>
 						
 						</div>
 
 
 
 						<div class="form-group">
-							<label>{{"E-mail"| t}}</label>
+							<label>{{"E-mail"| goT}}</label>
 					
 							<div ng-if="!emailAddress.attributes.markDeleted" ng-repeat="emailAddress in contact.attributes.emailAddresses">
 
@@ -172,14 +172,14 @@
 								<im-show-error for="email_{{$index}}" attribute-name="email" im-model="emailAddress"></im-show-error>
 							</div>
 
-							<span class="btn btn-default" ng-click="addEmailAddress()"><i class="fa fa-plus"></i> {{"Add e-mail address"| t}}</span>
+							<span class="btn btn-default" ng-click="addEmailAddress()"><i class="fa fa-plus"></i> {{"Add e-mail address"| goT}}</span>
 					
 						</div>
 
 
 
 						<div class="form-group">
-							<label>{{"Phone"| t}}</label>
+							<label>{{"Phone"| goT}}</label>
 				
 							<div ng-if="!phoneNumber.attributes.markDeleted" class="im-input-group-multiple input-group" ng-repeat="phoneNumber in contact.attributes.phoneNumbers">
 
@@ -202,12 +202,12 @@
 								</span>				
 							</div>
 
-							<span class="btn btn-default" ng-click="addPhoneNumber()"><i class="fa fa-plus"></i> {{"Add phone number"| t}}</span>
+							<span class="btn btn-default" ng-click="addPhoneNumber()"><i class="fa fa-plus"></i> {{"Add phone number"| goT}}</span>
 						
 						</div>
 
 						<div class="form-group">
-							<label>{{"Tags"| t}}</label>	
+							<label>{{"Tags"| goT}}</label>	
 
 				
 							<im-multi-select-field 
@@ -215,7 +215,7 @@
 								store-route="tags" 
 								model-attribute="contact.attributes.tags" 
 								model-attribute-display-name="name" 
-								input-placeholder="{{'Add tags...'| t}}">				
+								input-placeholder="{{'Add tags...'| goT}}">				
 							</im-multi-select-field>
 							
 
@@ -224,13 +224,13 @@
 
 						<script type="text/ng-template" id="customTemplate.html">
 							<a>
-							  <span ng-if="!match.model.attributes.id">{{"Create new company" | t}}: </span>
-								<span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+							  <span ng-if="!match.model.attributes.id">{{"Create new company" | goT}}: </span>
+								<span bind-html-unsafe="match.label | goTypeaheadHighlight:query"></span>
 							</a>
 						</script>
 						
 						<div class="form-group" ng-if="!contact.attributes.isCompany">
-							<label>{{"Company"| t}}</label>	
+							<label>{{"Company"| goT}}</label>	
 
 							<input type="text" typeahead-template-url="customTemplate.html" ng-model="contact.attributes.company" typeahead="company as company.attributes.name for company in getCompanies($viewValue)">
 
@@ -238,7 +238,7 @@
 						</div>
 						    
 						<div class="form-group">
-							<label>{{"Addresses"| t}}</label>
+							<label>{{"Addresses"| goT}}</label>
 
 							
 								<div class="row">
@@ -263,31 +263,31 @@
 									</div>
 
 									<div class="form-group no-label">
-										<textarea ng-model="address.attributes.street" go-autofocus="!address.attributes.id" style="height:70px" placeholder="{{'Street address'| t}}"></textarea>		
+										<textarea ng-model="address.attributes.street" go-autofocus="!address.attributes.id" style="height:70px" placeholder="{{'Street address'| goT}}"></textarea>		
 									</div>
 									<div class="form-group no-label">
-										<input type="text" ng-model="address.attributes.zipCode" placeholder="{{'Zip code'| t}}">
+										<input type="text" ng-model="address.attributes.zipCode" placeholder="{{'Zip code'| goT}}">
 									</div>
 									<div class="form-group no-label">
-										<input type="text" ng-model="address.attributes.city" placeholder="{{'City'| t}}">
+										<input type="text" ng-model="address.attributes.city" placeholder="{{'City'| goT}}">
 									</div>
 									<div class="form-group no-label">
-										<input type="text" ng-model="address.attributes.state" placeholder="{{'State / Province / Region'| t}}">
+										<input type="text" ng-model="address.attributes.state" placeholder="{{'State / Province / Region'| goT}}">
 									</div>
 									<div class="form-group no-label">
-										<input type="text" ng-model="address.attributes.country" placeholder="{{'Country'| t}}" />
+										<input type="text" ng-model="address.attributes.country" placeholder="{{'Country'| goT}}" />
 									</div>
 								</div>
 							</div>
 						
-							<span class="btn btn-default" ng-click="addAddress()"><i class="fa fa-plus"></i> {{"Add address"| t}}</span>
+							<span class="btn btn-default" ng-click="addAddress()"><i class="fa fa-plus"></i> {{"Add address"| goT}}</span>
 						
 
 						</div>
 						
 						
 						<div class="form-group">
-							<label for="notes">{{"Notes" | t}}</label>
+							<label for="notes">{{"Notes" | goT}}</label>
 							<textarea id="notes" msd-elastic="\n" ng-model="contact.attributes.notes" class="form-control" style="height:60px" ng-blur="contact.save()">
 							</textarea>		
 						</div>

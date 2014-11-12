@@ -27,7 +27,7 @@
 			<div class="em-headers">
 <!--				<dl class="em-header">
 					<dt>
-					{{"Date"| t}}
+					{{"Date"| goT}}
 					</dt>
 					<dd>{{message.attributes.date| date : 'fullDate'}} {{message.attributes.date| date : 'shortTime'}}</dd>
 				</dl>-->
@@ -35,7 +35,7 @@
 				
 				<dl class="em-header">
 					<dt>
-					{{"To"| t}}
+					{{"To"| goT}}
 					</dt>
 					<dd><a ng-repeat="a in message.attributes.to" href="mailto:{{a.address}}">{{a.display}}</a></dd>
 				</dl>

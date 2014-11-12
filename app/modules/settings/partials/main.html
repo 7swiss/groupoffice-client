@@ -4,7 +4,7 @@
 	
 	<div class="go-panel list active" ng-class="{'active' : panelSwitcher.initialActive}">		
 		<div class="go-scrollable-panel list-group">
-			<a class="list-group-item" ui-sref-active="active" ui-sref="{{settingsPage.sref}}" ng-repeat="settingsPage in settingsPages"><span class="{{settingsPage.icon}}"></span> {{settingsPage.title | t}}</a>
+			<a class="list-group-item" ui-sref-active="active" ui-sref="{{settingsPage.sref}}" ng-repeat="settingsPage in settingsPages"><span class="{{settingsPage.icon}}"></span> {{settingsPage.title | goT}}</a>
 		</div>
 	</div>
 	

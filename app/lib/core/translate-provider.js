@@ -18,7 +18,7 @@
 
 				<p>You can also use a filter:<br /><br />
 
-				Yes in Dutch is: {{"Yes" | t}}</p>
+				Yes in Dutch is: {{"Yes" | goT}}</p>
 			</div>
 		</file>
     <file name="script.js">

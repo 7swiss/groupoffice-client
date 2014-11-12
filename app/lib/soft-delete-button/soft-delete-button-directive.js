@@ -74,11 +74,11 @@ angular.module('GO.softDeleteButton',['GO.data']).
 							});
 						};
 					},
-					template: '<span ng-disabled="imDisabled" ng-if="!imModel.attributes.deleted" class="btn btn-{{imSize}} btn-danger im-soft-delete-btn" ng-click="delete($event);" tooltip="{{\'Delete\' | t}}" tooltip-placement="left">\
+					template: '<span ng-disabled="imDisabled" ng-if="!imModel.attributes.deleted" class="btn btn-{{imSize}} btn-danger im-soft-delete-btn" ng-click="delete($event);" tooltip="{{\'Delete\' | goT}}" tooltip-placement="left">\
 						<i class="fa fa-trash-o"></i>\
 					</span>\
 					\
-					<span ng-disabled="imDisabled" ng-if="imModel.attributes.deleted" class="btn btn-{{imSize}} btn-primary im-soft-delete-btn" ng-click="unDelete($event);" tooltip="{{\'Undo delete\' | t}}" tooltip-placement="left">\
+					<span ng-disabled="imDisabled" ng-if="imModel.attributes.deleted" class="btn btn-{{imSize}} btn-primary im-soft-delete-btn" ng-click="unDelete($event);" tooltip="{{\'Undo delete\' | goT}}" tooltip-placement="left">\
 						<i class="fa fa-undo"></i>\
 					</span>\
 					'

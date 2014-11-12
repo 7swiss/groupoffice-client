@@ -6,12 +6,12 @@
 		<div class="row">
 			<div class="col-md-4">
 				<div class="go-card">
-					<h1>{{"Model"| t}}</h1>
+					<h1>{{"Model"| goT}}</h1>
 
 					<div class="list-group">
 
 						<a ng-repeat="model in models" ng-class="{active: $state.includes('customfields.model', {modelName: model.customFieldsModelName})}" class="list-group-item" ui-sref="customfields.model({modelName: model.customFieldsModelName})">
-							<i class="fa fa-cube"></i> {{model.modelName}}
+							<i class="fa fa-cube"></i> {{model.modelName | goT}}
 						</a>
 					</div>
 

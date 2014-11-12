@@ -6,7 +6,7 @@
 		</a>
 
 		<button type="submit">
-			<i class="fa fa-floppy-o"></i> {{'Save'| t}}
+			<i class="fa fa-floppy-o"></i> {{'Save'| goT}}
 		</button>
 
 	</div>
@@ -15,14 +15,14 @@
 
 		<div class="go-card">
 			<!-- Default panel contents -->
-			<h1>{{"Properties"| t}}</h1>
+			<h1>{{"Properties"| goT}}</h1>
 
 		
 
 				<div class="form-group">
 					<div class="checkbox">
 						<label for="checkbox">
-							<input type="checkbox" id="checkbox" ng-model="user.attributes.enabled" /> {{'Enabled'| t}}
+							<input type="checkbox" id="checkbox" ng-model="user.attributes.enabled" /> {{'Enabled'| goT}}
 						</label>
 					</div>
 								
@@ -33,7 +33,7 @@
 				<!---->
 				<div class="form-group" ng-if="user.attributes.id === null">
 					
-					<label for="fullName">{{"Name"| t}}</label>
+					<label for="fullName">{{"Name"| goT}}</label>
 					
 				
 					<div class="input-group">
@@ -53,21 +53,21 @@
 
 				<div ng-if="user.showNameParts">
 					<div class="form-group">
-						<label for="firstName">{{"First name"| t}}</label>
+						<label for="firstName">{{"First name"| goT}}</label>
 					
 						<input type="text" id="firstName" class="form-control" ng-model="user.attributes.contact.attributes.firstName" required />
 					
 					</div>
 
 					<div class="form-group">							
-						<label  for="middleName">{{"Middle name"| t}}</label>
+						<label  for="middleName">{{"Middle name"| goT}}</label>
 					
 						<input type="text" id="middleName" class="form-control" ng-model="user.attributes.contact.attributes.middleName" />
 					
 					</div>
 
 					<div class="form-group">							
-						<label  for="lastName">{{"Last name"| t}}</label>
+						<label  for="lastName">{{"Last name"| goT}}</label>
 						
 						<input type="text" id="lastName" class="form-control" ng-model="user.attributes.contact.attributes.lastName" />
 						
@@ -76,13 +76,13 @@
 				<!--</div>-->
 
 				<div class="form-group">
-					<label for="username">{{"Username"| t}}</label>
+					<label for="username">{{"Username"| goT}}</label>
 					<input type="text" id="username" name="username" ng-model="user.attributes.username" required />
 					<im-show-error for="username" im-model="user"></im-show-error>
 				</div>
 
 				<div class="form-group" ng-if='user.attributes.id === null'>
-					<label  for="email">{{"E-mail"| t}}</label>
+					<label  for="email">{{"E-mail"| goT}}</label>
 					<input type="email" name="email" id="email" class="form-control" ng-model="user.attributes.contact.attributes.emailAddresses[0].attributes.email" required />
 					<im-show-error for="email" im-model="user"></im-show-error>
 
@@ -90,7 +90,7 @@
 
 
 				<div class="form-group">
-					<label  for="password">{{"Password"| t}}</label>
+					<label  for="password">{{"Password"| goT}}</label>
 					
 					<input type="password" id="password" name="password" class="form-control" ng-model="user.attributes.password" autocomplete="off" ng-required="user.attributes.id == null" />						
 					<im-show-error for="password" im-model="user"></im-show-error>
@@ -98,7 +98,7 @@
 				</div>
 
 				<div class="form-group">
-					<label  for="passwordConfirm">{{"Confirm password"| t}}</label>
+					<label  for="passwordConfirm">{{"Confirm password"| goT}}</label>
 					
 					<input type="password" id="passwordConfirm" name="passwordConfirm" class="form-control" ng-model="user.attributes.passwordConfirm" im-match="user.attributes.password" ng-required="user.attributes.password != ''" autocomplete="off" />
 
@@ -111,7 +111,7 @@
 		<div class="go-card">
 			
 			<div class="go-toolbar go-toolbar-xs">
-				<h1>{{"Roles"| t}}</h1>
+				<h1>{{"Roles"| goT}}</h1>
 
 				<div class="go-toolbar-right">
 
@@ -133,7 +133,7 @@
 				</li>  
 
 				<li class="list-group-item im-show-if-only-child">
-					{{'No roles selected'| t}}
+					{{'No roles selected'| goT}}
 				</li>
 			</ul>
 
