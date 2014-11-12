@@ -14,5 +14,10 @@ angular.module('GO').
 											url: "/modules/settings",
 											templateUrl: 'modules/settings/partials/main.html',
 											controller: 'SettingsController'
+										})
+										.state('settings.accounts', {
+											url: "/accounts",
+											templateUrl: 'modules/settings/partials/accounts.html',
+											controller: 'AccountsController'
 										});
 					}]);

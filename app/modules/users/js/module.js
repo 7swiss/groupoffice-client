@@ -3,8 +3,14 @@
 
 angular.module('GO').
 				//Register the app
-				config(['modulesProvider', function(modulesProvider) {
+				config(['modulesProvider', 'settingsProvider', function(modulesProvider, settingsProvider) {
 						modulesProvider.addModule('users', 'User management', 'fa-user');
+						
+						settingsProvider.addPage({
+							sref: 'settings.changePassword',
+							title: 'Change password',
+							icon: 'fa fa-lock'
+						});
 					}]).
 				config(['$stateProvider', function($stateProvider) {
 

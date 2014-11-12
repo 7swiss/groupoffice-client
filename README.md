@@ -79,11 +79,6 @@ In this project I've used:
 	$ sass -v
 	`````````
 
-	Install compass
-	``````````````````````````
-	$ sudo gem install compass
-	``````````````````````````
-
 I used [grunt](http://gruntjs.com/) to maintain the scripts in index.html. It
 automatically puts all javascript and css files in the index.html file.
 Additionally it can build a distribution with minified scripts.
@@ -97,7 +92,7 @@ $ grunt watch
 to keep the CSS up to date with SASS and to update the index.html with newly
 added scripts.
 
-I got a wierd error "Waiting…Fatal error: watch ENOSPC". I don't know why but I fixed it with this command:
+I got a weird error "Waiting…Fatal error: watch ENOSPC". I don't know why but I fixed it with this command:
 
 ````````````````````````````````````````````````````````````````````````````````````````
 $ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
@@ -119,31 +114,3 @@ Found on https://github.com/mgechev/angularjs-style-guide
 2. Services, Controllers should be named with UpperCamelCase
 3. File names should be lowercase and use hyphens (-).
 
-
-## Making changes to the intermesh-angular-framework package
-
-Sometimes it's necessary to change the bowser component in this project.
-You can do this with the bower [link](http://bower.io/docs/api/#link) feature.
-
-Create a link on your computer:
-````````````````````````````````
-$ cd intermesh-angular-framework
-$ bower link
-````````````````````````````````
-
-Now link it in the example:
-````````````````````````````````````````
-$ cd intermesh-angular-example
-$ bower link intermesh-angular-framework
-`````````````````````````````````````````
-
-Now the folder has become a symlink. So anywhere you make changes it will stay in
-sync.
-
-
-
-
-TODO
-====
-* Token based auth
-* Reset model when pressing cancel

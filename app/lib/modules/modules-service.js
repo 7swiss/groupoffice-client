@@ -139,3 +139,36 @@ angular.module('GO.modules')
 				return new Modules;
 				
 			}]);
+		
+		
+		
+angular.module('GO.modules')
+		.provider('settings', [function SettingsProvider() {
+
+				var pages = [];
+
+				/**
+				 * @ngdoc method
+				 * @name GO.modules#addModule
+				 * @methodOf GO.modules
+				 * @description
+				 *
+				 * Add an app to the program
+				 *
+				 * @param {string} id The id of the module. Note that there must be a ui.router state for this id as well.
+				 * @param {string} title The title of the module in English.
+				 * @param {string} iconCls The class for the icon of FontAwesome. eg. "fa-user" {@link http://fortawesome.github.io/Font-Awesome/}
+				 */
+				this.addPage = function(config) {
+					
+					pages.push(config);
+				};
+
+				this.$get = [function SettingsFactory() {
+
+
+						// let's assume that the UnicornLauncher constructor was also changed to
+						// accept and use the useTinfoilShielding argument
+						return pages;
+					}];
+			}]);

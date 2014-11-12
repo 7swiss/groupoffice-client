@@ -5266,7 +5266,7 @@ a.im-file {
     left: -600px;
     top: 0px;
     bottom: 0px;
-    height: auto;
+    /*height: auto;*/
     /*border-top: 5px solid $header-bg;*/
     background-color: #f5f5f5;
     /*border-right: 1px solid $border-color;*/

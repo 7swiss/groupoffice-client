@@ -2,8 +2,14 @@
 
 angular.module('GO').
 				//Register the module
-				config(['modulesProvider', function(modulesProvider) {
+				config(['modulesProvider', 'settingsProvider', function(modulesProvider,  settingsProvider) {
 						modulesProvider.addModule('contacts', 'Contacts', 'fa-book');
+						
+						settingsProvider.addPage({
+							sref: 'settings.contacts.editProfile({contactId: "current"})',
+							title: 'Edit profile',
+							icon: 'fa fa-user'
+						});
 					}]).
 				config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 						
