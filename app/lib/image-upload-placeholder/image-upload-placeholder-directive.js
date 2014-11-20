@@ -108,9 +108,12 @@ angular.module('GO.ImageUploadPlaceholder', ['ui.bootstrap','GO.core'])
 					if(scope.imOnChange){
 	//					scope.$digest();
 						//need to call timeout otherwise the scope model hasn't changed yet !?
-//						$timeout(function(){
-							scope.imOnChange({file: data.file});
-//						});
+						$timeout(function(){
+//							scope.$apply(function(){
+								scope.imOnChange({file: data.file});
+//							}
+							
+						});
 					}
 				});
 
