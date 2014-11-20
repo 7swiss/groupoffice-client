@@ -7,31 +7,34 @@
 
 			<div class="images row">
 
-				<im-image-upload-placeholder class="image-placeholder" ng-class="{'col-md-4':note.attributes.images.length>2,'col-md-6':note.attributes.images.length>1 && note.attributes.images.length<1,'col-md-12':note.attributes.images.length==1}" ng-repeat="image in note.attributes.images"
+				<im-image-upload-placeholder 
+					class="image-placeholder"
+					ng-class="{'col-md-4':note.attributes.images.length>2,'col-md-6':note.attributes.images.length>1 && note.attributes.images.length<1,'col-md-12':note.attributes.images.length==1}" 
+					ng-repeat="image in note.attributes.images"
 					im-image-attribute="image.attributes.path"
 					im-image-temp-attribute="image.attributes.imageTempPath"
 					im-delete-permission="note.permissions.editAccess" 
-					im-thumb-route="Intermesh/notes/note/thumb"
-					im-original-route="Intermesh/notes/note/original"
+					im-thumb-route="notes/{{note.attributes.id}}/noteImages/{{image.attributes.id}}/thumb"
 					im-thumb-width="100"
 					im-thumb-height="100"
 				></im-image-upload-placeholder>
-
+				
+				
 			</div>
 			<div style="clear:both;"></div>
 
 
 			<div class="modal-title title" contenteditable="true" ng-model="note.attributes.title" placeholder="{{'Title'| goT}}"></div>
 			<div class="content" contenteditable="true" go-autofocus ng-model="note.attributes.content" placeholder="{{'Content'| goT}}"></div>
-			<!--<div class="checklist">-->
-<!--				<ul class="listitems">
+			<div class="checklist">
+				<ul class="listitems">
 					<li class="listitem" ng-repeat="listItem in note.attributes.listItems" ng-class="{'checked':listItem.attributes.checked}">
 						<i class="fa" ng-class="{'fa-check-square-o':listItem.attributes.checked,'fa-square-o':!listItem.attributes.checked}" ng-click="listItemClick(listItem,note)"></i>
 						<span contenteditable="true" ng-model="listItem.attributes.text" placeholder="Todo"></span>
 					</li>
-				</ul>-->
-				<!--<i class="fa fa-plus" ng-click="newListItem(note)"><span>{{"Add todo item"| goT}}</span></i>-->
-			<!--</div>-->
+				</ul>
+				<i class="fa fa-plus" ng-click="newListItem(note)"><span>{{"Add todo item"| goT}}</span></i>
+			</div>
 		</div>
 
 		<div class="modal-footer">
