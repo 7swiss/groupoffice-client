@@ -118,7 +118,7 @@ angular.module('GO.data')
 
 						var baseParams = {};
 						if(this.loadParams.returnAttributes){
-							baseParams.loadParams = this.loadParams.returnAttributes;
+							baseParams.returnAttributes = this.loadParams.returnAttributes;
 						}
 
 						var model = new Model(this.restRoute, baseParams);
