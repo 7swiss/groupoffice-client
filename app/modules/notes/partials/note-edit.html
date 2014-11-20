@@ -23,15 +23,15 @@
 
 			<div class="modal-title title" contenteditable="true" ng-model="note.attributes.title" placeholder="{{'Title'| goT}}"></div>
 			<div class="content" contenteditable="true" go-autofocus ng-model="note.attributes.content" placeholder="{{'Content'| goT}}"></div>
-			<div class="checklist">
-				<ul class="listitems">
+			<!--<div class="checklist">-->
+<!--				<ul class="listitems">
 					<li class="listitem" ng-repeat="listItem in note.attributes.listItems" ng-class="{'checked':listItem.attributes.checked}">
 						<i class="fa" ng-class="{'fa-check-square-o':listItem.attributes.checked,'fa-square-o':!listItem.attributes.checked}" ng-click="listItemClick(listItem,note)"></i>
 						<span contenteditable="true" ng-model="listItem.attributes.text" placeholder="Todo"></span>
 					</li>
-				</ul>
-				<i class="fa fa-plus" ng-click="newListItem(note)"><span>{{"Add todo item"| goT}}</span></i>
-			</div>
+				</ul>-->
+				<!--<i class="fa fa-plus" ng-click="newListItem(note)"><span>{{"Add todo item"| goT}}</span></i>-->
+			<!--</div>-->
 		</div>
 
 		<div class="modal-footer">
