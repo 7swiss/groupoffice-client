@@ -9,7 +9,7 @@
 
 	<div ng-repeat="timelineItem in timelineStore.items" class="go-card-quote">
 
-		<div ng-if="timelineItem.attributes.imapMessageId">
+<!--		<div ng-if="timelineItem.attributes.imapMessageId">
 			<img class="thumbnail" ng-src="{{timelineItem.attributes.authorThumbUrl}}&amo;w=45">
 
 			<div class="go-card timeline-panel" ng-class="{'deleted-visible': timelineItem.attributes.deleted}">
@@ -32,7 +32,7 @@
 			
 		</div>
 		
-		<div ng-if="!timelineItem.attributes.imapMessageId">
+		<div ng-if="!timelineItem.attributes.imapMessageId">-->
 			<img class="thumbnail" ng-src="{{timelineItem.attributes.authorThumbUrl}}&amp;w=45">
 
 
@@ -50,7 +50,7 @@
 					<im-soft-delete-button im-model="timelineItem"></im-soft-delete-button>
 				</div>
 			</div>
-		</div>
+		<!--</div>-->
 		
 		
 		

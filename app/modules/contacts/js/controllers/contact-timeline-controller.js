@@ -12,7 +12,7 @@ angular.module('GO.controllers').
 						'contacts/'+$stateParams.contactId+'/timeline',
 						{
 							limit: 5,
-							returnAttributes: '*, authorThumbUrl, owner.username, imapMessage.*, imapMessage.excerpt, imapMessage.currentUserIsAuthor'
+							returnAttributes: '*, authorThumbUrl, owner.username'
 						});
 						
 				$scope.timelineStore.load();
