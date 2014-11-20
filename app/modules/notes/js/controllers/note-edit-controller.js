@@ -34,12 +34,9 @@ angular.module('GO.controllers')
 			$scope.note = note;
 		}else
 		{
-			$scope.note = new Model(
-				'note',
-				'Intermesh/Notes/Note'
-			);
+			$scope.note = new Model('notes');
 
-			$scope.note.loadForm($stateParams.noteId);
+			$scope.note.readIf($stateParams.noteId);
 		}
 
 
@@ -61,7 +58,6 @@ angular.module('GO.controllers')
 						if (isNew) {
 							store.items.unshift(result.model);
 						}
-						store.saveSortOrder('Intermesh/Notes/Note/saveSort');
 						$scope.$close(result);
 					})
 					.error(function(data) {

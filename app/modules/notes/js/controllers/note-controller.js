@@ -10,12 +10,7 @@ angular.module('GO.controllers').
 				return !$state.is('notes');
 			};
 
-			$scope.store = new Store(
-				'Intermesh/Notes/Note/store',
-				new Model(
-					'note',
-					'Intermesh/Notes/Note'
-					));
+			$scope.store = new Store('notes');
 
 			/**
 			 * The listeners for drag and drop
@@ -29,7 +24,7 @@ angular.module('GO.controllers').
 
 				},
 				orderChanged: function(event) {
-					$scope.store.saveSortOrder('Intermesh/Notes/Note/saveSort');
+//					$scope.store.saveSortOrder('Intermesh/Notes/Note/saveSort');
 				}
 			};
 			

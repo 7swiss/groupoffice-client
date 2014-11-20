@@ -17,7 +17,6 @@ angular.module('GO').
 							})
 							.state('notes.edit', {
 								url: "/Notes/edit/{noteId:[0-9]*}",
-//								templateUrl: 'modules/notes/partials/note-edit.html',
 								controller: 'NoteEditController',
 								template: '<div ng-init="openModal()"></div>'
 							});
