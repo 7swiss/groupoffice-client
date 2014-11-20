@@ -34,12 +34,9 @@ angular.module('GO.controllers')
 			$scope.note = note;
 		}else
 		{
-			$scope.note = new Model(
-				'note',
-				'Intermesh/Notes/Note'
-			);
+			$scope.note = new Model('notes',{returnAttributes: "*,images,listItems,roles,owner"});
 
-			$scope.note.loadForm($stateParams.noteId);
+			$scope.note.readIf($stateParams.noteId,{returnAttributes: "*,images,listItems,roles,owner"});
 		}
 
 
@@ -61,7 +58,6 @@ angular.module('GO.controllers')
 						if (isNew) {
 							store.items.unshift(result.model);
 						}
-						store.saveSortOrder('Intermesh/Notes/Note/saveSort');
 						$scope.$close(result);
 					})
 					.error(function(data) {
@@ -76,10 +72,7 @@ angular.module('GO.controllers')
 
 			$scope.newImage = function(note) {
 
-				var imageModel = new Model(
-					'noteImage',
-					'Intermesh/Notes/NoteImage'
-					);
+				var imageModel = new Model('noteImage');
 
 				$scope.note.attributes.images.push(imageModel);
 			};
@@ -109,10 +102,7 @@ angular.module('GO.controllers')
 			$scope.newListItem = function(note) {
 
 
-				var listItemModel = new Model(
-					'noteListItem',
-					'Intermesh/Notes/NoteListItem'
-					);
+				var listItemModel = new Model('noteListItem');
 
 				listItemModel.attributes = {
 					id: 0,

@@ -284,6 +284,8 @@ $grey-400: #bdbdbd;
 
 .note-page{
 	
+	padding:10px;
+	
 	.sortable-placeholder{
 		margin:0;
 		@include make-xs-column(12);

@@ -10,12 +10,7 @@ angular.module('GO.controllers').
 				return !$state.is('notes');
 			};
 
-			$scope.store = new Store(
-				'Intermesh/Notes/Note/store',
-				new Model(
-					'note',
-					'Intermesh/Notes/Note'
-					));
+			$scope.store = new Store('notes',{returnAttributes: "*,images,listItems,roles,owner"});
 
 			/**
 			 * The listeners for drag and drop
@@ -29,15 +24,12 @@ angular.module('GO.controllers').
 
 				},
 				orderChanged: function(event) {
-					$scope.store.saveSortOrder('Intermesh/Notes/Note/saveSort');
+//					$scope.store.saveSortOrder('Intermesh/Notes/Note/saveSort');
 				}
 			};
 			
 			// Create the main note model in this scope.
-			$scope.note = new Model(
-				'note',
-				'Intermesh/Notes/Note'
-			);
+			$scope.note = new Model('notes',{returnAttributes: "*,images,listItems,roles,owner"});
 			
 			// Set the default color
 			$scope.note.attributes.color = 'yellow';
@@ -95,6 +87,10 @@ angular.module('GO.controllers').
 				
 				if(save)
 					note.save();
+			};
+			
+			$scope.afterUpload = function(note) {
+				note.save();
 			};
 
 			/**
