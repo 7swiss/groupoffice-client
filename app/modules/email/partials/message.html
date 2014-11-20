@@ -1,0 +1,112 @@
+<div class="go-toolbar">
+
+	<a class="btn btn-default visible-xs" ui-sref="^">				
+		<span class="glyphicon glyphicon-step-backward"></span> {{'Back'| goT}}
+	</a>
+
+	<div class="dropdown">
+		<a class="dropdown-toggle btn" data-toggle="dropdown"><i class="fa fa-flag"></i></a>
+		<ul class="dropdown-menu ">
+			<li>
+				<a ng-click="toggleMessageFlag('seen')">
+					<span ng-if="!message.attributes.seen">{{"Mark as read"| goT}}</span>
+					<span ng-if="message.attributes.seen">{{"Mark as unread"| goT}}</span>
+				</a>
+			</li>    
+			<li>
+				<a ng-click="toggleMessageFlag('flagged')">
+					<span ng-if="!message.attributes.flagged">{{"Set flag"| goT}}</span>
+					<span ng-if="message.attributes.flagged">{{"Remove flag"| goT}}</span>
+				</a>
+			</li> 
+		</ul>
+	</div>
+
+	<div class="go-toolbar-right">
+
+		<a class="btn btn-danger" ng-click="message.delete(message.attributes.subject);">
+			<span class="fa fa-trash-o"></span>
+		</a>
+
+	</div>
+</div>
+
+
+
+<div class="go-scrollable-panel"  im-infinite-scroll="threadStore.nextPage()" im-infinite-scroll-disabled="!threadStore.shouldLoad()">
+
+
+	<div class="go-card em-message" ng-class="{'from-you': message.attributes.isSentByCurrentUser}" ng-repeat="message in threadStore.items track by message.attributes.id">
+
+
+		<div class="go-toolbar">
+			<div class="go-toolbar-right">
+				
+				<div class="date">{{message.attributes.date| date:'short'}}</div>
+				
+				<div class="dropdown">
+					<a class="dropdown-toggle btn btn-xs" data-toggle="dropdown"><i class="fa fa-bars"></i></a>
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li>
+							<a target="_blank" href="{{message.attributes.sourceUrl}}">
+								{{"View source"| goT}}
+							</a>
+						</li>    
+						
+						<li>
+							<a target="_blank" href="{{message.attributes.syncUrl}}">
+								{{"Sync with IMAP"| goT}}
+							</a>
+						</li>    
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="em-headers">
+			<dl>
+				<dt>{{"From"| goT}}</dt>
+				<dd><span ng-if="message.attributes.isSentByCurrentUser">{{"You"| goT}}</span> <span ng-if="!message.attributes.isSentByCurrentUser">{{message.attributes.fromPersonal|| message.attributes.fromEmail}}</span></dd>			
+			</dl>
+			<dl>
+				<dt>{{"To"| goT}}</dt>
+				<dd><ul class="comma-list"><li ng-repeat="address in message.attributes.toAddresses">{{address.attributes.personal|| address.attributes.email}}</li></ul></dd>
+			</dl>
+
+
+			
+
+
+			<h1 ng-if="$index == 0" class="em-header">{{message.attributes.subject}}</h1>
+		</div>
+
+		<div ng-if="message.attributes.attachments.length" class="em-attachments">
+
+			<a ng-if="!attachment.attributes.foundInBody" class="btn" ng-repeat="attachment in message.attributes.attachments" href="{{attachment.attributes.url}}" target="_blank">
+				{{attachment.attributes.filename}}
+			</a>				 
+
+			<div style="clear:both"></div>
+		</div>
+
+		<div class="body" ng-bind-html='message.attributes.body'></div>
+
+		<div ng-if="message.attributes.quote">
+
+			<!--			<a ng-if="!message.showQuote" class="btn" ng-click="message.showQuote = true"><i class="fa fa-chevron-right"></i> {{"Show more" | goT}}</a>
+						<a ng-if="message.showQuote" class="btn" ng-click="message.showQuote = false"><i class="fa fa-chevron-down"></i> {{"Hide more" | goT}}</a>-->
+
+			<div ng-if="message.showQuote" ng-bind-html='message.attributes.quote'></div>
+
+			<a  class="em-show-quote" ng-click="message.showQuote = !message.showQuote">{{"..."| goT}}</a>
+		</div>
+
+	</div>
+
+	<div ng-if="threadStore.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| goT}}</div>
+
+</div>

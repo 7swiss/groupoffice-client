@@ -60,7 +60,7 @@ angular.module("GO").config(["TranslateProvider", function (TranslateProvider) {
 			"Modified at": "Gewijzigd op",
 			"Select roles": "Selecteer rollen",
 			"Date": "Datum",
-			"To": "Naar",
+			"To": "Aan",
 			"by": "door",
 			"No items found": "Geen items gevonden",
 			"New post": "Nieuw bericht",

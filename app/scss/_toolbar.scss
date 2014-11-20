@@ -30,8 +30,21 @@
 		margin-right:10px;
 	}
 
-	button:last-child, a:last-child{
+	button:last-child, a:last-child, .dropdown:last-child{
 		margin-right:0px;
+	}
+	
+	.dropdown{
+		float:left;
+		display:block;
+		
+		margin-top: 8px;
+		margin-right:10px;
+		
+		.btn{
+			float: none;
+			margin:0;
+		}
 	}
 
 
@@ -103,11 +116,16 @@
 
 .go-card{
 	.go-toolbar{		
-		margin:0px 16px 16px 0px;
+		/*margin:0px 16px 16px 0px;*/
+		margin: 0px;
 		padding:0px;
 		border:0px;
 		height: auto;
-		line-height: 1em;		
+		line-height: 1em;
+		
+		.btn, .dropdown{
+			margin-top:0;
+		}
 	}
 }
 

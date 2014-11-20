@@ -36,6 +36,7 @@
 @import '../modules/contacts/scss/contacts';
 @import '../modules/timeline/scss/timeline';
 @import '../modules/announcements/scss/announcements';
+@import '../modules/email/scss/email';
 
 /* module stylesheets */
 
@@ -85,7 +86,14 @@ button[type=submit] {
 
 dl{
 	@extend .dl-horizontal;
+	
+	.dd{
+		overflow: hidden; 
+		text-overflow:ellipsis;
+	}
 }
+
+
 
 h1{
 	margin-top:0px;

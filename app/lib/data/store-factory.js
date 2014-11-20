@@ -113,6 +113,9 @@ angular.module('GO.data')
 				 * </pre>
 				 */
 				Store.prototype.loadData = function(data) {
+					
+					data = this.onLoad(data);
+					
 					for (var i = 0; i < data.length; i++) {
 
 
@@ -126,6 +129,19 @@ angular.module('GO.data')
 
 						this.items.push(model);
 					}
+				};
+				
+				/**
+				 * @ngdoc method
+				 * @name GO.data.Store#onLoad
+				 * @methodOf GO.data.Store
+				 * @description
+				 * 
+				 * Override this to manipulate data when loaded from server
+				 * 
+				 */
+				Store.prototype.onLoad = function(data){
+					return data;
 				};
 
 				/**

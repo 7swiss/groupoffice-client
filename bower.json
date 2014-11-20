@@ -20,7 +20,8 @@
     "angular-ui-select": "latest",
     "fastclick": "latest",
     "bootstrap-sass-official": "latest",
-    "textAngular": "~1.2.2"
+    "textAngular": "~1.2.2",
+    "angular-ui-tree": "~2.1.5"
   },
   "devDependencies": {
     "grunt-contrib-compass": "~0.9.1"
