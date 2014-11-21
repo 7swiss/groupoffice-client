@@ -5,11 +5,14 @@ Creating a module in the AngularJS client
 1. Create folder "app/modules/helloworld"
 2. Create folder "app/modules/helloworld/js" for the script files.
 3. Create folder "app/modules/helloworld/partials" for the HTML views.
+4. Create folder and file "app/modules/hellowordl/scss/_helloworld.scss for the SASS styles. This must manually be included in scss/app.scss.
 
 ### Create module.js
 Create "app/modules/helloworld/module.js" that will initialize the module.
 
 In this file we'll add the states of the module and we can configure it before the application is running.
+
+When you are looking for a particular part of the code always start in this file. Because you can see which URL belongs to what controller and view in this file.
 
 Example:
 
@@ -32,7 +35,9 @@ angular.module('GO').
 			}]);
 ```````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 
-Make sure "grunt watch" is running so that the scripts are automatically added to app/index.html.
+Make sure "grunt watch" is running so that the scripts are automatically added to app/index.html. 
+
+You can also run grunt task "fileblocks" manually after adding the scripts.
 
 
 ### Create partials/main.html
@@ -40,20 +45,15 @@ Make sure "grunt watch" is running so that the scripts are automatically added t
 ```````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 <div ng-include="'partials/header.html'"></div>
 
-<div class="go-full-panel">	
-	<div class="go-toolbar">
-		<ul class="go-toolbar-left">
-			<li>
-				<button type="submit" class="btn btn-primary">
-					<i class="fa fa-floppy-o"></i> A button
-				</button>
-			</li>
 
-		</ul>
-		
+<div class="go-toolbar">
+	<a class="btn">A button</a>	
+</div>
+
+<div class="go-body">
+	<div class="go-scrollable-panel">
+		<h1>Hello World!</h1>
 	</div>
-	
-	<h1>Hello World!</h1>
 </div>
 ```````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 
@@ -62,7 +62,7 @@ Make sure "grunt watch" is running so that the scripts are automatically added t
 ### Add the module to the database:
 
 ```````````````````````````````````````````
-INSERT INTO `ipe`.`modulesModule` (
+INSERT INTO `modulesModule` (
 `id` ,
 `name` ,
 `type`
@@ -73,20 +73,7 @@ NULL , 'helloworld', 'user'
 
 ```````````````````````````````````````````
 
-Grant access to admins. (Todo, modules must be enabled with the interface):
-
-```````````````````````````````````````````
-INSERT INTO `ipe`.`modulesModuleRole` (
-`moduleId` ,
-`roleId` ,
-`useAccess` ,
-`createAccess`
-)
-VALUES (
-(select id from modulesModule where name='helloworld'), '1', '1', '1'
-);
-
-```````````````````````````````````````````
+Now grant access to some roles via the roles module.
 
 
 ### Done!

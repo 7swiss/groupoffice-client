@@ -44,6 +44,10 @@ angular.module('GO.MultiSelectField', ['GO.core'])
 					scope.input = "";
 					scope.typeaheadLoading=false;
 					
+//					if(!scope.modelAttribute){
+//						scope.modelAttribute = [];
+//					}
+					
 					scope.addModel = function($item) {
 
 						if(!isSelected($item)){

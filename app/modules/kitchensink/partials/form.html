@@ -1,0 +1,110 @@
+
+<form class="form-horizontal go-labels" name="kistchenSinkForm" im-submit="save()" novalidate>
+	<div class="go-toolbar">
+
+		<button type="submit" class="btn-primary">
+			<i class="fa fa-floppy-o"></i> {{'Save'| goT}}
+		</button>
+
+	</div>
+
+	<div class="go-scrollable-panel">
+		<div class="go-card">
+
+			<div class="form-group">
+				<label for="text">Text field</label>
+				<input id="text" name="text" type="text" ng-model="formModel.attributes.text" required />
+				<im-show-error for="text" im-model="formModel"></im-show-error>
+			</div>
+
+			<div class="form-group">
+				<label>Radio buttons</label>
+
+				<div class="input-group">		
+					<label class="radio-inline">
+						<input type="radio" ng-model="formModel.attributes.gender" ng-value="null"> Null value
+					</label>
+					<label class="radio-inline">
+						<input type="radio" ng-model="formModel.attributes.gender" value="opt-1"> Option 1
+					</label>
+					<label class="radio-inline">
+						<input type="radio" ng-model="formModel.attributes.gender" value="opt-2"> Option 2
+					</label>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="select">Select field</label>
+				<select 
+					id="select"
+					name="select"
+					class="form-control" 
+					ng-model="formModel.attributes.select" 
+					ng-options="option.value as option.label for option in selectOptions">											
+				</select>
+				<im-show-error for="select" im-model="formModel"></im-show-error>
+			</div>
+
+
+			<div class="form-group">
+				<label for="date">Date field</label>
+				<input type="text" id="date" name="date" ng-model="formModel.attributes.date" datepicker-options="datePickerOptions" datepicker-popup="dd-MM-yyyy" is-open="isOpen" ng-click="isOpen = true" close-text="{{'Close'| goT}}" />
+				<im-show-error for="date" im-model="formModel"></im-show-error>
+			</div>
+
+			<div class="form-group">
+				<label>{{"Tags"| goT}}</label>	
+
+
+				<im-multi-select-field 
+					auto-create="true"
+					store-route="tags" 
+					model-attribute="formModel.attributes.tags" 
+					model-attribute-display-name="name" 
+					input-placeholder="{{'Add tags...'| goT}}">				
+				</im-multi-select-field>
+
+
+			</div>
+
+
+			<div class="form-group">
+				<label for="notes">Autogrow textarea</label>
+				<textarea id="notes" msd-elastic="\n" ng-model="formModel.attributes.notes" class="form-control" style="height:60px">
+				</textarea>		
+			</div>
+			
+			<div class="form-group">
+				<label>Image uploader</label>
+			
+				
+				<div style="width:75px;height:100px">
+					<im-image-upload-placeholder style="width:75px;height:100px"
+						im-image-attribute="formModel.attributes.photoFilePath"
+						im-image-temp-attribute="formModel.attributes.photoTempPath"
+						im-thumb-route="contacts/{{contact.attributes.id}}/thumb"
+						im-thumb-width="75"
+						im-thumb-height="100"
+					></im-image-upload-placeholder>
+				</div>
+			</div>
+			
+			
+			<div class="form-group">
+				<label for="html">HTML editor</label>
+			
+				<text-angular id="html" ta-toolbar="[['bold','italics','underline'], ['quote'], ['insertLink'], ['undo','redo']]" ng-model="formModel.attributes.html"></text-angular>
+			</div>
+			
+
+		</div>	
+		
+		
+		<div class="go-card">
+			<h1>Form model data</h1>
+			<pre>{{formModel.attributes | json}}</pre>
+		</div>
+
+	</div>
+
+</form>

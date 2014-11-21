@@ -1,22 +1,22 @@
 
 
-<im-tabs>
+<go-tabs>
 	<div class="go-tab-bar">
 
 
-		<a ui-sref="contacts.contact.detail({contactId: contact.attributes.id})" im-tab-switch  ui-sref-active="active" tooltip="{{'Properties'| goT}}" tooltip-placement="bottom">
+		<a ui-sref="contacts.contact.detail({contactId: contact.attributes.id})" go-tab-switch  ui-sref-active="active" tooltip="{{'Properties'| goT}}" tooltip-placement="bottom">
 
 			<i class="fa fa-list-alt"></i> <span class="hidden-xs">{{"Properties" | goT}}</span>
 
 		</a>
 
-		<a ui-sref="contacts.contact.files({contactId: contact.attributes.id})" im-tab-switch ui-sref-active="active"  tooltip="{{'Files'| goT}}" tooltip-placement="bottom">
+		<a ui-sref="contacts.contact.files({contactId: contact.attributes.id})" go-tab-switch ui-sref-active="active"  tooltip="{{'Files'| goT}}" tooltip-placement="bottom">
 
 			<i class="fa fa-folder-o"></i> <span class="hidden-xs">{{"Files" | goT}}</span>
 
 		</a>	
 
-		<a ui-sref="contacts.contact.timeline({contactId: contact.attributes.id})" im-tab-switch ui-sref-active="active"  tooltip="{{'Comments'| goT}}" tooltip-placement="bottom">
+		<a ui-sref="contacts.contact.timeline({contactId: contact.attributes.id})" go-tab-switch ui-sref-active="active"  tooltip="{{'Comments'| goT}}" tooltip-placement="bottom">
 
 			<i class="fa fa-clock-o"></i> <span class="hidden-xs">{{"Timeline" | goT}}</span>
 
@@ -46,6 +46,6 @@
 	</div>
 
 
-	<div ui-view im-tab-view></div>
+	<div ui-view go-tab-view></div>
 
-</im-tabs>
+</go-tabs>

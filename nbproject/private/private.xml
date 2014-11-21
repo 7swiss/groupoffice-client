@@ -3,14 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="PocketOffice">
-            <file>file:/var/www/html/groupoffice-client/app/modules/email/partials/message.html</file>
-            <file>file:/var/www/html/groupoffice-client/app/modules/email/partials/main.html</file>
-            <file>file:/var/www/html/groupoffice-client/app/modules/email/scss/_email.scss</file>
-            <file>file:/var/www/html/groupoffice-client/app/lib/language/nl.js</file>
-            <file>file:/var/www/html/groupoffice-client/app/modules/timeline/scss/_timeline.scss</file>
-            <file>file:/var/www/html/groupoffice-client/app/modules/email/js/controllers/message-controller.js</file>
-            <file>file:/var/www/html/groupoffice-client/app/modules/email/js/controllers/email-controller.js</file>
-            <file>file:/var/www/html/groupoffice-client/app/lib/data/store-factory.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/contacts/js/controllers/contact-timeline-controller.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/contacts/js/controllers/contact-timeline-item-controller.js</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/contacts/partials/contact-timeline-item.html</file>
+            <file>file:/var/www/html/groupoffice-client/app/modules/contacts/partials/contact-timeline.html</file>
         </group>
     </open-files>
 </project-private>

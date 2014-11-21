@@ -1,0 +1,23 @@
+<div class="go-toolbar">
+	<go-store-search store="store"></go-store-search>
+</div>
+
+<div class="go-scrollable-panel" im-infinite-scroll="store.nextPage()" im-infinite-scroll-disabled="!store.shouldLoad()">
+	
+	<div class="go-padding-panel">
+		<h1>List</h1>
+
+		<p>Contacts loaded dynamically with infinite scroll</p>
+	</div>
+
+	<div class="list-group">
+		<a ui-sref="contacts.contact.detail({contactId: contact.attributes.id})" class="list-group-item" ng-repeat="contact in store.items track by contact.attributes.id">
+			{{contact.attributes.name}}
+		</a>
+
+		<div ng-if="store.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| goT}}</div>
+
+	</div>
+
+
+</div>

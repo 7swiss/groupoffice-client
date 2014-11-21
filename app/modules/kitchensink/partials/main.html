@@ -1,0 +1,31 @@
+
+<div ng-include="'partials/header.html'"></div>
+
+
+<div class="go-body">		
+	<div class="go-panel sm list">
+		<div class="go-scrollable-panel">
+
+			<div class="list-group">
+				<a class="list-group-item" ui-sref-active="active" ui-sref="kitchensink.links">Links</a>
+				<a class="list-group-item" ui-sref-active="active" ui-sref="kitchensink.list">List with store</a>
+				<a class="list-group-item" ui-sref-active="active" ui-sref="kitchensink.card">Card</a>
+				<a class="list-group-item" ui-sref-active="active" ui-sref="kitchensink.toolbar">Toolbar and Alert service</a>
+				
+				<a class="list-group-item" ui-sref-active="active" ui-sref="kitchensink.tabs.tab1">Tabs</a>
+				<a class="list-group-item" ui-sref-active="active" ui-sref="kitchensink.form">Form</a>
+				<a class="list-group-item" ui-sref-active="active" ui-sref="kitchensink.loadmask">Load mask</a>
+				<a class="list-group-item" ui-sref-active="active" ui-sref="kitchensink.collapsiblePanel">Collapsible panel</a>
+				
+			</div>
+
+		</div>
+	</div>
+
+	<div class="go-panel fill">
+		
+		<div ui-view></div>
+
+	</div>
+
+</div>

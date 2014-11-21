@@ -11,7 +11,7 @@ $light-bg: #eceff1;*/
   padding: 8px 12px;
   background-color: #fff;
   border-bottom: 1px solid #ddd;
-  border-right: 1px solid #ddd;
+  /*border-right: 1px solid $border-color;*/
   line-height: 50px;
   padding: 0 10px;
   font-size: 1.2em; }
@@ -52,7 +52,10 @@ $light-bg: #eceff1;*/
     margin-right: 0px; }
   .go-toolbar h1 {
     display: inline-block;
-    margin: 0px; }
+    margin: 0px;
+    margin-right: 10px;
+    float: left;
+    line-height: 50px; }
 
 .go-toolbar + .go-body {
   top: 105px; }
@@ -196,6 +199,7 @@ figure {
   margin: 1em 40px; }
 
 hr {
+  -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0; }
 
@@ -255,6 +259,8 @@ input[type="number"]::-webkit-outer-spin-button {
 
 input[type="search"] {
   -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
   box-sizing: content-box; }
 
 input[type="search"]::-webkit-search-cancel-button,
@@ -972,10 +978,14 @@ th {
   content: "\e200"; }
 
 * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 *:before,
 *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 html {
@@ -1030,6 +1040,7 @@ img {
   border: 1px solid #ddd;
   border-radius: 4px;
   -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   display: inline-block;
   width: 100% \9;
@@ -2258,6 +2269,8 @@ label {
   font-weight: bold; }
 
 input[type="search"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 input[type="radio"],
@@ -2303,12 +2316,15 @@ output {
   background-image: none;
   border: 1px solid #ccc;
   border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; }
   .form-control:focus, form.form-horizontal.go-labels .form-group input[type="text"]:focus, form.form-horizontal.go-labels .form-group input[type="email"]:focus, form.form-horizontal.go-labels .form-group input[type="password"]:focus, form.form-horizontal.go-labels .form-group textarea:focus, form.form-horizontal.go-labels-100 .form-group input[type="text"]:focus, form.form-horizontal.go-labels-100 .form-group input[type="email"]:focus, form.form-horizontal.go-labels-100 .form-group input[type="password"]:focus, form.form-horizontal.go-labels-100 .form-group textarea:focus, form.form-horizontal.go-labels-300 .form-group input[type="text"]:focus, form.form-horizontal.go-labels-300 .form-group input[type="email"]:focus, form.form-horizontal.go-labels-300 .form-group input[type="password"]:focus, form.form-horizontal.go-labels-300 .form-group textarea:focus {
     border-color: #66afe9;
     outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); }
   .form-control::-moz-placeholder, form.form-horizontal.go-labels .form-group input[type="text"]::-moz-placeholder, form.form-horizontal.go-labels .form-group input[type="email"]::-moz-placeholder, form.form-horizontal.go-labels .form-group input[type="password"]::-moz-placeholder, form.form-horizontal.go-labels .form-group textarea::-moz-placeholder, form.form-horizontal.go-labels-100 .form-group input[type="text"]::-moz-placeholder, form.form-horizontal.go-labels-100 .form-group input[type="email"]::-moz-placeholder, form.form-horizontal.go-labels-100 .form-group input[type="password"]::-moz-placeholder, form.form-horizontal.go-labels-100 .form-group textarea::-moz-placeholder, form.form-horizontal.go-labels-300 .form-group input[type="text"]::-moz-placeholder, form.form-horizontal.go-labels-300 .form-group input[type="email"]::-moz-placeholder, form.form-horizontal.go-labels-300 .form-group input[type="password"]::-moz-placeholder, form.form-horizontal.go-labels-300 .form-group textarea::-moz-placeholder {
     color: #777777;
@@ -2729,9 +2745,11 @@ form.form-horizontal.go-labels-300 .has-success .form-group > label,
   color: #3c763d; }
 .has-success .form-control, .has-success form.form-horizontal.go-labels .form-group input[type="text"], form.form-horizontal.go-labels .form-group .has-success input[type="text"], .has-success form.form-horizontal.go-labels .form-group input[type="email"], form.form-horizontal.go-labels .form-group .has-success input[type="email"], .has-success form.form-horizontal.go-labels .form-group input[type="password"], form.form-horizontal.go-labels .form-group .has-success input[type="password"], .has-success form.form-horizontal.go-labels .form-group textarea, form.form-horizontal.go-labels .form-group .has-success textarea, .has-success form.form-horizontal.go-labels-100 .form-group input[type="text"], form.form-horizontal.go-labels-100 .form-group .has-success input[type="text"], .has-success form.form-horizontal.go-labels-100 .form-group input[type="email"], form.form-horizontal.go-labels-100 .form-group .has-success input[type="email"], .has-success form.form-horizontal.go-labels-100 .form-group input[type="password"], form.form-horizontal.go-labels-100 .form-group .has-success input[type="password"], .has-success form.form-horizontal.go-labels-100 .form-group textarea, form.form-horizontal.go-labels-100 .form-group .has-success textarea, .has-success form.form-horizontal.go-labels-300 .form-group input[type="text"], form.form-horizontal.go-labels-300 .form-group .has-success input[type="text"], .has-success form.form-horizontal.go-labels-300 .form-group input[type="email"], form.form-horizontal.go-labels-300 .form-group .has-success input[type="email"], .has-success form.form-horizontal.go-labels-300 .form-group input[type="password"], form.form-horizontal.go-labels-300 .form-group .has-success input[type="password"], .has-success form.form-horizontal.go-labels-300 .form-group textarea, form.form-horizontal.go-labels-300 .form-group .has-success textarea {
   border-color: #3c763d;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
   .has-success .form-control:focus, .has-success form.form-horizontal.go-labels .form-group input[type="text"]:focus, form.form-horizontal.go-labels .form-group .has-success input[type="text"]:focus, .has-success form.form-horizontal.go-labels .form-group input[type="email"]:focus, form.form-horizontal.go-labels .form-group .has-success input[type="email"]:focus, .has-success form.form-horizontal.go-labels .form-group input[type="password"]:focus, form.form-horizontal.go-labels .form-group .has-success input[type="password"]:focus, .has-success form.form-horizontal.go-labels .form-group textarea:focus, form.form-horizontal.go-labels .form-group .has-success textarea:focus, .has-success form.form-horizontal.go-labels-100 .form-group input[type="text"]:focus, form.form-horizontal.go-labels-100 .form-group .has-success input[type="text"]:focus, .has-success form.form-horizontal.go-labels-100 .form-group input[type="email"]:focus, form.form-horizontal.go-labels-100 .form-group .has-success input[type="email"]:focus, .has-success form.form-horizontal.go-labels-100 .form-group input[type="password"]:focus, form.form-horizontal.go-labels-100 .form-group .has-success input[type="password"]:focus, .has-success form.form-horizontal.go-labels-100 .form-group textarea:focus, form.form-horizontal.go-labels-100 .form-group .has-success textarea:focus, .has-success form.form-horizontal.go-labels-300 .form-group input[type="text"]:focus, form.form-horizontal.go-labels-300 .form-group .has-success input[type="text"]:focus, .has-success form.form-horizontal.go-labels-300 .form-group input[type="email"]:focus, form.form-horizontal.go-labels-300 .form-group .has-success input[type="email"]:focus, .has-success form.form-horizontal.go-labels-300 .form-group input[type="password"]:focus, form.form-horizontal.go-labels-300 .form-group .has-success input[type="password"]:focus, .has-success form.form-horizontal.go-labels-300 .form-group textarea:focus, form.form-horizontal.go-labels-300 .form-group .has-success textarea:focus {
     border-color: #2b542c;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168; }
 .has-success .input-group-addon {
   color: #3c763d;
@@ -2755,9 +2773,11 @@ form.form-horizontal.go-labels-300 .has-warning .form-group > label,
   color: #8a6d3b; }
 .has-warning .form-control, .has-warning form.form-horizontal.go-labels .form-group input[type="text"], form.form-horizontal.go-labels .form-group .has-warning input[type="text"], .has-warning form.form-horizontal.go-labels .form-group input[type="email"], form.form-horizontal.go-labels .form-group .has-warning input[type="email"], .has-warning form.form-horizontal.go-labels .form-group input[type="password"], form.form-horizontal.go-labels .form-group .has-warning input[type="password"], .has-warning form.form-horizontal.go-labels .form-group textarea, form.form-horizontal.go-labels .form-group .has-warning textarea, .has-warning form.form-horizontal.go-labels-100 .form-group input[type="text"], form.form-horizontal.go-labels-100 .form-group .has-warning input[type="text"], .has-warning form.form-horizontal.go-labels-100 .form-group input[type="email"], form.form-horizontal.go-labels-100 .form-group .has-warning input[type="email"], .has-warning form.form-horizontal.go-labels-100 .form-group input[type="password"], form.form-horizontal.go-labels-100 .form-group .has-warning input[type="password"], .has-warning form.form-horizontal.go-labels-100 .form-group textarea, form.form-horizontal.go-labels-100 .form-group .has-warning textarea, .has-warning form.form-horizontal.go-labels-300 .form-group input[type="text"], form.form-horizontal.go-labels-300 .form-group .has-warning input[type="text"], .has-warning form.form-horizontal.go-labels-300 .form-group input[type="email"], form.form-horizontal.go-labels-300 .form-group .has-warning input[type="email"], .has-warning form.form-horizontal.go-labels-300 .form-group input[type="password"], form.form-horizontal.go-labels-300 .form-group .has-warning input[type="password"], .has-warning form.form-horizontal.go-labels-300 .form-group textarea, form.form-horizontal.go-labels-300 .form-group .has-warning textarea {
   border-color: #8a6d3b;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
   .has-warning .form-control:focus, .has-warning form.form-horizontal.go-labels .form-group input[type="text"]:focus, form.form-horizontal.go-labels .form-group .has-warning input[type="text"]:focus, .has-warning form.form-horizontal.go-labels .form-group input[type="email"]:focus, form.form-horizontal.go-labels .form-group .has-warning input[type="email"]:focus, .has-warning form.form-horizontal.go-labels .form-group input[type="password"]:focus, form.form-horizontal.go-labels .form-group .has-warning input[type="password"]:focus, .has-warning form.form-horizontal.go-labels .form-group textarea:focus, form.form-horizontal.go-labels .form-group .has-warning textarea:focus, .has-warning form.form-horizontal.go-labels-100 .form-group input[type="text"]:focus, form.form-horizontal.go-labels-100 .form-group .has-warning input[type="text"]:focus, .has-warning form.form-horizontal.go-labels-100 .form-group input[type="email"]:focus, form.form-horizontal.go-labels-100 .form-group .has-warning input[type="email"]:focus, .has-warning form.form-horizontal.go-labels-100 .form-group input[type="password"]:focus, form.form-horizontal.go-labels-100 .form-group .has-warning input[type="password"]:focus, .has-warning form.form-horizontal.go-labels-100 .form-group textarea:focus, form.form-horizontal.go-labels-100 .form-group .has-warning textarea:focus, .has-warning form.form-horizontal.go-labels-300 .form-group input[type="text"]:focus, form.form-horizontal.go-labels-300 .form-group .has-warning input[type="text"]:focus, .has-warning form.form-horizontal.go-labels-300 .form-group input[type="email"]:focus, form.form-horizontal.go-labels-300 .form-group .has-warning input[type="email"]:focus, .has-warning form.form-horizontal.go-labels-300 .form-group input[type="password"]:focus, form.form-horizontal.go-labels-300 .form-group .has-warning input[type="password"]:focus, .has-warning form.form-horizontal.go-labels-300 .form-group textarea:focus, form.form-horizontal.go-labels-300 .form-group .has-warning textarea:focus {
     border-color: #66512c;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b; }
 .has-warning .input-group-addon {
   color: #8a6d3b;
@@ -2781,9 +2801,11 @@ form.form-horizontal.go-labels-300 .has-error .form-group > label,
   color: #a94442; }
 .has-error .form-control, .has-error form.form-horizontal.go-labels .form-group input[type="text"], form.form-horizontal.go-labels .form-group .has-error input[type="text"], .has-error form.form-horizontal.go-labels .form-group input[type="email"], form.form-horizontal.go-labels .form-group .has-error input[type="email"], .has-error form.form-horizontal.go-labels .form-group input[type="password"], form.form-horizontal.go-labels .form-group .has-error input[type="password"], .has-error form.form-horizontal.go-labels .form-group textarea, form.form-horizontal.go-labels .form-group .has-error textarea, .has-error form.form-horizontal.go-labels-100 .form-group input[type="text"], form.form-horizontal.go-labels-100 .form-group .has-error input[type="text"], .has-error form.form-horizontal.go-labels-100 .form-group input[type="email"], form.form-horizontal.go-labels-100 .form-group .has-error input[type="email"], .has-error form.form-horizontal.go-labels-100 .form-group input[type="password"], form.form-horizontal.go-labels-100 .form-group .has-error input[type="password"], .has-error form.form-horizontal.go-labels-100 .form-group textarea, form.form-horizontal.go-labels-100 .form-group .has-error textarea, .has-error form.form-horizontal.go-labels-300 .form-group input[type="text"], form.form-horizontal.go-labels-300 .form-group .has-error input[type="text"], .has-error form.form-horizontal.go-labels-300 .form-group input[type="email"], form.form-horizontal.go-labels-300 .form-group .has-error input[type="email"], .has-error form.form-horizontal.go-labels-300 .form-group input[type="password"], form.form-horizontal.go-labels-300 .form-group .has-error input[type="password"], .has-error form.form-horizontal.go-labels-300 .form-group textarea, form.form-horizontal.go-labels-300 .form-group .has-error textarea {
   border-color: #a94442;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
   .has-error .form-control:focus, .has-error form.form-horizontal.go-labels .form-group input[type="text"]:focus, form.form-horizontal.go-labels .form-group .has-error input[type="text"]:focus, .has-error form.form-horizontal.go-labels .form-group input[type="email"]:focus, form.form-horizontal.go-labels .form-group .has-error input[type="email"]:focus, .has-error form.form-horizontal.go-labels .form-group input[type="password"]:focus, form.form-horizontal.go-labels .form-group .has-error input[type="password"]:focus, .has-error form.form-horizontal.go-labels .form-group textarea:focus, form.form-horizontal.go-labels .form-group .has-error textarea:focus, .has-error form.form-horizontal.go-labels-100 .form-group input[type="text"]:focus, form.form-horizontal.go-labels-100 .form-group .has-error input[type="text"]:focus, .has-error form.form-horizontal.go-labels-100 .form-group input[type="email"]:focus, form.form-horizontal.go-labels-100 .form-group .has-error input[type="email"]:focus, .has-error form.form-horizontal.go-labels-100 .form-group input[type="password"]:focus, form.form-horizontal.go-labels-100 .form-group .has-error input[type="password"]:focus, .has-error form.form-horizontal.go-labels-100 .form-group textarea:focus, form.form-horizontal.go-labels-100 .form-group .has-error textarea:focus, .has-error form.form-horizontal.go-labels-300 .form-group input[type="text"]:focus, form.form-horizontal.go-labels-300 .form-group .has-error input[type="text"]:focus, .has-error form.form-horizontal.go-labels-300 .form-group input[type="email"]:focus, form.form-horizontal.go-labels-300 .form-group .has-error input[type="email"]:focus, .has-error form.form-horizontal.go-labels-300 .form-group input[type="password"]:focus, form.form-horizontal.go-labels-300 .form-group .has-error input[type="password"]:focus, .has-error form.form-horizontal.go-labels-300 .form-group textarea:focus, form.form-horizontal.go-labels-300 .form-group .has-error textarea:focus {
     border-color: #843534;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483; }
 .has-error .input-group-addon {
   color: #a94442;
@@ -2923,12 +2945,14 @@ form.form-horizontal.go-labels-300 .has-error .form-group > label,
   .btn:active, .em-message .em-show-quote:active, button:active, .btn.active, .em-message .active.em-show-quote, button.active {
     outline: 0;
     background-image: none;
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
   .btn.disabled, .em-message .disabled.em-show-quote, button.disabled, .btn[disabled], .em-message [disabled].em-show-quote, button[disabled], fieldset[disabled] .btn, fieldset[disabled] .em-message .em-show-quote, .em-message fieldset[disabled] .em-show-quote, fieldset[disabled] button, fieldset[disabled] button[type=submit] {
     cursor: not-allowed;
     pointer-events: none;
     opacity: 0.65;
     filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
     box-shadow: none; }
 
 .btn-default, .btn, .em-message .em-show-quote, button, button[type=submit] {
@@ -3040,6 +3064,7 @@ form.form-horizontal.go-labels-300 .has-error .form-group > label,
   border-radius: 0; }
   .btn-link, .btn-link:active, .btn-link[disabled], fieldset[disabled] .btn-link {
     background-color: transparent;
+    -webkit-box-shadow: none;
     box-shadow: none; }
   .btn-link, .btn-link:hover, .btn-link:focus, .btn-link:active {
     border-color: transparent; }
@@ -3114,6 +3139,7 @@ input[type="button"].btn-block {
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 2px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   background-clip: padding-box; }
   .dropdown-menu.pull-right {
@@ -3313,8 +3339,10 @@ input[type="button"].btn-block {
   padding-right: 12px; }
 
 .btn-group.open .dropdown-toggle {
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
   .btn-group.open .dropdown-toggle.btn-link {
+    -webkit-box-shadow: none;
     box-shadow: none; }
 
 .btn .caret, .em-message .em-show-quote .caret, button .caret, button[type=submit] .caret {
@@ -3641,6 +3669,7 @@ a.label:hover, a.label:focus {
   border: 1px solid #ddd;
   border-radius: 4px;
   -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out; }
   .thumbnail > img,
   .thumbnail a > img {
@@ -3737,6 +3766,7 @@ a.thumbnail.active {
   margin-bottom: 20px;
   background-color: #f5f5f5;
   border-radius: 2px;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); }
 
 .progress-bar {
@@ -3748,19 +3778,23 @@ a.thumbnail.active {
   color: #fff;
   text-align: center;
   background-color: #428bca;
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   -webkit-transition: width 0.6s ease;
+  -o-transition: width 0.6s ease;
   transition: width 0.6s ease; }
 
 .progress-striped .progress-bar,
 .progress-bar-striped {
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-size: 40px 40px; }
 
 .progress.active .progress-bar,
 .progress-bar.active {
   -webkit-animation: progress-bar-stripes 2s linear infinite;
+  -o-animation: progress-bar-stripes 2s linear infinite;
   animation: progress-bar-stripes 2s linear infinite; }
 
 .progress-bar[aria-valuenow="1"], .progress-bar[aria-valuenow="2"] {
@@ -3776,24 +3810,28 @@ a.thumbnail.active {
   background-color: #5cb85c; }
   .progress-striped .progress-bar-success {
     background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
     background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); }
 
 .progress-bar-info {
   background-color: #5bc0de; }
   .progress-striped .progress-bar-info {
     background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
     background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); }
 
 .progress-bar-warning {
   background-color: #f0ad4e; }
   .progress-striped .progress-bar-warning {
     background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
     background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); }
 
 .progress-bar-danger {
   background-color: #d9534f; }
   .progress-striped .progress-bar-danger {
     background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
     background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); }
 
 .list-group {
@@ -3941,6 +3979,8 @@ a.list-group-item-danger {
     -webkit-transform: translate3d(0, -25%, 0);
     transform: translate3d(0, -25%, 0);
     -webkit-transition: -webkit-transform 0.3s ease-out;
+    -moz-transition: -moz-transform 0.3s ease-out;
+    -o-transition: -o-transform 0.3s ease-out;
     transition: transform 0.3s ease-out; }
   .modal.in .modal-dialog {
     -webkit-transform: translate3d(0, 0, 0);
@@ -3961,6 +4001,7 @@ a.list-group-item-danger {
   border: 1px solid #999;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   background-clip: padding-box;
   outline: 0; }
@@ -4026,6 +4067,7 @@ a.list-group-item-danger {
     margin: 30px auto; }
 
   .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); }
 
   .modal-sm {
@@ -4133,6 +4175,7 @@ a.list-group-item-danger {
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   white-space: normal; }
   .popover.top {
@@ -4655,28 +4698,25 @@ textarea.form-control, form.form-horizontal.go-labels .form-group textarea, form
         color: white;
         display: block; }
 
-.go-list {
-  border: 0px;
-  overflow: auto;
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  margin-bottom: 0px; }
-  .go-list .thumbnail {
-    vertical-align: middle;
-    display: inline-block;
-    margin-bottom: 0px;
-    margin-right: 10px; }
-
-.go-list-date {
+.list-group-item .thumbnail {
+  vertical-align: middle;
+  display: inline-block;
+  margin-bottom: 0px;
+  margin-right: 10px; }
+.list-group-item .go-list-date {
   float: right;
   color: #777777;
   font-style: italic; }
-
-.active .go-list-date {
+.list-group-item .active .go-list-date {
   color: white; }
+
+.go-panel .list-group .list-group-item {
+  border-right: 0px;
+  border-left: 0px; }
+
+.go-padding-panel .list-group .list-group-item, .go-card .list-group .list-group-item {
+  border-right: 1px solid #ddd;
+  border-left: 1px solid #ddd; }
 
 .go-list-item-loading {
   border: 0px; }
@@ -4795,6 +4835,7 @@ textarea.form-control, form.form-horizontal.go-labels .form-group textarea, form
   right: 0px;
   overflow: hidden; }
   .go-body .go-panel {
+    border-right: 1px solid #ddd;
     /* Full size on mobile */
     position: absolute;
     top: 0px;
@@ -4803,11 +4844,8 @@ textarea.form-control, form.form-horizontal.go-labels .form-group textarea, form
     bottom: 0px;
     overflow: hidden;
     display: block;
-    -webkit-transition: all 0.3s ease-out;
-            transition: all 0.3s ease-out;
-    -webkit-transform: translateX(-100%);
-        -ms-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transition: all 0.3s ease-out;
+    transform: translateX(-100%);
     /*
     		 Show on desktop only 
     		&.lg{
@@ -4826,6 +4864,8 @@ textarea.form-control, form.form-horizontal.go-labels .form-group textarea, form
     				transform: translateX(-100%);
     			}
     		}*/ }
+    .go-body .go-panel:last-child {
+      border-right: 0px; }
     @media (min-width: 768px) {
       .go-body .go-panel {
         /* floating cards on tabler or higher */
@@ -4838,19 +4878,13 @@ textarea.form-control, form.form-horizontal.go-labels .form-group textarea, form
         height: 100%;
         min-height: 1px;
         width: 100%;
-        -webkit-transform: translateX(0%);
-            -ms-transform: translateX(0%);
-                transform: translateX(0%); } }
+        transform: translateX(0%); } }
     .go-body .go-panel.active {
       /*display: block !important;*/
-      -webkit-transform: translateX(0%) !important;
-          -ms-transform: translateX(0%) !important;
-              transform: translateX(0%) !important; }
+      transform: translateX(0%) !important; }
     .go-body .go-panel.hidden {
       /*display:none !important;*/
-      -webkit-transform: translateX(-100%);
-          -ms-transform: translateX(-100%);
-              transform: translateX(-100%); }
+      transform: translateX(-100%); }
     @media (min-width: 768px) {
       .go-body .go-panel.list {
         width: 370px; } }
@@ -4861,9 +4895,7 @@ textarea.form-control, form.form-horizontal.go-labels .form-group textarea, form
       /* tablet */ }
       @media (max-width: 767px) {
         .go-body .go-panel.fill {
-          -webkit-transform: translateX(100%);
-              -ms-transform: translateX(100%);
-                  transform: translateX(100%); } }
+          transform: translateX(100%); } }
       @media (min-width: 768px) {
         .go-body .go-panel.fill {
           width: auto;
@@ -4895,21 +4927,10 @@ textarea.form-control, form.form-horizontal.go-labels .form-group textarea, form
     width: 100%;
     height: 100%;
     /* NB: IE requires the height property. max-height won't work on IE)*/
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-    -webkit-align-content: flex-start;
-        -ms-flex-line-pack: start;
-            align-content: flex-start; }
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start; }
     .go-lg-col-2 .item {
       display: inline-block;
       width: 50%;
@@ -5014,8 +5035,7 @@ a.im-file {
   background-color: #000;
   z-index: 500;
   visibility: hidden;
-  -webkit-transition: all 0.5s ease-in-out;
-          transition: all 0.5s ease-in-out; }
+  transition: all 0.5s ease-in-out; }
   .go-mask.active {
     visibility: visible;
     opacity: 0.5; }
@@ -5129,6 +5149,7 @@ a.im-file {
   visibility: visible;
   opacity: 0;
   -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out; }
   .error-balloon.active {
     opacity: .9; }
@@ -5296,6 +5317,7 @@ a.im-file {
   .go-body .go-panel.collapse-xs, .go-body .go-panel.collapse-sm, .go-body .go-panel.collapse-lg {
     width: 310px;
     -webkit-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
     z-index: 1060;
     float: none;
@@ -5313,6 +5335,8 @@ a.im-file {
     .go-body .go-panel.collapse-xs .go-toolbar, .go-body .go-panel.collapse-sm .go-toolbar, .go-body .go-panel.collapse-lg .go-toolbar {
       background-color: #8bc34a;
       color: white; }
+      .go-body .go-panel.collapse-xs .go-toolbar h1, .go-body .go-panel.collapse-sm .go-toolbar h1, .go-body .go-panel.collapse-lg .go-toolbar h1 {
+        color: white; }
       .go-body .go-panel.collapse-xs .go-toolbar a, .go-body .go-panel.collapse-xs .go-toolbar button, .go-body .go-panel.collapse-sm .go-toolbar a, .go-body .go-panel.collapse-sm .go-toolbar button, .go-body .go-panel.collapse-lg .go-toolbar a, .go-body .go-panel.collapse-lg .go-toolbar button {
         border: 0;
         background: transparent;
@@ -5412,53 +5436,35 @@ a.im-file {
     .go-tab-view .go-toolbar a {
       background-color: white; }
   .go-tab-view.ng-enter {
-    -webkit-transition: all .3s ease-out;
-            transition: all .3s ease-out;
+    transition: all .3s ease-out;
     z-index: 99 !important; }
   .go-tab-view.ng-leave {
-    -webkit-transition: all .6s ease-out;
-            transition: all .6s ease-out;
+    transition: all .6s ease-out;
     z-index: 98 !important; }
   .go-tab-view.ng-enter.right {
-    -webkit-transform: translateX(-100%);
-        -ms-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
     /*opacity: 0;*/ }
   .go-tab-view.ng-enter-active.right {
-    -webkit-transform: translateX(0%);
-        -ms-transform: translateX(0%);
-            transform: translateX(0%);
+    transform: translateX(0%);
     /*opacity: 1;*/ }
   .go-tab-view.ng-leave.right {
     /*opacity: 1;*/
-    -webkit-transform: translateX(0%);
-        -ms-transform: translateX(0%);
-            transform: translateX(0%); }
+    transform: translateX(0%); }
   .go-tab-view.ng-leave-active.right {
     /*opacity: 0;*/
-    -webkit-transform: translateX(100%);
-        -ms-transform: translateX(100%);
-            transform: translateX(100%); }
+    transform: translateX(100%); }
   .go-tab-view.ng-enter.left {
-    -webkit-transform: translateX(100%);
-        -ms-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
     /*opacity: 0;*/ }
   .go-tab-view.ng-enter-active.left {
-    -webkit-transform: translateX(0%);
-        -ms-transform: translateX(0%);
-            transform: translateX(0%);
+    transform: translateX(0%);
     /*opacity: 1;*/ }
   .go-tab-view.ng-leave.left {
     /*opacity: 1;*/
-    -webkit-transform: translateX(0%);
-        -ms-transform: translateX(0%);
-            transform: translateX(0%); }
+    transform: translateX(0%); }
   .go-tab-view.ng-leave-active.left {
     /*opacity: 0;*/
-    -webkit-transform: translateX(-100%);
-        -ms-transform: translateX(-100%);
-            transform: translateX(-100%); }
+    transform: translateX(-100%); }
 
 .im-numeric {
   text-align: right;
@@ -5492,14 +5498,16 @@ a.im-file {
   .note-edit-dialog .modal-content.yellow {
     background: #fff59d;
     /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #fff59d 77%, #fff9c4 100%);
     /* FF3.6+ */
     background: -webkit-gradient(linear, left top, right bottom, color-stop(77%, #fff59d), color-stop(100%, #fff9c4));
     /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(-45deg, #fff59d 77%, #fff9c4 100%);
     /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg, #fff59d 77%, #fff9c4 100%);
     /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg, #fff59d 77%, #fff9c4 100%);
     /* IE10+ */
-    background: -webkit-linear-gradient(135deg, #fff59d 77%, #fff9c4 100%);
     background: linear-gradient(-45deg, #fff59d 77%, #fff9c4 100%);
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$color, endColorstr=$light-color,GradientType=0 );
@@ -5507,14 +5515,16 @@ a.im-file {
   .note-edit-dialog .modal-content.red {
     background: #f69988;
     /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #f69988 77%, #f9bdbb 100%);
     /* FF3.6+ */
     background: -webkit-gradient(linear, left top, right bottom, color-stop(77%, #f69988), color-stop(100%, #f9bdbb));
     /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(-45deg, #f69988 77%, #f9bdbb 100%);
     /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg, #f69988 77%, #f9bdbb 100%);
     /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg, #f69988 77%, #f9bdbb 100%);
     /* IE10+ */
-    background: -webkit-linear-gradient(135deg, #f69988 77%, #f9bdbb 100%);
     background: linear-gradient(-45deg, #f69988 77%, #f9bdbb 100%);
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$color, endColorstr=$light-color,GradientType=0 );
@@ -5522,14 +5532,16 @@ a.im-file {
   .note-edit-dialog .modal-content.blue {
     background: #afbfff;
     /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #afbfff 77%, #d0d9ff 100%);
     /* FF3.6+ */
     background: -webkit-gradient(linear, left top, right bottom, color-stop(77%, #afbfff), color-stop(100%, #d0d9ff));
     /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(-45deg, #afbfff 77%, #d0d9ff 100%);
     /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg, #afbfff 77%, #d0d9ff 100%);
     /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg, #afbfff 77%, #d0d9ff 100%);
     /* IE10+ */
-    background: -webkit-linear-gradient(135deg, #afbfff 77%, #d0d9ff 100%);
     background: linear-gradient(-45deg, #afbfff 77%, #d0d9ff 100%);
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$color, endColorstr=$light-color,GradientType=0 );
@@ -5537,14 +5549,16 @@ a.im-file {
   .note-edit-dialog .modal-content.pink {
     background: #f8bbd0;
     /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #f8bbd0 77%, #f48fb1 100%);
     /* FF3.6+ */
     background: -webkit-gradient(linear, left top, right bottom, color-stop(77%, #f8bbd0), color-stop(100%, #f48fb1));
     /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(-45deg, #f8bbd0 77%, #f48fb1 100%);
     /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg, #f8bbd0 77%, #f48fb1 100%);
     /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg, #f8bbd0 77%, #f48fb1 100%);
     /* IE10+ */
-    background: -webkit-linear-gradient(135deg, #f8bbd0 77%, #f48fb1 100%);
     background: linear-gradient(-45deg, #f8bbd0 77%, #f48fb1 100%);
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$color, endColorstr=$light-color,GradientType=0 );
@@ -5552,14 +5566,16 @@ a.im-file {
   .note-edit-dialog .modal-content.orange {
     background: #ffcc80;
     /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #ffcc80 77%, #ffe0b2 100%);
     /* FF3.6+ */
     background: -webkit-gradient(linear, left top, right bottom, color-stop(77%, #ffcc80), color-stop(100%, #ffe0b2));
     /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(-45deg, #ffcc80 77%, #ffe0b2 100%);
     /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg, #ffcc80 77%, #ffe0b2 100%);
     /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg, #ffcc80 77%, #ffe0b2 100%);
     /* IE10+ */
-    background: -webkit-linear-gradient(135deg, #ffcc80 77%, #ffe0b2 100%);
     background: linear-gradient(-45deg, #ffcc80 77%, #ffe0b2 100%);
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$color, endColorstr=$light-color,GradientType=0 );
@@ -5567,14 +5583,16 @@ a.im-file {
   .note-edit-dialog .modal-content.green {
     background: #72d572;
     /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #72d572 77%, #a3e9a4 100%);
     /* FF3.6+ */
     background: -webkit-gradient(linear, left top, right bottom, color-stop(77%, #72d572), color-stop(100%, #a3e9a4));
     /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(-45deg, #72d572 77%, #a3e9a4 100%);
     /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg, #72d572 77%, #a3e9a4 100%);
     /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg, #72d572 77%, #a3e9a4 100%);
     /* IE10+ */
-    background: -webkit-linear-gradient(135deg, #72d572 77%, #a3e9a4 100%);
     background: linear-gradient(-45deg, #72d572 77%, #a3e9a4 100%);
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$color, endColorstr=$light-color,GradientType=0 );
@@ -5616,20 +5634,13 @@ a.im-file {
       position: relative; }
       .note-edit-dialog .modal-footer i.fa-tint:hover .colorpicker {
         opacity: 1;
-        -webkit-transform: translateY(0px);
-            -ms-transform: translateY(0px);
-                transform: translateY(0px);
-        -webkit-transition-duration: 0.218s;
-                transition-duration: 0.218s;
-        -webkit-transition-property: all;
-                transition-property: all;
-        -webkit-transition-timing-function: ease-in;
-                transition-timing-function: ease-in; }
+        transform: translateY(0px);
+        transition-duration: 0.218s;
+        transition-property: all;
+        transition-timing-function: ease-in; }
       .note-edit-dialog .modal-footer i.fa-tint .colorpicker {
         opacity: 0;
-        -webkit-transform: translateY(10px);
-            -ms-transform: translateY(10px);
-                transform: translateY(10px);
+        transform: translateY(10px);
         position: absolute;
         bottom: 39px;
         left: 0px;
@@ -5819,32 +5830,20 @@ a.im-file {
       bottom: 0;
       box-sizing: border-box;
       opacity: 1;
-      -webkit-transform: translateY(0px);
-          -ms-transform: translateY(0px);
-              transform: translateY(0px);
+      transform: translateY(0px);
       padding: 4px 0;
-      -webkit-transition-duration: 0.218s;
-              transition-duration: 0.218s;
-      -webkit-transition-property: all;
-              transition-property: all;
-      -webkit-transition-timing-function: ease-in;
-              transition-timing-function: ease-in; }
+      transition-duration: 0.218s;
+      transition-property: all;
+      transition-timing-function: ease-in; }
       .postit:hover .menu .fa {
-        -webkit-transform: translateY(0px);
-            -ms-transform: translateY(0px);
-                transform: translateY(0px);
-        -webkit-transition-duration: 0.218s;
-                transition-duration: 0.218s;
-        -webkit-transition-property: all;
-                transition-property: all;
-        -webkit-transition-timing-function: ease-in;
-                transition-timing-function: ease-in; }
+        transform: translateY(0px);
+        transition-duration: 0.218s;
+        transition-property: all;
+        transition-timing-function: ease-in; }
   .postit .menu {
     font-size: 20px;
     position: absolute;
-    -webkit-transform: translateY(10px);
-        -ms-transform: translateY(10px);
-            transform: translateY(10px);
+    transform: translateY(10px);
     padding: 10px 5px;
     bottom: 0px;
     left: 0px;
@@ -5864,9 +5863,7 @@ a.im-file {
       opacity: 1;
       vertical-align: middle;
       width: 32px;
-      -webkit-transform: translateY(10px);
-          -ms-transform: translateY(10px);
-              transform: translateY(10px);
+      transform: translateY(10px);
       position: relative; }
       .postit .menu .fa.disabled {
         color: #bdbdbd; }
@@ -5874,22 +5871,15 @@ a.im-file {
         margin-bottom: 0px; }
       .postit .menu .fa.fa-tint:hover .colorpicker {
         opacity: 1;
-        -webkit-transform: translateY(0px);
-            -ms-transform: translateY(0px);
-                transform: translateY(0px);
-        -webkit-transition-duration: 0.218s;
-                transition-duration: 0.218s;
-        -webkit-transition-property: all;
-                transition-property: all;
-        -webkit-transition-timing-function: ease-in;
-                transition-timing-function: ease-in; }
+        transform: translateY(0px);
+        transition-duration: 0.218s;
+        transition-property: all;
+        transition-timing-function: ease-in; }
       .postit .menu .fa.fa-tint:hover.disabled .colorpicker {
         opacity: 0; }
       .postit .menu .fa .colorpicker {
         opacity: 0;
-        -webkit-transform: translateY(10px);
-            -ms-transform: translateY(10px);
-                transform: translateY(10px);
+        transform: translateY(10px);
         position: absolute;
         bottom: 26px;
         left: -59px;
@@ -5969,14 +5959,16 @@ a.im-file {
   .postit.yellow {
     background: #fff59d;
     /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #fff59d 77%, #fff9c4 100%);
     /* FF3.6+ */
     background: -webkit-gradient(linear, left top, right bottom, color-stop(77%, #fff59d), color-stop(100%, #fff9c4));
     /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(-45deg, #fff59d 77%, #fff9c4 100%);
     /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg, #fff59d 77%, #fff9c4 100%);
     /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg, #fff59d 77%, #fff9c4 100%);
     /* IE10+ */
-    background: -webkit-linear-gradient(135deg, #fff59d 77%, #fff9c4 100%);
     background: linear-gradient(-45deg, #fff59d 77%, #fff9c4 100%);
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$color, endColorstr=$light-color,GradientType=0 );
@@ -5987,14 +5979,16 @@ a.im-file {
   .postit.red {
     background: #f69988;
     /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #f69988 77%, #f9bdbb 100%);
     /* FF3.6+ */
     background: -webkit-gradient(linear, left top, right bottom, color-stop(77%, #f69988), color-stop(100%, #f9bdbb));
     /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(-45deg, #f69988 77%, #f9bdbb 100%);
     /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg, #f69988 77%, #f9bdbb 100%);
     /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg, #f69988 77%, #f9bdbb 100%);
     /* IE10+ */
-    background: -webkit-linear-gradient(135deg, #f69988 77%, #f9bdbb 100%);
     background: linear-gradient(-45deg, #f69988 77%, #f9bdbb 100%);
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$color, endColorstr=$light-color,GradientType=0 );
@@ -6005,14 +5999,16 @@ a.im-file {
   .postit.blue {
     background: #afbfff;
     /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #afbfff 77%, #d0d9ff 100%);
     /* FF3.6+ */
     background: -webkit-gradient(linear, left top, right bottom, color-stop(77%, #afbfff), color-stop(100%, #d0d9ff));
     /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(-45deg, #afbfff 77%, #d0d9ff 100%);
     /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg, #afbfff 77%, #d0d9ff 100%);
     /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg, #afbfff 77%, #d0d9ff 100%);
     /* IE10+ */
-    background: -webkit-linear-gradient(135deg, #afbfff 77%, #d0d9ff 100%);
     background: linear-gradient(-45deg, #afbfff 77%, #d0d9ff 100%);
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$color, endColorstr=$light-color,GradientType=0 );
@@ -6023,14 +6019,16 @@ a.im-file {
   .postit.pink {
     background: #f8bbd0;
     /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #f8bbd0 77%, #f48fb1 100%);
     /* FF3.6+ */
     background: -webkit-gradient(linear, left top, right bottom, color-stop(77%, #f8bbd0), color-stop(100%, #f48fb1));
     /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(-45deg, #f8bbd0 77%, #f48fb1 100%);
     /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg, #f8bbd0 77%, #f48fb1 100%);
     /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg, #f8bbd0 77%, #f48fb1 100%);
     /* IE10+ */
-    background: -webkit-linear-gradient(135deg, #f8bbd0 77%, #f48fb1 100%);
     background: linear-gradient(-45deg, #f8bbd0 77%, #f48fb1 100%);
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$color, endColorstr=$light-color,GradientType=0 );
@@ -6041,14 +6039,16 @@ a.im-file {
   .postit.orange {
     background: #ffcc80;
     /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #ffcc80 77%, #ffe0b2 100%);
     /* FF3.6+ */
     background: -webkit-gradient(linear, left top, right bottom, color-stop(77%, #ffcc80), color-stop(100%, #ffe0b2));
     /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(-45deg, #ffcc80 77%, #ffe0b2 100%);
     /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg, #ffcc80 77%, #ffe0b2 100%);
     /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg, #ffcc80 77%, #ffe0b2 100%);
     /* IE10+ */
-    background: -webkit-linear-gradient(135deg, #ffcc80 77%, #ffe0b2 100%);
     background: linear-gradient(-45deg, #ffcc80 77%, #ffe0b2 100%);
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$color, endColorstr=$light-color,GradientType=0 );
@@ -6059,14 +6059,16 @@ a.im-file {
   .postit.green {
     background: #72d572;
     /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #72d572 77%, #a3e9a4 100%);
     /* FF3.6+ */
     background: -webkit-gradient(linear, left top, right bottom, color-stop(77%, #72d572), color-stop(100%, #a3e9a4));
     /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(-45deg, #72d572 77%, #a3e9a4 100%);
     /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg, #72d572 77%, #a3e9a4 100%);
     /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg, #72d572 77%, #a3e9a4 100%);
     /* IE10+ */
-    background: -webkit-linear-gradient(135deg, #72d572 77%, #a3e9a4 100%);
     background: linear-gradient(-45deg, #72d572 77%, #a3e9a4 100%);
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$color, endColorstr=$light-color,GradientType=0 );
@@ -6315,7 +6317,12 @@ h3 {
 /* rotate an element */
 .go-rotate {
   -webkit-animation: spin 2s linear infinite;
+  -moz-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite; }
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin {
   100% {
     -webkit-transform: rotate(360deg); } }
@@ -6370,3 +6377,5 @@ ul.comma-list {
 .nopadding {
   padding: 0 !important;
   margin: 0 !important; }
+
+/*# sourceMappingURL=app.css.map */

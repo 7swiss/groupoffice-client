@@ -9,6 +9,12 @@
 
 	.go-panel{
 		
+		border-right: 1px solid $border-color;
+		
+		&:last-child{
+			border-right:0px;
+		}
+		
 		/* Full size on mobile */
 		position: absolute;
 		top: 0px;

@@ -18,6 +18,7 @@
 				"on-close": {}
 			}
 		},
-		"im-soft-delete-button": {}
+		"im-soft-delete-button": {},
+		"go-tabs": {}
 	}
 }

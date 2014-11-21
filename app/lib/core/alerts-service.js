@@ -15,6 +15,13 @@ angular.module('GO.core').
 
 				$rootScope.alerts = [];
 
+				/**
+				 * 
+				 * @param {type} msg
+				 * @param {type} type danger, success, warning, info
+				 * @param {type} timeout
+				 * @returns {undefined}
+				 */
 				Alerts.prototype.addAlert = function (msg, type, timeout) {
 					
 					if(!timeout){

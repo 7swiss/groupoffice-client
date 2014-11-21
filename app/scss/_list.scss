@@ -1,12 +1,4 @@
-.go-list{	
-	border:0px;
-	overflow:auto;	
-	position:absolute;
-	top:0px;
-	bottom:0px;
-	left:0px;
-	right:0px;
-	margin-bottom:0px;
+.list-group-item{	
 	
 	.thumbnail{
 		vertical-align:middle;
@@ -14,20 +6,38 @@
 		margin-bottom:0px;
 		margin-right:10px;
 	}
-}	
 
-.go-list-date{
-	float:right;
-	color:#777777;
-	font-style:italic;
-}
-
-.active{
 	.go-list-date{
-		color:white;
+		float:right;
+		color:#777777;
+		font-style:italic;
+	}
+
+	.active{
+		.go-list-date{
+			color:white;
+		}	
 	}	
 }
 
-.go-list-item-loading{
-	border:0px;
+.go-panel{
+	.list-group{
+		.list-group-item{
+			border-right: 0px;
+			border-left:0px;
+		}
+	}
 }
+
+.go-padding-panel, .go-card{
+	.list-group{
+		.list-group-item{
+			border-right: 1px solid $border-color;
+			border-left: 1px solid $border-color;
+		}
+	}
+}
+
+.go-list-item-loading{
+		border:0px;
+	}

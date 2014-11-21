@@ -2,12 +2,12 @@
 
 angular.module('GO.tabs')
 
-		.directive('imTabView', [function () {
+		.directive('goTabView', [function () {
 
 
 				return {
 					restrict: 'A',
-					require: "^imTabs",
+					require: "^goTabs",
 					link: function (scope, element, attrs, imTabs) {						
 						//when tabs are switched this element is the entering view.
 						var cls = imTabs.left ? 'left' : 'right';						

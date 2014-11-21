@@ -1,0 +1,43 @@
+<div class="go-toolbar">
+	<a class="btn" ng-click="goCollapsiblePanel.toggle()">Toggle side</a>	
+</div>
+
+<!-- absolute div required for pinning. If you put this panel as a root panel it's not necessary. -->
+<div style="position: absolute;
+	 top:55px;
+	 bottom: 0px;
+	 left: 0px;
+	 right: 0px;
+	 overflow: hidden;"> 
+
+
+	<go-collapsible-panel on-close="callbackFunction()">
+
+		<div class="go-toolbar">
+			<h1>Title</h1>
+
+			<div class="go-toolbar-right">
+
+				<a type="button" class="btn visible-lg" ng-if="!goCollapsiblePanel.isPinned" ng-click="goCollapsiblePanel.togglePinned()" tooltip="{{'Pin'| goT}}" tooltip-placement='bottom'><i class="fa fa-thumb-tack"></i></a>
+
+				<button type="button" ng-click="goCollapsiblePanel.toggle()" tooltip="{{'Close'| goT}}" tooltip-placement='bottom'><i class="fa fa-times"></i></button>
+
+			</div>
+		</div>
+
+		<div class="go-scrollable-panel">
+
+			<p>1</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p>
+
+		</div>
+
+	</go-collapsible-panel>
+
+
+	<div class="go-panel fill">
+
+		Some other content
+
+	</div>
+
+</div>

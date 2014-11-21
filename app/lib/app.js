@@ -23,7 +23,7 @@ var GO = angular.module('GO', [
 	
 	//Angular UI modules
 	'ui.router', // http://angular-ui.github.io/ui-router/site/#/api/ui.router
-	'ui.sortable',
+	'ui.sortable', //https://github.com/a5hik/ng-sortable
 	//Bootstrap ui
 	'ui.bootstrap',
 //	'ui.select', // https://github.com/angular-ui/ui-select
@@ -32,7 +32,7 @@ var GO = angular.module('GO', [
 	'ngAnimate', // only enabled on elements with the "im-animate" class !
 	'ngTouch',
 //	'toggle-switch',
-	'flow',
+	'flow', // https://github.com/flowjs/ng-flow
 	'ngSanitize',
 	'monospaced.elastic',
 	'textAngular',

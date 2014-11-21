@@ -2,7 +2,7 @@
 
 angular.module('GO.tabs')
 
-		.directive('imTabs', [function () {
+		.directive('goTabs', [function () {
 
 
 				return {

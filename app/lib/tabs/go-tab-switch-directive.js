@@ -2,17 +2,17 @@
 
 angular.module('GO.tabs')
 
-		.directive('imTabSwitch', [function () {
+		.directive('goTabSwitch', [function () {
 				return {
 					restrict: 'A',
 //			priority: 0,
-					require: "^imTabs",
+					require: "^goTabs",
 					scope:true,
-					link: function (scope, element, attrs, imTabs) {
-						var tabIndex = imTabs.getNextTabIndex();
+					link: function (scope, element, attrs, goTabs) {
+						var tabIndex = goTabs.getNextTabIndex();
 						
 						element.on('click', function(){
-							imTabs.switch(tabIndex);
+							goTabs.switch(tabIndex);
 						});
 						
 						//not working

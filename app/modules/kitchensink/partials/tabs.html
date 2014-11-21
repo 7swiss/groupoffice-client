@@ -1,0 +1,18 @@
+<go-tabs>
+	<div class="go-tab-bar">
+		<a ui-sref="kitchensink.tabs.tab1" go-tab-switch  ui-sref-active="active">
+			<i class="fa fa-list-alt"></i> <span class="hidden-xs">Tab 1</span>
+		</a>
+
+		<a ui-sref="kitchensink.tabs.tab2" go-tab-switch ui-sref-active="active">
+			<i class="fa fa-folder-o"></i> <span class="hidden-xs">Tab 2</span>
+		</a>	
+
+		<a ui-sref="kitchensink.tabs.tab3" go-tab-switch ui-sref-active="active">
+			<i class="fa fa-clock-o"></i> <span class="hidden-xs">Tab 3</span>
+		</a>
+	</div>
+
+	<div ui-view go-tab-view></div>
+
+</go-tabs>
