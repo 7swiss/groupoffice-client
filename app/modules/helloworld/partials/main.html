@@ -1,46 +1,8 @@
-
 <div ng-include="'partials/header.html'"></div>
 
-<div class="go-toolbar">
-	<a class="btn" ng-click="goCollapsiblePanel.toggle()">Toggle side</a>	
-</div>
-
-<div class="go-body">
-
-	<go-collapsible-panel on-close="closeAside()">
-
-		<div class="go-toolbar">
-			<a class="btn">Button 1</a>
-		</div>
-
-		<div class="go-scrollable-panel">
-
-			<p>1</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p>
-
-		</div>
-
-	</go-collapsible-panel>
-		
-	<div class="go-panel sm list">
-		<div class="go-toolbar">
-			<a class="btn">Button 1</a>
-		</div>
-
-		<div class="go-scrollable-panel">
-
-			<div class="list-group">
-				
-				<a class="list-group-item" ui-sref="helloworld.grid">Grid</a>
-				
-			</div>
-
-		</div>
+<div class="go-body">	
+	<div class="go-card">
+		<h1>Hello world</h1>
+		<p>The  simplest module possible!</p>
 	</div>
-
-	<div class="go-panel fill">
-		
-		<div ui-view></div>
-
-	</div>
-
 </div>

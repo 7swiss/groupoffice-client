@@ -26,5 +26,8 @@
   },
   "scripts": {
     "postinstall": "bower install"
+  },
+  "dependencies": {
+    "dgeni": "^0.4.1"
   }
 }

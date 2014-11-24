@@ -2,11 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group name="PocketOffice">
-            <file>file:/var/www/html/groupoffice-client/app/modules/contacts/js/controllers/contact-timeline-controller.js</file>
-            <file>file:/var/www/html/groupoffice-client/app/modules/contacts/js/controllers/contact-timeline-item-controller.js</file>
-            <file>file:/var/www/html/groupoffice-client/app/modules/contacts/partials/contact-timeline-item.html</file>
-            <file>file:/var/www/html/groupoffice-client/app/modules/contacts/partials/contact-timeline.html</file>
-        </group>
+        <group name="PocketOffice"/>
     </open-files>
 </project-private>

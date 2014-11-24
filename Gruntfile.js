@@ -1,3 +1,5 @@
+var Dgeni = require('dgeni');
+
 module.exports = function (grunt) {
 
     grunt.initConfig({
@@ -169,8 +171,13 @@ module.exports = function (grunt) {
                 src: ['app/lib/**/*.js'],
                 title: 'API Documentation'
             }
-        }
+        },
+		
+		
     });
+	
+	
+	
 
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
@@ -186,6 +193,14 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-ngdocs');
 	grunt.loadNpmTasks('grunt-autoprefixer');
+	
+	
+	
+	grunt.registerTask('dgeni', 'Generate docs via dgeni.', function() {
+		var done = this.async();
+		var dgeni = new Dgeni([require('./docs/dgeni-example')]);
+		dgeni.generate().then(done);
+	  });
 
     // Tell Grunt what to do when we type "grunt" into the terminal.
     // Default is build the distributable version.

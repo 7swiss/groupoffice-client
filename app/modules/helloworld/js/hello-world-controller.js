@@ -4,12 +4,6 @@
 angular.module('GO.controllers').
 		controller('HelloWorldController', ['$scope', function($scope) {
 
-				$scope.asideActive = false;
-				
-				$scope.closeAside = function(){
-					
-				};
-
+				//Set's the title in the header bar
+				$scope.pageTitle = "Hello world";
 			}]);
-
-

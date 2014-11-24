@@ -150,12 +150,15 @@ angular.module('GO.data')
 				};
 
 				/**
+				 * @ngdoc method
+				 * 
+				 * @description 
 				 * When posting dates to the server API it requires them in ISO8060 standard.
 				 * eg. 2014-07-28T13:00+2000. The problem with dates with times is that javascript converts them to UTC when converting to JSON.
 				 * This will change the date and the server doesn't know which timezone it's in. We just want to post 2014-07-28 when it's about a date.
 				 * This function will check for dates without time and changes it into a string.
 				 *
-				 * @returns {_L317.Model.prototype.convertDateToString@arr;attributes}
+				 * @returns {string}
 				 */
 				Model.prototype.convertDateToString = function(attributes) {
 

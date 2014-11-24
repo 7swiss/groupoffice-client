@@ -20,7 +20,7 @@ Example:
 'use strict';
 
 angular.module('GO').
-		//Register the app
+		//Register the module
 		config(['modulesProvider', function(modulesProvider) {
 				modulesProvider.addModule('helloworld', 'Hello world', 'fa-thumbs-o-up');
 			}]).
@@ -31,6 +31,7 @@ angular.module('GO').
 						.state('helloworld', {
 							url: "/helloworld",
 							templateUrl: 'modules/helloworld/partials/main.html',
+							controller: "HelloWorldController"
 						});
 			}]);
 ```````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
@@ -45,18 +46,28 @@ You can also run grunt task "fileblocks" manually after adding the scripts.
 ```````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 <div ng-include="'partials/header.html'"></div>
 
-
-<div class="go-toolbar">
-	<a class="btn">A button</a>	
-</div>
-
-<div class="go-body">
-	<div class="go-scrollable-panel">
-		<h1>Hello World!</h1>
+<div class="go-body">	
+	<div class="go-card">
+		<h1>Hello world</h1>
+		<p>The  simplest module possible!</p>
 	</div>
 </div>
 ```````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 
+### Create js/hello-world-controller.js
+
+```````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+'use strict';
+
+/* Controllers */
+angular.module('GO.controllers').
+		controller('HelloWorldController', ['$scope', function($scope) {
+
+				//Set's the title in the header bar
+				$scope.pageTitle = "Hello world";
+			}]);
+
+```````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 
 
 ### Add the module to the database:

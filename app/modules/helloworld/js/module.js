@@ -13,10 +13,5 @@ angular.module('GO').
 							url: "/helloworld",
 							templateUrl: 'modules/helloworld/partials/main.html',
 							controller: "HelloWorldController"
-						})
-						.state('helloworld.grid', {
-							url: "/grid",
-							templateUrl: 'modules/helloworld/partials/grid.html',
-							controller: "GridController"
 						});
 			}]);
