@@ -1,0 +1,11 @@
+<go-tabs>
+	<div class="go-tab-bar">
+
+		<a ui-sref="projects.project.details({projectId: project.attributes.id})" go-tab-switch  ui-sref-active="active" tooltip="{{'Info'| goT}}" tooltip-placement="bottom"><i class="fa fa-list-alt"></i> <span class="hidden-xs">{{"Info" | goT}}</span></a>
+		<a ui-sref="projects.project.tasks({projectId: project.attributes.id})" go-tab-switch ui-sref-active="active"  tooltip="{{'Tasks'| goT}}" tooltip-placement="bottom"><i class="fa fa-tasks"></i> <span class="hidden-xs">{{"Tasks" | goT}}</span></a>
+		<a ui-sref="projects.project.schedules({projectId: project.attributes.id})" go-tab-switch ui-sref-active="active"  tooltip="{{'Schedules'| goT}}" tooltip-placement="bottom"><i class="fa fa-clock-o"></i> <span class="hidden-xs">{{"Schedules" | goT}}</span></a>	
+
+	</div>
+
+	<div ui-view go-tab-view></div>
+</go-tabs>

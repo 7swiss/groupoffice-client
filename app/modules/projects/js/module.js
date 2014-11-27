@@ -23,9 +23,19 @@ angular.module('GO').
 					url: "/project/{projectId:[0-9]*}",
 					templateUrl: 'modules/projects/partials/project.html'
 				})
-				.state('projects.project.detail', {
-					url: "/detail/",
-					templateUrl: 'modules/projects/partials/project-detail.html',
+				.state('projects.project.details', {
+					url: "/details",
+					templateUrl: 'modules/projects/partials/project-details.html',
 					controller: 'ProjectDetailController'
+				})
+				.state('projects.project.tasks', {
+					url: "/tasks",
+					templateUrl: 'modules/projects/partials/project-tasks.html',
+					controller: 'ProjectTaskController'
+				})
+				.state('projects.project.schedules', {
+					url: "/schedules",
+					templateUrl: 'modules/projects/partials/project-schedules.html',
+					controller: 'ProjectScheduleController'
 				});
 		}]);
