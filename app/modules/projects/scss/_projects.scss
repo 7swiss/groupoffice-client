@@ -1,0 +1,36 @@
+.project-display-head{
+	height:200px;
+	padding:5px;
+	background-color:#FFF;
+	position: relative;
+	
+	.go-toolbar{
+		border-bottom: none;
+	}
+	
+	.name {
+		position:absolute;
+		bottom:0;
+		left:100px;
+		font-size: 4.0em;
+		font-weight: bold;
+		color: $header-bg;
+	}
+	
+	.progress-container{
+		position:absolute;
+		width:70%;
+		text-align: center;
+		padding:10px;
+		height:40px;
+		border:1px solid $header-bg;
+		top: 30px;
+		left:100px;
+		color: $header-bg;
+	}
+	
+}
+
+.project-tab-container{
+	position: relative;
+}
