@@ -19,8 +19,12 @@ angular.module('GO').
 					templateUrl: 'modules/projects/partials/project-edit.html',
 					controller: 'ProjectEditController'
 				})
+				.state('projects.project', {
+					url: "/project/{projectId:[0-9]*}",
+					templateUrl: 'modules/projects/partials/project.html'
+				})
 				.state('projects.project.detail', {
-					url: "/detail/{projectId:[0-9]*}",
+					url: "/detail/",
 					templateUrl: 'modules/projects/partials/project-detail.html',
 					controller: 'ProjectDetailController'
 				});
