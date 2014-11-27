@@ -2,7 +2,7 @@
 
 /* Controllers */
 angular.module('GO.controllers').
-		controller('EmailController', ['$scope', '$state', 'Translate', 'Store', 'Model', 'Tags', 'CustomFields','Modules', 'PanelSwitcher','$sce','$http','Utils', function($scope, $state, Translate, Store, Model, Tags, CustomFields, Modules, PanelSwitcher, $sce, $http, Utils) {
+		controller('EmailController', ['$scope', '$state', 'Translate', 'Store', 'Model', 'Tags', 'CustomFields','Modules', 'PanelSwitcher','$sce','$http','Utils','$timeout', function($scope, $state, Translate, Store, Model, Tags, CustomFields, Modules, PanelSwitcher, $sce, $http, Utils, $timeout) {
 
 				$scope.pageTitle = Translate.t('E-mail');
 
@@ -38,24 +38,34 @@ angular.module('GO.controllers').
 				}.bind($scope.store);
 				
 				
+				
+				//Todo put in service
 				$scope.sync = {
-					max: 0,
-					current: 0
+					text: "Waiting...",
+					percentage:100,
+					active: true
 				};
 				
 				var fetcher = function(){
 					
-					$http.get(Utils.url('email/sync/2'))
-							.success(function(result) {
-							
+					$scope.sync.active = true;
 					
+					$http.get(Utils.url('email/sync/2'))
+							.success(function(result) {					
 								
-								$scope.sync.max = result.imapCount;
-								$scope.sync.current = result.dbCount;
+								$scope.sync.text = result.dbCount+"/"+result.imapCount;
 								$scope.sync.percentage = parseInt((result.dbCount / result.imapCount) * 100);
 						
 								if(result.dbCount < result.imapCount){
 									fetcher();
+								}else
+								{
+									$scope.sync.active = false;
+									$scope.sync.text = "Waiting...";
+									
+									$timeout(function(){
+										fetcher();
+									}.bind(this), 10000);
 								}
 								
 

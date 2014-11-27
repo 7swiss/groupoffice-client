@@ -4,8 +4,8 @@
 		<span class="glyphicon glyphicon-step-backward"></span> {{'Back'| goT}}
 	</a>
 
-	<div class="dropdown">
-		<a class="dropdown-toggle btn" data-toggle="dropdown"><i class="fa fa-flag"></i></a>
+	<div class="dropdown" dropdown>
+		<a class="dropdown-toggle btn" dropdown-toggle><i class="fa fa-flag"></i></a>
 		<ul class="dropdown-menu ">
 			<li>
 				<a ng-click="toggleMessageFlag('seen')">
@@ -44,8 +44,8 @@
 				
 				<div class="date">{{message.attributes.date| date:'short'}}</div>
 				
-				<div class="dropdown">
-					<a class="dropdown-toggle btn btn-xs" data-toggle="dropdown"><i class="fa fa-bars"></i></a>
+				<div class="dropdown" dropdown>
+					<a class="dropdown-toggle btn btn-xs" dropdown-toggle><i class="fa fa-bars"></i></a>
 					<ul class="dropdown-menu dropdown-menu-right">
 						<li>
 							<a target="_blank" href="{{message.attributes.sourceUrl}}">
