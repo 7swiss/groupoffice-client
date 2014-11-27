@@ -466,7 +466,7 @@ angular.module('GO.data')
 				 *
 				 * @param {object} data to load		 
 				 */
-				Model.prototype.loadData = function(data) {
+				Model.prototype.loadData = function(data) {					
 					
 					this.convertDateStringsToDates(data);
 					
@@ -491,9 +491,10 @@ angular.module('GO.data')
 				 * Load the model data from the server
 				 *
 				 * @param {object} params Key value pair of GET params for the request
+				 * @param {boolean} extendAttributes Keep current attributes and add the loaded attributes
 				 * @returns {HttpPromise} Returns a HttpPromise. See: {@link https://docs.angularjs.org/api/ng/service/$http#get}
 				 */
-				Model.prototype.read = function(id, params) {
+				Model.prototype.read = function(id, params, extendAttributes) {
 
 					var p = this.getBaseParams();
 
@@ -505,17 +506,42 @@ angular.module('GO.data')
 
 					var url = Utils.url(this.controllerRoute+'/'+id, p);
 					
+					var deferred = $q.defer();
+					
+					Utils.promiseSuccessDecorator(deferred.promise);
+					
 				
 					this.setBusy(true);
-					return $http.get(url).success(function(result) {						
-//							console.log(result);
+					
+					$http.get(url).success(function(result) {						
 						this.setBusy(false);
 						
 						if (result.data) {
+							
+							if(extendAttributes){								
+								for(var key in result.data.attributes){
+									delete this.attributes[key];
+								}								
+								angular.extend(result.data.attributes, this.attributes);
+							}
+							
 							this.loadData(result.data);
-						}
+							
+							deferred.resolve({model: this, result: result});
+						}else
+						{
+							deferred.reject({model: this, result: result});							
+						}						
 
-					}.bind(this));
+					}.bind(this)).error(function(result){
+						
+						this.setBusy(false);
+						
+						deferred.reject({model: this, result: result});
+					});
+					
+					
+					return deferred.promise;
 
 				};
 				

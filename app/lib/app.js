@@ -80,10 +80,14 @@ var GO = angular.module('GO', [
 
 
 			$provide.factory('myHttpInterceptor', ['$injector', '$q', '$log', function ($injector, $q, $log) {
+					
+				
 					return {
+						
+					
 						response: function (response) {
 							
-							;
+							
 							
 							//When an authorization token was successfullu used the server will return a new one.
 							//We will store this and delete the header from our requests.
@@ -107,25 +111,25 @@ var GO = angular.module('GO', [
 								}
 								
 								if(response.data.debug){
-									
+
 									$log.info("DEBUG: "+response.config.method+": "+response.config.url);
-									
+
 									for(var key in response.data.debug){
-										
+
 										if(console && console.groupCollapsed){
 											console.groupCollapsed(key);
 										}
-//										$log.debug(response.data.debug[key]);
+		//										$log.debug(response.data.debug[key]);
 										for(var k2 in response.data.debug[key]){
 											$log.debug(response.data.debug[key][k2]);
 										}
-										
+
 										if(console && console.groupEnd){
 											console.groupEnd();
 										}
-//										$log.debug(response.data.debug[key]);
+		//										$log.debug(response.data.debug[key]);
 									}
-								}
+						}
 							}
 
 							return response;
@@ -138,6 +142,32 @@ var GO = angular.module('GO', [
 							} else
 							{
 								$injector.get('MessageBox').alert('Oops, a server error occurred', 'Error ' + status);
+
+								var contentType = response.headers('Content-Type');
+
+								if (contentType && contentType.indexOf('application/json') > -1) {
+
+									if (response.data.debug) {
+
+										$log.info("DEBUG: " + response.config.method + ": " + response.config.url);
+
+										for (var key in response.data.debug) {
+
+											if (console && console.groupCollapsed) {
+												console.groupCollapsed(key);
+											}
+//										$log.debug(response.data.debug[key]);
+											for (var k2 in response.data.debug[key]) {
+												$log.debug(response.data.debug[key][k2]);
+											}
+
+											if (console && console.groupEnd) {
+												console.groupEnd();
+											}
+//										$log.debug(response.data.debug[key]);
+										}
+									}
+								}
 							}
 							// otherwise
 							return $q.reject(response);

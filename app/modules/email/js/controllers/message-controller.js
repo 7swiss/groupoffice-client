@@ -36,18 +36,20 @@ angular.module('GO.controllers')
 						
 						$scope.threadStore = new Store('email/accounts/2/threads/'+$stateParams.threadId, {limit: 5});
 						
-						$scope.threadStore.onLoad = function(data){
-
+						$scope.threadStore.loadData = function(data){
+							
+//							console.log(data);
+							
 							//Avoid ng-sanitize errors because we sanitize on the server
 							for(var i=0,c=data.length;i<c;i++){
 								data[i].attributes.body = $sce.trustAsHtml(data[i].attributes.body);
 								data[i].attributes.quote = $sce.trustAsHtml(data[i].attributes.quote);
 							}
+					
+							Store.prototype.loadData.call(this, data);
 							
-							return data;
-						};
-						
-//						$scope.threadStore.load();
+						}.bind($scope.threadStore);
+					
 
 					}]);
 				

@@ -104,18 +104,30 @@ angular.module('GO.data')
 				 * @name GO.data.Store#loadData
 				 * @methodOf GO.data.Store
 				 * @description
-				 * Manually add an array of data to the store.
+				 * Add an array of data to the store.
 				 * 
 				 * Example data:
 				 * 
 				 * <pre>
 				 * [{attributeName: value}, {attributeName: value}]
 				 * </pre>
+				 * 
+				 * It's also useful to override this function to do some stuff before or after load:
+				 * 
+				 * <pre>
+				 * $scope.store.loadData = function(data){
+				 * 
+				 *      //Do stuff before
+				 *
+				 *		Store.prototype.loadData.call(this, data);
+				 *
+				 *       //Do stuff after
+				 *
+				 * }.bind($scope.store);
+				 * </pre>
 				 */
-				Store.prototype.loadData = function(data) {
-					
-					data = this.onLoad(data);
-					
+				Store.prototype.loadData = function(data) {					
+							
 					for (var i = 0; i < data.length; i++) {
 
 
@@ -131,18 +143,7 @@ angular.module('GO.data')
 					}
 				};
 				
-				/**
-				 * @ngdoc method
-				 * @name GO.data.Store#onLoad
-				 * @methodOf GO.data.Store
-				 * @description
-				 * 
-				 * Override this to manipulate data when loaded from server
-				 * 
-				 */
-				Store.prototype.onLoad = function(data){
-					return data;
-				};
+		
 
 				/**
 				 * @ngdoc method
