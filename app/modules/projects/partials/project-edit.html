@@ -1,0 +1,38 @@
+<go-loadmask ng-if="onSettingsPage" active="project.showMask"></go-loadmask>
+
+<form class="ab-project-form form-horizontal go-labels" name="projectForm" im-submit="save()" novalidate>
+	
+	<div class="go-toolbar">
+		<a ng-if="!onSettingsPage" class="btn" ng-click="cancel();"><span class="fa fa-chevron-left"></span></a>
+		<a ng-if="onSettingsPage" class="btn visible-xs" ui-sref="settings"><span class="fa fa-chevron-left"></span></a>
+		<button type="submit" class="btn-primary"><i class="fa fa-floppy-o"></i> {{'Save'| goT}}</button>
+	</div>
+
+	<div class="go-scrollable-panel">
+
+		<div class="go-card">
+
+			<h1>{{"Properties" | goT}}</h1>
+
+			<div class="form-group">
+				<label for="name">{{"Name"| goT}}</label>
+				<div class="input-group pr-name-group">
+					<input type="text" id="name" name="projectName" ng-model="project.attributes.name" required go-autofocus />
+				</div>
+				<im-show-error for="projectName" im-model="project"></im-show-error>
+			</div>
+			
+			<div class="form-group">
+				<label for="name">{{"Color"| goT}}</label>
+				<div class="input-group pr-color-group">
+					<input type="text" id="color" name="projectColor" ng-model="project.attributes.color" required />
+				</div>
+				<im-show-error for="projectColor" im-model="project"></im-show-error>
+			</div>
+
+		</div>
+
+		<im-custom-fields-edit im-model="project" im-server-model="Intermesh\Modules\Projects\Model\ProjectsCustomFields"></im-custom-fields-edit>				
+
+	</div>
+</form>

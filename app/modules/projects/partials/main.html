@@ -1,81 +1,71 @@
 <div ng-include="'partials/header.html'"></div>
 
-<!-- The detail and edit pane is loaded in this view -->
-<div class="go-full-panel">
-
-	<div class="go-toolbar">
+<div class="go-body">
 	
-		<a class="btn" ui-sref="notes.edit({noteId: 0})">
-			<span class="fa fa-plus"></span>
-		</a>
 	
-	</div>
-	
-	<div class="note-page row" data-im-infinite-scroll="store.nextPage()" data-im-infinite-scroll-disabled="!store.shouldLoad()">
-		<div data-sortable="dragControlListeners" data-ng-model="store.items">
-			
-			<div data-sortable-item class="postit-outer col-xs-12 col-sm-4 col-md-3"  ng-repeat="note in store.items" ng-init="attachImages(note)">
-				<div data-sortable-item-handle class="postit {{note.attributes.color}}" ng-class="{lighten:note.attributes.markDeleted}">
-					<div data-no-drag ng-if="note.attributes.markDeleted" class="delete-mask">
-						<span class="center"><a ng-click="restore(note)"><i class="fa fa-undo"></i> {{"Restore"| goT}}</a></span>
-					</div>
-					<div ng-class="{deleted:note.attributes.markDeleted}" >
-						<div data-no-drag class="menu">
-							<i class="fa fa-trash-o" ng-click="delete(note)" ng-class="{'disabled':!note.permissions.deleteAccess}"></i>
-							<i class="fa fa-tint" ng-class="{'disabled':!note.permissions.editAccess}">
-								<span class="colorpicker">
-									<a class="color yellow" ng-click="setColor(note,'yellow',true)"></a>
-									<a class="color pink" ng-click="setColor(note,'pink',true)"></a>
-									<a class="color blue" ng-click="setColor(note,'blue',true)"></a>
-									<a class="color red" ng-click="setColor(note,'red',true)"></a>
-									<a class="color orange" ng-click="setColor(note,'orange',true)"></a>
-									<a class="color green" ng-click="setColor(note,'green',true)"></a>
-								</span>
-							</i>
-							<i class="fa fa-share-alt" ng-click="openPermissionsDialog(note)" ng-class="{'disabled':!note.currentUserCanManagePermissions}"></i>
+<!--	 This is the start of the collapsible filter panel -->
+	<go-collapsible-panel on-close="closeSidePanelCallback()">
+		
+		<form name="projects-filter-form" im-submit="goCollapsiblePanel.toggle()">
 
-							<!--<i class="fa fa-check-square-o" ng-click="addListItem(note.id)"></i>-->
-						</div>
-						<div class="images row">
-							<im-image-upload-placeholder 
-								class="image-placeholder"
-								ng-class="{'col-md-4':note.attributes.images.length>2,'col-md-6':note.attributes.images.length>1 && note.attributes.images.length<1,'col-md-12':note.attributes.images.length==1}" 
-								ng-repeat="image in note.attributes.images"
-								im-image-attribute="image.attributes.path"
-								im-image-temp-attribute="image.attributes.imageTempPath"
-								im-delete-permission="note.permissions.editAccess" 
-								im-thumb-route="notes/{{note.attributes.id}}/noteImages/{{image.attributes.id}}/thumb"
-								im-thumb-width="100"
-								im-thumb-height="100"
-								im-on-change="afterUpload(note)"
-							></im-image-upload-placeholder>
-						</div>
-						
-						<div style="clear:both;"></div>
-
-						<div no-drag class="title" ng-click="editNote(note)" ng-bind-html="note.attributes.title">{{note.attributes.title}}</div>
-						<div no-drag class="content" ng-click="editNote(note)" ng-bind-html="note.attributes.content" ng-class="{notelarge:note.attributes.content.length < 50, notemedium:(note.attributes.content.length < 150 && note.attributes.content.length > 50), notesmall:note.attributes.content.length > 250}">{{note.attributes.content}}</div>
-
-						<ul data-no-drag class="listitems">
-							<li class="listitem" ng-repeat="listItem in note.attributes.listItems" ng-class="{'checked':listItem.attributes.checked}">
-								<i ng-click="listItemClick(listItem, note, true)" class="fa" ng-class="{'fa-check-square-o':listItem.attributes.checked,'fa-square-o':!listItem.attributes.checked}"></i>
-								<span ng-model="listItem.attributes.text" placeholder="Todo" class="notemedium" ng-click="editNote(note)">{{listItem.attributes.text}}</span>
-							</li>
-						</ul>
-
-					</div>
+			<div class="go-toolbar">{{'Filters'| goT}}
+				<div class="go-toolbar-right">
+					<a type="button" class="btn visible-lg" ng-if="!goCollapsiblePanel.isPinned" ng-click="goCollapsiblePanel.togglePinned()" tooltip="{{'Pin'| goT}}" tooltip-placement='bottom'><i class="fa fa-thumb-tack"></i></a>
+					<button type="button" ng-click="resetFilters()" tooltip="{{'Reset'| goT}}" tooltip-placement='bottom'><i class="fa fa-undo"></i></button>
+					<button type="button" ng-click="goCollapsiblePanel.toggle()" tooltip="{{'Close'| goT}}" tooltip-placement='bottom'><i class="fa fa-times"></i></button>
 				</div>
-
-				<div ng-if="store.busy" class="go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| goT}}</div>
-
-				<div style="clear:both;"></div>
 			</div>
 
+			<div class="go-scrollable-panel">
+				<div class="go-padding-panel">
+					<im-custom-fields-filter im-server-model="Intermesh\Modules\Projects\Model\ProjectsCustomFields" im-model="customFilters"></im-custom-fields-filter>
+					<button type="submit">{{'Apply' | goT}}</button>
+				</div>
+			</div>
+	</form>
+		
+	</go-collapsible-panel>
+<!--	 This is the end of the collapsible filter panel -->
+
+	<div class="go-panel sm list active" ng-class="{'active': panelSwitcher.initialActive}">
+
+		<div class="go-toolbar">
+			<!-- The button to collapse the above filter panel -->
+			<button ng-click="goCollapsiblePanel.toggle()" ng-class="{'btn-info' : isFilterActive}"><span class="fa fa-filter"></span></button>
+			<!-- The store search bar component -->
+			<go-store-search store="store"></go-store-search>
+			<!-- The button to add new projects. Only visible when you have createAccess on the projects module -->
+			<a ng-if="projectsModule.permissions.createAccess" class="btn" ui-sref="projects.edit({projectId: 0})"><span class="fa fa-plus"></span></a>
+		</div>
+
+		
+		<div class="go-scrollable-panel" im-infinite-scroll="store.nextPage()" im-infinite-scroll-disabled="!store.shouldLoad()">
+
+			<div class="list-group">
+				
+				<div class="deletable" ng-class="{'deleted-invisible': project.attributes.deleted}" ng-repeat="project in store.items track by project.attributes.id">
+					<!-- The listitem view for the project list -->
+					<a ui-sref-active="active" ui-sref="projects.project.details({projectId: project.attributes.id})" class="list-group-item">
+						<!-- <img class="thumbnail" style="width:40px;height:40px;" ng-src="{{contact.attributes.thumbUrl}}&amp;w=40&amp;h=40&amp;zoomCrop=1" /> -->
+						{{project.attributes.name}}
+					</a>
+				</div>
+				<!-- Show the spinner when loading -->
+				<div ng-if="store.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| goT}}</div>
+
+			</div>
 
 		</div>
+
+	</div>
+
+	<div class="go-panel fill"  ng-class="{'active': !panelSwitcher.initialActive}">
+		
+		<go-loadmask active="project.showMask"></go-loadmask>
+		
+		<!-- The detail and edit pane is loaded in this view -->
+		<div ui-view></div>
 	</div>
 
 </div>
-
-<div data-ui-view></div>
 
