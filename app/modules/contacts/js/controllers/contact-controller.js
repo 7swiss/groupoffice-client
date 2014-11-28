@@ -15,6 +15,8 @@ angular.module('GO.controllers').
 						{
 							returnAttributes: "id,name,thumbUrl,company.name"
 						});
+						
+				$scope.store.load();
 
 
 				//Will be used in child scope. We define it here so we can access

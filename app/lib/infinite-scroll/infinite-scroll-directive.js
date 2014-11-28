@@ -69,11 +69,18 @@ angular.module('GO.infiniteScroll',[]).
 										return $timeout(checker, timeThreshold);
 									}
 
-									var remaining = scrollEl.scrollHeight - (scrollEl.clientHeight + scrollEl.scrollTop);
+									if(scrollEl.scrollTop > 0){
+										var remaining = scrollEl.scrollHeight - (scrollEl.clientHeight + scrollEl.scrollTop);
+//	console.log(scrollEl.scrollHeight);
+//	console.log(scrollEl.clientHeight);
+//	console.log(scrollEl.scrollTop);
 
-									if (remaining < lengthThreshold) {
-										scope.imInfiniteScroll();
-										$timeout(checker, timeThreshold);
+										if (remaining < lengthThreshold) {
+
+//											console.log('infinite scroll triggered');
+											scope.imInfiniteScroll();
+											$timeout(checker, timeThreshold);
+										}
 									}
 								};
 
