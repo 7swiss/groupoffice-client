@@ -22,7 +22,12 @@ angular.module('GO').
 											templateUrl: 'modules/email/partials/main.html',
 											controller: 'EmailController'
 										})
-										.state('email.message', {
+										.state('email.folder', {
+											url: "/folder/{folderId:[0-9,]*}",
+											templateUrl: 'modules/email/partials/folder.html',
+											controller: 'FolderController'
+										})
+										.state('email.folder.message', {
 											url: "/message/{threadId:[0-9,]*}",
 											templateUrl: 'modules/email/partials/message.html',
 											controller: 'MessageController'
