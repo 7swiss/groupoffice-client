@@ -1,6 +1,7 @@
 <div ng-include="'partials/header.html'"></div>
 
 <div class="go-body">
+	<!--<div class="go-panel list">-->
 	<go-collapsible-panel on-close="closeSidePanelCallback()">
 
 		<form name="messages-filter-form" im-submit="goCollapsiblePanel.toggle()">
@@ -18,15 +19,24 @@
 
 			<div class="go-scrollable-panel">
 
-				<div class="go-padding-panel">
+				<div class="go-padding-panel">					
+					<div ng-repeat="account in accountStore.items">
+						 
+						<h1>{{account.fromEmail}}</h1>
+					
+						<div class="list-group">
 
-					<button type="submit">{{'Apply'| goT}}</button>
+							<a class="list-group-item" ui-sref-active="active" ui-sref="email.folder({accountId: account.id, folderId: folder.id})" ng-repeat="folder in account.folders">{{folder.name}}</a>
+
+						</div>
+					</div>					
 				</div>			
 
 			</div>
 		</form>
 
 	</go-collapsible-panel>
+	<!--</div>-->
 
-	<div ui-view></div>
+	<ui-view></ui-view>
 </div>

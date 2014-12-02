@@ -10,14 +10,16 @@ angular.module('GO.controllers')
 //							$state.go('messages');
 //						};						
 
-//						$scope.toggleMessageFlag = function(flag){
-//							
-//							//set the seen flag (mark as read). When done then update the store of the list
-//							$scope.message.toggleFlag(flag).then(function(data){								
-//								var storeMessage = $scope.store.findSingleByAttribute("uid", $scope.message.uid);
-//								storeMessage[flag] = $scope.message[flag];
-//							});
-//						};
+						$scope.toggleMessageFlag = function(){
+							
+							
+							var lastMessage = $scope.threadStore.items[0];							
+							
+							console.log(lastMessage);
+							
+							$scope.lastMessage.flagged = !lastMessage.flagged;
+							$scope.lastMessage.save();
+						};
 						
 //						$scope.message.read($stateParams.uid).then(function(data){
 
@@ -34,7 +36,7 @@ angular.module('GO.controllers')
 //						});		
 						
 						
-						$scope.threadStore = new Store('email/accounts/2/threads/'+$stateParams.threadId, {limit: 5});
+						$scope.threadStore = new Store('email/accounts/'+$stateParams.accountId+'/folders/'+$stateParams.folderId+'/threads/'+$stateParams.threadId, {limit: 5});
 						
 						$scope.threadStore.loadData = function(data){
 							
@@ -50,6 +52,11 @@ angular.module('GO.controllers')
 							
 						}.bind($scope.threadStore);
 					
-
+						$scope.threadStore.load().then(function(data){
+							
+							//set the last message so we can do flag and seen operations on that message.
+							$scope.lastMessage = $scope.threadStore.items[0];	
+							$scope.lastMessage.$controllerRoute = 'email/accounts/'+$stateParams.accountId+'/folders/'+$stateParams.folderId+'/messages';							
+						});
 					}]);
 				

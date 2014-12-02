@@ -60,11 +60,9 @@ angular.module('GO.ImageUploadPlaceholder', ['ui.bootstrap','GO.core'])
 				attrs.imDefaultImageUrl = '';
 			}
 			
-			if(angular.isUndefined(attrs.imDeletePermission)){
-				attrs.imDeletePermission = true;
+			if(angular.isUndefined(scope.imDeletePermission)){
+				scope.imDeletePermission = true;
 			}						
-			
-			scope.imDeletePermission = attrs.imDeletePermission;
 			
 			scope.createOriginalUrl = function(src, fromTmp){
 

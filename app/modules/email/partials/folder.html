@@ -6,18 +6,19 @@
 			<span class="fa fa-filter"></span>
 		</button>
 
-		<go-store-search store="store"></go-store-search>
+		<go-store-search store="messagesStore"></go-store-search>
 
 		<a class="btn">
 			<span class="fa fa-plus"></span>
 		</a>
 	</div>
+	
 
-	<div class="go-scrollable-panel" im-infinite-scroll="store.nextPage()" im-infinite-scroll-disabled="!store.shouldLoad()">
+	<div class="go-scrollable-panel" im-infinite-scroll="messagesStore.nextPage()" im-infinite-scroll-disabled="!messagesStore.shouldLoad()">
 		<!--{{store.items | json}}-->
 		<div class="list-group">
-			<div class="deletable message" ng-class="{'deleted-invisible': message.deleted, 'seen': message.seen}" ng-repeat="message in store.items track by message.threadId">
-				<a ui-sref-active="active" ui-sref="email.message({threadId: message.threadId})" class="list-group-item">
+			<div class="deletable message" ng-class="{'deleted-invisible': message.deleted, 'seen': message.seen}" ng-repeat="message in messagesStore.items">
+				<a ui-sref-active="active" ui-sref="email.folder.message({threadId: message.threadId})" class="list-group-item">
 					<!--<img class="thumbnail" style="width:40px;height:40px;" ng-src="{{message.thumbUrl}}&amp;w=40&amp;h=40&amp;zoomCrop=1" />-->
 
 					<span class="date">{{message.date| date}}</span>
@@ -30,7 +31,7 @@
 				</a>
 			</div>
 
-			<div ng-if="store.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| goT}}</div>
+			<div ng-if="messagesStore.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| goT}}</div>
 
 		</div>
 
@@ -44,7 +45,7 @@
 	<go-loadmask active="message.showMask"></go-loadmask>
 
 	<!-- The detail and edit pane is loaded in this view -->
-	<div ui-view></div>
+	<ui-view></ui-view>
 </div>
 
 

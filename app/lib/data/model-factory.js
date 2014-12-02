@@ -19,7 +19,7 @@ angular.module('GO.data')
 				var Model = function(controllerRoute,  baseParams) {
 
 					
-					this.controllerRoute = controllerRoute;
+					this.$controllerRoute = controllerRoute;
 
 //					/**
 //					 * @ngdoc property
@@ -35,7 +35,7 @@ angular.module('GO.data')
 //					this.saveParams = {};
 //					this.saveParams["data"] = {"attributes": this.attributes};
 
-					this._idAttribute = 'id';
+					this.$idAttribute = 'id';
 
 					/**
 					 * @ngdoc property
@@ -43,7 +43,7 @@ angular.module('GO.data')
 					 * @propertyOf GO.data.Model
 					 * @returns {object} Key value pair of GET parameters to pass on load.
 					 */
-					this._baseParams = baseParams || {};
+					this.$baseParams = baseParams || {};
 					
 					
 					this.$busy = false;
@@ -60,10 +60,10 @@ angular.module('GO.data')
 				};
 
 				Model.prototype.getBaseParams = function() {
-					var params = angular.copy(this._baseParams);
+					var params = angular.copy(this.$baseParams);
 
-					if (this[this._idAttribute]) {
-						params[this._idAttribute] = this[this._idAttribute];
+					if (this[this.$idAttribute]) {
+						params[this.$idAttribute] = this[this.$idAttribute];
 					}
 
 					return params;
@@ -104,7 +104,7 @@ angular.module('GO.data')
 					
 					this.setBusy(true);
 
-					var url = Utils.url(this.controllerRoute+'/'+this[this._idAttribute], this.getBaseParams());
+					var url = Utils.url(this.$controllerRoute+'/'+this[this.$idAttribute], this.getBaseParams());
 					$http.delete(url)
 							.success(function(result) {
 								
@@ -225,7 +225,7 @@ angular.module('GO.data')
 				};
 				
 				Model.prototype.isNew = function(){
-					return this[this._idAttribute] < 1;
+					return this[this.$idAttribute] < 1;
 				};
 				
 				Model.prototype._isAttribute = function(name){				
@@ -308,8 +308,7 @@ angular.module('GO.data')
 								modified[attributeName] = attr;				
 							}
 						}else
-						{
-							
+						{							
 							if (!angular.equals(oldAttributes[attributeName], value)) {
 							
 								modified = this._initModifiedAttributes(modified, attributes);
@@ -350,9 +349,9 @@ angular.module('GO.data')
 						angular.extend(params, getParams);
 					}
 
-					var url = this[this._idAttribute] > 0 ? Utils.url(this.controllerRoute+'/'+this[this._idAttribute], params) : Utils.url(this.controllerRoute, params);
+					var url = this[this.$idAttribute] > 0 ? Utils.url(this.$controllerRoute+'/'+this[this.$idAttribute], params) : Utils.url(this.$controllerRoute, params);
 
-					var method = this[this._idAttribute] > 0 ? 'put' : 'post';
+					var method = this[this.$idAttribute] > 0 ? 'put' : 'post';
 					
 //					var url = Utils.url(this.controllerRoute+'/'+this[this.idAttribute], params);
 
@@ -410,7 +409,7 @@ angular.module('GO.data')
 				 * @returns {HttpPromise} Returns a HttpPromise. See: {@link https://docs.angularjs.org/api/ng/service/$http#get}
 				 */
 				Model.prototype.readIf = function(id, params) {
-					if (this[this._idAttribute] == id) {
+					if (this[this.$idAttribute] == id) {
 						return $timeout(function() {
 						});
 					} else
@@ -529,7 +528,7 @@ angular.module('GO.data')
 //						p[this.idAttribute] = id;
 //					}
 
-					var url = Utils.url(this.controllerRoute+'/'+id, p);
+					var url = Utils.url(this.$controllerRoute+'/'+id, p);
 					
 					var deferred = $q.defer();
 					
@@ -546,7 +545,7 @@ angular.module('GO.data')
 							if(extendAttributes){								
 								for(var key in result.data.attributes){
 									delete this[key];
-								}								
+								}
 								angular.extend(result.data.attributes, this.attributes);
 							}
 							

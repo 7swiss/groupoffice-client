@@ -23,7 +23,7 @@ angular.module('GO').
 											controller: 'EmailController'
 										})
 										.state('email.folder', {
-											url: "/folder/{folderId:[0-9,]*}",
+											url: "/account/{accountId:[0-9]*}/folder/{folderId:[0-9,]*}",
 											templateUrl: 'modules/email/partials/folder.html',
 											controller: 'FolderController'
 										})

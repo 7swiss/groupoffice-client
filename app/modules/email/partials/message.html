@@ -14,7 +14,7 @@
 				</a>
 			</li>    
 			<li>
-				<a ng-click="toggleMessageFlag('flagged')">
+				<a ng-click="toggleMessageFlag()">
 					<span ng-if="!message.flagged">{{"Set flag"| goT}}</span>
 					<span ng-if="message.flagged">{{"Remove flag"| goT}}</span>
 				</a>
@@ -30,7 +30,6 @@
 
 	</div>
 </div>
-
 
 
 <div class="go-scrollable-panel"  im-infinite-scroll="threadStore.nextPage()" im-infinite-scroll-disabled="!threadStore.shouldLoad()">

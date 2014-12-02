@@ -10,13 +10,14 @@ angular.module('GO.controllers').
 			
 				$scope.panelSwitcher = new PanelSwitcher($scope, 'email');
 
-				$scope.store = new Store(
-						'email/accounts/2/threads',{
+				$scope.messagesStore = new Store(
+						'email/accounts/'+$stateParams.accountId+'/folders/'+$stateParams.folderId+'/threads',{
 							limit: 10
 						}
 						);
 				
-				$scope.store.loadData = function(data){
+				
+				$scope.messagesStore.loadData = function(data){
 					
 					//for debug
 //					for(var i=0,c=data.length;i<c;i++){
@@ -27,7 +28,7 @@ angular.module('GO.controllers').
 					
 					for(var i = 0, c = this.items.length; i < c; i++){
 						if(this.items[i].excerpt === null){
-							this.items[i].controllerRoute = 'email/accounts/2/messages';
+							this.items[i].$controllerRoute = 'email/accounts/'+$stateParams.accountId+'/folders/'+$stateParams.folderId+'/messages';
 							this.items[i].read(this.items[i].id,{returnAttributes:'threadId,body,excerpt'}, true).success(function(data){
 
 							}.bind(this));
@@ -35,9 +36,10 @@ angular.module('GO.controllers').
 					}
 					
 					
-				}.bind($scope.store);
+				}.bind($scope.messagesStore);
 				
 				
+				$scope.messagesStore.load();
 				
 				//Todo put in service
 				$scope.sync = {
@@ -50,7 +52,7 @@ angular.module('GO.controllers').
 					
 					$scope.sync.active = true;
 					
-					$http.get(Utils.url('email/sync/2'))
+					$http.get(Utils.url('email/sync/'+$stateParams.accountId))
 							.success(function(result) {					
 								
 								$scope.sync.text = result.dbCount+"/"+result.imapCount;
@@ -65,7 +67,7 @@ angular.module('GO.controllers').
 									
 									$timeout(function(){
 										fetcher();
-									}.bind(this), 10000);
+									}.bind(this), 60000);
 								}
 								
 
