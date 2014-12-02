@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('GO.controllers')
-				.controller('MessageController', ['$scope', '$state', '$stateParams', '$timeout','Store','$sce', function($scope, $state, $stateParams, $timeout,Store, $sce) {
+				.controller('MessageController', ['$scope', '$state', '$stateParams', 'EmailMessage','Store','$sce', function($scope, $state, $stateParams, EmailMessage,Store, $sce) {
 						
 						
 
@@ -38,6 +38,10 @@ angular.module('GO.controllers')
 						
 						$scope.threadStore = new Store('email/accounts/'+$stateParams.accountId+'/folders/'+$stateParams.folderId+'/threads/'+$stateParams.threadId, {limit: 5});
 						
+						$scope.threadStore.createModel = function(){
+							return new EmailMessage('email/accounts/'+$stateParams.accountId+'/folders/'+$stateParams.folderId+'/messages');
+						};
+						
 						$scope.threadStore.loadData = function(data){
 							
 //							console.log(data);
@@ -56,7 +60,7 @@ angular.module('GO.controllers')
 							
 							//set the last message so we can do flag and seen operations on that message.
 							$scope.lastMessage = $scope.threadStore.items[0];	
-							$scope.lastMessage.$controllerRoute = 'email/accounts/'+$stateParams.accountId+'/folders/'+$stateParams.folderId+'/messages';							
+//							$scope.lastMessage.$controllerRoute = 'email/accounts/'+$stateParams.accountId+'/folders/'+$stateParams.folderId+'/messages';							
 						});
 					}]);
 				

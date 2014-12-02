@@ -20,11 +20,15 @@
 			<div class="deletable message" ng-class="{'deleted-invisible': message.deleted, 'seen': message.seen}" ng-repeat="message in messagesStore.items">
 				<a ui-sref-active="active" ui-sref="email.folder.message({threadId: message.threadId})" class="list-group-item">
 					<!--<img class="thumbnail" style="width:40px;height:40px;" ng-src="{{message.thumbUrl}}&amp;w=40&amp;h=40&amp;zoomCrop=1" />-->
-
-					<span class="date">{{message.date| date}}</span>
+					
+					
+					<span class="em-top-right">
+						<i ng-if="message.hasAttachments" class="em-has-attachment"></i>
+						<span class="date">{{message.date| date}}</span>
+					</span>
 
 					<span class="from">					
-						{{message.threadFrom}}
+						<span class="em-icon {{message.iconCls}}"></span>{{message.threadFrom}}
 					</span>
 					<span class="subject">{{message.subject}}</span>
 					<span class="excerpt">{{message.excerpt}}</span>
@@ -42,7 +46,7 @@
 
 <div class="go-panel fill"  ng-class="{'active': !panelSwitcher.initialActive}">
 
-	<go-loadmask active="message.showMask"></go-loadmask>
+	<go-loadmask active="message.$showMask"></go-loadmask>
 
 	<!-- The detail and edit pane is loaded in this view -->
 	<ui-view></ui-view>

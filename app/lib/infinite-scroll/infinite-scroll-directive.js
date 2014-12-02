@@ -68,7 +68,7 @@ angular.module('GO.infiniteScroll',[]).
 									if (!scrollEnabled) {
 										return $timeout(checker, timeThreshold);
 									}
-
+	
 									if(scrollEl.scrollTop > 0){
 										var remaining = scrollEl.scrollHeight - (scrollEl.clientHeight + scrollEl.scrollTop);
 //	console.log(scrollEl.scrollHeight);

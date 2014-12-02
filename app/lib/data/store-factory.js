@@ -128,19 +128,25 @@ angular.module('GO.data')
 				 */
 				Store.prototype.loadData = function(data) {					
 							
-					for (var i = 0; i < data.length; i++) {
+					for (var i = 0; i < data.length; i++) {					
 
-
-						var baseParams = {};
-						if(this.loadParams.returnAttributes){
-							baseParams.returnAttributes = this.loadParams.returnAttributes;
-						}
-
-						var model = new Model(this.restRoute, baseParams);
+						var model = this.createModel();
 						model.loadData(data[i]);
-
+					
 						this.items.push(model);
 					}
+				};
+				
+				Store.prototype.createModel = function(){
+					
+					var baseParams = {};
+					if(this.loadParams.returnAttributes){
+						baseParams.returnAttributes = this.loadParams.returnAttributes;
+					}
+
+					var model = new Model(this.restRoute, baseParams);
+					
+					return model;
 				};
 				
 		

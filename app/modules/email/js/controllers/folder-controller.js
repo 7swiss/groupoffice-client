@@ -2,7 +2,7 @@
 
 /* Controllers */
 angular.module('GO.controllers').
-		controller('FolderController', ['$scope', '$stateParams', 'Translate', 'Store', 'Model', 'Tags', 'CustomFields','Modules', 'PanelSwitcher','$sce','$http','Utils','$timeout', function($scope, $stateParams, Translate, Store, Model, Tags, CustomFields, Modules, PanelSwitcher, $sce, $http, Utils, $timeout) {
+		controller('FolderController', ['$scope', '$stateParams', 'Translate', 'Store', 'EmailMessage', 'Tags', 'CustomFields','Modules', 'PanelSwitcher','$sce','$http','Utils','$timeout', function($scope, $stateParams, Translate, Store, EmailMessage, Tags, CustomFields, Modules, PanelSwitcher, $sce, $http, Utils, $timeout) {
 
 				$scope.pageTitle = Translate.t('E-mail');
 
@@ -16,6 +16,10 @@ angular.module('GO.controllers').
 						}
 						);
 				
+				$scope.messagesStore.createModel = function(){
+					return new EmailMessage('email/accounts/'+$stateParams.accountId+'/folders/'+$stateParams.folderId+'/messages');
+				};
+				
 				
 				$scope.messagesStore.loadData = function(data){
 					
@@ -28,7 +32,7 @@ angular.module('GO.controllers').
 					
 					for(var i = 0, c = this.items.length; i < c; i++){
 						if(this.items[i].excerpt === null){
-							this.items[i].$controllerRoute = 'email/accounts/'+$stateParams.accountId+'/folders/'+$stateParams.folderId+'/messages';
+//							this.items[i].$controllerRoute = 'email/accounts/'+$stateParams.accountId+'/folders/'+$stateParams.folderId+'/messages';
 							this.items[i].read(this.items[i].id,{returnAttributes:'threadId,body,excerpt'}, true).success(function(data){
 
 							}.bind(this));
