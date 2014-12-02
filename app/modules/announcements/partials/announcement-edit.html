@@ -9,7 +9,7 @@
 		
 		<div class="form-group">
 			<label for="text">{{"Title" | goT}}</label>
-			<input name="title" type="text" class="form-control" ng-model="announcement.attributes.title" placeholder="{{'Title' | goT }}" required />
+			<input name="title" type="text" class="form-control" ng-model="announcement.title" placeholder="{{'Title' | goT }}" required />
 			<im-show-error for="title" im-model="announcement"></im-show-error>
 		</div>
 		
@@ -17,17 +17,17 @@
 			
 			<!--<div class="col-sm-3">-->
 				<im-image-upload-placeholder
-					im-image-attribute="announcement.attributes.imagePath"
-					im-image-temp-attribute="announcement.attributes.imageTempPath"
-					im-thumb-route="announcements/{{announcement.attributes.id}}/thumb"
-					im-thumb-params="{announcementId: announcement.attributes.id}"
+					im-image-attribute="announcement.imagePath"
+					im-image-temp-attribute="announcement.imageTempPath"
+					im-thumb-route="announcements/{{announcement.id}}/thumb"
+					im-thumb-params="{announcementId: announcement.id}"
 					im-thumb-width="200"
 					im-thumb-height="150"
 				></im-image-upload-placeholder>
 <!--			</div>
 			
 			<div class="col-sm-9">-->
-				<text-angular ta-toolbar="[['bold','italics','underline'], ['quote'], ['insertLink'], ['undo','redo']]" ng-model="announcement.attributes.text"></text-angular>
+				<text-angular ta-toolbar="[['bold','italics','underline'], ['quote'], ['insertLink'], ['undo','redo']]" ng-model="announcement.text"></text-angular>
 			<!--</div>-->
 		
 		<!--</div>-->

@@ -22,16 +22,16 @@
 				<div class="form-group">
 					<div class="checkbox">
 						<label for="checkbox">
-							<input type="checkbox" id="checkbox" ng-model="user.attributes.enabled" /> {{'Enabled'| goT}}
+							<input type="checkbox" id="checkbox" ng-model="user.enabled" /> {{'Enabled'| goT}}
 						</label>
 					</div>
 								
 				</div>
 
 
-				<!--<div ng-if="!user.attributes.id">-->
+				<!--<div ng-if="!user.id">-->
 				<!---->
-				<div class="form-group" ng-if="user.attributes.id === null">
+				<div class="form-group" ng-if="user.id === null">
 					
 					<label for="fullName">{{"Name"| goT}}</label>
 					
@@ -55,21 +55,21 @@
 					<div class="form-group">
 						<label for="firstName">{{"First name"| goT}}</label>
 					
-						<input type="text" id="firstName" class="form-control" ng-model="user.attributes.contact.attributes.firstName" required />
+						<input type="text" id="firstName" class="form-control" ng-model="user.contact.firstName" required />
 					
 					</div>
 
 					<div class="form-group">							
 						<label  for="middleName">{{"Middle name"| goT}}</label>
 					
-						<input type="text" id="middleName" class="form-control" ng-model="user.attributes.contact.attributes.middleName" />
+						<input type="text" id="middleName" class="form-control" ng-model="user.contact.middleName" />
 					
 					</div>
 
 					<div class="form-group">							
 						<label  for="lastName">{{"Last name"| goT}}</label>
 						
-						<input type="text" id="lastName" class="form-control" ng-model="user.attributes.contact.attributes.lastName" />
+						<input type="text" id="lastName" class="form-control" ng-model="user.contact.lastName" />
 						
 					</div>
 				</div>
@@ -77,13 +77,13 @@
 
 				<div class="form-group">
 					<label for="username">{{"Username"| goT}}</label>
-					<input type="text" id="username" name="username" ng-model="user.attributes.username" required />
+					<input type="text" id="username" name="username" ng-model="user.username" required />
 					<im-show-error for="username" im-model="user"></im-show-error>
 				</div>
 
-				<div class="form-group" ng-if='user.attributes.id === null'>
+				<div class="form-group" ng-if='user.id === null'>
 					<label  for="email">{{"E-mail"| goT}}</label>
-					<input type="email" name="email" id="email" class="form-control" ng-model="user.attributes.contact.attributes.emailAddresses[0].attributes.email" required />
+					<input type="email" name="email" id="email" class="form-control" ng-model="user.contact.emailAddresses[0].email" required />
 					<im-show-error for="email" im-model="user"></im-show-error>
 
 				</div>
@@ -92,7 +92,7 @@
 				<div class="form-group">
 					<label  for="password">{{"Password"| goT}}</label>
 					
-					<input type="password" id="password" name="password" class="form-control" ng-model="user.attributes.password" autocomplete="off" ng-required="user.attributes.id == null" />						
+					<input type="password" id="password" name="password" class="form-control" ng-model="user.password" autocomplete="off" ng-required="user.id == null" />						
 					<im-show-error for="password" im-model="user"></im-show-error>
 					
 				</div>
@@ -100,7 +100,7 @@
 				<div class="form-group">
 					<label  for="passwordConfirm">{{"Confirm password"| goT}}</label>
 					
-					<input type="password" id="passwordConfirm" name="passwordConfirm" class="form-control" ng-model="user.attributes.passwordConfirm" im-match="user.attributes.password" ng-required="user.attributes.password != ''" autocomplete="off" />
+					<input type="password" id="passwordConfirm" name="passwordConfirm" class="form-control" ng-model="user.passwordConfirm" im-match="user.password" ng-required="user.password != ''" autocomplete="off" />
 
 					<im-show-error for="passwordConfirm" im-model="user" im-messages="{'imMatch': 'The passwords don\'t match'}"></im-show-error>
 				
@@ -124,11 +124,11 @@
 
 
 			<ul class="list-group">
-				<li ng-if="!role.attributes.markDeleted" class="list-group-item" ng-repeat="role in user.attributes.roles">
-					{{role.attributes.name}}
+				<li ng-if="!role.markDeleted" class="list-group-item" ng-repeat="role in user.roles">
+					{{role.name}}
 
 					<span style="float:right">
-						<a class="btn btn-danger btn-xs" ng-click="role.attributes.markDeleted = true"><i class="fa fa-trash-o"></i></a>
+						<a class="btn btn-danger btn-xs" ng-click="role.markDeleted = true"><i class="fa fa-trash-o"></i></a>
 					</span>
 				</li>  
 

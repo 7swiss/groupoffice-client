@@ -18,10 +18,10 @@
 
 		<div class="list-group" as-sortable="dragControlListeners" ng-model="fieldStore.items">
 
-			<a dragable="false" as-sortable-item ng-repeat="field in fieldStore.items" ng-class="{'deleted-visible': field.attributes.deleted}" class="list-group-item" ui-sref="customfields.model.fields.field({fieldId: field.attributes.id})">
+			<a dragable="false" as-sortable-item ng-repeat="field in fieldStore.items" ng-class="{'deleted-visible': field.deleted}" class="list-group-item" ui-sref="customfields.model.fields.field({fieldId: field.id})">
 				<span as-sortable-item-handle></span>&nbsp;
 
-				{{field.attributes.name}}
+				{{field.name}}
 
 				<span style="float:right">
 					<im-soft-delete-button im-model="field" im-size="xs"></im-soft-delete-button>

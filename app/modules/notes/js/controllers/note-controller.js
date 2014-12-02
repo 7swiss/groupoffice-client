@@ -32,7 +32,7 @@ angular.module('GO.controllers').
 			$scope.note = new Model('notes',{returnAttributes: "*,images,listItems,roles,owner"});
 			
 			// Set the default color
-			$scope.note.attributes.color = 'yellow';
+			$scope.note.color = 'yellow';
 		
 			//Instantiate Sharing dialog
 			$scope.shareModal = new ShareModal(
@@ -57,7 +57,7 @@ angular.module('GO.controllers').
 			 * @returns {undefined}
 			 */
 			$scope.editNote = function(note) {
-				$state.go('notes.edit', {noteId: note.attributes.id});
+				$state.go('notes.edit', {noteId: note.id});
 			};
 			
 			/**
@@ -69,7 +69,7 @@ angular.module('GO.controllers').
 			$scope.openPermissionsDialog = function(note) {
 
 				if (note.currentUserCanManagePermissions) {
-					$scope.shareModal.open(note.attributes.id);
+					$scope.shareModal.open(note.id);
 				}
 			};
 
@@ -83,7 +83,7 @@ angular.module('GO.controllers').
 			 */
 			$scope.setColor = function(note, color, save) {
 				
-				note.attributes.color = color;
+				note.color = color;
 				
 				if(save)
 					note.save();
@@ -103,7 +103,7 @@ angular.module('GO.controllers').
 			 */
 			$scope.listItemClick = function(listItem, note, save) {
 				
-				listItem.attributes.checked = !listItem.attributes.checked;
+				listItem.checked = !listItem.checked;
 				
 				if(save){
 					note.save();
@@ -118,7 +118,7 @@ angular.module('GO.controllers').
 			 * @returns {undefined}
 			 */
 			$scope.restore = function(note) {
-				note.attributes.markDeleted = false;
+				note.markDeleted = false;
 				
 				note.unDelete()
 					.success(function(result) {
@@ -143,7 +143,7 @@ angular.module('GO.controllers').
 				
 				if (note.permissions.deleteAccess) {
 					
-					note.attributes.markDeleted = true;
+					note.markDeleted = true;
 
 					note.delete()
 						.success(function(result) {

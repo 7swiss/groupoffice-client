@@ -265,7 +265,7 @@ angular.module('GO.data')
 				Store.prototype.findIndexByAttribute = function(attributeName, value) {
 
 					for (var i = 0, l = this.items.length; i < l; i++) {
-						if (this.items[i]['attributes'][attributeName] == value) {
+						if (this.items[i][attributeName] == value) {
 							return i;
 						}
 					};
@@ -291,51 +291,12 @@ angular.module('GO.data')
 					var indexes = [];
 
 					for (var i = 0, l = this.items.length; i < l; i++) {
-						if (this.items[i]['attributes'][attributeName] == value) {
+						if (this.items[i][attributeName] == value) {
 							indexes.push(i);
 						}
 					};
 
 					return indexes;
-				};
-
-				/**
-				 * @ngdoc method
-				 * @name GO.data.Store#saveSortOrder
-				 * @methodOf GO.data.Store
-				 * @description
-				 * Save the sortOrder of these store items
-				 * 
-				 * <pre>
-				 * $scope.dragControlListeners =  {
-				 *		accept: function (sourceItemHandleScope, destSortableScope) {
-				 *			//override to determine drag is allowed or not. default is true.
-				 *			return true;
-				 *		},
-				 *		itemMoved: function (event) {
-				 *			console.log(event);
-				 *		},
-				 *		orderChanged: function(event) {
-				 *			$scope.store.saveSortOrder('IPE/KeepNotes/Note/saveSort');
-				 *		}
-				 *		//containment: '#board'//optional param.
-				 *	};
-				 * </pre>
-				 * 
-				 * 
-				 * @param {string} route The route to the php controller action
-				 * @returns {HttpPromise} Returns a HttpPromise. See: {@link https://docs.angularjs.org/api/ng/service/$http#post}
-				 */
-				Store.prototype.saveSortOrder = function(route) {
-					var sortOrder = [];
-
-					for (var i = 0, max = this.items.length; i < max; i++) {
-						sortOrder.push(this.items[i]['attributes'].id);
-					}
-
-					var params = {sortOrder: sortOrder};
-
-					return $http.post(Utils.url(route), params);
 				};
 
 				/**

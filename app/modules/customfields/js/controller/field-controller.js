@@ -43,12 +43,12 @@ angular.module('GO.controllers')
 				
 				$scope.field.read($stateParams.fieldId).then(function(){
 						
-						if(!$scope.field.attributes.data){
-							$scope.field.attributes.data = {};
+						if(!$scope.field.data){
+							$scope.field.data = {};
 						}
 						
-						if(!$scope.field.attributes.data.options){
-							$scope.field.attributes.data.options = [];
+						if(!$scope.field.data.options){
+							$scope.field.data.options = [];
 						}
 					});
 				
@@ -92,7 +92,7 @@ angular.module('GO.controllers')
 
 				$scope.cancel = function() {
 
-					if ($scope.field.attributes.id) {
+					if ($scope.field.id) {
 						$scope.field.resetAttributes();
 					}
 

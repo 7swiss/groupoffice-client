@@ -56,7 +56,7 @@ angular.module('GO.controllers')
 
 				$scope.cancel = function () {
 
-					if ($scope.timelineItem.attributes.id) {
+					if ($scope.timelineItem.id) {
 						$scope.timelineItem.resetAttributes();
 					}
 

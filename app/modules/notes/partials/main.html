@@ -15,11 +15,11 @@
 		<div data-sortable="dragControlListeners" data-ng-model="store.items">
 			
 			<div data-sortable-item class="postit-outer col-xs-12 col-sm-4 col-md-3"  ng-repeat="note in store.items" ng-init="attachImages(note)">
-				<div data-sortable-item-handle class="postit {{note.attributes.color}}" ng-class="{lighten:note.attributes.markDeleted}">
-					<div data-no-drag ng-if="note.attributes.markDeleted" class="delete-mask">
+				<div data-sortable-item-handle class="postit {{note.color}}" ng-class="{lighten:note.markDeleted}">
+					<div data-no-drag ng-if="note.markDeleted" class="delete-mask">
 						<span class="center"><a ng-click="restore(note)"><i class="fa fa-undo"></i> {{"Restore"| goT}}</a></span>
 					</div>
-					<div ng-class="{deleted:note.attributes.markDeleted}" >
+					<div ng-class="{deleted:note.markDeleted}" >
 						<div data-no-drag class="menu">
 							<i class="fa fa-trash-o" ng-click="delete(note)" ng-class="{'disabled':!note.permissions.deleteAccess}"></i>
 							<i class="fa fa-tint" ng-class="{'disabled':!note.permissions.editAccess}">
@@ -39,12 +39,12 @@
 						<div class="images row">
 							<im-image-upload-placeholder 
 								class="image-placeholder"
-								ng-class="{'col-md-4':note.attributes.images.length>2,'col-md-6':note.attributes.images.length>1 && note.attributes.images.length<1,'col-md-12':note.attributes.images.length==1}" 
-								ng-repeat="image in note.attributes.images"
-								im-image-attribute="image.attributes.path"
-								im-image-temp-attribute="image.attributes.imageTempPath"
+								ng-class="{'col-md-4':note.images.length>2,'col-md-6':note.images.length>1 && note.images.length<1,'col-md-12':note.images.length==1}" 
+								ng-repeat="image in note.images"
+								im-image-attribute="image.path"
+								im-image-temp-attribute="image.imageTempPath"
 								im-delete-permission="note.permissions.editAccess" 
-								im-thumb-route="notes/{{note.attributes.id}}/noteImages/{{image.attributes.id}}/thumb"
+								im-thumb-route="notes/{{note.id}}/noteImages/{{image.id}}/thumb"
 								im-thumb-width="100"
 								im-thumb-height="100"
 								im-on-change="afterUpload(note)"
@@ -53,13 +53,13 @@
 						
 						<div style="clear:both;"></div>
 
-						<div no-drag class="title" ng-click="editNote(note)" ng-bind-html="note.attributes.title">{{note.attributes.title}}</div>
-						<div no-drag class="content" ng-click="editNote(note)" ng-bind-html="note.attributes.content" ng-class="{notelarge:note.attributes.content.length < 50, notemedium:(note.attributes.content.length < 150 && note.attributes.content.length > 50), notesmall:note.attributes.content.length > 250}">{{note.attributes.content}}</div>
+						<div no-drag class="title" ng-click="editNote(note)" ng-bind-html="note.title">{{note.title}}</div>
+						<div no-drag class="content" ng-click="editNote(note)" ng-bind-html="note.content" ng-class="{notelarge:note.content.length < 50, notemedium:(note.content.length < 150 && note.content.length > 50), notesmall:note.content.length > 250}">{{note.content}}</div>
 
 						<ul data-no-drag class="listitems">
-							<li class="listitem" ng-repeat="listItem in note.attributes.listItems" ng-class="{'checked':listItem.attributes.checked}">
-								<i ng-click="listItemClick(listItem, note, true)" class="fa" ng-class="{'fa-check-square-o':listItem.attributes.checked,'fa-square-o':!listItem.attributes.checked}"></i>
-								<span ng-model="listItem.attributes.text" placeholder="Todo" class="notemedium" ng-click="editNote(note)">{{listItem.attributes.text}}</span>
+							<li class="listitem" ng-repeat="listItem in note.listItems" ng-class="{'checked':listItem.checked}">
+								<i ng-click="listItemClick(listItem, note, true)" class="fa" ng-class="{'fa-check-square-o':listItem.checked,'fa-square-o':!listItem.checked}"></i>
+								<span ng-model="listItem.text" placeholder="Todo" class="notemedium" ng-click="editNote(note)">{{listItem.text}}</span>
 							</li>
 						</ul>
 

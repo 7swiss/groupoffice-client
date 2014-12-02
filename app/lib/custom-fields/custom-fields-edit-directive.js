@@ -16,11 +16,11 @@ angular.module('GO.customFields')
 						
 						var fieldSet = customFieldSetStore.items[i];
 						
-						tpl +=  '<div class="go-card"><h1>'+fieldSet.attributes.name+'</h1>';
+						tpl +=  '<div class="go-card"><h1>'+fieldSet.name+'</h1>';
 				
-						for(var n = 0, cl = fieldSet.attributes.fields.length; n < cl; n++){
-							var field = fieldSet.attributes.fields[n];
-							tpl += buildFunctions[field.attributes.type](field);
+						for(var n = 0, cl = fieldSet.fields.length; n < cl; n++){
+							var field = fieldSet.fields[n];
+							tpl += buildFunctions[field.type](field);
 						}
 								
 						tpl += '</div>';
@@ -35,58 +35,58 @@ angular.module('GO.customFields')
 				var buildFunctions = {
 					text: function(field){
 						return '<div class="form-group">\
-							<label for="'+field.attributes.databaseName+'">'+field.attributes.name+'</label>\
-								<input id="'+field.attributes.databaseName+'" name="'+field.attributes.databaseName+'" type="text" maxlength="'+field.attributes.data.maxLength+'" ng-model="imModel.attributes.customfields.attributes[\''+field.attributes.databaseName+'\']" placeholder="'+field.attributes.placeholder+'" ng-required="'+(field.attributes.required ? 'true' : 'false')+'" class="form-control" />\
-								<im-show-error for="'+field.attributes.databaseName+'" im-model="imModel.attributes.customfields"></im-show-error>\
+							<label for="'+field.databaseName+'">'+field.name+'</label>\
+								<input id="'+field.databaseName+'" name="'+field.databaseName+'" type="text" maxlength="'+field.data.maxLength+'" ng-model="imModel.customfields[\''+field.databaseName+'\']" placeholder="'+field.placeholder+'" ng-required="'+(field.required ? 'true' : 'false')+'" class="form-control" />\
+								<im-show-error for="'+field.databaseName+'" im-model="imModel.customfields"></im-show-error>\
 						</div>';
 					},
 					
 					textarea: function(field){
 						return '<div class="form-group">\
-							<label for="'+field.attributes.databaseName+'">'+field.attributes.name+'</label>\
-								<textarea id="'+field.attributes.databaseName+'" name="'+field.attributes.databaseName+'" maxlength="'+field.attributes.data.maxLength+'" ng-model="imModel.attributes.customfields.attributes[\''+field.attributes.databaseName+'\']" placeholder="'+field.attributes.placeholder+'" ng=required="'+(field.attributes.required ? 'true' : 'false')+'" class="form-control" msd-elastic="\n"></textarea>\
-								<im-show-error for="'+field.attributes.databaseName+'" im-model="imModel.attributes.customfields"></im-show-error>\
+							<label for="'+field.databaseName+'">'+field.name+'</label>\
+								<textarea id="'+field.databaseName+'" name="'+field.databaseName+'" maxlength="'+field.data.maxLength+'" ng-model="imModel.customfields[\''+field.databaseName+'\']" placeholder="'+field.placeholder+'" ng=required="'+(field.required ? 'true' : 'false')+'" class="form-control" msd-elastic="\n"></textarea>\
+								<im-show-error for="'+field.databaseName+'" im-model="imModel.customfields"></im-show-error>\
 						</div>';
 					},
 					
 					select: function(field){
 						return '<div class="form-group">\
-							<label for="'+field.attributes.databaseName+'">'+field.attributes.name+'</label>\\n\
-						<select class="form-control" ng-model="imModel[field.attributes.databaseName]" ng-options="option.value as option.label for option in field.attributes.data.options"></select>\
-								<!--<ui-select name="'+field.attributes.databaseName+'" ng-model="imModel.attributes.customfields.attributes[\''+field.attributes.databaseName+'\']">\
-											<ui-select-match class="ab-multi-input-select" placeholder="{{field.attributes.placeHolder}}">{{$select.selected.value}}</ui-select-match>\
-											<ui-select-choices repeat="item.value as item in field.attributes.data.options | filter: $select.search">\
+							<label for="'+field.databaseName+'">'+field.name+'</label>\\n\
+						<select class="form-control" ng-model="imModel[field.databaseName]" ng-options="option.value as option.label for option in field.data.options"></select>\
+								<!--<ui-select name="'+field.databaseName+'" ng-model="imModel.customfields[\''+field.databaseName+'\']">\
+											<ui-select-match class="ab-multi-input-select" placeholder="{{field.placeHolder}}">{{$select.selected.value}}</ui-select-match>\
+											<ui-select-choices repeat="item.value as item in field.data.options | filter: $select.search">\
 												<div ng-bind-html="item.value | highlight: $select.search"></div>\
 											</ui-select-choices>\
 										</ui-select>-->\
-								<im-show-error for="'+field.attributes.databaseName+'" im-model="imModel.attributes.customfields"></im-show-error>\
+								<im-show-error for="'+field.databaseName+'" im-model="imModel.customfields"></im-show-error>\
 						</div>';
 					},
 					
 					checkbox: function(field){
 						return '<div class="form-group"><div class="checkbox">\
 							<label>\
-								<input id="cf_{{field.attributes.id}}" type="checkbox" ng-model="imModel.attributes.customfields.attributes[\''+field.attributes.databaseName+'\']" /> '+field.attributes.name+'\
+								<input id="cf_{{field.id}}" type="checkbox" ng-model="imModel.customfields[\''+field.databaseName+'\']" /> '+field.name+'\
 							</label>\
 						</div></div>';
 					},
 					
 					date: function(field){
 						return '<div class="form-group">\
-							<label for="'+field.attributes.databaseName+'">'+field.attributes.name+'</label>\
+							<label for="'+field.databaseName+'">'+field.name+'</label>\
 							<div class="input-group" style="width:300px">\
-								<input name="'+field.attributes.databaseName+'" id="cf_{{field.attributes.id}}" type="text" class="form-control"  ng-model="imModel.attributes.customfields.attributes[\''+field.attributes.databaseName+'\']" datepicker-popup="dd-MM-yyyy" is-open="datePickerOpened[field.attributes.id]" close-text="{{\'Close\' | goT}}" ng-click="openDatePicker(field.attributes.id, $event)" />\
+								<input name="'+field.databaseName+'" id="cf_{{field.id}}" type="text" class="form-control"  ng-model="imModel.customfields[\''+field.databaseName+'\']" datepicker-popup="dd-MM-yyyy" is-open="datePickerOpened[field.id]" close-text="{{\'Close\' | goT}}" ng-click="openDatePicker(field.id, $event)" />\
 								<!--<span class="input-group-btn">\
-									<button type="button" class="btn btn-default" ng-click="openDatePicker(field.attributes.id, $event)"><i class="fa fa-calendar"></i></button>\
+									<button type="button" class="btn btn-default" ng-click="openDatePicker(field.id, $event)"><i class="fa fa-calendar"></i></button>\
 								</span>-->\
-							<im-show-error for="'+field.attributes.databaseName+'" im-model="imModel.attributes.customfields"></im-show-error></div>\
+							<im-show-error for="'+field.databaseName+'" im-model="imModel.customfields"></im-show-error></div>\
 						</div>';
 					},
 					number: function(field){
 						return '<div class="form-group">\
-							<label for="'+field.attributes.databaseName+'">'+field.attributes.name+'</label>\
-								<input im-numeric id="cf_{{field.attributes.id}}" name="'+field.attributes.databaseName+'" type="text" ng-model="imModel.attributes.customfields.attributes[\''+field.attributes.databaseName+'\']" placeholder="{{field.attributes.placeholder}}" ng-required="field.attributes.required" class="form-control" />\
-								<im-show-error for="'+field.attributes.databaseName+'" im-model="imModel.attributes.customfields"></im-show-error>\
+							<label for="'+field.databaseName+'">'+field.name+'</label>\
+								<input im-numeric id="cf_{{field.id}}" name="'+field.databaseName+'" type="text" ng-model="imModel.customfields[\''+field.databaseName+'\']" placeholder="{{field.placeholder}}" ng-required="field.required" class="form-control" />\
+								<im-show-error for="'+field.databaseName+'" im-model="imModel.customfields"></im-show-error>\
 						</div>';
 					}
 				};

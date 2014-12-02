@@ -31,8 +31,8 @@ angular.module('GO.controllers').
 //					$scope.filesStore.items.push(result.data.file);
 
 					var file = new Model('contacts/'+$stateParams.contactId+'/files');
-					file.attributes.name = result.file;
-					file.attributes.tempPath = result.file;
+					file.name = result.file;
+					file.tempPath = result.file;
 					
 					file.save();
 					

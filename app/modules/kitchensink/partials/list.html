@@ -11,8 +11,8 @@
 	</div>
 
 	<div class="list-group">
-		<a ui-sref="contacts.contact.detail({contactId: contact.attributes.id})" class="list-group-item" ng-repeat="contact in store.items track by contact.attributes.id">
-			{{contact.attributes.name}}
+		<a ui-sref="contacts.contact.detail({contactId: contact.id})" class="list-group-item" ng-repeat="contact in store.items track by contact.id">
+			{{contact.name}}
 		</a>
 
 		<div ng-if="store.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| goT}}</div>

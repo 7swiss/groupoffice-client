@@ -103,7 +103,7 @@ angular.module('GO.controllers').
 
 								
 								$scope.syncWithStore(true);
-								$state.go('contacts.contact.detail', {contactId: $scope.contact.attributes.id});
+								$state.go('contacts.contact.detail', {contactId: $scope.contact.id});
 								
 
 							});
@@ -111,7 +111,7 @@ angular.module('GO.controllers').
 
 
 				$scope.syncWithStore = function(reloadStore) {
-					var index = $scope.store.findIndexByAttribute('id', $scope.contact.attributes.id);
+					var index = $scope.store.findIndexByAttribute('id', $scope.contact.id);
 
 					if (index > -1) {
 						$scope.store.items[index].attributes = angular.copy($scope.contact.attributes);
@@ -163,7 +163,7 @@ angular.module('GO.controllers').
 
 					if (l) {
 						for (var i = 0; i < l; i++) {
-							tags.push($scope.filters.tags[i].attributes.id);
+							tags.push($scope.filters.tags[i].id);
 						}
 
 						where.push(['IN', 'tagLink.tagId', tags]);

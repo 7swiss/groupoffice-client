@@ -97,12 +97,12 @@
 		<div class="go-scrollable-panel" im-infinite-scroll="store.nextPage()" im-infinite-scroll-disabled="!store.shouldLoad()">
 
 			<div class="list-group">
-				<div class="deletable" ng-class="{'deleted-invisible': contact.attributes.deleted}" ng-repeat="contact in store.items track by contact.attributes.id">
-					<a ui-sref-active="active" ui-sref="contacts.contact.detail({contactId: contact.attributes.id})" class="list-group-item">
-						<img class="thumbnail" style="width:40px;height:40px;" ng-src="{{contact.attributes.thumbUrl}}&amp;w=40&amp;h=40&amp;zoomCrop=1" />
-						{{contact.attributes.name}}
+				<div class="deletable" ng-class="{'deleted-invisible': contact.deleted}" ng-repeat="contact in store.items track by contact.id">
+					<a ui-sref-active="active" ui-sref="contacts.contact.detail({contactId: contact.id})" class="list-group-item">
+						<img class="thumbnail" style="width:40px;height:40px;" ng-src="{{contact.thumbUrl}}&amp;w=40&amp;h=40&amp;zoomCrop=1" />
+						{{contact.name}}
 
-						<small style="float:right" ng-if="contact.attributes.company"><i class="fa fa-building"></i> {{contact.attributes.company.attributes.name}}</small>
+						<small style="float:right" ng-if="contact.company"><i class="fa fa-building"></i> {{contact.company.name}}</small>
 
 					</a>
 				</div>

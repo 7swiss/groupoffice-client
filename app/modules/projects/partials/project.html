@@ -5,8 +5,8 @@
 
 	<div class="go-toolbar-right">
 		
-		<a class="btn" tooltip="{{'Edit'| goT}}" ng-disabled="!project.permissions.editAccess" ui-sref="project.edit({projectId: project.attributes.id})"><span class="fa fa-edit"></span></a>
-		<a class="btn" tooltip="{{'Share'| goT}}" ng-click="shareModal.open(project.attributes.id)" ng-disabled="!project.currentUserCanManagePermissions"><span class="fa fa-share-alt"></span></a>
+		<a class="btn" tooltip="{{'Edit'| goT}}" ng-disabled="!project.permissions.editAccess" ui-sref="project.edit({projectId: project.id})"><span class="fa fa-edit"></span></a>
+		<a class="btn" tooltip="{{'Share'| goT}}" ng-click="shareModal.open(project.id)" ng-disabled="!project.currentUserCanManagePermissions"><span class="fa fa-share-alt"></span></a>
 	
 		<im-soft-delete-button 
 			im-on-delete="syncWithStore();" 
@@ -19,15 +19,15 @@
 
 </div>
 	<div class="progress-container">Progress bar</div>
-	<div class="name">{{project.attributes.name}}</div>
+	<div class="name">{{project.name}}</div>
 </div>
 <div class="project-tab-container">
 <go-tabs class="project-tabpanel">
 	<div class="go-tab-bar">
 
-		<a ui-sref="projects.project.details({projectId: project.attributes.id})" go-tab-switch  ui-sref-active="active" tooltip="{{'Info'| goT}}" tooltip-placement="bottom"><i class="fa fa-list-alt"></i> <span class="hidden-xs">{{"Info" | goT}}</span></a>
-		<a ui-sref="projects.project.tasks({projectId: project.attributes.id})" go-tab-switch ui-sref-active="active"  tooltip="{{'Tasks'| goT}}" tooltip-placement="bottom"><i class="fa fa-tasks"></i> <span class="hidden-xs">{{"Tasks" | goT}}</span></a>
-		<a ui-sref="projects.project.schedules({projectId: project.attributes.id})" go-tab-switch ui-sref-active="active"  tooltip="{{'Schedules'| goT}}" tooltip-placement="bottom"><i class="fa fa-clock-o"></i> <span class="hidden-xs">{{"Schedules" | goT}}</span></a>	
+		<a ui-sref="projects.project.details({projectId: project.id})" go-tab-switch  ui-sref-active="active" tooltip="{{'Info'| goT}}" tooltip-placement="bottom"><i class="fa fa-list-alt"></i> <span class="hidden-xs">{{"Info" | goT}}</span></a>
+		<a ui-sref="projects.project.tasks({projectId: project.id})" go-tab-switch ui-sref-active="active"  tooltip="{{'Tasks'| goT}}" tooltip-placement="bottom"><i class="fa fa-tasks"></i> <span class="hidden-xs">{{"Tasks" | goT}}</span></a>
+		<a ui-sref="projects.project.schedules({projectId: project.id})" go-tab-switch ui-sref-active="active"  tooltip="{{'Schedules'| goT}}" tooltip-placement="bottom"><i class="fa fa-clock-o"></i> <span class="hidden-xs">{{"Schedules" | goT}}</span></a>	
 
 	</div>
 

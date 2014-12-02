@@ -29,20 +29,13 @@ angular.module('GO.data')
 //					 */
 //					this.saveParams = {};
 
-					/**
-					 * @ngdoc property
-					 * @name GO.data.Model#attributes
-					 * @propertyOf GO.data.Model
-					 * @returns {object} Key value pair of model attributes
-					 */
-					this.attributes = {};
 
-					this.oldAttributes = {};
+					this._oldAttributes = {};
 
 //					this.saveParams = {};
 //					this.saveParams["data"] = {"attributes": this.attributes};
 
-					this.idAttribute = 'id';
+					this._idAttribute = 'id';
 
 					/**
 					 * @ngdoc property
@@ -50,23 +43,27 @@ angular.module('GO.data')
 					 * @propertyOf GO.data.Model
 					 * @returns {object} Key value pair of GET parameters to pass on load.
 					 */
-					this.baseParams = baseParams || {};
+					this._baseParams = baseParams || {};
 					
 					
-					this.busy = false;
-					this.showMask = false;
+					this.$busy = false;
+					this.$showMask = false;
+					
+					
+					this.$isModel = true;
 
 					this.init();
-				};
+				};			
+				
 
 				Model.prototype.init = function() {
 				};
 
 				Model.prototype.getBaseParams = function() {
-					var params = angular.copy(this.baseParams);
+					var params = angular.copy(this._baseParams);
 
-					if (this.attributes && this.attributes[this.idAttribute]) {
-						params[this.idAttribute] = this.attributes[this.idAttribute];
+					if (this[this._idAttribute]) {
+						params[this._idAttribute] = this[this._idAttribute];
 					}
 
 					return params;
@@ -75,7 +72,7 @@ angular.module('GO.data')
 				Model.prototype.setBusy =  function(busy){
 					
 					//delay 200ms for the loadmask.
-					this.busy = busy;
+					this.$busy = busy;
 					
 					if(busy === true){
 						$timeout(function(){
@@ -85,7 +82,7 @@ angular.module('GO.data')
 						}.bind(this), 200);
 					}else
 					{
-						this.showMask = false;						
+						this.$showMask = false;						
 					}
 				};
 
@@ -107,7 +104,7 @@ angular.module('GO.data')
 					
 					this.setBusy(true);
 
-					var url = Utils.url(this.controllerRoute+'/'+this.attributes[this.idAttribute], this.getBaseParams());
+					var url = Utils.url(this.controllerRoute+'/'+this[this._idAttribute], this.getBaseParams());
 					$http.delete(url)
 							.success(function(result) {
 								
@@ -116,17 +113,17 @@ angular.module('GO.data')
 								if (result.success) {
 									var data = result.data;
 
-									if (!data.success) {
+									if (data.validationErrors.length) {
 										
-										this.validationErrors = data.validationErrors;
+//										this.validationErrors = data.validationErrors;
 										
 										deferred.reject({model: this, result: result});
 									} else {
 										
 										//SoftDeleteTrait has a 'deleted' attribute.
-										if(typeof(this.attributes.deleted) !== 'undefined'){
-											this.attributes.deleted = true;
-											this.oldAttributes.deleted = true;
+										if(typeof(this.deleted) !== 'undefined'){
+											this.deleted = true;
+											this._oldAttributes.deleted = true;
 										}
 										
 										deferred.resolve({model: this, result: result});
@@ -145,7 +142,7 @@ angular.module('GO.data')
 				
 				Model.prototype.unDelete = function(){
 					this.resetAttributes();
-					this.attributes.deleted = false;
+					this.deleted = false;
 					return this.save();
 				};
 
@@ -167,17 +164,16 @@ angular.module('GO.data')
 					for (var attrName in attributes) {
 						if (attributes[attrName] instanceof Date) {
 							attr[attrName] = attributes[attrName].toIntermeshApiFormat();							
-						} else if(angular.isObject(attributes[attrName]) && attributes[attrName].attributes){
-							var fixed = this.convertDateToString(attributes[attrName].attributes);							
-							attr[attrName] = {attributes: fixed};
+						} else if(angular.isObject(attributes[attrName]) && attributes[attrName].className){ //All models return className from API						
+							attr[attrName] = this.convertDateToString(attributes[attrName]);	
 						}else if(angular.isArray(attributes[attrName])){
 							var l = attributes[attrName].length;
 							
 							if(l){
 								attr[attrName] = [];
 								for(var i = 0, l; i < l; i++){							
-									var fixed = this.convertDateToString(attributes[attrName][i].attributes);							
-									attr[attrName].push({attributes: fixed});
+//									var fixed = this.convertDateToString(attributes[attrName][i]);							
+									attr[attrName].push(this.convertDateToString(attributes[attrName][i]));
 								}
 							}
 							
@@ -225,28 +221,54 @@ angular.module('GO.data')
 				 * @returns {boolean} Returns true if the model was modified
 				 */
 				Model.prototype.isModified = function() {
-					return angular.toJson(this.attributes) !== angular.toJson(this.oldAttributes);
+					return angular.toJson(this.getAttributes()) !== angular.toJson(this._oldAttributes);
 				};
 				
 				Model.prototype.isNew = function(){
-					return this.attributes[this.idAttribute] < 1;
+					return this[this._idAttribute] < 1;
+				};
+				
+				Model.prototype._isAttribute = function(name){				
+					
+					var firstChar = name.substring(0,1);
+					
+					return firstChar !== '$' && firstChar !== '_';
+				};
+				
+				Model.prototype.getAttributes = function(){
+					
+					var attr = {};
+					
+					for(var attName in this){
+						
+						if(typeof(this[attName]) === 'function'){
+							continue;
+						}
+						
+						if(this._isAttribute(attName)){
+							attr[attName] = this[attName];
+						}
+					}
+					
+					return attr;
 				};
 
 				Model.prototype.getModifiedAttributes = function(attributes, oldAttributes) {
 					if (typeof (attributes) === 'undefined') {
 
-						var attributes = this.attributes;
-						var oldAttributes = this.oldAttributes;
+						var attributes = this.getAttributes();
+						var oldAttributes = this._oldAttributes;						
 					}
 
 					var modified = false;
 					for (var attributeName in attributes) {
 						
-						
+						if(!this._isAttribute(attributeName)){
+							//for $$hashKey that's added by angular for example
+							continue;
+						}
 
-						var value = attributes[attributeName];
-						
-						
+						var value = attributes[attributeName];						
 
 						if (angular.isArray(value)) {
 
@@ -256,10 +278,10 @@ angular.module('GO.data')
 								for (var i = 0, c = value.length; i < c; i++) {
 									
 									var attr = this.getModifiedAttributes(
-												value[i].attributes,
-												(oldAttributes[attributeName] && oldAttributes[attributeName][i]) ? oldAttributes[attributeName][i].attributes : {}
+												value[i],
+												(oldAttributes[attributeName] && oldAttributes[attributeName][i]) ? oldAttributes[attributeName][i] : {}
 														);
-												
+									
 									if(attr !== false){
 										
 										modified = this._initModifiedAttributes(modified, attributes);
@@ -273,22 +295,23 @@ angular.module('GO.data')
 									}
 								}
 							}
-						} else if(angular.isObject(value) && value.attributes){ //has one related model.
+						} else if(angular.isObject(value) && value.className){ //has one related model. className is always present in GO7 API models
 							var attr = this.getModifiedAttributes(
-												value.attributes,
-												oldAttributes[attributeName] ? oldAttributes[attributeName].attributes : {}
+												value,
+												oldAttributes[attributeName] ? oldAttributes[attributeName] : {}
 														);
-
+												
 							if(attr !== false){
 
 								modified = this._initModifiedAttributes(modified, attributes);
 								
-								modified[attributeName] = {attributes: attr};				
+								modified[attributeName] = attr;				
 							}
 						}else
-						{	
+						{
+							
 							if (!angular.equals(oldAttributes[attributeName], value)) {
-								
+							
 								modified = this._initModifiedAttributes(modified, attributes);
 
 								modified[attributeName] = value;
@@ -321,20 +344,17 @@ angular.module('GO.data')
 				 */
 				Model.prototype.save = function(getParams) {
 					
-					
-					
-					
 					var params = this.getBaseParams();
 					
 					if(getParams){
 						angular.extend(params, getParams);
 					}
 
-					var url = this.attributes[this.idAttribute] > 0 ? Utils.url(this.controllerRoute+'/'+this.attributes[this.idAttribute], params) : Utils.url(this.controllerRoute, params);
+					var url = this[this._idAttribute] > 0 ? Utils.url(this.controllerRoute+'/'+this[this._idAttribute], params) : Utils.url(this.controllerRoute, params);
 
-					var method = this.attributes[this.idAttribute] > 0 ? 'put' : 'post';
+					var method = this[this._idAttribute] > 0 ? 'put' : 'post';
 					
-//					var url = Utils.url(this.controllerRoute+'/'+this.attributes[this.idAttribute], params);
+//					var url = Utils.url(this.controllerRoute+'/'+this[this.idAttribute], params);
 
 					var deferred = $q.defer();
 
@@ -345,10 +365,8 @@ angular.module('GO.data')
 
 					if(modifiedAttributes){
 						var saveParams = {};
-						saveParams["data"] = {};
-						
-						saveParams["data"]['attributes'] = this.convertDateToString(modifiedAttributes);
-						
+					
+						saveParams["data"] = this.convertDateToString(modifiedAttributes);						
 						
 						this.setBusy(true);
 
@@ -359,7 +377,7 @@ angular.module('GO.data')
 								
 									var data = result.data;
 
-									if (!data.success) {
+									if (!result.success) {
 			
 										this.loadValidationErrors(data);
 										
@@ -392,7 +410,7 @@ angular.module('GO.data')
 				 * @returns {HttpPromise} Returns a HttpPromise. See: {@link https://docs.angularjs.org/api/ng/service/$http#get}
 				 */
 				Model.prototype.readIf = function(id, params) {
-					if (this.attributes[this.idAttribute] == id) {
+					if (this[this._idAttribute] == id) {
 						return $timeout(function() {
 						});
 					} else
@@ -413,14 +431,22 @@ angular.module('GO.data')
 					//this.attributes = angular.copy(this.oldAttributes);
 					
 					//keep reference 
-					for (var i in this.attributes) {
-						delete this.attributes[i];
+					var attr = this.getAttributes();
+					for (var i in attr) {
+						delete this[i];
 					}
 					
-					for(var i in this.oldAttributes){
-						this.attributes[i] = angular.copy(this.oldAttributes[i]);
+					for(var i in this._oldAttributes){
+						this[i] = angular.copy(this._oldAttributes[i]);
 					}
 				};
+				
+				
+				/**
+				 * 
+				 * @description
+				 * Adds validation errors to existing data without overwriting it.
+				 */
 				
 				Model.prototype.loadValidationErrors = function(data, obj){
 					if(!obj){
@@ -431,28 +457,27 @@ angular.module('GO.data')
 					if(data.validationErrors){
 						obj.validationErrors = data.validationErrors;
 					}
-					
-					if(data.attributes){
-						for(var attr in data.attributes){						
-							
-							if (angular.isArray(data.attributes[attr])){								
-								for(var i = 0, l = data.attributes[attr].length; i < l; i++) {
-									
-									for(var n = 0, l2 = obj.attributes[attr].length; n < l2; n++){									
-										
-										if(data.attributes[attr][i].attributes.id === obj.attributes[attr][n].attributes.id ||
-												!data.attributes[attr][i].attributes.id && !obj.attributes[attr][n].attributes.id){
-											this.loadValidationErrors(data.attributes[attr][i], obj.attributes[attr][n]);
-											break;
-										}
+
+					for(var attr in data){						
+
+						if (angular.isArray(data[attr])){								
+							for(var i = 0, l = data[attr].length; i < l; i++) {
+
+								for(var n = 0, l2 = obj[attr].length; n < l2; n++){									
+
+									if(data[attr][i].id === obj[attr][n].id ||
+											!data[attr][i].id && !obj[attr][n].id){
+										this.loadValidationErrors(data[attr][i], obj[attr][n]);
+										break;
 									}
 								}
-							}else if(angular.isObject(data.attributes[attr]) && angular.isObject(obj.attributes[attr])){
-							
-								this.loadValidationErrors(data.attributes[attr], obj.attributes[attr]);
 							}
+						}else if(angular.isObject(data[attr]) && angular.isObject(obj[attr])){
+
+							this.loadValidationErrors(data[attr], obj[attr]);
 						}
 					}
+
 				
 				};
 
@@ -479,7 +504,7 @@ angular.module('GO.data')
 						}
 					}
 					
-					this.oldAttributes = angular.copy(data.attributes);
+					this._oldAttributes = angular.copy(this.getAttributes());
 				};
 				
 				
@@ -520,7 +545,7 @@ angular.module('GO.data')
 							
 							if(extendAttributes){								
 								for(var key in result.data.attributes){
-									delete this.attributes[key];
+									delete this[key];
 								}								
 								angular.extend(result.data.attributes, this.attributes);
 							}

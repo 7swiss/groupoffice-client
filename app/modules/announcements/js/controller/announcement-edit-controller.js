@@ -55,7 +55,7 @@ angular.module('GO.controllers')
 
 				$scope.cancel = function () {
 
-					if ($scope.announcement.attributes.id) {
+					if ($scope.announcement.id) {
 						$scope.announcement.resetAttributes();
 					}
 

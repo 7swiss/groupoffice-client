@@ -16,17 +16,17 @@
 	<div class="go-scrollable-panel" im-infinite-scroll="store.nextPage()" im-infinite-scroll-disabled="!store.shouldLoad()">
 		<!--{{store.items | json}}-->
 		<div class="list-group">
-			<div class="deletable message" ng-class="{'deleted-invisible': message.attributes.deleted, 'seen': message.attributes.seen}" ng-repeat="message in store.items track by message.attributes.threadId">
-				<a ui-sref-active="active" ui-sref="email.message({threadId: message.attributes.threadId})" class="list-group-item">
-					<!--<img class="thumbnail" style="width:40px;height:40px;" ng-src="{{message.attributes.thumbUrl}}&amp;w=40&amp;h=40&amp;zoomCrop=1" />-->
+			<div class="deletable message" ng-class="{'deleted-invisible': message.deleted, 'seen': message.seen}" ng-repeat="message in store.items track by message.threadId">
+				<a ui-sref-active="active" ui-sref="email.message({threadId: message.threadId})" class="list-group-item">
+					<!--<img class="thumbnail" style="width:40px;height:40px;" ng-src="{{message.thumbUrl}}&amp;w=40&amp;h=40&amp;zoomCrop=1" />-->
 
-					<span class="date">{{message.attributes.date| date}}</span>
+					<span class="date">{{message.date| date}}</span>
 
 					<span class="from">					
-						{{message.attributes.threadFrom}}
+						{{message.threadFrom}}
 					</span>
-					<span class="subject">{{message.attributes.subject}}</span>
-					<span class="excerpt">{{message.attributes.excerpt}}</span>
+					<span class="subject">{{message.subject}}</span>
+					<span class="excerpt">{{message.excerpt}}</span>
 				</a>
 			</div>
 

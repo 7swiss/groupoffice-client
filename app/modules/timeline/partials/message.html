@@ -1,7 +1,7 @@
 
 <div class="modal-header">
 	<a ng-click="cancel();"><i class="fa fa-chevron-left"></i>
-	{{message.attributes.subject}}</a>
+	{{message.subject}}</a>
 </div>
 
 <div class="modal-body">
@@ -11,10 +11,10 @@
 
 			<div class="list-group">
 				
-				<a ng-repeat="reference in message.attributes.references" class="list-group-item" ui-sref-active="active" ui-sref="contacts.contact.timeline.message({messageId: reference.attributes.id})">
+				<a ng-repeat="reference in message.references" class="list-group-item" ui-sref-active="active" ui-sref="contacts.contact.timeline.message({messageId: reference.id})">
 					
-					<b>{{reference.attributes.from.display}}</b><br />
-					<small>{{reference.attributes.date| date : 'fullDate'}} {{reference.attributes.date| date : 'shortTime'}}</small>
+					<b>{{reference.from.display}}</b><br />
+					<small>{{reference.date| date : 'fullDate'}} {{reference.date| date : 'shortTime'}}</small>
 										
 				</a>
 				
@@ -29,7 +29,7 @@
 					<dt>
 					{{"Date"| goT}}
 					</dt>
-					<dd>{{message.attributes.date| date : 'fullDate'}} {{message.attributes.date| date : 'shortTime'}}</dd>
+					<dd>{{message.date| date : 'fullDate'}} {{message.date| date : 'shortTime'}}</dd>
 				</dl>-->
 
 				
@@ -37,18 +37,18 @@
 					<dt>
 					{{"To"| goT}}
 					</dt>
-					<dd><a ng-repeat="a in message.attributes.to" href="mailto:{{a.address}}">{{a.display}}</a></dd>
+					<dd><a ng-repeat="a in message.to" href="mailto:{{a.address}}">{{a.display}}</a></dd>
 				</dl>
 
 				<!--		<h1 class="em-header"></h1>-->
 			</div>
-			<div ng-if="message.attributes.attachments.length" class="em-attachments">
-				<a ng-if="!attachment.attributes.inline" ng-repeat="attachment in message.attributes.attachments" href="{{attachment.attributes.url}}" target="_blank">
-					{{attachment.attributes.filename}} ({{attachment.attributes.size| bytes}})
+			<div ng-if="message.attachments.length" class="em-attachments">
+				<a ng-if="!attachment.inline" ng-repeat="attachment in message.attachments" href="{{attachment.url}}" target="_blank">
+					{{attachment.filename}} ({{attachment.size| bytes}})
 				</a>	
 				<div style="clear:both"></div>
 			</div>
-			<div ng-bind-html='message.attributes.html'></div>	
+			<div ng-bind-html='message.html'></div>	
 		</div>
 	</div>
 </div>

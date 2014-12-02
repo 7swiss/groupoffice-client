@@ -17,7 +17,7 @@
 			<div class="form-group">
 				<label for="name">{{"Name"| goT}}</label>
 				<div class="input-group pr-name-group">
-					<input type="text" id="name" name="projectName" ng-model="project.attributes.name" required go-autofocus />
+					<input type="text" id="name" name="projectName" ng-model="project.name" required go-autofocus />
 				</div>
 				<im-show-error for="projectName" im-model="project"></im-show-error>
 			</div>
@@ -25,7 +25,7 @@
 			<div class="form-group">
 				<label for="name">{{"Color"| goT}}</label>
 				<div class="input-group pr-color-group">
-					<input type="text" id="color" name="projectColor" ng-model="project.attributes.color" required />
+					<input type="text" id="color" name="projectColor" ng-model="project.color" required />
 				</div>
 				<im-show-error for="projectColor" im-model="project"></im-show-error>
 			</div>

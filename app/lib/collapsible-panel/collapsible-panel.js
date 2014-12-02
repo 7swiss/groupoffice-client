@@ -32,8 +32,8 @@
 
 				<h4>{{'Tags'| goT}}</h4>
 				<ul class="list-group">
-					<label class="list-group-item" ng-class="{selected: tag.attributes.checked}" ng-repeat="tag in tagStore.items" im-infinite-use-window="true">
-						<input type="checkbox" ng-model="tag.attributes.checked"> {{tag.attributes.name}}
+					<label class="list-group-item" ng-class="{selected: tag.checked}" ng-repeat="tag in tagStore.items" im-infinite-use-window="true">
+						<input type="checkbox" ng-model="tag.checked"> {{tag.name}}
 					</label>  
 				</ul>
 

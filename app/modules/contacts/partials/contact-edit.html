@@ -28,34 +28,34 @@
 						
 						<div class="form-group">
 
-							<label ng-if="!contact.attributes.isCompany" for="contactName">{{"Name"| goT}}</label>
-							<label ng-if="contact.attributes.isCompany" for="companyName">{{"Name"| goT}}</label>
+							<label ng-if="!contact.isCompany" for="contactName">{{"Name"| goT}}</label>
+							<label ng-if="contact.isCompany" for="companyName">{{"Name"| goT}}</label>
 
-							<div class="input-group ab-name-group" ng-if='!contact.attributes.isCompany'>
+							<div class="input-group ab-name-group" ng-if='!contact.isCompany'>
 
-								<input type="text" id="name" name="contactName" ng-model="contact.attributes.name" ng-change="changeFullName()" required go-autofocus />
+								<input type="text" id="name" name="contactName" ng-model="contact.name" ng-change="changeFullName()" required go-autofocus />
 								<div class="input-group-btn">
 									<button type="button" ng-click="toggleName()" class="btn btn-default"><i class="fa" ng-class="{'fa-chevron-down': !showNameParts, 'fa-chevron-up': showNameParts}"></i></button>					
 								</div>
 							</div>
 
 							
-							<div class="ab-name-group" ng-if="contact.attributes.isCompany">
-								<input type="text" id="name" name="companyName" ng-model="contact.attributes.name" required go-autofocus />
+							<div class="ab-name-group" ng-if="contact.isCompany">
+								<input type="text" id="name" name="companyName" ng-model="contact.name" required go-autofocus />
 							</div>
 
 							<im-image-upload-placeholder class="ab-contact-photo"
-								im-image-attribute="contact.attributes.photoFilePath"
-								im-image-temp-attribute="contact.attributes.photoTempPath"
+								im-image-attribute="contact.photoFilePath"
+								im-image-temp-attribute="contact.photoTempPath"
 								im-delete-permission="contact.permissions.editAccess" 
-								im-thumb-route="contacts/{{contact.attributes.id}}/thumb"
+								im-thumb-route="contacts/{{contact.id}}/thumb"
 								im-thumb-width="75"
 								im-thumb-height="100"
 							></im-image-upload-placeholder>
 
 
-							<im-show-error ng-if="!contact.attributes.isCompany" for="contactName" im-model="contact"></im-show-error>
-							<im-show-error ng-if="contact.attributes.isCompany" for="companyName" im-model="contact"></im-show-error>
+							<im-show-error ng-if="!contact.isCompany" for="contactName" im-model="contact"></im-show-error>
+							<im-show-error ng-if="contact.isCompany" for="companyName" im-model="contact"></im-show-error>
 						</div>
 						
 
@@ -63,34 +63,34 @@
 							<div class="form-group">
 								<label for="firstName">{{"First name"| goT}}</label>
 							
-								<input type="text" id="firstName" ng-model="contact.attributes.firstName" required />
+								<input type="text" id="firstName" ng-model="contact.firstName" required />
 							
 							</div>
 
 							<div class="form-group">							
 								<label for="middleName">{{"Middle name"| goT}}</label>								
-								<input type="text" id="middleName" ng-model="contact.attributes.middleName" />								
+								<input type="text" id="middleName" ng-model="contact.middleName" />								
 							</div>
 
 							<div class="form-group">							
 								<label for="lastName">{{"Last name"| goT}}</label>
-								<input type="text" id="lastName" ng-model="contact.attributes.lastName" />
+								<input type="text" id="lastName" ng-model="contact.lastName" />
 							</div>
 						</div>
 
 
-						<div class="form-group" ng-if="!contact.attributes.isCompany">
+						<div class="form-group" ng-if="!contact.isCompany">
 							<label>{{"Gender"| goT}}</label>
 
 							<div class="input-group">		
 								<label class="radio-inline">
-									<input type="radio" ng-model="contact.attributes.gender" ng-value="null"> {{"Unknown"| goT}}
+									<input type="radio" ng-model="contact.gender" ng-value="null"> {{"Unknown"| goT}}
 								</label>
 								<label class="radio-inline">
-									<input type="radio" ng-model="contact.attributes.gender" value="M"> {{"Male"| goT}}
+									<input type="radio" ng-model="contact.gender" value="M"> {{"Male"| goT}}
 								</label>
 								<label class="radio-inline">
-									<input type="radio" ng-model="contact.attributes.gender" value="F"> {{"Female"| goT}}
+									<input type="radio" ng-model="contact.gender" value="F"> {{"Female"| goT}}
 								</label>
 							</div>
 						</div>
@@ -100,18 +100,18 @@
 							<label>{{"Special dates"| goT}}</label>			
 
 						
-							<div ng-if="!specialDate.attributes.markDeleted" class="im-input-group-multiple input-group" ng-repeat="specialDate in contact.attributes.dates">
+							<div ng-if="!specialDate.markDeleted" class="im-input-group-multiple input-group" ng-repeat="specialDate in contact.dates">
 
 								<div class="input-group-btn">
 									
 									<select 
 										class="form-control" 
 										style="width:120px" 
-										ng-model="specialDate.attributes.type" 
+										ng-model="specialDate.type" 
 										ng-options="number.value as number.label for number in dateOptions">											
 									</select>
 									
-<!--									<ui-select ng-model="specialDate.attributes.type">
+<!--									<ui-select ng-model="specialDate.type">
 										<ui-select-match class="ab-multi-input-select" placeholder="Please select...">{{$select.selected.label}}</ui-select-match>
 										<ui-select-choices repeat="item.value as item in dateOptions | filter: $select.search">
 											<div ng-bind-html="item.label | highlight: $select.search"></div>
@@ -121,12 +121,12 @@
 								
 								
 								
-								<input type="text" name="date_{{$index}}" ng-model="specialDate.attributes.date" datepicker-options="datePickerOptions" datepicker-popup="dd-MM-yyyy" is-open="specialDate.isOpen" ng-click="specialDate.isOpen = true" close-text="{{'Close' | goT}}" />
+								<input type="text" name="date_{{$index}}" ng-model="specialDate.date" datepicker-options="datePickerOptions" datepicker-popup="dd-MM-yyyy" is-open="specialDate.isOpen" ng-click="specialDate.isOpen = true" close-text="{{'Close' | goT}}" />
 								<im-show-error for="date_{{$index}}" attribute-name="date" im-model="specialDate"></im-show-error>
 								<div class="input-group-btn">
 									<!--<button type="button" class="btn btn-default" ng-click="openDate(specialDate, $event)"><i class="fa fa-calendar"></i></button>-->
 
-									<button type="button" class="btn btn-danger" ng-click="specialDate.attributes.markDeleted = true;"><i class="fa fa-trash-o"></i></button>
+									<button type="button" class="btn btn-danger" ng-click="specialDate.markDeleted = true;"><i class="fa fa-trash-o"></i></button>
 								</div>			
 							</div>
 
@@ -139,22 +139,22 @@
 						<div class="form-group">
 							<label>{{"E-mail"| goT}}</label>
 					
-							<div ng-if="!emailAddress.attributes.markDeleted" ng-repeat="emailAddress in contact.attributes.emailAddresses">
+							<div ng-if="!emailAddress.markDeleted" ng-repeat="emailAddress in contact.emailAddresses">
 
 								<div class="im-input-group-multiple input-group">
 								<div class="input-group-btn">
 									<select 
 										class="form-control" 
 										style="width:120px" 
-										ng-model="emailAddress.attributes.type" 
+										ng-model="emailAddress.type" 
 										ng-options="number.value as number.label for number in emailAddressOptions">											
 									</select>
 									<!--
-																		<button type="button" class="btn btn-default ab-multi-input-select" ng-model="emailAddress.attributes.type" data-html="1" ng-options="type.value as type.label for type in emailAddressOptions" bs-select>
+																		<button type="button" class="btn btn-default ab-multi-input-select" ng-model="emailAddress.type" data-html="1" ng-options="type.value as type.label for type in emailAddressOptions" bs-select>
 																			Type <span class="caret"></span>
 																		</button>-->
 
-<!--									<ui-select ng-model="emailAddress.attributes.type">
+<!--									<ui-select ng-model="emailAddress.type">
 										<ui-select-match class="ab-multi-input-select" placeholder="Please select...">{{$select.selected.label}}</ui-select-match>
 										<ui-select-choices repeat="item.value as item in emailAddressOptions | filter: $select.search">
 											<div ng-bind-html="item.label | highlight: $select.search"></div>
@@ -162,9 +162,9 @@
 									</ui-select>-->
 
 								</div>
-									<input type="email" name="email_{{$index}}" ng-model="emailAddress.attributes.email" go-autofocus="$index > 0 && !emailAddress.attributes.id">
+									<input type="email" name="email_{{$index}}" ng-model="emailAddress.email" go-autofocus="$index > 0 && !emailAddress.id">
 								<span class="input-group-btn">
-									<button type="button" class="btn btn-danger" ng-click="emailAddress.attributes.markDeleted = true;"><i class="fa fa-trash-o"></i></button>
+									<button type="button" class="btn btn-danger" ng-click="emailAddress.markDeleted = true;"><i class="fa fa-trash-o"></i></button>
 								</span>
 
 
@@ -181,24 +181,24 @@
 						<div class="form-group">
 							<label>{{"Phone"| goT}}</label>
 				
-							<div ng-if="!phoneNumber.attributes.markDeleted" class="im-input-group-multiple input-group" ng-repeat="phoneNumber in contact.attributes.phoneNumbers">
+							<div ng-if="!phoneNumber.markDeleted" class="im-input-group-multiple input-group" ng-repeat="phoneNumber in contact.phoneNumbers">
 
 								<div class="input-group-btn">			
-									<select class="form-control" style="width:120px" ng-model="phoneNumber.attributes.type" ng-options="number.value as number.label for number in phoneNumberOptions"></select>
+									<select class="form-control" style="width:120px" ng-model="phoneNumber.type" ng-options="number.value as number.label for number in phoneNumberOptions"></select>
 
 								
 
-<!--									<ui-select ng-model="phoneNumber.attributes.type">
+<!--									<ui-select ng-model="phoneNumber.type">
 										<ui-select-match class="ab-multi-input-select" placeholder="Please select..."><span ng-bind-html="$select.selected.label"></span></ui-select-match>
 										<ui-select-choices repeat="item.value as item in phoneNumberOptions | filter: $select.search">
 											<div ng-bind-html="item.label | highlight: $select.search"></div>
 										</ui-select-choices>
 									</ui-select>-->
 								</div>
-								<input type="text" name="number_{{$index}}" ng-model="phoneNumber.attributes.number" go-autofocus="$index > 0 && !phoneNumber.attributes.id">
+								<input type="text" name="number_{{$index}}" ng-model="phoneNumber.number" go-autofocus="$index > 0 && !phoneNumber.id">
 								<im-show-error for="number_{{$index}}" attribute-name="number" im-model="phoneNumber"></im-show-error>
 								<span class="input-group-btn">
-									<button type="button" class="btn btn-danger" ng-click="phoneNumber.attributes.markDeleted = true;"><i class="fa fa-trash-o"></i></button>
+									<button type="button" class="btn btn-danger" ng-click="phoneNumber.markDeleted = true;"><i class="fa fa-trash-o"></i></button>
 								</span>				
 							</div>
 
@@ -213,7 +213,7 @@
 							<im-multi-select-field 
 								auto-create="true"
 								store-route="tags" 
-								model-attribute="contact.attributes.tags" 
+								model-attribute="contact.tags" 
 								model-attribute-display-name="name" 
 								input-placeholder="{{'Add tags...'| goT}}">				
 							</im-multi-select-field>
@@ -224,15 +224,15 @@
 
 						<script type="text/ng-template" id="customTemplate.html">
 							<a>
-							  <span ng-if="!match.model.attributes.id">{{"Create new company" | goT}}: </span>
+							  <span ng-if="!match.model.id">{{"Create new company" | goT}}: </span>
 								<span bind-html-unsafe="match.label | goTypeaheadHighlight:query"></span>
 							</a>
 						</script>
 						
-						<div class="form-group" ng-if="!contact.attributes.isCompany">
+						<div class="form-group" ng-if="!contact.isCompany">
 							<label>{{"Company"| goT}}</label>	
 
-							<input type="text" typeahead-template-url="customTemplate.html" ng-model="contact.attributes.company" typeahead="company as company.attributes.name for company in getCompanies($viewValue)">
+							<input type="text" typeahead-template-url="customTemplate.html" ng-model="contact.company" typeahead="company as company.name for company in getCompanies($viewValue)">
 
 
 						</div>
@@ -242,14 +242,14 @@
 
 							
 								<div class="row">
-								<div ng-if="!address.attributes.markDeleted" class="col-md-6" ng-repeat="address in contact.attributes.addresses">
+								<div ng-if="!address.markDeleted" class="col-md-6" ng-repeat="address in contact.addresses">
 
 									<div class="form-group no-label">
 										<div class="input-group">
-							<select class="form-control" ng-model="address.attributes.type" ng-options="number.value as number.label for number in emailAddressOptions"></select>
+							<select class="form-control" ng-model="address.type" ng-options="number.value as number.label for number in emailAddressOptions"></select>
 
 <!--
-											<ui-select ng-model="address.attributes.type">
+											<ui-select ng-model="address.type">
 												<ui-select-match class="ab-multi-input-select" placeholder="Please select...">{{$select.selected.label}}</ui-select-match>
 												<ui-select-choices repeat="item.value as item in emailAddressOptions | filter: $select.search">
 													<div ng-bind-html="item.label | highlight: $select.search"></div>
@@ -257,25 +257,25 @@
 											</ui-select>-->
 
 											<span class="input-group-btn">
-												<button type="button" class="btn btn-danger" ng-click="address.attributes.markDeleted = true;"><i class="fa fa-trash-o"></i></button>
+												<button type="button" class="btn btn-danger" ng-click="address.markDeleted = true;"><i class="fa fa-trash-o"></i></button>
 											</span>				
 										</div>
 									</div>
 
 									<div class="form-group no-label">
-										<textarea ng-model="address.attributes.street" go-autofocus="!address.attributes.id" style="height:70px" placeholder="{{'Street address'| goT}}"></textarea>		
+										<textarea ng-model="address.street" go-autofocus="!address.id" style="height:70px" placeholder="{{'Street address'| goT}}"></textarea>		
 									</div>
 									<div class="form-group no-label">
-										<input type="text" ng-model="address.attributes.zipCode" placeholder="{{'Zip code'| goT}}">
+										<input type="text" ng-model="address.zipCode" placeholder="{{'Zip code'| goT}}">
 									</div>
 									<div class="form-group no-label">
-										<input type="text" ng-model="address.attributes.city" placeholder="{{'City'| goT}}">
+										<input type="text" ng-model="address.city" placeholder="{{'City'| goT}}">
 									</div>
 									<div class="form-group no-label">
-										<input type="text" ng-model="address.attributes.state" placeholder="{{'State / Province / Region'| goT}}">
+										<input type="text" ng-model="address.state" placeholder="{{'State / Province / Region'| goT}}">
 									</div>
 									<div class="form-group no-label">
-										<input type="text" ng-model="address.attributes.country" placeholder="{{'Country'| goT}}" />
+										<input type="text" ng-model="address.country" placeholder="{{'Country'| goT}}" />
 									</div>
 								</div>
 							</div>
@@ -288,7 +288,7 @@
 						
 						<div class="form-group">
 							<label for="notes">{{"Notes" | goT}}</label>
-							<textarea id="notes" msd-elastic="\n" ng-model="contact.attributes.notes" class="form-control" style="height:60px">
+							<textarea id="notes" msd-elastic="\n" ng-model="contact.notes" class="form-control" style="height:60px">
 							</textarea>		
 						</div>
 

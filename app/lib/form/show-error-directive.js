@@ -54,11 +54,11 @@ angular.module('GO.form')
 
 										serverError = newValue;
 
-										var currentValue = $scope.imModel.attributes[$scope.attributeName];
+										var currentValue = $scope.imModel[$scope.attributeName];
 
 										$scope.formEl.$setValidity('server', false);
 
-										var unregister = $scope.$watch('imModel.attributes["' + $scope.attributeName + '"]', function (newValue, oldValue) {
+										var unregister = $scope.$watch('imModel["' + $scope.attributeName + '"]', function (newValue, oldValue) {
 
 											if (currentValue !== newValue) {
 

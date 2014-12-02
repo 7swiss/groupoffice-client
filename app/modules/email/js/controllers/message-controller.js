@@ -6,7 +6,7 @@ angular.module('GO.controllers')
 						
 
 //						$scope.message.afterDelete = function(message, result) {
-//							$scope.store.remove($scope.store.findIndexByAttribute("uid", $scope.message.attributes.uid));
+//							$scope.store.remove($scope.store.findIndexByAttribute("uid", $scope.message.uid));
 //							$state.go('messages');
 //						};						
 
@@ -14,18 +14,18 @@ angular.module('GO.controllers')
 //							
 //							//set the seen flag (mark as read). When done then update the store of the list
 //							$scope.message.toggleFlag(flag).then(function(data){								
-//								var storeMessage = $scope.store.findSingleByAttribute("uid", $scope.message.attributes.uid);
-//								storeMessage[flag] = $scope.message.attributes[flag];
+//								var storeMessage = $scope.store.findSingleByAttribute("uid", $scope.message.uid);
+//								storeMessage[flag] = $scope.message[flag];
 //							});
 //						};
 						
 //						$scope.message.read($stateParams.uid).then(function(data){
 
 							//Mark message as read after 3s.
-//							if($scope.message.attributes.seen==false){
+//							if($scope.message.seen==false){
 //								$timeout(function(){
 //									$scope.message.toggleFlag("seen", false).then(function(data){								
-//										var storeMessage = $scope.store.findSingleByAttribute("uid", $scope.message.attributes.uid);
+//										var storeMessage = $scope.store.findSingleByAttribute("uid", $scope.message.uid);
 //										storeMessage["seen"] = true;
 //									});
 //								}, 3000);
@@ -42,8 +42,8 @@ angular.module('GO.controllers')
 							
 							//Avoid ng-sanitize errors because we sanitize on the server
 							for(var i=0,c=data.length;i<c;i++){
-								data[i].attributes.body = $sce.trustAsHtml(data[i].attributes.body);
-								data[i].attributes.quote = $sce.trustAsHtml(data[i].attributes.quote);
+								data[i].body = $sce.trustAsHtml(data[i].body);
+								data[i].quote = $sce.trustAsHtml(data[i].quote);
 							}
 					
 							Store.prototype.loadData.call(this, data);

@@ -1,4 +1,4 @@
-<div class="go-mask" ng-class="{deleted: user.attributes.deleted}"></div>
+<div class="go-mask" ng-class="{deleted: user.deleted}"></div>
 
 <div class="go-toolbar">
 
@@ -6,11 +6,11 @@
 	   <span class="fa fa-chevron-left"></span>
 	</a>
 
-	<a class="btn" ui-sref="users.edit({userId: user.attributes.id})">
+	<a class="btn" ui-sref="users.edit({userId: user.id})">
 		<span class="fa fa-edit"></span> {{'Edit'| goT}}
 	</a>
 
-	<a class="btn" ui-sref="contacts.contact({contactId: user.attributes.contact.attributes.id})">
+	<a class="btn" ui-sref="contacts.contact({contactId: user.contact.id})">
 		<span class="fa fa-user"></span> {{'View profile'| goT}}
 	</a>
 
@@ -31,21 +31,21 @@
 <div class="go-scrollable-panel">
 
 	<div class="go-card">
-		<h1>{{user.attributes.username}}</h1>
+		<h1>{{user.username}}</h1>
 
 
 
 		<dl>
 			<dt>{{"Enabled"| goT}}</dt>
-			<dd>{{user.attributes.enabled| boolean}}</dd>
+			<dd>{{user.enabled| boolean}}</dd>
 		</dl>
 
 		<dl>						
 			<dt>{{"Roles"| goT}}</dt>
 			<dd>
 				<ul class="comma-list">
-					<li ng-repeat="role in user.attributes.roles">
-						<a ui-sref="roles.edit({roleId: role.attributes.id})">{{role.attributes.name}}</a>
+					<li ng-repeat="role in user.roles">
+						<a ui-sref="roles.edit({roleId: role.id})">{{role.name}}</a>
 					</li>
 				</ul>
 			</dd>
@@ -53,24 +53,24 @@
 		
 		<dl>
 			<dt>{{"Number of logins"| goT}}</dt>
-			<dd>{{user.attributes.loginCount}}</dd>
+			<dd>{{user.loginCount}}</dd>
 		</dl>
 		
 		
 		<dl>
 			<dt>{{"Last login"| goT}}</dt>
-			<dd>{{user.attributes.lastLogin|date:"medium"}}</dd>
+			<dd>{{user.lastLogin|date:"medium"}}</dd>
 		</dl>
 
 
 		<dl>
 			<dt>{{"Created at"| goT}}</dt>
-			<dd>{{user.attributes.createdAt|date:"medium"}}</dd>
+			<dd>{{user.createdAt|date:"medium"}}</dd>
 		</dl>
 
 		<dl>
 			<dt>{{"Modified at"| goT}}</dt>
-			<dd>{{user.attributes.modifiedAt|date:"medium"}}</dd>
+			<dd>{{user.modifiedAt|date:"medium"}}</dd>
 		</dl>
 
 	</div>

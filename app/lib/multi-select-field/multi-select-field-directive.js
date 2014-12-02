@@ -7,7 +7,7 @@ angular.module('GO.MultiSelectField', ['GO.core'])
 			$templateCache.put("imMultiSelectField.html",
 					'<div class="im-multiselect-field form-control">\
 						<ul class="im-multiselect-list">\
-							<li ng-if="!model.attributes.markDeleted" ng-repeat="model in modelAttribute">{{getModelAttributeDisplayName(model)}} <a ng-click="model.attributes.markDeleted=true"><i class="fa fa-trash-o"></i></a></li>\
+							<li ng-if="!model.markDeleted" ng-repeat="model in modelAttribute">{{getModelAttributeDisplayName(model)}} <a ng-click="model.markDeleted=true"><i class="fa fa-trash-o"></i></a></li>\
 						</ul>\
 						\
 						<input class="im-multiselect-input" type="text" ng-model="input" placeholder="{{inputPlaceholder}}" typeahead="model as model.typeahead.text for model in getModels()" typeahead-loading="typeaheadLoading" typeahead-on-select="addModel($item, $model, $label)" im-keypress="{13: \'addNewModel($event)\'}">\
@@ -17,7 +17,7 @@ angular.module('GO.MultiSelectField', ['GO.core'])
 			return {
 				restrict: 'E',
 				scope: {
-					modelAttribute: '=', //contact.attributes.tags
+					modelAttribute: '=', //contact.tags
 					modelAttributeDisplayName: '@', //name
 					inputPlaceholder: '@', //Add tags...
 					storeRoute: '@', //"IPE/addressbook/tag/store",
@@ -59,7 +59,7 @@ angular.module('GO.MultiSelectField', ['GO.core'])
 					
 					var isSelected = function(item){
 						for(var i = 0, l = scope.modelAttribute.length; i < l; i++){
-							if(scope.modelAttribute[i].attributes[scope.modelAttributeDisplayName] === item.attributes[scope.modelAttributeDisplayName]){
+							if(scope.modelAttribute[i][scope.modelAttributeDisplayName] === item[scope.modelAttributeDisplayName]){
 								return true;
 							}
 						}
@@ -82,7 +82,7 @@ angular.module('GO.MultiSelectField', ['GO.core'])
 									}
 								};
 
-								newItem.attributes[scope.modelAttributeDisplayName] = value;
+								newItem[scope.modelAttributeDisplayName] = value;
 								
 								scope.modelAttribute.push(newItem);
 							}
@@ -93,7 +93,7 @@ angular.module('GO.MultiSelectField', ['GO.core'])
 					
 					//Helper function for the template so we can have a variable display name
 					scope.getModelAttributeDisplayName = function (model){
-						return model.attributes[scope.modelAttributeDisplayName];
+						return model[scope.modelAttributeDisplayName];
 					};
 
 

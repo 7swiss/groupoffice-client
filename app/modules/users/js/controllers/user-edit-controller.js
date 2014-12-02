@@ -8,7 +8,7 @@ angular.module('GO.controllers').
 						new Store('auth/users/'+$stateParams.userId+'/roles',{availableOnly: "1" }),
 						'modules/users/partials/multi-select-roles.html',
 							function(selected){							
-								$scope.user.attributes.roles = $scope.user.attributes.roles.concat(selected);
+								$scope.user.roles = $scope.user.roles.concat(selected);
 							}
 						);
 
@@ -21,17 +21,17 @@ angular.module('GO.controllers').
 					$scope.user.save()
 							.success(function (result) {
 								$scope.store.reload();
-								$state.go('users.detail', {userId: $scope.user.attributes.id});
+								$state.go('users.detail', {userId: $scope.user.id});
 							});
 				};
 
 
 				$scope.cancel = function () {
-					if ($scope.user.attributes.id) {
+					if ($scope.user.id) {
 
 						$scope.user.resetAttributes();
 
-						$state.go('users.detail', {userId: $scope.user.attributes.id});
+						$state.go('users.detail', {userId: $scope.user.id});
 					} else
 					{
 						$state.go('^');
@@ -46,16 +46,16 @@ angular.module('GO.controllers').
 					if($scope.user.fullName){
 						var parts = $scope.user.fullName.split(' ');
 
-						$scope.user.attributes.contact.attributes.firstName = parts.shift();
+						$scope.user.contact.firstName = parts.shift();
 
 						if (parts.length > 1) {
-							$scope.user.attributes.contact.attributes.middleName = parts.shift();
+							$scope.user.contact.middleName = parts.shift();
 						} else
 						{
-							$scope.user.attributes.contact.attributes.middleName = "";
+							$scope.user.contact.middleName = "";
 						}
 
-						$scope.user.attributes.contact.attributes.lastName = parts.join(' ');
+						$scope.user.contact.lastName = parts.join(' ');
 					}
 				};
 

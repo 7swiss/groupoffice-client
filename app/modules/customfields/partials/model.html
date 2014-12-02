@@ -19,14 +19,14 @@
 
 		<div class="list-group" as-sortable="dragControlListeners" ng-model="fieldSetStore.items">
 
-			<a draggable="false" as-sortable-item  ng-repeat="fieldSet in fieldSetStore.items"  class="list-group-item" ui-sref-active="active" ng-class="{'deleted-visible': fieldSet.attributes.deleted}" ui-sref="customfields.model.fields({fieldSetId: fieldSet.attributes.id})">
+			<a draggable="false" as-sortable-item  ng-repeat="fieldSet in fieldSetStore.items"  class="list-group-item" ui-sref-active="active" ng-class="{'deleted-visible': fieldSet.deleted}" ui-sref="customfields.model.fields({fieldSetId: fieldSet.id})">
 				<span as-sortable-item-handle></span>&nbsp;
 
-				{{fieldSet.attributes.name}}
+				{{fieldSet.name}}
 
 				<span style="float:right">
 
-					<span tooltip="{{'Edit'| goT}}" class="btn btn-xs btn-default" style="margin-right:10px;" ng-click="$state.go('customfields.model.fieldset', {fieldSetId: fieldSet.attributes.id});
+					<span tooltip="{{'Edit'| goT}}" class="btn btn-xs btn-default" style="margin-right:10px;" ng-click="$state.go('customfields.model.fieldset', {fieldSetId: fieldSet.id});
 							$event.stopPropagation();
 							$event.preventDefault();">
 						<i class="fa fa-edit"></i>

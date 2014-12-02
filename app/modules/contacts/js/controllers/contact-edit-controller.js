@@ -6,11 +6,11 @@ angular.module('GO.controllers').
 //				var defaultPhotoUrl = "";
 
 				$scope.cancel = function() {
-					if ($scope.contact.attributes.id) {
+					if ($scope.contact.id) {
 
 						$scope.contact.resetAttributes();
 
-						$state.go('contacts.contact.detail', {contactId: $scope.contact.attributes.id});
+						$state.go('contacts.contact.detail', {contactId: $scope.contact.id});
 					} else
 					{
 						$state.go('^');
@@ -32,18 +32,18 @@ angular.module('GO.controllers').
 
 				$scope.contact.readIf($stateParams.contactId).then(function() {
 					if($state.is('contacts.createCompany')){
-						$scope.contact.attributes.isCompany = true;
+						$scope.contact.isCompany = true;
 					}
 
-					if(!$scope.contact.attributes.isCompany){
-						$scope.contact.attributes.name = $scope.contact.attributes.firstName;
+					if(!$scope.contact.isCompany){
+						$scope.contact.name = $scope.contact.firstName;
 
-						if ($scope.contact.attributes.middleName !== "") {
-							$scope.contact.attributes.name += " " + $scope.contact.attributes.middleName;
+						if ($scope.contact.middleName !== "") {
+							$scope.contact.name += " " + $scope.contact.middleName;
 						}
 
-						if ($scope.contact.attributes.lastName !== "") {
-							$scope.contact.attributes.name += " " + $scope.contact.attributes.lastName;
+						if ($scope.contact.lastName !== "") {
+							$scope.contact.name += " " + $scope.contact.lastName;
 						}
 					}
 				});
@@ -51,19 +51,19 @@ angular.module('GO.controllers').
 
 				/* Multiple fields */
 				$scope.addEmailAddress = function() {
-					$scope.contact.attributes.emailAddresses.push({attributes: {type: "work"}});
+					$scope.contact.emailAddresses.push({attributes: {type: "work"}});
 				};
 
 				$scope.addPhoneNumber = function() {
-					$scope.contact.attributes.phoneNumbers.push({attributes: {type: "work,voice"}});
+					$scope.contact.phoneNumbers.push({attributes: {type: "work,voice"}});
 				};
 				
 				$scope.addAddress = function() {
-					$scope.contact.attributes.addresses.push({attributes: {type: "work"}});
+					$scope.contact.addresses.push({attributes: {type: "work"}});
 				};
 				
 				$scope.addDate = function() {
-					$scope.contact.attributes.dates.push({attributes: {type: "anniversary", date: new Date()}});
+					$scope.contact.dates.push({attributes: {type: "anniversary", date: new Date()}});
 				};
 
 
@@ -75,19 +75,19 @@ angular.module('GO.controllers').
 
 				$scope.changeFullName = function() {
 					
-					if($scope.contact.attributes.name) {
-						var parts = $scope.contact.attributes.name.split(' ');
+					if($scope.contact.name) {
+						var parts = $scope.contact.name.split(' ');
 
-						$scope.contact.attributes.firstName = parts.shift();
+						$scope.contact.firstName = parts.shift();
 
 						if (parts.length > 1) {
-							$scope.contact.attributes.middleName = parts.shift();
+							$scope.contact.middleName = parts.shift();
 						} else
 						{
-							$scope.contact.attributes.middleName = "";
+							$scope.contact.middleName = "";
 						}
 
-						$scope.contact.attributes.lastName = parts.join(' ');
+						$scope.contact.lastName = parts.join(' ');
 					}
 				};
 

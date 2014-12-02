@@ -4,43 +4,43 @@
 	<div class="go-tab-bar">
 
 
-		<a ui-sref="contacts.contact.detail({contactId: contact.attributes.id})" go-tab-switch  ui-sref-active="active" tooltip="{{'Properties'| goT}}" tooltip-placement="bottom">
+		<a ui-sref="contacts.contact.detail({contactId: contact.id})" go-tab-switch  ui-sref-active="active" tooltip="{{'Properties'| goT}}" tooltip-placement="bottom">
 
 			<i class="fa fa-list-alt"></i> <span class="hidden-xs">{{"Properties" | goT}}</span>
 
 		</a>
 
-		<a ui-sref="contacts.contact.files({contactId: contact.attributes.id})" go-tab-switch ui-sref-active="active"  tooltip="{{'Files'| goT}}" tooltip-placement="bottom">
+		<a ui-sref="contacts.contact.files({contactId: contact.id})" go-tab-switch ui-sref-active="active"  tooltip="{{'Files'| goT}}" tooltip-placement="bottom">
 
 			<i class="fa fa-folder-o"></i> <span class="hidden-xs">{{"Files" | goT}}</span>
 
 		</a>	
 
-		<a ui-sref="contacts.contact.timeline({contactId: contact.attributes.id})" go-tab-switch ui-sref-active="active"  tooltip="{{'Comments'| goT}}" tooltip-placement="bottom">
+		<a ui-sref="contacts.contact.timeline({contactId: contact.id})" go-tab-switch ui-sref-active="active"  tooltip="{{'Comments'| goT}}" tooltip-placement="bottom">
 
 			<i class="fa fa-clock-o"></i> <span class="hidden-xs">{{"Timeline" | goT}}</span>
 
 		</a>	
 
-		<a ng-if="hasProjects" ui-sref="contacts.projects({contactId: contact.attributes.id})" ui-sref-active="active" tooltip="{{'Projects'| goT}}" tooltip-placement="bottom">
+		<a ng-if="hasProjects" ui-sref="contacts.projects({contactId: contact.id})" ui-sref-active="active" tooltip="{{'Projects'| goT}}" tooltip-placement="bottom">
 
 			<i class="fa fa-cogs"></i>
 
 		</a>
 
-		<a ng-if="hasProjects" ui-sref="contacts.contracts({contactId: contact.attributes.id})" ui-sref-active="active" tooltip="{{'Contracts'| goT}}" tooltip-placement="bottom">
+		<a ng-if="hasProjects" ui-sref="contacts.contracts({contactId: contact.id})" ui-sref-active="active" tooltip="{{'Contracts'| goT}}" tooltip-placement="bottom">
 
 			<i class="fa fa-retweet"></i>
 
 		</a>
 
-		<a ng-if="hasProjects" ui-sref="contacts.invoices({contactId: contact.attributes.id})" ui-sref-active="active" tooltip="{{'Invoices'| goT}}" tooltip-placement="bottom">
+		<a ng-if="hasProjects" ui-sref="contacts.invoices({contactId: contact.id})" ui-sref-active="active" tooltip="{{'Invoices'| goT}}" tooltip-placement="bottom">
 
 			<i class="fa  fa-money"></i>
 
 		</a>
 
-		<a ng-if="hasProjects" ui-sref="contacts.quotes({contactId: contact.attributes.id})" ui-sref-active="active" tooltip="{{'Quotes'| goT}}" tooltip-placement="bottom">
+		<a ng-if="hasProjects" ui-sref="contacts.quotes({contactId: contact.id})" ui-sref-active="active" tooltip="{{'Quotes'| goT}}" tooltip-placement="bottom">
 			<i class="fa  fa-quote-right"></i>
 		</a>
 	</div>

@@ -37,7 +37,7 @@
 
 					<ul class="list-group">
 						<li class="list-group-item" ng-repeat="model in storeSelectModal.selectedStore.items" im-infinite-use-window="true">
-							<label><input type="checkbox" ng-model="model.checked" ng-show="storeSelectModal.deleteEnabled"> {{model.attributes.name}}</label>
+							<label><input type="checkbox" ng-model="model.checked" ng-show="storeSelectModal.deleteEnabled"> {{model.name}}</label>
 						</li>
 					</ul>
 
@@ -54,7 +54,7 @@
 
 						<ul class="list-group">
 							<li class="list-group-item" ng-repeat="model in storeSelectModal.availableStore.items">
-								<label><input type="checkbox" ng-model="model.checked"> {{model.attributes.name}}</label>
+								<label><input type="checkbox" ng-model="model.checked"> {{model.name}}</label>
 							</li>
 						</ul>
 					</div>
@@ -132,8 +132,8 @@ angular.module('GO.StoreSelectModal',['GO.core', 'GO.data', 'GO.infiniteScroll',
 							$scope.ok = function() {
 							
 								for (var i = 0; i < $scope.storeSelectModal.availableStore.items.length; i++) {
-									if ($scope.storeSelectModal.availableStore.items[i].attributes.checked) {
-										$scope.storeSelectModal.availableStore.items[i].attributes.checked = false;
+									if ($scope.storeSelectModal.availableStore.items[i].checked) {
+										$scope.storeSelectModal.availableStore.items[i].checked = false;
 										selected.push($scope.storeSelectModal.availableStore.items[i]);
 									}
 								}

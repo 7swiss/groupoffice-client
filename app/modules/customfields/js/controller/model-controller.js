@@ -23,8 +23,8 @@ angular.module('GO.controllers').
 						
 						var droppedModel = $scope.fieldStore.items[event.dest.index + 1];
 						
-						draggedModel.attributes.sortOrder = droppedModel.attributes.sortOrder;
-						draggedModel.attributes.resort = true;
+						draggedModel.sortOrder = droppedModel.sortOrder;
+						draggedModel.resort = true;
 						draggedModel.save();
 					}
 				};

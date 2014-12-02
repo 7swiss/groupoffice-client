@@ -13,7 +13,7 @@
 
 			<div class="form-group">
 				<label for="text">Text field</label>
-				<input id="text" name="text" type="text" ng-model="formModel.attributes.text" required />
+				<input id="text" name="text" type="text" ng-model="formModel.text" required />
 				<im-show-error for="text" im-model="formModel"></im-show-error>
 			</div>
 
@@ -22,13 +22,13 @@
 
 				<div class="input-group">		
 					<label class="radio-inline">
-						<input type="radio" ng-model="formModel.attributes.gender" ng-value="null"> Null value
+						<input type="radio" ng-model="formModel.gender" ng-value="null"> Null value
 					</label>
 					<label class="radio-inline">
-						<input type="radio" ng-model="formModel.attributes.gender" value="opt-1"> Option 1
+						<input type="radio" ng-model="formModel.gender" value="opt-1"> Option 1
 					</label>
 					<label class="radio-inline">
-						<input type="radio" ng-model="formModel.attributes.gender" value="opt-2"> Option 2
+						<input type="radio" ng-model="formModel.gender" value="opt-2"> Option 2
 					</label>
 				</div>
 			</div>
@@ -39,7 +39,7 @@
 					id="select"
 					name="select"
 					class="form-control" 
-					ng-model="formModel.attributes.select" 
+					ng-model="formModel.select" 
 					ng-options="option.value as option.label for option in selectOptions">											
 				</select>
 				<im-show-error for="select" im-model="formModel"></im-show-error>
@@ -48,7 +48,7 @@
 
 			<div class="form-group">
 				<label for="date">Date field</label>
-				<input type="text" id="date" name="date" ng-model="formModel.attributes.date" datepicker-options="datePickerOptions" datepicker-popup="dd-MM-yyyy" is-open="isOpen" ng-click="isOpen = true" close-text="{{'Close'| goT}}" />
+				<input type="text" id="date" name="date" ng-model="formModel.date" datepicker-options="datePickerOptions" datepicker-popup="dd-MM-yyyy" is-open="isOpen" ng-click="isOpen = true" close-text="{{'Close'| goT}}" />
 				<im-show-error for="date" im-model="formModel"></im-show-error>
 			</div>
 
@@ -59,7 +59,7 @@
 				<im-multi-select-field 
 					auto-create="true"
 					store-route="tags" 
-					model-attribute="formModel.attributes.tags" 
+					model-attribute="formModel.tags" 
 					model-attribute-display-name="name" 
 					input-placeholder="{{'Add tags...'| goT}}">				
 				</im-multi-select-field>
@@ -70,7 +70,7 @@
 
 			<div class="form-group">
 				<label for="notes">Autogrow textarea</label>
-				<textarea id="notes" msd-elastic="\n" ng-model="formModel.attributes.notes" class="form-control" style="height:60px">
+				<textarea id="notes" msd-elastic="\n" ng-model="formModel.notes" class="form-control" style="height:60px">
 				</textarea>		
 			</div>
 			
@@ -80,9 +80,9 @@
 				
 				<div style="width:75px;height:100px">
 					<im-image-upload-placeholder style="width:75px;height:100px"
-						im-image-attribute="formModel.attributes.photoFilePath"
-						im-image-temp-attribute="formModel.attributes.photoTempPath"
-						im-thumb-route="contacts/{{contact.attributes.id}}/thumb"
+						im-image-attribute="formModel.photoFilePath"
+						im-image-temp-attribute="formModel.photoTempPath"
+						im-thumb-route="contacts/{{contact.id}}/thumb"
 						im-thumb-width="75"
 						im-thumb-height="100"
 					></im-image-upload-placeholder>
@@ -93,7 +93,7 @@
 			<div class="form-group">
 				<label for="html">HTML editor</label>
 			
-				<text-angular id="html" ta-toolbar="[['bold','italics','underline'], ['quote'], ['insertLink'], ['undo','redo']]" ng-model="formModel.attributes.html"></text-angular>
+				<text-angular id="html" ta-toolbar="[['bold','italics','underline'], ['quote'], ['insertLink'], ['undo','redo']]" ng-model="formModel.html"></text-angular>
 			</div>
 			
 

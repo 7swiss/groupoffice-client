@@ -38,14 +38,14 @@
 			</div>
 
 
-			<a ng-class="{'deleted-visible': file.attributes.deleted}" ng-repeat="file in filesStore.items" class="list-group-item" target="_blank" href="{{file.attributes.downloadUrl}}">
+			<a ng-class="{'deleted-visible': file.deleted}" ng-repeat="file in filesStore.items" class="list-group-item" target="_blank" href="{{file.downloadUrl}}">
 				<i class="fa fa-file-o"></i>
 
 				<span ng-if="!file.rename">							
-					{{file.attributes.name}}
+					{{file.name}}
 				</span>					
 
-				<input ng-if="file.rename" type="text" ng-model="file.attributes.name" ng-blur="saveFile($event, file)" ng-click="$event.stopPropagation();
+				<input ng-if="file.rename" type="text" ng-model="file.name" ng-blur="saveFile($event, file)" ng-click="$event.stopPropagation();
 								$event.preventDefault();" autoselect required im-keypress="{13 : '$event.preventDefault();saveFile($event, file);'}" />
 
 				<span style="float:right">

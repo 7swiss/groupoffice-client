@@ -31,7 +31,7 @@ angular.module('GO.controllers').
 						});
 
 				$scope.syncWithStore = function(reloadStore) {
-					var index = $scope.store.findIndexByAttribute('id', $scope.user.attributes.id);
+					var index = $scope.store.findIndexByAttribute('id', $scope.user.id);
 
 					if (index > -1) {
 						$scope.store.items[index].attributes = angular.copy($scope.user.attributes);

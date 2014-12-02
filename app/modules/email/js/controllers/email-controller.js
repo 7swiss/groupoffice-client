@@ -20,15 +20,15 @@ angular.module('GO.controllers').
 					
 					//for debug
 //					for(var i=0,c=data.length;i<c;i++){
-//						data[i].attributes.excerpt = null;
+//						data[i].excerpt = null;
 //					}
 					
 					Store.prototype.loadData.call(this, data);
 					
 					for(var i = 0, c = this.items.length; i < c; i++){
-						if(this.items[i].attributes.excerpt === null){
+						if(this.items[i].excerpt === null){
 							this.items[i].controllerRoute = 'email/accounts/2/messages';
-							this.items[i].read(this.items[i].attributes.id,{returnAttributes:'threadId,body,excerpt'}, true).success(function(data){
+							this.items[i].read(this.items[i].id,{returnAttributes:'threadId,body,excerpt'}, true).success(function(data){
 
 							}.bind(this));
 						}

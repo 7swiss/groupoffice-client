@@ -6,11 +6,11 @@ angular.module('GO.controllers').
 //				var defaultPhotoUrl = "";
 
 				$scope.cancel = function() {
-					if ($scope.project.attributes.id) {
+					if ($scope.project.id) {
 
 						$scope.project.resetAttributes();
 
-						$state.go('projects.project.detail', {projectId: $scope.contact.attributes.id});
+						$state.go('projects.project.detail', {projectId: $scope.contact.id});
 					} else
 					{
 						$state.go('^');

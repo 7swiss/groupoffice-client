@@ -28,13 +28,13 @@
 				</tr>
 				<tr ng-repeat="model in shareModal.store.items">
 					<td>
-						<i class="fa" ng-class='{"fa-user": model.attributes.userId, "fa-group": !model.attributes.userId}'></i>
+						<i class="fa" ng-class='{"fa-user": model.userId, "fa-group": !model.userId}'></i>
 					</td>
 					<td>						
-						{{model.attributes.name}}
+						{{model.name}}
 					</td>
 					<td style="text-align:center" ng-repeat="permissionAttribute in shareModal.permissionAttributes">
-						<input type="checkbox" ng-model="model.attributes.permissions.attributes[permissionAttribute.name]" ng-change="checkDependencies(model)" ng-init="checkDependencies(model)" ng-disabled="permissionDisabled(model, permissionAttribute.name)">
+						<input type="checkbox" ng-model="model.permissions[permissionAttribute.name]" ng-change="checkDependencies(model)" ng-init="checkDependencies(model)" ng-disabled="permissionDisabled(model, permissionAttribute.name)">
 					</td>
 				</tr>
 

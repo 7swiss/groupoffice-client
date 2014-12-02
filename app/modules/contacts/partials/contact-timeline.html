@@ -9,22 +9,22 @@
 
 	<div ng-repeat="timelineItem in timelineStore.items" class="go-card-quote">
 
-<!--		<div ng-if="timelineItem.attributes.imapMessageId">
-			<img class="thumbnail" ng-src="{{timelineItem.attributes.authorThumbUrl}}&amo;w=45">
+<!--		<div ng-if="timelineItem.imapMessageId">
+			<img class="thumbnail" ng-src="{{timelineItem.authorThumbUrl}}&amo;w=45">
 
-			<div class="go-card timeline-panel" ng-class="{'deleted-visible': timelineItem.attributes.deleted}">
+			<div class="go-card timeline-panel" ng-class="{'deleted-visible': timelineItem.deleted}">
 				<h1>
-					<i class="fa fa-envelope-o"></i> {{"by" | goT}} {{timelineItem.attributes.imapMessage.attributes.from.display}} {{'at' | goT}} {{timelineItem.attributes.imapMessage.attributes.date | date}} {{timelineItem.attributes.imapMessage.attributes.date | date : 'shortTime'}} 
+					<i class="fa fa-envelope-o"></i> {{"by" | goT}} {{timelineItem.imapMessage.from.display}} {{'at' | goT}} {{timelineItem.imapMessage.date | date}} {{timelineItem.imapMessage.date | date : 'shortTime'}} 
 				</h1>
 
-				<h4>{{timelineItem.attributes.imapMessage.attributes.subject}}</h4> 
+				<h4>{{timelineItem.imapMessage.subject}}</h4> 
 
-				<p ng-bind-html="timelineItem.attributes.imapMessage.attributes.excerpt"></p>
+				<p ng-bind-html="timelineItem.imapMessage.excerpt"></p>
 
 
 
 				<div style="text-align:right;padding:0px 20px 20px 0px">						
-					<a class="btn btn-xs btn-primary" ui-sref="contacts.contact.timeline.message({messageId: timelineItem.attributes.imapMessage.attributes.id})">{{"Open"| goT}}</a>
+					<a class="btn btn-xs btn-primary" ui-sref="contacts.contact.timeline.message({messageId: timelineItem.imapMessage.id})">{{"Open"| goT}}</a>
 
 					<im-soft-delete-button im-model="timelineItem"></im-soft-delete-button>
 				</div>
@@ -32,19 +32,19 @@
 			
 		</div>
 		
-		<div ng-if="!timelineItem.attributes.imapMessageId">-->
-			<img class="thumbnail" ng-src="{{timelineItem.attributes.authorThumbUrl}}&amp;w=45">
+		<div ng-if="!timelineItem.imapMessageId">-->
+			<img class="thumbnail" ng-src="{{timelineItem.authorThumbUrl}}&amp;w=45">
 
 
-			<div class="go-card" ng-class="{'deleted-visible': timelineItem.attributes.deleted}">
+			<div class="go-card" ng-class="{'deleted-visible': timelineItem.deleted}">
 				<h1>
-					<i class="fa fa-comment-o"></i> {{"by" | goT }} {{timelineItem.attributes.owner.attributes.username}} at {{timelineItem.attributes.createdAt | date}}
+					<i class="fa fa-comment-o"></i> {{"by" | goT }} {{timelineItem.owner.username}} at {{timelineItem.createdAt | date}}
 				</h1>
 
-				<p ng-bind-html="timelineItem.attributes.text | nl2br"></p>
+				<p ng-bind-html="timelineItem.text | nl2br"></p>
 
 				<div style="text-align:right;">						
-					<a ui-sref="contacts.contact.timeline.edit({timelineItemId: timelineItem.attributes.id})" class="btn btn-xs btn-default">
+					<a ui-sref="contacts.contact.timeline.edit({timelineItemId: timelineItem.id})" class="btn btn-xs btn-default">
 						<i class="fa fa-edit"></i>
 					</a>
 					<im-soft-delete-button im-model="timelineItem"></im-soft-delete-button>

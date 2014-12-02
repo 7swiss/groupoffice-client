@@ -62,7 +62,7 @@ angular.module('GO.modules')
 					modulesPromise.then(function(modules){
 						for(var i = 0, l = modules.length;i < l; i++){
 
-							if(modules[i].attributes.name === moduleName){
+							if(modules[i].name === moduleName){
 								deferred.resolve(modules[i]);
 								return;
 							}
@@ -82,7 +82,7 @@ angular.module('GO.modules')
 //								
 //					for(var i = 0, l = this.modules.length;i < l; i++){
 //
-//						if(this.modules[i].attributes.name === moduleName){
+//						if(this.modules[i].name === moduleName){
 //							return this.modules[i];
 //						}
 //					}
@@ -107,14 +107,14 @@ angular.module('GO.modules')
 							
 							for(var i = 0, l = this.store.items.length;i < l; i++){
 								
-								if(!modules[this.store.items[i].attributes.name]){
+								if(!modules[this.store.items[i].name]){
 									this.store.items.splice(i, 1);
 									i--;
 									l--;
 								}else
 								{
 								
-									this.store.items[i].clientAttributes = modules[this.store.items[i].attributes.name];
+									this.store.items[i].clientAttributes = modules[this.store.items[i].name];
 								}
 							}
 							

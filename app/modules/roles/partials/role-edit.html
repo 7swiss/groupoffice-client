@@ -1,4 +1,4 @@
-<div class="go-mask" ng-class="{deleted: role.attributes.deleted}"></div>
+<div class="go-mask" ng-class="{deleted: role.deleted}"></div>
 
 
 <form name="roleForm" im-submit="save()" class="form-horizontal go-labels" novalidate>
@@ -33,14 +33,14 @@
 	
 			<div class="form-group">
 				<label for="name">{{"Role name"| goT}}</label>
-				<input type="text" name="name" id="name" ng-model="role.attributes.name" required go-autofocus />
+				<input type="text" name="name" id="name" ng-model="role.name" required go-autofocus />
 				<im-show-error for="name" im-model="role"></im-show-error>
 			</div>
 
 			<div class="form-group">
 				<div class="checkbox">
 					<label>
-						<input type="checkbox" ng-model="role.attributes.autoAdd" /> {{"Grant permission to new items automatically"| goT}}
+						<input type="checkbox" ng-model="role.autoAdd" /> {{"Grant permission to new items automatically"| goT}}
 					</label>
 				</div>
 			</div>
@@ -57,11 +57,11 @@
 					<th>{{"Use access"| goT }}</th>
 					<th>{{"Create access"| goT }}</th>
 				</tr>
-				<tr ng-repeat="module in role.attributes.modulesWithPermissions">
+				<tr ng-repeat="module in role.modulesWithPermissions">
 
-					<td>{{module.attributes.name}}</td>
-					<td><input type="checkbox" ng-model="module.attributes.useAccess"></td>
-					<td><input type="checkbox" ng-model="module.attributes.createAccess"></td>					
+					<td>{{module.name}}</td>
+					<td><input type="checkbox" ng-model="module.useAccess"></td>
+					<td><input type="checkbox" ng-model="module.createAccess"></td>					
 				</tr>
 			</table>
 
@@ -82,12 +82,12 @@
 
 			<ul class="list-group">
 
-				<li ng-if="!user.attributes.markDeleted" class="list-group-item" ng-repeat="user in role.attributes.users">
+				<li ng-if="!user.markDeleted" class="list-group-item" ng-repeat="user in role.users">
 
-					{{user.attributes.username}}
+					{{user.username}}
 
 					<span style="float:right">
-						<a class="btn btn-danger btn-xs" ng-click="user.attributes.markDeleted = true"><i class="fa fa-trash-o"></i></a>
+						<a class="btn btn-danger btn-xs" ng-click="user.markDeleted = true"><i class="fa fa-trash-o"></i></a>
 					</span>
 				</li>
 

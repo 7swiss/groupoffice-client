@@ -1,4 +1,4 @@
-<div class="go-mask" ng-class="{active: contact.attributes.deleted}"></div>
+<div class="go-mask" ng-class="{active: contact.deleted}"></div>
 
 
 
@@ -9,12 +9,12 @@
 	</a>
 
 
-	<a class="btn" ng-disabled="!contact.permissions.editAccess" ui-sref="contacts.edit({contactId: contact.attributes.id})">
+	<a class="btn" ng-disabled="!contact.permissions.editAccess" ui-sref="contacts.edit({contactId: contact.id})">
 		<span class="fa fa-edit"></span> {{'Edit'| goT}}
 	</a>
 
 
-	<a class="btn" tooltip="{{'Share'| goT}}" ng-click="shareModal.open(contact.attributes.id)" ng-disabled="!contact.currentUserCanManagePermissions">
+	<a class="btn" tooltip="{{'Share'| goT}}" ng-click="shareModal.open(contact.id)" ng-disabled="!contact.currentUserCanManagePermissions">
 		<span class="fa fa-share-alt"></span>
 	</a>
 
@@ -42,59 +42,59 @@
 		<div class="go-card" style="position: relative; min-height: 130px;padding-left:132px">
 			
 			
-			<img class="thumbnail" style="display:block;position:absolute;top:16px;left:16px;width:100px;" ng-src="{{contact.attributes.thumbUrl}}&amp;w=80" />
+			<img class="thumbnail" style="display:block;position:absolute;top:16px;left:16px;width:100px;" ng-src="{{contact.thumbUrl}}&amp;w=80" />
 			
 
 			<h1>
-				{{contact.attributes.name}}
+				{{contact.name}}
 			</h1>
 			
-			<dl ng-if="contact.attributes.emailAddresses.length">						
+			<dl ng-if="contact.emailAddresses.length">						
 				<dt>{{"E-mail"| goT}}</dt>
 				<dd>
 					<ul class="comma-list">
-						<li ng-repeat="emailAddress in contact.attributes.emailAddresses"><i style="margin-right:2px;" class="fa" ng-class="{'fa-envelope-o':emailAddress.attributes.type == 'other', 'fa-money':emailAddress.attributes.type == 'billing', 'fa-users':emailAddress.attributes.type == 'work','fa-home':emailAddress.attributes.type == 'home'}"></i><a href="mailto:{{emailAddress.attributes.email}}">{{emailAddress.attributes.email}}</a></li>
+						<li ng-repeat="emailAddress in contact.emailAddresses"><i style="margin-right:2px;" class="fa" ng-class="{'fa-envelope-o':emailAddress.type == 'other', 'fa-money':emailAddress.type == 'billing', 'fa-users':emailAddress.type == 'work','fa-home':emailAddress.type == 'home'}"></i><a href="mailto:{{emailAddress.email}}">{{emailAddress.email}}</a></li>
 					</ul>
 				</dd>
 			</dl>
 
-			<dl ng-if="contact.attributes.phoneNumbers.length">
+			<dl ng-if="contact.phoneNumbers.length">
 				<dt>{{"Phone numbers"| goT}}</dt>
 				<dd>
 					<ul class="comma-list">
-						<li ng-repeat="phoneNumber in contact.attributes.phoneNumbers"><i style="margin-right:2px;" class="fa fa-phone"></i><a href="tel:{{phoneNumber.attributes.number}}">{{phoneNumber.attributes.number}}</a></li>
+						<li ng-repeat="phoneNumber in contact.phoneNumbers"><i style="margin-right:2px;" class="fa fa-phone"></i><a href="tel:{{phoneNumber.number}}">{{phoneNumber.number}}</a></li>
 					</ul>
 				</dd>
 			</dl>
 
-			<dl ng-if="contact.attributes.company">
+			<dl ng-if="contact.company">
 				<dt>{{"Company"| goT}}</dt>
 				<dd>
-					<a ui-sref="contacts.contact.detail({contactId: contact.attributes.company.attributes.id})">{{contact.attributes.company.attributes.name}}</a>
+					<a ui-sref="contacts.contact.detail({contactId: contact.company.id})">{{contact.company.name}}</a>
 				</dd>
 			</dl>
 
-			<dl ng-if="contact.attributes.tags.length">
+			<dl ng-if="contact.tags.length">
 				<dt>{{"Tags"| goT}}</dt>
 				<dd>
 					<ul class="comma-list">
-						<li ng-repeat="tag in contact.attributes.tags">{{tag.attributes.name}}</li>
+						<li ng-repeat="tag in contact.tags">{{tag.name}}</li>
 					</ul>
 				</dd>
 			</dl>
 
-			<dl ng-repeat="date in contact.attributes.dates">
-				<dt>{{findDateLabel(date.attributes.type)}}</dt>
-				<dd>{{date.attributes.date|date:"longDate"}} ({{date.attributes.date|age}}{{'yr'| goT}})</dd>
+			<dl ng-repeat="date in contact.dates">
+				<dt>{{findDateLabel(date.type)}}</dt>
+				<dd>{{date.date|date:"longDate"}} ({{date.date|age}}{{'yr'| goT}})</dd>
 			</dl>
 		
 
-			<dl ng-if="contact.attributes.addresses.length">
+			<dl ng-if="contact.addresses.length">
 				<dt>{{"Address"| goT}}</dt>
 				<dd>
-					<div class="col-md-6 nopadding" ng-repeat="address in contact.attributes.addresses">
-						<h3>{{address.attributes.type}}</h3>
-						<a target="_blank" href="http://maps.google.com/?q={{address.attributes.street + ', ' + address.attributes.zipCode + ', ' + address.attributes.state + ', ' + address.attributes.country| encodeURIComponent}}" ng-bind-html="address.attributes.formatted | nl2br">
+					<div class="col-md-6 nopadding" ng-repeat="address in contact.addresses">
+						<h3>{{address.type}}</h3>
+						<a target="_blank" href="http://maps.google.com/?q={{address.street + ', ' + address.zipCode + ', ' + address.state + ', ' + address.country| encodeURIComponent}}" ng-bind-html="address.formatted | nl2br">
 
 						</a>
 					</div>
@@ -106,13 +106,13 @@
 
 
 
-		<div class="go-card" ng-if="contact.attributes.employees.length">
+		<div class="go-card" ng-if="contact.employees.length">
 			<h1>{{"Employees"| goT}}</h1>
 
-			<a ui-sref="contacts.contact.detail({contactId: contact.attributes.id})" style="float:left;width:100px;text-align:center;margin:20px;" ng-repeat="contact in contact.attributes.employees">
-				<img class="thumbnail" style="display:inline-block" ng-src="{{::'intermesh/contacts/contact/thumb'| apiRoute: {w: 75, h: 100, zoomCrop: 1, contactId: contact.attributes.id} }}" />
+			<a ui-sref="contacts.contact.detail({contactId: contact.id})" style="float:left;width:100px;text-align:center;margin:20px;" ng-repeat="contact in contact.employees">
+				<img class="thumbnail" style="display:inline-block" ng-src="{{::'intermesh/contacts/contact/thumb'| apiRoute: {w: 75, h: 100, zoomCrop: 1, contactId: contact.id} }}" />
 
-				{{contact.attributes.name}}
+				{{contact.name}}
 
 			</a>					
 
@@ -121,10 +121,10 @@
 	</div>
 
 	<div class="go-col lg-2">
-		<div class="go-card" ng-if="contact.attributes.notes">
+		<div class="go-card" ng-if="contact.notes">
 			<h1>{{"Notes"| goT}}</h1>
 
-			<div ng-bind-html="contact.attributes.notes | nl2br"></div>		
+			<div ng-bind-html="contact.notes | nl2br"></div>		
 
 		</div>
 		<im-custom-fields-detail im-model="contact" im-server-model="Intermesh\Modules\Contacts\Model\ContactCustomFields"></im-custom-fields-detail>

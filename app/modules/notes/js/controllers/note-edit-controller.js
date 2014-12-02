@@ -49,7 +49,7 @@ angular.module('GO.controllers')
 
 			$scope.save = function() {
 
-				var isNew = !$scope.note.attributes.id;
+				var isNew = !$scope.note.id;
 
 				$scope.note.save()
 					.success(function(result) {
@@ -74,7 +74,7 @@ angular.module('GO.controllers')
 
 				var imageModel = new Model('noteImage');
 
-				$scope.note.attributes.images.push(imageModel);
+				$scope.note.images.push(imageModel);
 			};
 
 			/**
@@ -85,7 +85,7 @@ angular.module('GO.controllers')
 			 * @returns {undefined}
 			 */
 			$scope.setColor = function(note, color) {
-				note.attributes.color = color;
+				note.color = color;
 			};
 
 			/**
@@ -96,7 +96,7 @@ angular.module('GO.controllers')
 			 * @returns {undefined}
 			 */
 			$scope.listItemClick = function(listItem, note) {
-				listItem.attributes.checked = !listItem.attributes.checked;
+				listItem.checked = !listItem.checked;
 			};
 
 			$scope.newListItem = function(note) {
@@ -106,13 +106,13 @@ angular.module('GO.controllers')
 
 				listItemModel.attributes = {
 					id: 0,
-					noteId: note.attributes.id,
+					noteId: note.id,
 					text: "",
 					checked: 0,
-					sortOrder: note.attributes.listItems.length + 1
+					sortOrder: note.listItems.length + 1
 				};
 
-				$scope.note.attributes.listItems.push(listItemModel);
+				$scope.note.listItems.push(listItemModel);
 			};
 
 		}]);

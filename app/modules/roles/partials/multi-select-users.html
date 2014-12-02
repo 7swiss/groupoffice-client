@@ -17,8 +17,8 @@
 		<div style="margin-top:10px;height:300px;overflow:auto" class="list-group" im-infinite-scroll="storeSelectModal.availableStore.nextPage()" im-infinite-scroll-disabled="!storeSelectModal.availableStore.shouldLoad()">
 
 			<ul class="list-group">
-				<label class="list-group-item" ng-class="{selected: user.attributes.checked}" ng-repeat="user in storeSelectModal.availableStore.items" im-infinite-use-window="true">
-					<input type="checkbox" ng-model="user.attributes.checked"> {{user.attributes.username}}
+				<label class="list-group-item" ng-class="{selected: user.checked}" ng-repeat="user in storeSelectModal.availableStore.items" im-infinite-use-window="true">
+					<input type="checkbox" ng-model="user.checked"> {{user.username}}
 				</label>  
 			</ul>
 		</div>				

@@ -58,7 +58,7 @@ angular.module('GO.controllers')
 
 				$scope.cancel = function() {
 
-					if ($scope.fieldset.attributes.id) {
+					if ($scope.fieldset.id) {
 						$scope.fieldset.resetAttributes();
 					}
 

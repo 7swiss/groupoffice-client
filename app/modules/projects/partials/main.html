@@ -43,11 +43,11 @@
 
 			<div class="list-group">
 				
-				<div class="deletable" ng-class="{'deleted-invisible': project.attributes.deleted}" ng-repeat="project in store.items track by project.attributes.id">
+				<div class="deletable" ng-class="{'deleted-invisible': project.deleted}" ng-repeat="project in store.items track by project.id">
 					<!-- The listitem view for the project list -->
-					<a ui-sref-active="active" ui-sref="projects.project.details({projectId: project.attributes.id})" class="list-group-item">
-						<!-- <img class="thumbnail" style="width:40px;height:40px;" ng-src="{{contact.attributes.thumbUrl}}&amp;w=40&amp;h=40&amp;zoomCrop=1" /> -->
-						{{project.attributes.name}}
+					<a ui-sref-active="active" ui-sref="projects.project.details({projectId: project.id})" class="list-group-item">
+						<!-- <img class="thumbnail" style="width:40px;height:40px;" ng-src="{{contact.thumbUrl}}&amp;w=40&amp;h=40&amp;zoomCrop=1" /> -->
+						{{project.name}}
 					</a>
 				</div>
 				<!-- Show the spinner when loading -->

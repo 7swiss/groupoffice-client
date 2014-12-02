@@ -9,7 +9,7 @@ angular.module('GO.controllers').
 						new Store('auth/roles/'+$stateParams.roleId+'/users',{availableOnly: 1}),
 						'modules/roles/partials/multi-select-users.html',
 						function (selected) {
-							$scope.role.attributes.users = $scope.role.attributes.users.concat(selected);
+							$scope.role.users = $scope.role.users.concat(selected);
 						}
 				);
 		
