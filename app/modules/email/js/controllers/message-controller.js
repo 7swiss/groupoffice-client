@@ -10,13 +10,8 @@ angular.module('GO.controllers')
 //							$state.go('messages');
 //						};						
 
-						$scope.toggleMessageFlag = function(){
-							
-							
-							var lastMessage = $scope.threadStore.items[0];							
-							
-							console.log(lastMessage);
-							
+						$scope.toggleMessageFlag = function(){							
+							var lastMessage = $scope.threadStore.items[0];
 							$scope.lastMessage.flagged = !lastMessage.flagged;
 							$scope.lastMessage.save();
 						};
